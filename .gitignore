@@ -1,0 +1,13 @@
+# Ignore everything by default
+*
+
+# Keep directories so Git can traverse them
+!*/
+
+# Keep the main TeX files
+!main.tex
+!bib.tex
+!chapter*.tex
+
+# Optional: keep this file itself
+!.gitignore
