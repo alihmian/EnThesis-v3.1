@@ -1,13 +1,15 @@
-# Ignore everything by default
+# Ignore everything
 *
 
-# Keep directories so Git can traverse them
+# Allow Git to enter directories
 !*/
 
-# Keep the main TeX files
+# Ignore trash explicitly
+trash/
+trash/**
+
+# Keep only the wanted files at repo root
+!.gitignore
 !main.tex
 !bib.tex
 !chapter*.tex
-
-# Optional: keep this file itself
-!.gitignore
