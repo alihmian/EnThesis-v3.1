@@ -1,0 +1,280 @@
+\chapter{Automorphism Group}
+
+
+The twenty-three year old Felix Klein in his famous Erlanger Programm [1872] proposed to classify geometries by their automorphisms. He hit on something fundamental here: in a sense, \textit{structure is whatever is preserved by automorphisms}. One consequence---if slogans can have consequences---is that a model-theoretic structure implicitly carries with it all the features which are set-theoretically definable in terms of it, since these features are preserved under all automorphisms of the structure.
+
+Model theorists have recently become very interested in these implicit features. Partly it’s a matter of technique: how does one show that this or that item is or is not definable in terms of a given structure? But there is no doubt that the original stimulus was Boris Zil’ber’s [1980b] realisation that the automorphism groups of models of an uncountably categorical first-order theory can (in part) be found already sitting inside the models. So it became important to know what groups are interpretable in these models. Zil’ber (loc.\ cit.\ with a correction in [1981]), Hrushovski [1990] and Laskowski [1988] all used ideas along these lines to solve problems of general model theory which don’t mention groups.
+
+\section{Automorphisms}
+
+Let $A$ be an $L$-structure. Every automorphism of $A$ is a permutation of $\dom(A)$. By Theorem~\ref{thm:homomorphism-basics}(c), the collection of all automorphisms of $A$ is a group under composition. We write $\Aut(A)$ for this group, regarded as a permutation group on $\dom(A)$, and we call it the \textbf{automorphism group} of $A$.
+
+For any set $\Omega$, the group of all permutations of $\Omega$ is called the \textit{symmetric group} on $\Omega$, in symbols $\Sym(\Omega)$. Several important properties of a structure $A$ are really properties of its automorphism group as a subgroup of $\Sym(\dom A)$.
+
+
+Suppose $G$ is a group of permutations of a set $\Omega$. If we know that $G$ is $\Aut(A)$ for some structure $A$ with domain $\Omega$, what does this tell us about $G$? The answer needs some topology.
+
+First, if $X$ is a subset of $\Omega$, then the \textit{pointwise stabiliser} of $X$ in $G$ is the set
+\[
+    \{ g \in G : g(a) = a \text{ for all } a \in X \}.
+\]
+This set forms a subgroup of $G$, and we write it $G_{(X)}$ (or $G_{(\bar{a})}$ where $\bar{a}$ is a sequence listing the elements of $X$).
+The \textit{setwise stabiliser} of $X$ in $G$, $G_{\{X\}}$, is the set
+\[
+    \{ g \in G : g(X) = X \},
+\]
+which is also a subgroup of $G$. In fact we have $G_{(X)} \subseteq G_{\{X\}} \subseteq G$.
+
+If $a$ is an element of $\Omega$, the \textit{orbit} of $a$ under $G$ is the set $\{ g(a) : g \in G \}$.
+The orbits of all elements of $\Omega$ under $G$ form a partition of $\Omega$. If the orbit of every element (or the orbit of one element—it comes to the same thing) is the whole of $\Omega$, we say that $G$ is \textbf{transitive on} $\Omega$.
+
+We say that a structure $A$ is \textbf{transitive} if $\Aut(A)$ is transitive on $\dom(A)$.
+The opposite case is where $A$ has no automorphisms except the identity $1_A$; in this case we say that $A$ is \textbf{rigid}.
+
+
+
+Let $H$ be a subgroup of $G$. We say that $H$ is \emph{closed} in $G$ if the following holds:
+\begin{equation*}
+    \begin{aligned}
+         & \text{suppose } g \in G \text{ and for every tuple } \bar{a} \text{ of elements of } \Omega \\
+         & \text{there is } h \in H \text{ such that } g\bar{a} = h\bar{a}; \text{ then } g \in H.
+    \end{aligned}\tag{1.4}
+\end{equation*}
+
+
+We say that the group $G$ is \emph{closed} if it is closed in the symmetric group $\operatorname{Sym}(\Omega)$. Note that if $G$ is closed and $H$ is closed in $G$, then $H$ is closed; this is immediate from the definitions. For if $G\le\Sym(\Omega)$ is closed (in the sense of (1.4)) and $H\le G$ is closed in $G$. Let $g\in\Sym(\Omega)$ be such that for every (finite) tuple $\bar a$ from $\Omega$ there exists $h_{\bar a}\in H$ with $g\bar a=h_{\bar a}\bar a$. Since $H\subseteq G$, the same condition holds with witnesses in $G$; hence, by closedness of $G$ in $\Sym(\Omega)$, we get $g\in G$.   Now consider $g$ as an element of $G$. The hypothesis still gives: for every tuple $\bar a$ there is $h_{\bar a}\in H$ with $g\bar a=h_{\bar a}\bar a$.  By closedness of $H$ in $G$, it follows that $g\in H$. Thus $H$ is closed in $\Sym(\Omega)$.
+
+
+\begin{theorem}
+    Let $\Omega$ be a set; let $G$ be a subgroup of $\operatorname{Sym}(\Omega)$ and $H$ a subgroup of $G$. Then the following are equivalent.
+    \begin{enumerate}[(a)]
+        \item $H$ is closed in $G$.
+        \item There is a structure $A$ with $\operatorname{dom}(A) = \Omega$ such that $H = G \cap \Aut(A)$.\\
+              \textit{In particular, a subgroup $H$ of $\operatorname{Sym}(\Omega)$ is of the form $\Aut(B)$ for some structure $B$ with domain $\Omega$ if and only if $H$ is closed.}
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    (a) $\Rightarrow$ (b). For each $n < \omega$ and each orbit $\Delta$ of $H$ on $\Omega^n$, choose an $n$-ary relation symbol $R_\Delta$. Take $L$ to be the signature consisting of all these relation symbols, and make $\Omega$ into an $L$-structure $A$ by putting $R_\Delta^A = \Delta$. Every permutation in $H$ takes $R_\Delta$ to $R_\Delta$, so that $H \subseteq G \cap \Aut(A)$. For the converse, suppose $g$ is an automorphism of $A$ and $g \in G$. For each $n$-tuple $\bar{a}$, if $\bar{a}$ lies in $\Delta = R_\Delta^A$ then so does $g\bar{a}$, and so $g\bar{a} = h\bar{a}$ for some $h \in H$. Since $H$ is closed in $G$, it follows that $g \in H$.
+
+    (b) $\Rightarrow$ (a). Assuming (b), we show that $H$ is closed in $G$. Let $g$ be an element of $G$ such that for each finite subset $W$ of $\Omega$ there is $h \in H$ with $g|_W = h|_W$. Let $\varphi(\bar{x})$ be an atomic formula of the signature of $A$, and $\bar{a}$ a tuple of elements of $A$. Then choose $W$ above so that it contains $\bar{a}$. We have
+    \[
+        \begin{aligned}
+            A \models \varphi(\bar{a}) & \iff A \models \varphi(h\bar{a}) \quad \text{(since } h \in \Aut(A)) \\
+                                       & \iff A \models \varphi(g\bar{a}).
+        \end{aligned}
+    \]
+    Thus $g$ is an automorphism of $A$.
+\end{proof}
+
+When $H$ is closed, the structure $A$ constructed in the proof of $(a) \Rightarrow (b)$ above is called the \textbf{canonical structure} for $H$. By the proof, $A$ can be chosen to be an $L$-structure with $|L| \leq |\Omega| + \omega$.
+
+The word ‘closed’ suggests a topology, and here it is. We say that a subset $S$ of $\operatorname{Sym}(\Omega)$ is \textbf{basic open} if there are tuples $\bar{a}$ and $\bar{b}$ in $\Omega$ such that
+\[
+    S = \{ g \in \operatorname{Sym}(\Omega) : g\bar{a} = \bar{b} \}
+\]
+(write this set as $S(\bar{a}, \bar{b})$). In particular $\operatorname{Sym}(\Omega)_{(\bar{a})}$ is a basic open set.
+
+An \emph{open subset} of $\operatorname{Sym}(\Omega)$ is a union of basic open subsets. If $\Omega = \operatorname{dom}(A)$, we define a \emph{(basic) open subset} of $\Aut(A)$ to be the intersection of $\Aut(A)$ with some (basic) open subset of $\operatorname{Sym}(\Omega)$.
+
+
+\begin{lemma}
+    Let $A$ be a structure and write $G$ for $\Aut(A)$.
+    \begin{enumerate}[(a)]
+        \item \textit{The definitions above define a topology on $G$; it is the topology induced by that on $\operatorname{Sym}(\Omega)$. Under this topology, $G$ is a topological group, i.e.\ multiplication and inverse in $G$ are continuous operations.}
+        \item A subgroup of $G$ is open if and only if it contains the pointwise stabiliser of some finite set of elements of $A$.
+        \item A subset $F$ of $G$ is closed under this topology if and only if it is closed in the sense of (1.4) above (with $F$ for $H$).
+        \item A subgroup $H$ of $G$ is dense in $G$ if and only if $H$ and $G$ have the same orbits on $(\operatorname{dom} A)^n$ for each positive integer $n$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    (a) A permutation $g$ takes $\bar{a}_1$ to $\bar{b}_1$ and $\bar{a}_2$ to $\bar{b}_2$ if and only if it takes $\bar{a}_1 \bar{a}_2$ to $\bar{b}_1 \bar{b}_2$; so the intersection of two basic open sets is again basic open. The first sentence of (a) follows at once by general topology. For the second sentence, $g \in S(\bar{a}, \bar{b})$ if and only if $g^{-1} \in S(\bar{b}, \bar{a})$, which proves the continuity of inverse. Finally if $gh \in S(\bar{a}, \bar{b})$, write $\bar{c}$ for $h\bar{a}$; then $g \in S(\bar{c}, \bar{b})$, $h \in S(\bar{a}, \bar{c})$ and $S(\bar{c}, \bar{b}) \cdot S(\bar{a}, \bar{c}) \subseteq S(\bar{a}, \bar{b})$, so multiplication is continuous.
+
+    (b) For each tuple $\bar{a}$ the pointwise stabiliser $G_{(\bar{a})}$ is $G \cap S(\bar{a}, \bar{a})$, which is open. Every subgroup containing $G_{(\bar{a})}$ is a union of cosets of $G_{(\bar{a})}$, hence it is open too.
+    For if  $H\leq G$ with $G_{(\bar a)}\subseteq H$.
+    Because left translation $L_g:x\mapsto gx$ is a homeomorphism of $G$ for each $g\in G$, every left coset $gG_{(\bar a)}=L_g(G_{(\bar a)})$ is open. But
+    \[
+        H=\bigcup_{g\in H} gG_{(\bar a)}
+    \]
+    is a union of open sets, hence open.
+
+    In the other direction, suppose $H$ is an open subgroup containing a non-empty basic open set $G \cap S(\bar{a}, \bar{b})$. Then $H$ contains $G_{(\bar{a})}$, since every element of $G_{(\bar{a})}$ can be written as $gh$ with $g \in G \cap S(\bar{b}, \bar{a}) \subseteq H$ and $h \in G \cap S(\bar{a}, \bar{b}) \subseteq H$.
+
+    (c) A set $F \subseteq G$ is closed in the topology if and only if for every $g$ in $\Aut(A)$, if each basic neighbourhood of $g$ meets $F$ then $g$ lies in $F$. This is exactly (1.4).
+
+    (d) A subgroup $H$ of $G$ is dense if and only if for every $g$ in $\Aut(A)$, each basic neighbourhood of $g$ meets $H$.
+\end{proof}
+
+
+Note that if $X$ is countable, then there are countably many of these basic open sets as each is determined by a map between finite subsets of $X$: so $G$ is \emph{second countable}. In particular, $G$ is \emph{separable} (meaning: there is a countable dense subset).
+
+If $X$ is countable (say $X = \mathbb{N}$), the topology on $\operatorname{Sym}(X)$ is complete metrizable. For it, consider $d:\Sym(\mathbb{N})^2\to[0,1]$  given by,
+\[
+    d(g,h)=
+    \begin{cases}
+        0,   & \text{if }g=h,                                                  \\[2pt]
+        1/n, & \text{if }g\neq h\text{, where }n=\min\{m\ge1: g(m)\neq h(m)\}.
+    \end{cases}
+\]
+
+\begin{lemma}
+    Let $X=\mathbb{N}=\{1,2,\dots\}$.
+    Then $d$ is an ultrametric on $\Sym(\mathbb{N})$ generating the given topology above.
+\end{lemma}
+
+\begin{proof}
+    (i) $d(g,h)=0 \Leftrightarrow g=h$ and $d(g,h)=d(h,g)$ are immediate.
+
+    (ii) Ultrametric inequality: let $a=\min\{m: g(m)\neq k(m)\}$ and
+    $b=\min\{m: k(m)\neq h(m)\}$. For all $m<\min(a,b)$ we have
+    $g(m)=k(m)=h(m)$, hence
+    \[
+        \min\{m: g(m)\neq h(m)\}\ \ge\ \min(a,b).
+    \]
+    Thus
+    \[
+        d(g,h)=\frac{1}{\min\{m: g(m)\neq h(m)\}}\ \le\ \frac{1}{\min(a,b)}
+        =\max\{d(g,k),d(k,h)\}.
+    \]
+
+    (iii) Topology: a basic $d$-ball around $g$ of radius $1/(n+1)$ is
+    \[
+        B\bigl(g,1/(n+1)\bigr)=\{h\in\Sym(\mathbb{N}): h(m)=g(m)\ \forall m\le n\},
+    \]
+    i.e. “agree with $g$ on the initial segment $\{1,\dots,n\}$”.
+    These are exactly the sets $g\cdot \Fix(\{1,\dots,n\})$, hence are basic opens
+    for the permutation topology. Conversely, for any finite $F\subseteq\mathbb{N}$
+    there is $n$ with $F\subseteq\{1,\dots,n\}$, so $g\cdot\Fix(\{1,\dots,n\})\subseteq
+        g\cdot\Fix(F)$. Thus the $d$-balls form a neighborhood base at each $g$, and $d$
+    generates the same topology.
+\end{proof}
+
+\begin{lemma}
+    The metric space $(\Sym(\mathbb{N}),d)$ is not complete.
+\end{lemma}
+
+\begin{proof}
+    For $k\ge1$ define $\sigma_k\in\Sym(\mathbb{N})$ by the finite cycle
+    \[
+        \sigma_k(1)=2,\ \sigma_k(2)=3,\ \dots,\ \sigma_k(k-1)=k,\ \sigma_k(k)=1,
+        \quad \sigma_k(n)=n\ \ (n>k).
+    \]
+    Then for $k<\ell$ the first index where $\sigma_k$ and $\sigma_\ell$ differ is $n=k$:
+    for $m<k$ both send $m$ to $m+1$, while
+    $\sigma_k(k)=1\neq k+1=\sigma_\ell(k)$. Hence
+    \[
+        d(\sigma_k,\sigma_\ell)=\frac{1}{k}\xrightarrow[k\to\infty]{}0,
+    \]
+    so $(\sigma_k)$ is Cauchy.
+
+    Pointwise, for each fixed $m$ and all $k>m$ we have $\sigma_k(m)=m+1$. Thus
+    $\sigma_k$ converges (in the product sense) to $\tau:\mathbb{N}\to\mathbb{N}$ with
+    $\tau(m)=m+1$, which is not a permutation (not surjective). Therefore $(\sigma_k)$
+    has no limit in $\Sym(\mathbb{N})$, so $d$ is not complete on $\Sym(\mathbb{N})$.
+\end{proof}
+
+
+To obtain a complete metric, consider
+\[
+    d'(g_1, g_2) = d(g_1, g_2) + d(g_1^{-1}, g_2^{-1}).
+\]
+
+
+\begin{lemma}
+    $d'$ is a metric inducing the same topology as $d$.
+\end{lemma}
+
+\begin{proof}
+    \emph{$d'$ is a metric.} Since $d$ is a metric and $g\mapsto g^{-1}$ is a bijection, $(g,h)\mapsto d(g^{-1},h^{-1})$ is also a metric; the sum of two metrics is a metric.
+
+    \emph{Same topology.} First, for any $\varepsilon>0$ and $g$ we have
+    \[
+        B_{d'}(g,\varepsilon)\subseteq B_{d}(g,\varepsilon),
+    \]
+    so every $d'$-open set is $d$-open.
+
+    Conversely, let a basic $d$-open set be given by
+    \[
+        U=\{h\in \operatorname{Sym}(X): h(m)=g(m)\ \text{for all } m\le n\}.
+    \]
+    Fix $h\in U$. Choose $N\ge n$. If $k\in B_{d'}(h,1/(N+1))$, then in particular
+    $d(h,k)<1/(N+1)$, hence $k(m)=h(m)$ for all $m\le N$, and so $k(m)=g(m)$ for $m\le n$.
+    Thus
+    \[
+        B_{d'}\bigl(h,1/(N+1)\bigr)\subseteq U.
+    \]
+    So $U$ is $d'$-open. Since the $d$-basic sets form a base, every $d$-open set is $d'$-open.
+    Hence $d$ and $d'$ generate the same topology.
+\end{proof}
+
+
+\begin{proposition}
+    Let $F=\mathbb N^{\mathbb N}$ and define $\delta$ by
+    \[
+        \delta(f_1,f_2)=
+        \begin{cases}
+            0,   & f_1=f_2,                                            \\[2pt]
+            1/n, & n=\min\{m\ge1: f_1(m)\ne f_2(m)\},\quad f_1\ne f_2.
+        \end{cases}
+    \]
+    Then $(F,\delta)$ is complete.
+\end{proposition}
+
+\begin{proof}
+    If $(f_k)$ is $\delta$-Cauchy, then for each $n$ there is $K$ with
+    $\delta(f_k,f_\ell)<1/(n+1)$ for all $k,\ell\ge K$, hence $f_k(m)=f_\ell(m)$ for all
+    $m\le n$. Thus for each $m$ the values $f_k(m)$ stabilize; define $f(m)$ to be that
+    eventual value. Then $\delta(f_k,f)\to 0$ because for any $n$ and large $k$ we have
+    $f_k(m)=f(m)$ for all $m\le n$. So $(F,\delta)$ is complete.
+\end{proof}
+
+
+\begin{lemma}
+    With $d'$ as above, $(\operatorname{Sym}(X),d')$ is complete.
+\end{lemma}
+
+\begin{proof}
+
+    Consider $F\times F$ with product metric
+    \[
+        \rho\bigl((f_1,h_1),(f_2,h_2)\bigr)=\delta(f_1,f_2)+\delta(h_1,h_2),
+    \]
+    which is complete. Define
+    \[
+        \Phi:\operatorname{Sym}(X)\longrightarrow F\times F,\qquad
+        \Phi(g)=(g,g^{-1}).
+    \]
+    Then for $g,h\in\operatorname{Sym}(X)$,
+    \[
+        \rho\bigl(\Phi(g),\Phi(h)\bigr)=\delta(g,h)+\delta(g^{-1},h^{-1})=d'(g,h),
+    \]
+    so $\Phi$ is an isometric embedding of $(\operatorname{Sym}(X),d')$ into $(F\times F,\rho)$.
+
+    Let
+    \[
+        C=\{(f,h)\in F\times F:\ f\circ h=\mathrm{id}_X \ \text{and}\ h\circ f=\mathrm{id}_X\}.
+    \]
+    Then $\Phi(\operatorname{Sym}(X))=C$. We claim $C$ is closed. For each $n\in X$, the map
+    \[
+        F\times F \to X,\qquad (f,h)\mapsto f(h(n))
+    \]
+    is continuous (composition of evaluation maps into a discrete space), hence
+    $\{(f,h): f(h(n))=n\}$ is closed; similarly $\{(f,h): h(f(n))=n\}$ is closed. Therefore
+    \[
+        C=\bigcap_{n\in X}\Big(\{(f,h): f(h(n))=n\}\cap \{(f,h): h(f(n))=n\}\Big)
+    \]
+    is closed in $F\times F$.
+
+    Since $F\times F$ is complete and $C$ is closed, $C$ is complete. Because $\Phi$ is an
+    isometry onto $C$, $(\operatorname{Sym}(X),d')$ is complete.
+\end{proof}
+
+
+So if $X$ is countable, then any closed $G \leq \operatorname{Sym}(X)$ is a \emph{Polish group} (a topological group which is separable and complete metrizable).
+
+
+\begin{theorem}
+    For countable $\bfa$, the group Aut$(\bfa )$, with the pointwise convergence topology, is Polish, in fact it is a closed subgroup of $S_A$, the Polish group of permutations of $A$ with the pointwise convergence topology.
+    \qed
+\end{theorem}

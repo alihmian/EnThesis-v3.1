@@ -1,0 +1,235 @@
+\documentclass[12pt]{book}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}  
+\usepackage{tikz}            
+\usepackage{tikz-cd}
+\usepackage[shortlabels]{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{subcaption}   
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{mathrsfs}
+\usepackage[hidelinks]{hyperref} 
+\usepackage{marginnote}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{environ}
+
+
+%------------------------------------------------
+% Theorem–like environments
+%------------------------------------------------
+\theoremstyle{plain}                    % default
+\newtheorem{theorem}{Theorem}  % numbered within chapters
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{corollary*}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem*{example*}{Example}
+\newtheorem*{examples*}{Examples}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem*{proofsketch}{Proof sketch}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{definition*}{Definition}
+
+\theoremstyle{remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{note}[theorem]{Note}
+\newtheorem*{claim*}{Claim}
+
+\theoremstyle{plain}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem*{exercise*}{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{warning}{Warning}
+
+
+
+%------------------------------------------------
+% Proof environment is provided by amsthm
+%------------------------------------------------
+\usetikzlibrary{arrows.meta}
+\tikzset{
+  dot/.style={circle,fill,inner sep=1.8pt},
+  thinedge/.style={line cap=round},
+  thickedge/.style={line cap=round, very thick},
+}
+
+
+\tcbset{
+    mynote/.style={
+        colback=yellow!15,
+        colframe=orange!80!black,
+        boxrule=0.8pt,
+        arc=2pt,
+        outer arc=2pt,
+        fonttitle=\bfseries,
+        title=Note,
+        left=6pt,
+        right=6pt,
+        top=4pt,
+        bottom=4pt
+    }
+}
+
+
+% === Notes toggle (show/hide all at once) ===
+\newif\ifshownotes
+\shownotestrue           % <-- change to \shownotesfalse to hide all notes
+% \shownotesfalse
+
+% Minimalist styles: black left bar; with/without faint gray background
+\mdfdefinestyle{note-leftbar-bg}{
+  linecolor=black, linewidth=2pt,
+  topline=false, rightline=false, bottomline=false,
+  skipabove=\baselineskip, skipbelow=\baselineskip,
+  innerleftmargin=8pt, innerrightmargin=8pt,
+  innertopmargin=6pt, innerbottommargin=6pt,
+  backgroundcolor=black!3
+}
+\mdfdefinestyle{note-leftbar}{
+  linecolor=black, linewidth=2pt,
+  topline=false, rightline=false, bottomline=false,
+  skipabove=\baselineskip, skipbelow=\baselineskip,
+  innerleftmargin=8pt, innerrightmargin=8pt,
+  innertopmargin=6pt, innerbottommargin=6pt
+}
+
+% Environments that obey the global toggle
+\NewEnviron{mynote}{%
+  \ifshownotes\begin{mdframed}[style=note-leftbar-bg]\BODY\end{mdframed}\fi}
+\NewEnviron{mynoteplain}{%
+  \ifshownotes\begin{mdframed}[style=note-leftbar]\BODY\end{mdframed}\fi}
+
+% Optional: inline command variant (for short remarks)
+\newcommand{\inlinenote}[1]{%
+  \ifshownotes\textit{\footnotesize\ensuremath{\triangleright}\,#1}\fi}
+
+
+
+% Fix for TikZ-CD and xepersian conflict
+\makeatletter
+\def\@ampersand{\ifmmode\math@amp\else\char`\&\fi}
+\makeatother 
+
+\usetikzlibrary{intersections,patterns,calc}
+
+%------------------------------------------------
+% Custom macros (add as needed)
+%------------------------------------------------
+                  
+\newcommand{\Age}{\mathrm{Age}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Sym}{\mathrm{Sym}}
+\newcommand{\Stab}{\mathrm{Stab}}
+\newcommand{\Orb}{\mathrm{Orb}}
+\newcommand{\rk}{\mathrm{rk}}
+\newcommand{\dom}{\mathrm{dom}}
+\newcommand{\nset}[2]{\left[{#1}\right]^{#2}} % n-element subsets
+\newcommand{\kto}[4]{{#1}\rightarrow({#2})^{#3}_{#4}} % arrow notation
+% \newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\id}{\mathrm{id}}
+
+\newcommand{\ncl}[2]{\left\langle\!\left\langle #1 \right\rangle\!\right\rangle^{#2}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Def}{Def}
+\DeclareMathOperator{\PF}{PF}   
+\def\qedsymbol{{$\dashv$}}
+\DeclareMathOperator{\Fix}{Fix}
+
+\DeclareMathOperator{\DCL}{DCL}
+\DeclareMathOperator{\ACL}{ACL}
+\DeclareMathOperator{\dcl}{dcl}
+\DeclareMathOperator{\acl}{acl}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Rad}{Rad}
+
+\def\bbC{{\mathbb C}}
+\def\bbZ{{\mathbb Z}}
+\def\bbN{{\mathbb N}}
+\def\bbR{{\mathbb R}}
+\def\bbQ{{\mathbb Q}}
+\def\bbU{{\mathbb U}}
+\def\bfa{{\boldsymbol A}}
+\def\bfb{{\boldsymbol B}}
+\def\bfc{{\boldsymbol C}}
+\def\bfd{{\boldsymbol D}}
+\def\bfe{{\boldsymbol E}}
+\def\bff{{\boldsymbol F}}
+\def\bfh{{\boldsymbol H}}
+\def\bfo{{\boldsymbol O}}
+\def\bfr{{\boldsymbol R}}
+\def\bfu{{\boldsymbol U}}
+\def\bfx{{\boldsymbol X}}
+\def\bfv{{\boldsymbol V}}
+\def\bffa{{\boldsymbol a}}
+\def\bffb{{\boldsymbol b}}
+\def\bfzero{{\boldsymbol 0}}
+\def\bfone{{\boldsymbol 1}}
+\def\a{{\mathcal A}}
+\def\b{{\mathcal B}}
+\def\calc{{\mathcal C}}
+\def\e{{\mathcal E}}
+\def\f{{\mathcal F}}
+\def\g{{\mathcal G}}
+\def\h{{\mathcal H}}
+\def\k{{\mathcal K}}
+\def\l{{\mathcal L}}
+\def\m{{\mathcal M}}
+\def\n{{\mathcal N}}
+\def\o{{\mathcal O}}
+\def\p{{\mathcal P}}
+\def\q{{\mathcal Q}}
+\def\r{{\mathcal R}}
+\def\calu{{\mathcal U}}
+\def\calv{{\mathcal V}}
+\def\forb{{\mathcal Forb}}
+\def\norm#1{{\lVert{#1}\rVert}}
+
+
+\numberwithin{theorem}{section}
+
+\begin{document}
+
+
+\include{chapter1}
+\include{chapter2}
+\include{chapter3}
+\include{chapter4}
+\include{chapter5}
+\include{chapter6}
+\include{chapter7}
+\include{chapter8}
+\include{chapter9}
+\include{chapter10}
+\include{chapter11}
+
+
+\include{bib}
+\end{document}
+
+
+
+

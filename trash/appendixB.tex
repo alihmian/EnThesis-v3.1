@@ -1,0 +1,1053 @@
+
+
+\chapter{Flows and Minimal Sets}
+
+\section{Flows}
+
+Topological dynamics may be regarded as the study of ``long term'' or ``asymptotic'' properties of families of self maps of spaces. In most cases of interest, the collection of maps is a group under composition. The natural setting is that of a transformation group.
+
+\begin{definition}
+    A \emph{transformation group} is a triple $(X, T, \pi)$ where $X$ is a topological space, $T$ is a topological group, and $\pi$ is a continuous map of $X \times T$ to $X$, satisfying
+    \begin{enumerate}[(i)]
+        \item $\pi(x,e) = x \quad (x \in X,\ e \text{ the identity of } T)$,
+        \item $\pi(\pi(x,s),t) = \pi(x,st) \quad (x \in X,\ s,t \in T)$.
+    \end{enumerate}
+\end{definition}
+
+A synonym for transformation group is \emph{flow}, and we will mostly use the latter term. $X$ is called the \emph{phase space} and $T$ the \emph{phase group} or \emph{acting group}.
+
+Each $t \in T$ defines a continuous map $\pi^{t}$ of $X$ to $X$ by
+\[
+    \pi^{t}(x) = \pi(x,t).
+\]
+If $t,s \in T$, it is immediate that $\pi^{s}\pi^{t} = \pi^{ts}$; in particular $\pi^{t}\pi^{t^{-1}} = \pi^{e}$, the identity map of $X$, so each $\pi^{t}$ is a homeomorphism of $X$ onto itself, with $(\pi^{t})^{-1} = \pi^{t^{-1}}$.
+
+With occasional exceptions, we will suppress the map $\pi$ notionally, and just write $xt$ in place of $\pi(x,t)$. We regard $t \in T$ as ``acting on'' $x \in X$ to obtain another point $xt \in X$. Thus the axioms for a flow appear as: the map $(x,t) \mapsto xt$ is continuous, $xe = x$, and $(xs)t = x(st)$.
+
+We will usually write $(X,T)$ (or just $X$, if the group $T$ is understood) for a flow.
+
+What we have defined as a transformation group could be called a \emph{right transformation group} (or \emph{right flow}). Of course, we could define a \emph{left flow} $(\rho, G, X)$ or $(G, X)$ in the obvious way. $\rho : G \times X \to X$, $\rho(g,x) = gx$, $g(hx) = (gh)x$, etc. If $(X, T)$ is a (right) flow, then a left action of $T$ can be defined by $tx := xt^{-1}$.
+
+For the most part, we will be concerned with right flows. However, we will sometimes encounter a situation where we have two group actions on a space. A \emph{bitransformation group} $(G, X, T)$ consists of a right transformation group $(X, T)$ and a left transformation group $(G, X)$ such that
+\[
+    (gx)t = g(xt) \quad (x \in X,\ g \in G,\ t \in T)
+\]
+(so every $g \in G$ ``commutes'' with every $t \in T$). Thus we may write $gxt$ unambiguously.
+
+We will always suppose the phase space $X$ of a flow is Hausdorff — this is a standing assumption. (Of course, in any constructions we carry out, or examples we present, the Hausdorff property must be verified; this will usually be trivial.) In fact, the theory which we will develop is for actions of groups on compact Hausdorff spaces, but we will not assume compactness for the time being.
+
+As for the group $T$: it can be abelian or non-abelian, although almost all of our examples are of the former. It is not to be compact, or act in a compact manner. While actions of compact groups (indeed, even of finite groups) are important in many branches of mathematics (for example, parts of topology and differential geometry), in our subject compact group actions are ``dynamically trivial.'' The justification for this assertion will emerge as we proceed.
+
+In general, we will identify an element $t \in T$ with the homeomorphism of $X$ it defines ($\pi^{t}$ in our original notation). Thus $T$ may be regarded as a subgroup of the total homeomorphism group of $X$. Of course, it is possible that distinct elements $s$ and $t$ of $T$ define the same homeomorphism: $xs = xt$ for all $x \in X$. The action of $T$ is called \emph{effective} if this does not occur — i.e., if $t \neq e$, then $xt \neq x$ for some $x \in X$. This is only a minor technical problem. If the action is not effective, let
+\[
+    F = \{t \in T \mid xt = x \text{ for all } x \in X\}.
+\]
+Then $F$ is a closed (since $X$ is Hausdorff) normal subgroup of $T$.The quotient group $T/F$ acts on $X$ by $x(Ft) = xt$, and this action is clearly effective. Therefore, we can assume that the action of $T$ on $X$ is effective.
+
+
+Moreover, the topology of the group is really not that important. We are interested in the action of a group of homeomorphisms on a topological space, and the given topology on the group is for most purposes irrelevant. For this reason, we will frequently assume that $T$ has the discrete topology. (Some of our definitions will apparently depend on the topology of $T$, but we will show that they are in fact independent of it.)
+
+The most intensively studied cases have been where the acting group $T$ is $\mathbb{Z}$ or $\mathbb{R}$ (the additive groups of integers and real numbers, respectively). If $T = \mathbb{Z}$, let $\varphi(x) = x1$. Then $\varphi$ is a homeomorphism of $X$ and $\varphi^{n}(x) = xn$. (As usual, if $n > 0$, $\varphi^{n}$ denotes the $n$th iterate of $\varphi$ and $\varphi^{-n} = (\varphi^{-1})^{n}$.) Conversely, if $\varphi$ is a self-homeomorphism of $X$, it defines an action of $\mathbb{Z}$ as above. (The action is effective if and only if $\varphi^{n} \neq \text{identity}$ for all $n \neq 0$.)
+
+We will refer to the pair $(X, \varphi)$ as a \emph{cascade}.
+
+
+(Other terms in use are \emph{discrete flow} and \emph{discrete dynamical system}.) Thus a cascade consists of a homeomorphism and its powers. (Warning: we will sometimes use the letter $T$ for a homeomorphism—in this case we will always refer to the ``cascade $(X, T)$.'')
+
+If $T = \mathbb{R}$, then the action defines a one-parameter group of homeomorphisms $\{\varphi_{t}\}$ of the space $X$, and in this case we write $\varphi_{t}(x)$ instead of $xt$. The axioms appear as $\varphi_{0}(x) = x$ and $\varphi_{s}(\varphi_{t}(x)) = \varphi_{s+t}(x)$. Customary terms for an $\mathbb{R}$ action are \emph{dynamical system}, \emph{real flow}, and \emph{continuous flow}.
+
+It is admittedly somewhat inconsistent for us to write the generating homeomorphism of a $\mathbb{Z}$ action, as well as the action of $\mathbb{R}$, on the left. However, this corresponds to the usual practice in the subject.
+
+The classical example of an $\mathbb{R}$ action is the one defined by the solutions of autonomous systems of differential equations. Let $D$ be a region in $\mathbb{R}^{n}$, and consider the system $\dot{x} = f(x)$, where $f : D \to \mathbb{R}^{n}$ and $f$ satisfies conditions sufficient to guarantee that solutions exist, are unique, depend continuously on initial conditions, and are defined and remain in $D$ for all real $t$. If $x_{0} \in D$ and $t \in \mathbb{R}$, define $\varphi_{t}(x_{0}) = \alpha(x_{0},t)$ where $\alpha(x_{0},\cdot)$ denotes the solution of $\dot{x} = f(x)$ for which $\alpha(x_{0},0) = x_{0}$. Let $x_{0} \in D$, $s,t \in \mathbb{R}$, and let $y_{0} = \varphi_{t}(x_{0})$. Let $\psi(s) = \varphi_{s+t}(x_{0}) = \alpha(x_{0},t+s)$. Then $\psi(s)$ is a solution satisfying $\psi(0) = y_{0}$, so by uniqueness $\psi(s) = \alpha(y_{0},s) = \varphi_{s}(y_{0})$. Then
+\[
+    \varphi_{s+t}(x_{0}) = \psi(s) = \varphi_{s}(y_{0}) = \varphi_{s}(\varphi_{t}(x_{0})).
+\]
+Thus $\varphi_{s+t} = \varphi_{s}\varphi_{t}$. The other conditions (continuity of $(x_{0},t) \mapsto \varphi_{t}(x_{0})$ and $\varphi_{0} = \text{identity}$) are obvious, so we do indeed have an $\mathbb{R}$ action on $D$.
+
+The observation that the solutions of an autonomous system define a flow motivated much of the early work in topological dynamics. It is possible to define and discuss many of the notions in the qualitative theory of differential equations in purely ``topological dynamics'' terms, but this is not the direction which we will pursue in this monograph. (This point of view is developed in the books \emph{Qualitative Theory of Differential Equations} by V.~V.~Nemytskii and V.~V.~Stepanov (Princeton University Press, 1960) and \emph{Stability Theory of Dynamical Systems} by N.~P.~Bhatia and G.~P.~Szegö (Springer-Verlag, 1970).)
+
+Before proceeding with the development of the theory, let us briefly mention some variations of the concept of a flow.
+
+An obvious modification is to replace the acting group by a semigroup. In the case of $\mathbb{N}$, the additive semigroup of positive integers, this corresponds to the study of the iterates of a continuous (in general non-invertible) map of a space. The study of the dynamics of maps of a closed interval is currently an extremely active research area. (See Z.~Nitecki, ``Topological dynamics on the interval,'' \emph{Ergodic Theory and Dynamical Systems}, Progress in Mathematics, Vol.~21, Birkhäuser, 1979.)
+
+If $\varphi : X \to X$ is a continuous map of a compact space, it can be ``converted'' to a homeomorphism by an ``inverse limit'' construction. Let $X^{\mathbb{Z}}$ denote the space of two-sided sequences of elements of $X$, with the product topology, and let $\tilde{X}$ denote the subset of $X^{\mathbb{Z}}$ consisting of those sequences $x = (x_{i})$ for which $\varphi(x_{i+1}) = x_{i}$ ($i \in \mathbb{Z}$). It follows easily from the compactness of $X$ that $\tilde{X}$ is a non-empty compact space.
+
+\begin{proof}
+    \emph{Compactness.}
+    By Tychonoff, $X^{\mathbb Z}$ is compact. For each $i\in\mathbb Z$, let
+    \[
+        S_i \;=\; \{x\in X^{\mathbb Z}:\ \varphi(x_{i+1})=x_i\}.
+    \]
+    Let $\pi_i:X^{\mathbb Z}\to X$ be the $i$-th projection. The map
+    $(\pi_i,\pi_{i+1}):X^{\mathbb Z}\to X\times X$ is continuous, and the graph
+    $\Gamma_\varphi=\{(u,v)\in X\times X:\ \varphi(v)=u\}$ is closed (continuity of $\varphi$).
+    Hence $S_i=(\pi_i,\pi_{i+1})^{-1}(\Gamma_\varphi)$ is closed. Therefore
+    \[
+        \widetilde{X}=\bigcap_{i\in\mathbb Z} S_i
+    \]
+    is a closed subset of the compact space $X^{\mathbb Z}$, hence compact.
+
+    \medskip
+    \emph{Non-emptiness.}
+    Set $K_n:=\varphi^n(X)$ for $n\in\mathbb N$. Each $K_n$ is non-empty compact and
+    $K_{n+1}\subseteq K_n$, so by compactness $\displaystyle K:=\bigcap_{n\ge 0} K_n\neq\emptyset$.
+    Fix $x_0\in K$. Since $x_0\in \varphi(X)$, choose $x_1\in X$ with $\varphi(x_1)=x_0$.
+    Inductively, because $x_i\in K\subseteq \varphi(X)$ for all $i\ge 0$, choose $x_{i+1}$ with
+    $\varphi(x_{i+1})=x_i$. For negative indices define $x_{-m}:=\varphi^{m}(x_0)$ ($m\ge 1$).
+    Then $\varphi(x_{i+1})=x_i$ holds for every $i\in\mathbb Z$, so $x=(x_i)_{i\in\mathbb Z}\in\widetilde{X}$.
+    Thus $\widetilde{X}\neq\emptyset$.
+\end{proof}
+
+Let $\tilde{\varphi} : \tilde{X} \to \tilde{X}$ be defined by $\tilde{\varphi}(x) = x'$, where $x'_{i} = \varphi(x_{i})$. Then $\tilde{\varphi}$ is a homeomorphism of $\tilde{X}$. Using this device it is possible to obtain certain dynamical results for continuous maps by first proving them for homeomorphisms. (See H.~Furstenberg, \emph{Recurrence in Ergodic Theory and Combinatorial Number Theory}, Princeton University Press.)
+
+Another object which has been studied is a \emph{partial flow} or \emph{local (semi) dynamical system}, which is a generalization of real actions. In this case, $\pi$ is a ``partial'' map of $X \times \mathbb{R}$ to $X$. That is, $\pi$ is defined on an open subset of $X \times \mathbb{R}$. Thus, if $x \in X$, $\pi(x,t)$ is defined for $t$ in an interval $I_x = (\alpha_x, \beta_x)$ ($-\infty \le \alpha_x < \beta_x \le \infty$, or in some cases $0 \le \alpha_x$), and the usual axioms for a flow are satisfied insofar as they are defined (so $\pi(\pi(x,t),s) = \pi(x,t+s)$ if the left side is defined). These arise from autonomous systems of differential equations for which the solutions are not defined for all real $t$ (``finite escape time'') and also from functional differential equations with time lag. (See N.\ P.\ Bhatia and O.\ Hajek, \emph{Local Semi-Dynamical Systems}, Lecture Notes in Mathematics, \textbf{90}, Springer-Verlag, 1969.)
+
+Now we proceed with the discussion of flows. Let $(X,T)$ be a flow, let $K$ be a subset of $X$, and $B$ a subset of $T$. We write $KB$ for the set $\{xb \mid x \in K, b \in B\}$. If $x \in X$, the set $xT = \{x\}T = \{xt \mid t \in T\}$ is called the \emph{orbit} of $x$. If $T = \mathbb{Z}$ or $\mathbb{R}$ we will frequently use the notation $\mathcal{O}(x)$ for the orbit of $x$. (In these cases, the term \emph{trajectory} is sometimes used.)
+
+The subset $K$ of $X$ is said to be \emph{invariant} if $KT = K$ (equivalently $KT \subset K$). Thus a set is invariant if and only if it is a union of orbits.
+
+The proof of the following proposition is immediate.
+
+\begin{proposition}~
+    \begin{enumerate}[(i)]
+        \item Let $K$ be an invariant set. Then the closure, complement, boundary, and interior of $K$ are all invariant sets.
+        \item If $\{K_\alpha\}$ is a family of invariant sets, then $\bigcup_\alpha K_\alpha$ and $\bigcap_\alpha K_\alpha$ are invariant.
+    \end{enumerate}
+\end{proposition}
+\begin{mynote}
+    \begin{proof}[Proof of (i)]
+        Let $K\subseteq X$ be invariant, i.e.\ $K T\subseteq K$.
+
+        \emph{Closure.} For each $t\in T$, the map $x\mapsto xt$ is a homeomorphism, hence
+        \[
+            (\overline{K})t=\overline{Kt}\subseteq \overline{K}.
+        \]
+        Thus $\overline{K}$ is invariant.
+
+        \emph{Complement.} Let $y\in (X\setminus K)T$, say $y=xt$ with $x\notin K$. If $y\in K$, then
+        $x= y t^{-1}\in Kt^{-1}\subseteq K$, a contradiction. Hence $(X\setminus K)T\subseteq X\setminus K$,
+        so $X\setminus K$ is invariant.
+
+        \emph{Interior.} For each $t\in T$, homeomorphy gives
+        \[
+            (\operatorname{int}K)t=\operatorname{int}(Kt)\subseteq \operatorname{int}K,
+        \]
+        so $\operatorname{int}K$ is invariant.
+
+        \emph{Boundary.} Using $\partial K=\overline{K}\cap\overline{X\setminus K}$ and the previous parts,
+        $\partial K$ is the intersection of invariant sets, hence invariant.
+    \end{proof}
+
+    \begin{proof}[Proof of (ii)]
+        Let $\{K_\alpha\}$ be a family of invariant subsets of $X$, i.e.\ $K_\alpha T\subseteq K_\alpha$ for each $\alpha$.
+
+        \emph{Union.} If $y\in\bigl(\bigcup_\alpha K_\alpha\bigr)T$, then $y=xt$ for some $t\in T$ and
+        $x\in\bigcup_\alpha K_\alpha$, so $x\in K_{\alpha_0}$ for some $\alpha_0$. Since $K_{\alpha_0}$ is invariant,
+        $xt\in K_{\alpha_0}\subseteq\bigcup_\alpha K_\alpha$. Hence
+        \[
+            \bigl(\bigcup_\alpha K_\alpha\bigr)T\subseteq\bigcup_\alpha K_\alpha.
+        \]
+
+        \emph{Intersection.} If $y\in\bigl(\bigcap_\alpha K_\alpha\bigr)T$, then $y=xt$ with $x\in\bigcap_\alpha K_\alpha$,
+        so $x\in K_\alpha$ for every $\alpha$. By invariance of each $K_\alpha$, we have $xt\in K_\alpha$ for all $\alpha$,
+        hence $xt\in\bigcap_\alpha K_\alpha$. Therefore
+        \[
+            \bigl(\bigcap_\alpha K_\alpha\bigr)T\subseteq\bigcap_\alpha K_\alpha.
+        \]
+        Thus both the union and the intersection are invariant.
+    \end{proof}
+\end{mynote}
+
+It follows from this proposition that if $x \in X$, the \emph{orbit closure} $\overline{xT}$ is invariant.
+
+There are several standard ways of obtaining new flows from given ones. The first is trivial, but nevertheless very useful. Let $(X,T)$ be a flow and let $Z$ be an invariant subset of $X$ (in most cases of interest $Z$ is also closed). Then $T$ acts on $Z$; we say $(Z,T)$ is a \emph{subflow} of $(X,T)$. Secondly, if $(X_\alpha, T)$ ($\alpha \in A$) is a family of flows (with the same acting group $T$), then $T$ acts on the product space $\prod_\alpha X_\alpha$ by acting on each coordinate: if $x = (x_\alpha)$, then $(xt)_\alpha = x_\alpha t$.
+
+We write $\bigl(\prod_\alpha X_\alpha, T\bigr)$ for this product flow. In later chapters, we will consider ``large'' products (i.e., with uncountably many factors $X_\alpha$). In this case, the product space is not metrizable, even if all the factors are. For this reason, we will not in general assume that the phase space is metrizable in our development of the theory.
+
+Another construction, using equivalence relations on the phase space, will be discussed later in the chapter, in connection with homomorphisms of flows.
+
+Now we are ready to define minimal sets, the study of which is the main focus of this monograph.
+
+Let $(X,T)$ be a flow. A subset $M$ of $X$ is a \emph{minimal set} if $M$ is closed, non-empty and invariant, and if $M$ has no proper subsets with these properties. (That is, if $N \subset M$ with $N$ closed invariant, then $N = M$ or $N = \emptyset$.) Note that a non-empty subset $M$ of $X$ is minimal if and only if it is the orbit closure of each of its points. For, if $M$ is minimal and $x \in M$, its orbit closure $\overline{xT}$ is closed invariant and non-empty so $\overline{xT} = M$. On the other hand, if $M$ is not minimal, let $\emptyset \neq N \subsetneq M$ with $N$ closed invariant. Then, if $x \in N$, $\overline{xT} \subset N$ so $\overline{xT} \ne M$.
+
+Thus every point of a minimal set “generates” it. Minimal sets are also called “minimal orbit closures.”
+
+It is possible — and this is the case which will be of most interest — that $(X,T)$ is itself minimal (equivalently $X = \overline{xT}$ for all $x \in X$). In this case $(X,T)$ (or $X$) is called a \emph{minimal transformation group} or \emph{minimal flow.}
+
+Since the intersection of closed invariant sets is closed invariant, we immediately obtain
+
+\begin{proposition}[3]
+    Let $(X,T)$ be a flow and let $M_1$ and $M_2$ be minimal subsets of $X$. Then $M_1 = M_2$ or $M_1 \cap M_2 = \emptyset$.
+\end{proposition}
+
+It is not in general the case that $X$ is a union of minimal sets. However, as we now show, minimal sets always exist when the phase space is compact.
+
+\begin{theorem*}[4]
+    Let $(X,T)$ be a flow with compact Hausdorff phase space $X$. Then $X$ contains a minimal set.
+\end{theorem*}
+
+\begin{proof}
+    Let $\mathcal{M}$ denote the class of non-empty closed invariant subsets of $X$. Note that $X \in \mathcal{M}$, so $\mathcal{M} \ne \emptyset$. Partially order $\mathcal{M}$ by inclusion. If $\{M_\alpha\}$ is a totally ordered subfamily of $\mathcal{M}$, then by compactness of $X$, $M^* = \bigcap_\alpha M_\alpha \ne \emptyset$, and clearly it is closed invariant, so $M^* \in \mathcal{M}$. Thus by Zorn’s lemma, $\mathcal{M}$ contains a minimal element, which is a minimal subset of $X$.
+\end{proof}
+
+Thus if the phase space of a flow is compact, it always contains a minimal subset. (We will see later that this is not the case if only local compactness is assumed.) It is not necessarily the case that a minimal subset of a flow is “interesting.” An example of a “trivial” minimal subset of a flow is a \emph{fixed point} of the flow — a point $x_0$ such that $x_0 t = x_0$, for all $t \in T$. (Synonyms — especially when $T = \mathbb{R}$ — are \emph{rest point}, \emph{equilibrium point} and \emph{stationary point}.) Obviously the singleton $\{x_0\}$ is a minimal set.
+
+Another simple example — in case $T = \mathbb{Z}$ and $\varphi$ the generating homeomorphism — is a \emph{periodic orbit} — that is, the orbit of a point $x_0$ for which $\varphi^p(x_0) = x_0$ (where $p > 1$ is the smallest such positive integer) so
+\[
+    O(x_0) = \overline{O(x_0)} = \{x_0, \varphi(x_0), \ldots, \varphi^{p-1}(x_0)\}
+\]
+is minimal.
+
+Similarly, if $\{\varphi_t\}$ defines an action of $\mathbb{R}$ on $X$, and $x \in X$ is not a fixed point of the flow, but $\varphi_s(x) = x$ for some $s \neq 0$, then $x$ is called a \emph{periodic point}, and its orbit $O(x) = \{\varphi_t(x)\}$ is a periodic orbit. The minimum $\tau$ of those $s > 0$ such that $\varphi_s(x) = x$ is called the \emph{period} of $x$, and it is easily seen that
+\[
+    O(x) = \{\varphi_t(x) \mid 0 \le t < \tau\},
+\]
+and so is homeomorphic to a circle. (Note that the set $F$ of $s$ for which $\varphi_s(x) = x$ is a closed subgroup of $\mathbb{R}$ and since $F \ne \mathbb{R}$, $F$ has a smallest positive element $\tau$ and $F = \{n\tau \mid n \in \mathbb{Z}\}$.)
+
+Fixed points and periodic orbits are sometimes referred to as “trivial” minimal sets. (Periodic orbits can be defined for arbitrary acting groups — see exercise 3.) Throughout the book, we will be presenting examples of “non-trivial” minimal sets, mostly for acting groups $\mathbb{Z}$ and $\mathbb{R}$.
+
+It is perhaps now appropriate to explain our point of view concerning minimal sets. We have referred to fixed points and periodic orbits as “trivial” minimal sets. Of course, there are many circumstances in mathematics in which a group acts on a space and one wishes to determine whether there is a fixed point or a periodic orbit (the latter is a fundamental question in differential equations), and the answers to such questions are often decidedly “non-trivial.” However, our main concern in this monograph is with the internal structure of the minimal sets themselves and the relations among them, and from this point of view there is not too much which can be said about fixed points and periodic orbits.
+
+In this connection, the following theorem is of interest.
+
+
+\begin{theorem*}[5]
+    Let $(X,T)$ be a flow with $T = \mathbb{Z}$ or $\mathbb{R}$ and $X$ Hausdorff. Then an orbit is compact if and only if it is periodic.
+\end{theorem*}
+
+\begin{proof}
+    Obviously, a periodic orbit is compact.
+    \begin{mynote}
+        \begin{proof}
+            If $T=\mathbb Z$ and $x$ is periodic with (least) period $p\ge1$, then
+            \[
+                O(x)=\{x,\varphi(x),\dots,\varphi^{p-1}(x)\}
+            \]
+            is finite, hence compact.
+
+            If $T=\mathbb R$ and $x$ is periodic with period $\tau>0$, then for every $t\in\mathbb R$ write
+            $t=q\tau+r$ with $q\in\mathbb Z$ and $r\in[0,\tau)$. Periodicity gives
+            $\varphi_t(x)=\varphi_{q\tau+r}(x)=\varphi_r(x)$, hence
+            \[
+                O(x)=\{\varphi_t(x):t\in\mathbb R\}=\{\varphi_r(x):r\in[0,\tau]\}
+                =\sigma\bigl([0,\tau]\bigr),
+            \]
+            where $\sigma:[0,\tau]\to X$, $\sigma(r)=\varphi_r(x)$, is continuous.
+            Since $[0,\tau]$ is compact and continuous images of compact sets are compact,
+            $O(x)$ is compact.
+        \end{proof}
+    \end{mynote}
+    Suppose $T = \mathbb{R}$, and as usual, the action of $\mathbb{R}$ is denoted by $\{\varphi_t\}$. Let $x \in X$ with $O(x)$ compact, so we may suppose $X = O(x)$. Let $K = [-1,1]$, and write $Kx = \{\varphi_t(x) \mid t \in K\}$. Then there is a countable subset $C$ of $\mathbb{R}$ such that
+    \[
+        X = O(x) = \bigcup_{c \in C} \varphi_c(Kx).
+    \]
+    By the Baire category theorem, some $\varphi_c(Kx)$ has non-empty interior, so $Kx$ has non-empty interior.
+
+    \begin{mynote}
+        \begin{theorem*}[Baire Category Theorem]
+            Every compact Hausdorff space is a Baire space; in a Baire space $X$, no countable union of closed sets with empty interior can cover $X$.
+        \end{theorem*}
+
+        \begin{proof}[Why $\exists\,c\in C:\ \operatorname{int}\bigl(\varphi_c(Kx)\bigr)\neq\emptyset$ and hence $\operatorname{int}(Kx)\neq\emptyset$]
+            $X=O(x)$ is compact Hausdorff, hence Baire. For each $c\in C$, $K=[-1,1]$ is compact and
+            $\varphi_c: X\to X$ is a homeomorphism, so $\varphi_c(Kx)=\{\varphi_{c+t}(x):t\in K\}$ is compact, thus closed in $X$.
+            Since $X=\bigcup_{c\in C}\varphi_c(Kx)$ is a countable union of closed sets, Baire implies that some
+            $\varphi_{c_0}(Kx)$ has non-empty interior:
+            \[
+                \operatorname{int}\bigl(\varphi_{c_0}(Kx)\bigr)\neq\emptyset.
+            \]
+            Because $\varphi_{c_0}$ is a homeomorphism, interiors are preserved:
+            \[
+                \operatorname{int}\bigl(\varphi_{c_0}(Kx)\bigr)=\varphi_{c_0}\!\bigl(\operatorname{int}(Kx)\bigr).
+            \]
+            Hence $\operatorname{int}(Kx)\neq\emptyset$.
+        \end{proof}
+        \begin{definition}[Baire space]
+            A topological space $X$ is a \emph{Baire space} if every countable intersection of open dense subsets of $X$ is dense in $X$.
+            Equivalently, no nonempty open subset of $X$ is meagre (i.e., a countable union of nowhere dense sets).
+        \end{definition}
+
+        \begin{examples*}~
+            \begin{itemize}
+                \item Every complete metric space and every locally compact Hausdorff space is Baire (Baire Category Theorem).
+                \item $\mathbb{R}$ (usual topology) is Baire.
+                \item $\mathbb{Q}$ with the subspace topology is \emph{not} Baire (it is meagre in itself).
+            \end{itemize}
+        \end{examples*}
+
+        \begin{remark*}
+            Equivalent reformulation: In a Baire space, a countable union of closed sets with empty interior cannot cover $X$.
+        \end{remark*}
+    \end{mynote}
+
+    Let $\tau \in K$ with $\varphi_\tau(x) \in \operatorname{int}(Kx)$. Suppose $\varphi_t(x) \ne x$ for all $t \ne 0$. Then the map $\sigma$ of $\mathbb{R}$ onto $X$ defined by $\sigma(t) = \varphi_t(x)$ is a continuous bijection. If $\sigma$ were a homeomorphism, the compact space $O(x) = X$ would be homeomorphic with $\mathbb{R}$, which is impossible. So $\sigma$ is not a homeomorphism, and it follows easily that there is a sequence $\{t_k\} \to \infty$ (or $-\infty$) with $\varphi_{t_k}(x) \to \varphi_\tau(x)$.
+    \begin{mynote}
+        \begin{proof}[Why $\exists\,t_k\to\pm\infty$ with $\varphi_{t_k}(x)\to\varphi_\tau(x)$]
+            Let $\sigma:\mathbb R\to X$, $\sigma(t)=\varphi_t(x)$. We have that $\sigma$ is a continuous bijection, but not a
+            homeomorphism; hence $\sigma^{-1}$ is not continuous at some point of $X$. Since $\varphi_\tau(x)\in\operatorname{int}(Kx)$,
+            we may assume (replacing $\tau$ by a nearby value if needed) that $\sigma^{-1}$ fails to be continuous at
+            $y:=\varphi_\tau(x)$. Then there exists a neighborhood basis $(U_k)_{k\ge1}$ of $y$ with
+            $\sigma^{-1}(U_k)$ unbounded in $\mathbb R$ for each $k$. Choose $t_k\in \sigma^{-1}(U_k)\setminus[-k,k]$.
+            Thus $|t_k|\ge k\to\infty$ and $\varphi_{t_k}(x)=\sigma(t_k)\in U_k\to y=\varphi_\tau(x)$.
+        \end{proof}
+        \begin{proof}[How to get a neighborhood basis $(U_k)$ with $\sigma^{-1}(U_k)$ unbounded]
+            Let $\sigma:\mathbb R\to X$ be a continuous bijection and $y\in X$ with $\sigma^{-1}$ not continuous at $y$.
+            Write $t_0:=\sigma^{-1}(y)$.
+
+            \emph{Claim.} For every neighborhood $U\ni y$ and every neighborhood $W\ni y$ with $W\subset U$,
+            there exists a neighborhood $V$ of $y$ with $V\subset W$ such that $\sigma^{-1}(V)$ is unbounded.
+
+            \emph{Proof of the claim.}
+            If not, then there is some neighborhood $U\ni y$ such that every smaller neighborhood
+            $V\subset U$ has $\sigma^{-1}(V)$ bounded.
+            Choose a decreasing neighborhood basis $(V_n)$ at $y$ with $V_n\subset U$ and
+            let $B_n:=\overline{\sigma^{-1}(V_n)}\subset\mathbb R$.
+            Each $B_n$ is compact and $B_{n+1}\subset B_n$.
+            By Cantor’s intersection theorem, $B:=\bigcap_n B_n$ is nonempty compact.
+            Since $\bigcap_n V_n=\{y\}$ and $\sigma$ is bijective, we must have $B=\{t_0\}$.
+            Hence for every $\varepsilon>0$ there exists $n$ with $B_n\subset (t_0-\varepsilon,t_0+\varepsilon)$,
+            so $\sigma^{-1}(V_n)\subset (t_0-\varepsilon,t_0+\varepsilon)$.
+            This is precisely the continuity of $\sigma^{-1}$ at $y$, a contradiction.
+            Thus the claim holds. \qedhere
+
+            \smallskip
+            Now build $(U_k)$ inductively.
+            Start with any neighborhood $U_1\ni y$; by the claim pick $U_1'\subset U_1$ with $\sigma^{-1}(U_1')$ unbounded and set $U_1:=U_1'$.
+            Given $U_k$, apply the claim with $W:=U_k$ to get $U_{k+1}\subset U_k$ such that $\sigma^{-1}(U_{k+1})$ is unbounded.
+            Then $(U_k)$ is a decreasing neighborhood basis at $y$ and, by construction,
+            each $\sigma^{-1}(U_k)$ is unbounded in $\mathbb R$.
+        \end{proof}
+    \end{mynote}
+    Since $\varphi_\tau(x) \in \operatorname{int}(Kx)$, there is some $t_k > 1$ and $s \in K$ with $\varphi_{t_k}(x) = \varphi_s(x)$,
+    \begin{mynote}
+        \begin{proof}[Why $\exists\,t_k>1$ and $s\in K$ with $\varphi_{t_k}(x)=\varphi_s(x)$]
+            Set $y:=\varphi_\tau(x)\in\operatorname{int}(Kx)$. Choose an open set $U$ with
+            $y\in U\subset\operatorname{int}(Kx)$. From $\varphi_{t_k}(x)\to y$ there is $k_0$ such that
+            $\varphi_{t_k}(x)\in U\subset Kx$ for all $k\ge k_0$. By the definition of $Kx=\{\varphi_s(x):s\in K\}$,
+            for each $k\ge k_0$ there exists $s_k\in K=[-1,1]$ with $\varphi_{t_k}(x)=\varphi_{s_k}(x)$.
+            Since $t_k\to\pm\infty$, we may (after increasing $k$ if needed) ensure $|t_k|>1$.
+            If $t_k>1$ we are done (take $s:=s_k$). If $t_k<-1$, then
+            $\varphi_{-t_k}(x)=\varphi_{-s_k}(x)$ with $-s_k\in K$, and $-t_k>1$; rename $-t_k$ by $t_k$
+            and $-s_k$ by $s$ to obtain the desired statement.
+        \end{proof}
+    \end{mynote}
+    so $O(x)$ is periodic.
+
+    This completes the proof for $T = \mathbb{R}$, and we omit the easy proof for $T = \mathbb{Z}$.
+    \begin{mynote}
+        \begin{proof}[Proof for $T=\mathbb Z$]
+            Let $(X,\varphi)$ be a cascade and $x\in X$. If $x$ is periodic, then
+            \[
+                O(x)=\{x,\varphi(x),\dots,\varphi^{p-1}(x)\}
+            \]
+            is finite, hence compact.
+
+            Conversely, assume $O(x)=\{\varphi^n(x):n\in\mathbb Z\}$ is compact. View $O(x)$ with the subspace topology of $X$.
+            Since $X$ is Hausdorff, singletons are closed in $X$, hence $\{\varphi^n(x)\}$ is closed in $O(x)$ for every $n$.
+            Thus
+            \[
+                O(x)=\bigcup_{n\in\mathbb Z}\{\varphi^n(x)\}
+            \]
+            is a countable union of closed sets. Because $O(x)$ is compact Hausdorff, it is a Baire space; hence at least one
+            singleton, say $\{\varphi^{n_0}(x)\}$, has nonempty interior in $O(x)$.
+            Applying the homeomorphisms $\varphi^k$ on $O(x)$, each $\{\varphi^{n_0+k}(x)\}$ is also open in $O(x)$.
+            These singletons are pairwise disjoint open subsets of the compact space $O(x)$, so there can be only finitely many of them.
+            Therefore the orbit $O(x)$ is finite, i.e.\ $x$ is periodic.
+        \end{proof}
+    \end{mynote}
+\end{proof}
+
+
+Now we will develop an important “recursive” concept. Let $T$ be a topological group. A subset $A$ of $T$ is said to be (left) \emph{syndetic} if there is a compact subset $K$ of $T$ such that
+\[
+    T = AK \quad ( = \{ak \mid a \in A,\, k \in K\} ).
+\]
+
+If $T = \mathbb{Z}$ or $\mathbb{R}$, a subset of $T$ is syndetic if and only if it is relatively dense — that is, it does not contain arbitrarily large gaps.
+\begin{mynote}
+    \begin{proof}[For $T=\mathbb Z$ or $\mathbb R$: syndetic $\iff$ relatively dense]
+        Recall: $A\subset T$ is \emph{syndetic} iff $\exists$ compact $K\subset T$ with $T=A+K$.
+        “Relatively dense’’ means: $\exists L<\infty$ such that every interval of length $L$ meets $A$
+        (for $T=\mathbb Z$, every block of $L$ consecutive integers).
+
+        \emph{($\Rightarrow$)} Suppose $T=A+K$ with $K$ compact.
+        \begin{itemize}
+            \item $T=\mathbb Z$: compact sets are finite, so let $K\subset[-M,M]\cap\mathbb Z$ for some $M\in\mathbb N$.
+                  For any $n\in\mathbb Z$ there exist $a\in A$, $k\in K$ with $n=a+k$, hence
+                  $a\in n-K\subset[n-M,n+M]$. Thus every block of $2M{+}1$ consecutive integers meets $A$;
+                  i.e.\ $A$ is relatively dense.
+            \item $T=\mathbb R$: choose $L>0$ with $K\subset[-L,L]$. For any $t\in\mathbb R$,
+                  $t=a+k$ with $a\in A$, $k\in K$ gives $|t-a|\le L$, so $a\in[t-L,t+L]$.
+                  Hence every interval of length $2L$ meets $A$; $A$ is relatively dense.
+        \end{itemize}
+
+        \emph{($\Leftarrow$)} Suppose $A$ is relatively dense.
+        \begin{itemize}
+            \item $T=\mathbb Z$: there exists $N\in\mathbb N$ such that every block of $N$ consecutive integers meets $A$.
+                  For any $n\in\mathbb Z$, pick $a\in A\cap[n,n+N-1]$; then $n=a+k$ with $k\in\{-(N-1),\ldots,0\}$.
+                  Thus $\mathbb Z=A+K$ for the finite (hence compact) $K=\{-(N-1),\ldots,0\}$, so $A$ is syndetic.
+            \item $T=\mathbb R$: there exists $L>0$ such that every interval of length $L$ meets $A$.
+                  For any $t\in\mathbb R$, the interval $[t,t+L]$ contains some $a\in A$, so $t\in a+[-L,0]\subset a+[-L,L]$.
+                  Hence $\mathbb R=A+K$ with $K=[-L,L]$ (compact), so $A$ is syndetic.
+        \end{itemize}
+        This proves the equivalence.
+    \end{proof}
+\end{mynote}
+
+Let $(X,T)$ be a flow, and let $x \in X$. We say that $x$ is an \emph{almost periodic point} if for every neighborhood $U$ of $x$, there is a syndetic subset $A$ of $T$ such that $xA \subset U$.
+
+
+
+Almost periodicity is a strong form of \emph{recurrence} — the orbit returns to an arbitrary neighborhood infinitely often. We omit the definition of recurrent for general acting groups $T$ (see Gottschalk and Hedlund, Chapter 7). For an action $\{\varphi_t\}$ of $\mathbb{R}$, a point $x$ is recurrent if and only if, for every neighborhood $U$ of $X$ and $\tau > 0$, there is a $t \in \mathbb{R}$ with $|t| > \tau$ such that $\varphi_t(x) \in U$. The definition is similar for $\mathbb{Z}$ actions.
+
+As Gottschalk has remarked, a point is periodic if it returns to itself every hour on the hour and is almost periodic if it returns to an arbitrary neighborhood every hour within the hour (where the length of the “hour” depends on the neighborhood).
+
+
+Almost periodic points and minimal sets are intimately related, as the following results show.
+
+
+\begin{lemma*}[6]
+    Let $(X,T)$ be a flow, with $X$ locally compact Hausdorff. Then, if $x$ is an almost periodic point, the orbit closure $\overline{xT}$ is compact.
+\end{lemma*}
+
+\begin{proof}
+    Let $U$ be a compact neighborhood of $x$, and let $A = \{t \in T \mid xt \in U\}$. Since $x$ is almost periodic, there is a compact subset $K$ of $T$ such that $T = AK$. Thus $xT = xAK \subset UK$, which is compact, so $\overline{xT}$ is compact.
+\end{proof}
+
+
+\begin{theorem*}[7]
+    Let $(X,T)$ be a flow, with $X$ locally compact Hausdorff. Then $x \in X$ is an almost periodic point if and only if the orbit closure $\overline{xT}$ is a compact minimal set.
+\end{theorem*}
+
+\begin{proof}
+    Suppose $M = \overline{xT}$ is a compact minimal set and let $U$ be a neighborhood of $x$. First note that $M \subset UT$. (If not, $M \setminus UT$ is a closed invariant proper subset of $M$.) By compactness, there is a finite subset $K = \{t_1, \ldots, t_n\}$ of $T$ such that
+    \[
+        M = \bigcup_{i=1}^{n} Ut_i.
+    \]
+    Now, if $\tau \in T$, $x\tau \in Ut_i$ for some $i$ with $1 \le i \le n$, so $x\tau t_i^{-1} \in U$. So, if $A = \{t \in T \mid xt \in U\}$, then $\tau t_i^{-1} \in A$, $\tau \in At_i \subset AK$, and $T = AK$. That is, $A$ is syndetic, and $x$ is almost periodic.
+
+    Conversely, suppose $x$ is an almost periodic point. By the preceding lemma, $\overline{xT}$ is compact. If $\overline{xT}$ is not minimal, it contains a minimal subset $M'$. Let $U$ and $V$ be disjoint open sets with $x \in U$ and $M' \subset V$, and let $K$ be a compact subset of $T$.
+    \begin{mynote}
+        \begin{proof}[Why such $U,V$ exist]
+            First, $x\notin M'$. Indeed, if $x\in M'$ then, since $M'$ is closed and invariant,
+            $\overline{xT}\subseteq M'$; but $M'\subsetneq \overline{xT}$ by assumption, a contradiction.
+
+            Now use separation. In a Hausdorff space, a point and a disjoint compact set can be
+            separated by disjoint open sets. For each $y\in M'$, choose disjoint open
+            neighborhoods $O_y\ni y$ and $W_y\ni x$. The $\{O_y\}_{y\in M'}$ cover $M'$; by
+            compactness pick $y_1,\dots,y_n$ with $M'\subset \bigcup_{i=1}^n O_{y_i}$. Set
+            \[
+                V:=\bigcup_{i=1}^n O_{y_i}\quad\text{and}\quad U:=\bigcap_{i=1}^n W_{y_i}.
+            \]
+            Then $V$ and $U$ are open, $M'\subset V$, $x\in U$, and $U\cap V=\emptyset$. Hence
+            there exist disjoint open sets $U,V$ with $x\in U$ and $M'\subset V$.
+        \end{proof}
+    \end{mynote}
+    Let $W$ be a neighborhood of $M'$ such that $WK^{-1} \subset V$. Now $M' \subset \overline{xT}$, so there is an $s \in T$ with $xs \in W$. Then $xsK^{-1} \subset WK^{-1} \subset V$ and $xsK^{-1} \cap U = \emptyset$.
+
+    It follows that if $A = \{t \in T \mid xt \in U\}$, then $T \ne AK$. Since $K$ is an arbitrary compact subset of $T$, $A$ is not syndetic, and hence $x$ is not almost periodic.
+\end{proof}
+
+
+
+Theorem~7 has a number of immediate corollaries, which are not obvious consequences of the definition of almost periodicity.
+
+\begin{mynote}
+    \begin{theorem*}[7]
+        Let $(X,T)$ be a flow, with $X$ locally compact Hausdorff. Then $x \in X$ is an almost periodic point if and only if the orbit closure $\overline{xT}$ is a compact minimal set.
+    \end{theorem*}
+\end{mynote}
+
+\begin{corollary*}[8]
+    If $(X,T)$ is a flow with $X$ compact Hausdorff, then there is an almost periodic point in $X$.
+\end{corollary*}
+
+\begin{proof}
+    Every point of a minimal subset of $X$ is almost periodic.
+\end{proof}
+
+\begin{corollary*}[9]
+    If $(X,T)$ is a flow (with $X$ locally compact Hausdorff), then $x \in X$ is almost periodic if and only if it is discretely almost periodic (i.e., almost periodic with respect to the discrete topology of $T$).
+\end{corollary*}
+
+\begin{mynote}
+    \begin{proof}[Proof of Corollary~9]
+        By Theorem~7, for a locally compact Hausdorff $X$ and a flow $(X,T)$,
+        \[
+            x \text{ is almost periodic } \iff \overline{xT} \text{ is a compact minimal set.}
+        \]
+        This characterization depends only on the $(X,T)$-action on $X$ (same orbits, same invariant
+        subsets, same topology on $X$) and not on the topology placed on $T$. In particular, if we
+        replace $T$ by the same abstract group endowed with the discrete topology, the set
+        $\overline{xT}\subset X$ is the same and is compact/minimal in $X$ for the same reason.
+
+        Therefore:
+        \begin{align*}
+            x \text{ is almost periodic (original topology on $T$)}
+            \; & \iff\; \overline{xT}\ \text{is a compact minimal set}    \\
+               & \iff\; x \text{ is almost periodic (with $T$ discrete).}
+        \end{align*}
+        This proves that $x$ is almost periodic if and only if it is discretely almost periodic.
+    \end{proof}
+\end{mynote}
+
+\begin{corollary*}[10]
+    Let $(X,T)$ be a flow with $X$ compact Hausdorff. Then $X$ is a (necessarily disjoint) union of minimal subsets if and only if every point of $X$ is almost periodic. (In this case, we say $X$ is \emph{pointwise almost periodic}.)
+\end{corollary*}
+
+\begin{mynote}
+    \begin{proof}
+        ($\Rightarrow$) If $X=\bigcup_{i\in I} M_i$ with each $M_i$ minimal, then for any $x\in X$ pick $i$ with $x\in M_i$.
+        By Theorem~7, every point of a compact minimal set is almost periodic; hence $x$ is almost periodic.
+
+        ($\Leftarrow$) Suppose every $x\in X$ is almost periodic. Then by Theorem~7, for each $x$ the orbit closure
+        $M_x:=\overline{xT}$ is a compact minimal set. Clearly $x\in M_x$, so
+        \[
+            X=\bigcup_{x\in X} M_x
+        \]
+        is a union of minimal subsets. By Proposition~3, distinct minimal sets are disjoint, so the union is necessarily disjoint.
+    \end{proof}
+\end{mynote}
+
+The first part of the proof of theorem~7 also yields the following corollary.
+
+\begin{corollary*}[8]
+    If $(X,T)$ is a flow with $X$ compact Hausdorff, then there is an almost periodic point in $X$.
+\end{corollary*}
+
+\begin{proof}
+    Every point of a minimal subset of $X$ is almost periodic.
+\end{proof}
+
+\begin{corollary*}[9]
+    If $(X,T)$ is a flow (with $X$ locally compact Hausdorff), then $x \in X$ is almost periodic if and only if it is discretely almost periodic (i.e., almost periodic with respect to the discrete topology of $T$).
+\end{corollary*}
+
+\begin{corollary*}[10]
+    Let $(X,T)$ be a flow with $X$ compact Hausdorff. Then $X$ is a (necessarily disjoint) union of minimal subsets if and only if every point of $X$ is almost periodic. (In this case, we say $X$ is \emph{pointwise almost periodic}.)
+\end{corollary*}
+
+The first part of the proof of theorem~7 also yields the following corollary.
+
+\begin{corollary*}[11]
+    Let $(X,T)$ be a minimal flow with $X$ compact Hausdorff, and let $U$ be a non-empty open subset of $X$. Then there is a finite subset $K = \{t_1, \ldots, t_n\}$ of $T$ such that
+    \[
+        X = UK = \bigcup_{j=1}^{n} U t_j.
+    \]
+\end{corollary*}
+
+Our next result is an ``inheritance'' theorem, which relates the action of a syndetic subgroup of $T$ to the action of $T$.
+
+
+\begin{lemma*}[12]
+    Let $(X,T)$ be a flow, and let $S$ be a normal subgroup of $T$. Suppose $x \in X$ is an almost periodic point for the flow $(X,S)$. Then, if $t \in T$, $xt$ is an almost periodic point for $(X,S)$.
+\end{lemma*}
+
+\begin{proof}
+    Suppose $y \in \overline{xtS}$. Then there is a net $\{s_i\}$ in $S$ such that $xts_i \to y$. Since $S$ is normal, there are $s_i' \in S$ such that $xs_i't \to y$, so $xs_i' \to yt^{-1}$. Since $x$ is $S$-almost periodic, there are $s_i'' \in S$ such that $yt^{-1}s_i'' \to x$, and so there are $s_i''' \in S$ such that $ys_i'''t^{-1} \to x$, or $ys_i''' \to xt$.
+\end{proof}
+
+
+\begin{theorem*}[13]
+    Suppose $(X,T)$ is a flow and $S$ is a syndetic normal subgroup of $T$. Then $(X,T)$ is pointwise almost periodic if and only if $(X,S)$ is pointwise almost periodic.
+\end{theorem*}
+
+\begin{proof}
+    Suppose $(X,T)$ is pointwise almost periodic. Let $K$ be a compact subset of $T$ with $T = SK$. Let $x \in X$ and let $y \in \overline{xS}$ such that $y$ is $S$-almost periodic. Since $(X,T)$ is pointwise almost periodic, there is a net $\{t_i\}$ in $T$ such that $yt_i \to x$. Write $t_i = s_i k_i$, with $s_i \in S$, $k_i \in K$. We may suppose $k_i \to k \in K$, and that $ys_i \to x'$. Then $ys_i k_i \to x'k$ and also $ys_i k_i = yt_i \to x$, so $x = x'k$. It follows that $ys_i k_i k_i^{-1} \to x'$ and since $k_i k_i^{-1} \to e$, we have $ys_i \to x' = xk^{-1}$. Then $xk^{-1}$ is $S$-almost periodic, so $x$ is $S$-almost periodic, by Lemma~12.
+
+    Suppose that $(X,S)$ is pointwise almost periodic. Let $x \in X$ and let $y \in \overline{xT}$. Let $\{t_i\}$ be a net in $T$ with $xt_i \to y$. Write $t_i = s_i k_i$, where $s_i \in S$, $k_i \in K$. As in the first part of the proof, there is a $k \in K$ such that $xs_i \to yk^{-1}$. Since $(X,S)$ is pointwise almost periodic, there are $s_i' \in S$ such that $yk^{-1}s_i' \to x$, so $x \in \overline{yT}$. (Note that the proof of this implication does not use the assumption that $S$ is normal.)
+\end{proof}
+
+
+Now we present some examples of non-trivial minimal flows. The simplest example of an (infinite) minimal cascade is an irrational rotation of the circle. To be precise, regard the circle $K$ as the set of complex numbers of absolute value one, and let $\alpha \in K$ with $\alpha^n \neq 1$ ($n \neq 0$), so $\alpha = \exp(2\pi i \theta)$, where $\theta$ is irrational. Let the homeomorphism $\varphi : K \to K$ be defined by $\varphi(z) = \alpha z$. We show that the orbit of the complex number $1$ (that is, the set of powers $\{\alpha^n\}$) is dense in $K$. Once this is proved, it will follow that every orbit is dense (since if $z \in K$, then $\varphi^n(z) = \alpha^n z$) proving minimality of $(K,\varphi)$.
+
+Let $\beta$ be a limit point of the (infinite) set $\{\alpha^n\}_{n=1,2,\ldots}$ and let $\varepsilon > 0$. Then there are non-zero positive integers $n$ and $k$ such that
+\[
+    |\alpha^n - \beta| < \frac{\varepsilon}{2} \quad \text{and} \quad |\alpha^{n+k} - \beta| < \frac{\varepsilon}{2}.
+\]
+Thus $|\alpha^n - \alpha^{n+k}| < \varepsilon$. Since the map $z \mapsto \alpha^k z$ is an isometry, it follows that
+\[
+    |\alpha^{n+2k} - \alpha^{n+k}| = |\alpha^{n+k} - \alpha^n| < \varepsilon,
+\]
+and, in general,
+\[
+    |\alpha^{n+(m+1)k} - \alpha^{n+mk}| < \varepsilon \quad (m = 1,2,\ldots).
+\]
+For some $m$, the points $\alpha^n, \alpha^{n+k}, \ldots, \alpha^{n+mk}$ “wind” around the circle. Thus, for any $\varepsilon > 0$, the set $\{\alpha^n\}$ ($n > 0$) is $\varepsilon$-dense in $K$. This completes the proof.
+
+
+Closely related to this example is the example of the irrational (real) flow on the torus. Let the two-dimensional torus $K^2$ be represented as the plane $\mathbb{R}^2$ modulo the integer lattice points $\mathbb{Z}^2$. Thus we regard $(x,y) = (x',y')$ if and only if $(x - x', y - y') \in \mathbb{Z}^2$.
+
+Let $\mu$ be an irrational number, and define the flow $\varphi : K \times \mathbb{R} \to K$ by
+\[
+    \varphi((x,y),t) = \varphi_t(x,y) = (x + \mu t, y + t).
+\]
+Thus the orbits of this flow (“flow lines”) are parallel lines with slope $\mu$. We show that the orbit of $(0,0)$ is dense. Let $(x',y') \in K^2$, and let $\varepsilon > 0$. Let $t_0 = y'$, so $t_0 + n \equiv y' \pmod{1}$, for all integers $n$. Now, choose an integer $n$ such that
+\[
+    |\mu t_0 - x' + \mu n| < \varepsilon \pmod{1}.
+\]
+The choice of such an $n$ is possible because of the minimality of the irrational rotation of the circle, which we have just proved. Then
+\[
+    \varphi_{t_0 + n}(0,0) = (\mu (t_0 + n),\, t_0 + n) = (\mu t_0 + \mu n,\, t_0 + n),
+\]
+whose distance from $(x',y')$ on $K^2$ is less than $\varepsilon$. Thus the orbit of $(0,0)$ is dense.
+
+
+It is easy to show that all orbits are dense, as in the case of the cascade $(K, \varphi)$ above. Actually, these are examples of equicontinuous flows, and we will prove in the next chapter that for such flows minimality is equivalent to the existence of a dense orbit. (This is \emph{not} the case for an arbitrary flow.)
+
+
+Similarly, the (real) flow defined on $K^2$ by $\psi_t(x,y) = (x + \alpha t, y + \beta t)$, where $\dfrac{\alpha}{\beta}$ is irrational, is minimal. In fact, if $\mu = \dfrac{\alpha}{\beta}$ and $\varphi_t$ is the flow defined above, then $\psi_t = \varphi_{\beta t}$.
+
+A rich source of examples is provided by the symbolic systems. Let $\Lambda$ be a finite set of cardinality $p > 1$, which we write as $\{0,1,2,\ldots,p-1\}$. Let $\Omega$ denote the collection of two-sided infinite sequences $\omega = (\omega(n))$, with $\omega(n) \in \Lambda$, and define a metric on $\Omega$ by
+\[
+    d(\omega, \omega') = \sum_{n=-\infty}^{\infty} \frac{1}{|n|} |\omega(n) - \omega'(n)|
+\]
+(an equivalent metric is given by $D(\omega, \omega') = \frac{1}{n+1}$, where $n$ is the smallest nonnegative integer such that $\omega(n) \neq \omega'(n)$ or $\omega(-n) \neq \omega'(-n)$). If $\Lambda$ is given the discrete topology, then $\Omega = \Lambda^{\mathbb{Z}}$, which is compact by Tychonoff’s theorem. (In fact, $\Omega$ is homeomorphic to the Cantor set.)
+
+Note that the points $\omega$ and $\omega'$ of $\Omega$ are close together if they agree on some large “central block” — that is, if $\omega(n) = \omega'(n)$ for $|n| \le N$.
+
+
+A homeomorphism $\sigma$ of $\Omega$ to itself is defined by $\sigma(\omega)(n) = \omega(n+1)$ ($n \in \mathbb{Z}$). The map $\sigma$ is called the \textit{shift homeomorphism} and the cascade $(\Omega, \sigma)$ is the \textit{shift dynamical system on $p$ symbols}. These cascades are also called \textit{symbolic systems}.
+
+We introduce some suggestive terminology and notation. The set $\Lambda$ is called the \textit{alphabet}, and a \textit{word} (or a \textit{block}) is a finite sequence of “letters” of $\Lambda$ (for example, if $p = 2$, $01101$ is a word). If $\omega \in \Omega$, a word in $\omega$ is a word of the form $\omega(m)\omega(m+1)\ldots\omega(m+r)$ for some $r \ge 0$. If $a$ and $b$ are words, we can form the word $ab$ in the obvious way, by juxtaposition. We may also speak of (left or right) infinite words. Of course, any $\omega \in \Omega$ is a (two-sided) infinite word.
+
+Note that if $\omega, \omega' \in \Omega$, then $\omega' \in \overline{O(\omega)}$ if and only if every word in $\omega'$ is also a word in $\omega$.
+
+In general, we are interested in closed invariant sets of the shift system, in particular minimal subsets, rather than the “full shift” $(\Omega, \sigma)$. To obtain a minimal subset of $\Omega$, it is sufficient by Theorem~7 to construct an almost periodic point $\omega$ (so $\overline{O(\omega)}$ is a minimal set).
+
+It is easy to see that $\omega \in \Omega$ is an almost periodic point if and only if every word in $\omega$ occurs “syndetically often.” That is, if $a$ is a word in $\omega$, there is an $N > 0$ (depending on $a$) such that if $n \in \mathbb{Z}$, $a$ is a subword of $\omega(n)\omega(n+1)\ldots\omega(n+N)$.
+
+(Note that $\omega$ is a recurrent point if every word which occurs in $\omega$ occurs again — and therefore infinitely often.)
+
+
+The construction of almost periodic points in $\Lambda^{\mathbb{Z}}$ which are not periodic (equivalently of non-trivial minimal subsets of $\Lambda^{\mathbb{Z}}$) is by no means trivial. One of the earliest examples is due to Marston Morse.
+
+Let $p = 2$, so $\Lambda = \{0,1\}$. We first define a one-sided sequence (i.e., a point of $\Lambda^{\mathbb{N}}$ (where $\mathbb{N} = \{0,1,\ldots\}$)). Write $0' = 1$, $1' = 0$, and if $a = a_1 a_2 \ldots a_m$ is a word, define $a' = a_1' a_2' \ldots a_m'$. (For example, if $a = 01101$, then $a' = 10010$.) To define the “Morse sequence,” we define inductively a sequence of words $a_n$ where each $a_n$ is a subword (in fact the first half) of $a_{n+1}$. Let $a_1 = 0$, and if $a_n$ has been defined, let $a_{n+1} = a_n a_n'$. Thus $a_2 = 01$, $a_3 = 0110$, $a_4 = 01101001$, etc. The “limit word” is a right infinite word
+\[
+    \omega = 0110100110010110\ldots
+\]
+
+Another way of constructing the one-sided Morse sequence is as follows. If $b$ is a word, let $b^*$ denote the word (of length twice the length of $b$) obtained from $b$ by the “substitution” $0 \to 01$, $1 \to 10$. (For example, if $b = 01101$, then $b^* = 0110100110$.) Let $b_1 = a_1 = 0$, and inductively let $b_{n+1} = b_n^*$. In fact $b_n = a_n$. For, it is easy to see that $(b^*)' = (b')^*$. Now suppose, inductively, that $b_k = a_k$ for $k \le n$. Then
+
+\[
+    b_n = a_n = a_{n-1} a_{n-1}', \quad b_{n+1} = b_n^* = a_n^* = (a_{n-1} a_{n-1}')^* = a_{n-1}^* (a_{n-1}^*)' = b_{n-1}^* (b_{n-1}^*)' = a_n a_n' = a_{n+1}.
+\]
+
+It follows that the limit word $\omega$ reproduces itself under the substitution $0 \to 01$, $1 \to 10$.
+
+From this latter characterization, it follows that every finite word which occurs in $\omega$ occurs syndetically often.
+
+For $0$ occurs syndetically often since the sequence is made up of pairs $01$ and $10$. But the sequence reproduces itself under the substitution $0 \to 01$ and $1 \to 10$, so $01$ also occurs syndetically often. For the same reason, the initial words $0110$, $01101001$, etc. occur syndetically often. But this sequence of initial words (in our notation $b_n$) includes all words of $\omega$ as subwords, so all words occur syndetically.
+
+
+To obtain an almost periodic point of $\Lambda^{\mathbb{Z}}$, we extend $\omega$ by “reflection.” That is, if $n < 0$, define $\omega(n) = \omega(-n - 1)$. Thus $\omega$ is the two-sided infinite sequence
+\[
+    \omega = \ldots10010110\overset{\downarrow}{0}110100110010110\ldots,
+\]
+where the vertical arrow indicates the 0th position $\omega(0)$.
+
+Equivalently (if, when $b = b_1 \ldots b_m$ is a word, $\overleftarrow{b}$ denotes the “reverse” of $b$, $\overleftarrow{b} = b_m b_{m-1} \ldots b_1$), then $\omega$ is the “limit” of the words
+\[
+    \overleftarrow{a_n} a_n,
+\]
+where the 0th position is the initial letter of $a_n$. To see that the point $\omega \in \Lambda$ just defined is indeed an almost periodic point, note that
+\[
+    \overleftarrow{a_{2n+1}} = a_{2n+1}'
+\]
+for $n = 1,2,\ldots$ (this is an easy induction), and an argument similar to the one above for the one-sided Morse sequence shows that $a_{2n+1} a_{2n+1}$ occurs syndetically in $\omega$. It follows as above that all words which occur actually occur syndetically. Therefore $\omega$ is an almost periodic point—its orbit closure $M_0$ is called the Morse minimal set.
+
+It is not difficult to give a combinatorial proof that $\omega$ is not periodic, but we present a “dynamical” proof. If we now write $\omega_0$ for the one-sided Morse sequence, then $\omega = \overleftarrow{\omega_0}\omega_0$. An argument similar to the one given above for $\omega$ shows that $\zeta = \overleftarrow{\omega_0'}\omega_0$ is also an almost periodic point
+\[
+    (\zeta = \ldots 01101001\overset{\downarrow}{0}110101001\ldots).
+\]
+Then the orbit closure of $\zeta$ is also a minimal set $M_1$. Now, since $\omega(n) = \zeta(n)$ for $n \ge 0$, it follows that
+\[
+    \lim d(\sigma^n(\omega), \sigma^n(\zeta)) = 0,
+\]
+(we say that $\omega$ and $\zeta$ are \textit{positively asymptotic}) and since $\sigma^n(\omega) \in M_0$, $\sigma^n(\zeta) \in M_1$, we have $M_0 = M_1$. (Recall that distinct minimal sets are disjoint, and so must be a positive distance apart.) But it is immediate that a finite minimal set cannot contain (distinct) asymptotic points. Therefore the Morse minimal set is infinite, and $\omega$ is not periodic.
+
+Another description of the one-sided Morse sequence is obtained as follows. If $n$ is a positive integer, write
+\[
+    n = \sum_{i=0}^{k} c_i 2^i,
+\]
+where $c_i = 0$ or $1$ and $c_k = 1$. Let
+\[
+    \theta(n) = \sum_{i=0}^{k} c_i \pmod{2},
+\]
+and $\theta(0) = 0$. Then $\omega(n) = \theta(n)$. For, if $0 \le j < 2^j$, it is immediate that
+\[
+    \theta(j + 2^j) = \theta(j) + 1 \pmod{2},
+\]
+so $\theta(j + 2^j) = \theta(j)'$. Since $\theta(0) = 0 = \omega(0)$, the result follows by induction.
+
+The existence of asymptotic points in the Morse minimal set is characteristic of minimal subflows of the symbolic system. For simplicity we suppose $\Lambda$ is a two-element set, $\Lambda = \{0,1\}$, and let $X$ be an infinite minimal subflow of $\Omega = \Lambda^{\mathbb{Z}}$. We will show that for each $N \ge 2$, there are points $\omega_N$ and $\omega_N'$ in $X$ such that $\omega_N(0) = 0$, $\omega_N'(0) = 1$ and $\omega_N(n) = \omega_N'(n)$ for $1 \le n \le N$. Once the existence of these points is established, let $\{N_i\}$ be a sequence with $N_i \to \infty$ such that $\lim \omega_{N_i} = \bar{\omega}$ and $\lim \omega_{N_i}' = \bar{\omega}'$ exist. Since $X$ is closed, $\bar{\omega}$ and $\bar{\omega}'$ are in $X$. Also $\bar{\omega}(0) = 0$, $\bar{\omega}'(0) = 1$, so $\bar{\omega} \ne \bar{\omega}'$, but $\bar{\omega}(n) = \bar{\omega}'(n)$ for $n \ge 1$, so
+\[
+    \lim_{n \to \infty} d(\sigma^n(\bar{\omega}), \sigma^n(\bar{\omega}')) = 0.
+\]
+(Thus $\bar{\omega}$ and $\bar{\omega}'$ are positively asymptotic.)
+
+Now suppose for some $N$ we cannot find points $\omega_N$ and $\omega_N'$ as above. Then, if $\omega, \omega' \in X$ with (say) $\omega(0) = 0$, $\omega'(0) = 1$, there is an $N \ge 1$ such that $\omega(n) \ne \omega'(n)$ for some $n$ with $1 \le n \le N$. That is, the sequence of values $\omega(1), \omega(2), \ldots, \omega(N)$ determines $\omega(0)$ for $\omega \in X$. Since $X$ is shift invariant, $\omega(m+1), \ldots, \omega(m+N)$ determines $\omega(n)$ for each $m$. Hence $X$ must be finite.
+
+Asymptoticity is a special case of proximality which, together with related notions, will be studied extensively in this book. If $(X, T)$ is a flow, then $x$ and $y$ in $X$ are said to be \textit{proximal} if there is a $z \in X$ and a net $\{t_i\}$ in $T$ such that $x t_i \to z$ and $y t_i \to z$. If $X$ is compact, $x$ and $y$ are proximal if and only if for every $\alpha \in \mathcal{U}_X$ (the unique uniformity of $X$) there is a $t \in T$ such that $(x t, y t) \in \alpha$. Thus if $X$ is a compact metric space, $x$ and $y$ are proximal if and only if
+\[
+    \inf_{t \in T} d(x t, y t) = 0.
+\]
+
+We write $P$ or $P(X)$ for the proximal relation in $X$:
+\[
+    P = \{(x, y) \mid x \text{ and } y \text{ are proximal}\}.
+\]
+$P$ is a reflexive symmetric $T$-invariant relation, but is in general not transitive or closed. Note that (if $X$ is compact Hausdorff)
+\[
+    P = \bigcap [\alpha T \mid \alpha \in \mathcal{U}_X].
+\]
+
+If $x$ and $y$ are not proximal, they are said to be \textit{distal}, and the flow $(X, T)$ is called \textit{distal} if there are no non-trivial proximal pairs (i.e., $P = \Delta$, the diagonal). The analysis of distal flows will be carried out in Chapters 5 and 7.
+
+Other examples of flows arise from consideration of spaces of functions. Let $C_0(T)$ denote the set of bounded continuous real (or complex) valued continuous functions, provided with the topology of uniform convergence — equivalently, the topology defined by the norm
+\[
+    \|f\| = \sup_{t \in T} |f(t)|.
+\]
+If $t \in T$ and $f \in C_0(T)$, $f_t$ is defined by translation:
+\[
+    f_t(\tau) = f(t\tau).
+\]
+It is immediate that this defines an action of $T$ on $C_0(T)$.
+
+If $T = \mathbb{R}$, the additive group of reals (so $f_t(\tau) = f(t + \tau)$), then $f \in C_0(T)$ is an almost periodic point if and only if it is a Bohr uniformly almost periodic function: if $\varepsilon > 0$, there is a relatively dense (syndetic) subset $A$ of $\mathbb{R}$ such that
+\[
+    \sup_{t \in \mathbb{R}} |f(t + \tau) - f(t)| < \varepsilon \quad \text{for } \tau \in A.
+\]
+(Of course, this is the reason for use of the term “almost periodic” in arbitrary flows.) It will be shown in the next chapter that $f \in C_0(\mathbb{R})$ has compact orbit closure if and only if it is almost periodic.
+
+If $t \in T$, then $T$ acts as an isometry on $C_0(T)$: $d(f_t, g_t) = d(f, g)$ (where $d(f, g) = \|f - g\| = \sup_{t \in T} |f(t) - g(t)|$). Thus, this flow is “equicontinuous.” The formal definition and properties of equicontinuous flows are the subject of the next chapter, and as we will see, equicontinuous flows have a more or less complete classification.
+
+Therefore, the flow on $C_0(T)$ is of limited dynamical interest. A more interesting flow is obtained by endowing the space of bounded continuous functions with the topology of uniform convergence on compact sets. For this purpose, suppose $T$ is $\sigma$-compact ($T = \bigcup_{n=1}^{\infty} K_n$, where $K_n$ is compact) and define a metric by
+\[
+    \rho(f, g) = \sup_n \min \left[ \sup_{t \in K_n} |f(t) - g(t)|, \frac{1}{n} \right].
+\]
+Let $B_0(T)$ be the bounded continuous functions with the topology induced by $\rho$. As in the case of $C_0(T)$, translation of functions defines an action of $T$ on $B_0(T)$; the flow $(B_0(T), T)$ is called the \textit{Bebutov system}. In contrast with the flow $(C_0(T), T)$, which has “few” compact orbit closures, every (left) uniformly continuous function has compact orbit closure in $B_0(T)$ (Exercise 12). Most important, $(B_0(T), T)$ has a “universal” property. For a large class of acting groups (including $T = \mathbb{R}$) any flow on a locally compact metric space (subject to an obvious necessary condition on its fixed point set) can be regarded as a subflow of $B_0(T)$. The precise statement of this result will be presented in Chapter 13.
+
+In any mathematical system, one is interested in the maps which respect the structure of the system. The appropriate maps in topological dynamics are those which are continuous and equivariant. To be precise, let $(X, T)$ and $(Y, T)$ be flows (with the same acting group). A \textit{homomorphism} from $X$ to $Y$ is a continuous map $\pi : X \to Y$ such that
+\[
+    \pi(xt) = \pi(x)t \quad (x \in X, \, t \in T).
+\]
+If there is a homomorphism $\pi$ from $X$ onto $Y$, we say that $Y$ is a \textit{factor} of $X$, and that $X$ is an \textit{extension} of $Y$.
+
+\begin{proposition}[14]
+    Let $\pi : X \to Y$ be a homomorphism.
+    \begin{enumerate}[(i)]
+        \item If $X_0$ is a minimal subset of $X$, then $Y_0 = \pi(X_0)$ is a minimal subset of $Y$.
+        \item If $Y$ is minimal and $X$ is compact, then $\pi$ is onto.
+        \item If $X$ is minimal, and $\pi, \psi : X \to Y$ are homomorphisms which agree at one point, then $\pi = \psi$.
+        \item If $X_0$ and $Y_0$ are minimal subsets of $X$ and $Y$ respectively such that $\pi(X_0) \cap Y_0 \ne \emptyset$, then $\pi(X_0) = Y_0$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}~
+    \begin{enumerate}[(i)]
+        \item If $y_0 \in Y_0$ and $x_0 \in X_0$ with $\pi(x_0) = y_0$, then $\overline{y_0 T} = \pi(\overline{x_0 T}) = \pi(X_0) = Y_0$.
+        \item If $X_0$ is a minimal subset of $X$, then $\pi(X) \supset \pi(X_0) = Y$, by (i).
+        \item If $\pi(x_0) = \psi(x_0)$, then $\pi(x_0 t) = \psi(x_0 t)$ ($t \in T$). Thus $\pi$ and $\psi$ agree on a dense set, so $\pi = \psi$.
+        \item follows from (i) and the fact that the minimal subsets of a flow are disjoint or equal.
+    \end{enumerate}
+\end{proof}
+
+
+Since our main interest is in minimal flows, it will usually not be necessary to specify that a homomorphism is onto. The meaning of the terms \textit{isomorphism}, \textit{endomorphism}, and \textit{automorphism} should be clear. Almost by definition, the properties which will interest us are those which are preserved by isomorphisms.
+
+The next result shows that homomorphisms of minimal flows have a “semi-open” property.
+
+\begin{theorem*}[15]
+    Let $\pi : X \to Y$ be a homomorphism of minimal flows, and let $U$ be a non-empty open set in $X$. Then $\pi(U)$ has non-empty interior.
+\end{theorem*}
+
+\begin{proof}
+    Let $V$ be a closed set in $X$ with $V \subset U$ and $\operatorname{int} V \ne \emptyset$. Since $X$ is minimal, there are $t_1, \ldots, t_n \in T$ such that $\bigcup_{i=1}^n V t_i = X$, so
+    \[
+        Y = \pi(X) = \bigcup_{i=1}^n \pi(V t_i) = \bigcup_{i=1}^n \pi(V)t_i.
+    \]
+    Therefore $\pi(V)t_i$ has non-empty interior for some $t_i$, so $\operatorname{int} \pi(V) \ne \emptyset$. Since $\pi(U) \supset \pi(V)$, it follows that $\operatorname{int} \pi(U) \ne \emptyset$.
+\end{proof}
+
+
+Note that if $\pi : X \to Y$ is an onto homomorphism, then
+\[
+    R(\pi) = R = \{(x, x') \in X \times X \mid \pi(x) = \pi(x')\}
+\]
+is a closed $T$-invariant equivalence relation. (That is, $R$ is a closed subset of $X \times X$ and if $(x, x') \in R$ and $t \in T$, then $(xt, x't) \in R$.) Conversely, if $(X, T)$ is a flow with $X$ compact Hausdorff and $R$ is a closed $T$-invariant equivalence relation, then the quotient space $X/R$ is compact Hausdorff. (If $R$ is not closed, then the quotient space $X/R$ will not be Hausdorff.)
+
+$T$ acts on $X/R$ by $(xR)t = (xt)R$, for $x \in X$, $t \in T$, and the natural map $X \to X/R$ is a homomorphism. Hence these are just two ways of talking about the same thing, and we will use them interchangeably.
+
+A standard method for obtaining such equivalence relations is by means of compact group extensions. Let $(G, X, T)$ be a bitransformation group with $X$ compact Hausdorff and $G$ compact. Then the action of $G$ defines a closed invariant equivalence relation $R$ on $X$ — $(x, x') \in R$ if $x' = g x$ for some $g \in G$. We write $X / G$ for $X / R$. Thus $T$ acts on the “orbit space” of $G$: $(Gx)t = G(xt)$. In this case $X$ is said to be a \textit{group extension} (or \textit{$G$-extension}) of $(X / G, T)$.
+
+It is frequently assumed that the action of $G$ is \textit{free} (a synonym is \textit{strongly effective}): if $g \in G$ with $g \ne e$, then $gx \ne x$ for all $x \in X$. (We write $e$ for the identity element of both groups $G$ and $T$.) Note that if $(X, T)$ is minimal, then an (effective) $G$-action is always free. For $g \in G$ defines an automorphism of $(X, T)$, and if $gx = x$ for some $x \in X$, then $g$ is the identity automorphism (Proposition 14(iii)).
+
+For an example of a group extension, consider the automorphism $\varphi_0$ of order $2$ of the Morse minimal set $M_0$ obtained by restricting the “interchange” map $\varphi$ of the full shift $\Omega = \{0,1\}^{\mathbb{Z}}$ to $M_0$ ($\varphi(\omega) = \omega'$, where, as above, $\omega'$ is obtained from $\omega$ by interchanging $0$ and $1$).
+
+If $\omega_0 = \ldots 1001\overset{\downarrow}{0}1101001\ldots$ is the generating point of $M_0$, then it is easy to see that $\omega_0' = \varphi(\omega_0) \in M_0$, so (Proposition 14(iv)) $\varphi_0$ is an automorphism of order $2$ of $M_0$, and thus defines an action of $\mathbb{Z}_2$ on $M_0$ which commutes with the shift $\sigma$.
+
+Another important class of homomorphisms are the proximal extensions. The homomorphism $\pi : X \to Y$ is \textit{proximal} if whenever $x, x' \in X$ with $\pi(x) = \pi(x')$, then $x$ and $x'$ are proximal. Equivalently, $R(\pi) \subset P(X)$.
+
+As we will see in the final chapter, the proximal and group extensions are used as “building blocks” for a certain class of flows which include many of the known examples.
+
+We now present two examples of minimal cascades on which proximal homomorphisms are defined. In both of these examples, the proximal relation $P$ is a closed equivalence relation, and the homomorphism is the canonical map $X \to X / P$.
+
+The first example is a ``non-homogeneous'' minimal set, which is a modification of a construction of E.~E.~Floyd. In the ensuing discussion ``rectangle'' will mean a closed rectangle in the plane with sides parallel to the axes. If $B$ is a rectangle, $B = [a,a+h] \times [b,b+k]$, then $\lambda(B)$ denotes a union of three disjoint rectangles
+\[
+    \lambda(B) = B_0 \cup B_1 \cup B_2,
+\]
+where
+\[
+    B_0 = [a,a+\tfrac{h}{5}] \times [b,b+\tfrac{k}{2}], \quad
+    B_1 = [a+\tfrac{2h}{5}, a+\tfrac{3h}{5}] \times [b,b+k], \quad \text{and} \quad
+    B_2 = [a+\tfrac{4h}{5}, a+h] \times [b+\tfrac{k}{2}, b+k].
+\]
+That is, $\lambda(B)$ is obtained from $B$ by deleting the ``middle fifths'' rectangles and then deleting the top and bottom halves respectively of the remaining left and right rectangles.
+
+
+If $K$ is a disjoint union of rectangles
+\[
+    K = \bigcup_{i=1}^n B_i,
+\]
+then we define
+\[
+    \lambda(K) = \bigcup_{i=1}^m \lambda(B_i).
+\]
+Now, let $B^{(0)} = [0,1] \times [0,1]$, and define inductively
+\[
+    B^{(n+1)} = \lambda(B^{(n)}).
+\]
+
+Thus $B^{(n)}$ consists of $3^n$ disjoint rectangles $B^{(n)}_k$
+($k = 0,1,2,\ldots,3^n - 1$) arranged as follows:
+$B^{(1)}_0$, $B^{(1)}_1$, and $B^{(1)}_2$
+are the ``left,'' ``center,'' and ``right'' rectangles
+(corresponding to $B_0$, $B_1$, and $B_2$
+in the definition of $\lambda$ above).
+At the next stage, let
+\[
+    \lambda(B^{(1)}_0) = B^{(2)}_0 \cup B^{(2)}_3 \cup B^{(2)}_6, \qquad
+    \lambda(B^{(1)}_1) = B^{(2)}_1 \cup B^{(2)}_4 \cup B^{(2)}_7,
+\]
+and
+\[
+    \lambda(B^{(1)}_2) = B^{(2)}_2 \cup B^{(2)}_5 \cup B^{(2)}_8,
+\]
+all from left to right. In general,
+\[
+    \lambda(B^{(n)}_j)
+    = B^{(n+1)}_j \cup B^{(n+1)}_{j+3^n} \cup B^{(n+1)}_{j+2\cdot3^n},
+\]
+from left to right. The first two stages of the construction are shown
+in figures~1 and~2 (where the rectangles are labeled $0,1,2$,
+and $0,1,2,\ldots,8$, respectively).
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Fig1.png}
+        \caption{First stage of the construction. Rectangles labeled 0, 1, and 2.}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Fig2.png}
+        \caption{Second stage of the construction. Rectangles labeled 0–8.}
+    \end{minipage}
+\end{figure}
+
+
+Let
+\[
+    X = \bigcap_{n = 0, 1, 2, \ldots} B^{(n)}.
+\]
+Since $B^{(n)}$ is a decreasing sequence of compact sets, $X$ is a compact metric
+space, which consists of vertical line segments, some (in fact all but countably many)
+of which are degenerate (single points). There is one segment of length $1$ and,
+for every $n > 0$, infinitely many of length $1 / 2^n$. The space $X$ is
+non-homogeneous—if $x \in X$, its dimension at $x$ is $1$ or $0$ according
+as $x$ is on a non-degenerate or degenerate segment.
+
+
+A homeomorphism $T$ of $X$ is defined by permuting the rectangles $B^{(n)}_j$. The permutations $B^{(n)}_j \mapsto B^{(n)}_{j+1}$ (where $j+1$ is understood modulo $3^n$) induce a map of $X$ to itself. (Note that $\bigcap B^{(n)}_{j_n} \neq \emptyset$ if and only if $j_{n+1} \equiv j_n \pmod{3^n}$, so the permutations induce a map of $\bigcap B^{(n)}_{j_n}$ to $\bigcap B^{(n)}_{j_n+1}$. If these sets are non-degenerate vertical line segments, map the first linearly onto the second.)
+
+
+To show that the cascade $(X,T)$ is minimal, let $\ell_0$ be the unique line segment of length one in $X$, and let $X_0$ be a minimal subset of $X$. It is sufficient to show that $\ell_0 \subset X_0$. Since the orbit of every point of $X$ intersects every rectangle $B^{(n)}_j$, there is a point $x_0 \in X_0 \cap \ell_0$. But if $x' \in \ell_0$, and $V$ is a neighborhood of $x'$, there is a rectangle $B^{(n)}_j \subset V$, so $\mathcal{O}(x_0) \cap V \neq \emptyset$. Hence $x' \in X_0$, and so $(X,T)$ is minimal.
+
+
+The homeomorphism $T$ permutes the vertical segments, and it is easy to see that $x$ and $x'$ in $X$ are proximal if and only if $x$ and $x'$ are on the same vertical segment. Thus the proximal relation $P$ is a closed equivalence relation, and $T$ induces a homeomorphism on the quotient space $X/P$. The latter space is homeomorphic to a Cantor set. The factor cascade will be analyzed in the chapter on equicontinuous flows.
+
+
+An interesting biproduct of this example is the construction of a cascade with a locally compact phase space which has no minimal subsets. Before describing this construction, we note a property of the proximal relation in $X$. If $(x,x') \in P$ with $x \ne x'$, then there is an $\varepsilon > 0$ such that $d(T^n(x), T^n(x')) > \varepsilon$ for infinitely many (positive and negative) $n$. This follows from the fact that there are infinitely many segments of length $1/2$ and the homeomorphism $T$ maps the segments linearly.
+
+
+Now, let $Y = P \setminus \Delta$ (so $y = (x, x') \in Y$ if and only if $x \ne x'$ and $x$ and $x'$ are on the same vertical segment). Since $Y$ is an open subset of the compact space $P$, it is locally compact. Let $\psi : Y \to Y$ be the restriction of the product homeomorphism $T \times T$. To show that $(Y, \psi)$ has no minimal subsets, we define a real-valued function $\sigma$ on $Y$ with the following two properties:
+\begin{enumerate}[(i)]
+    \item If $y, y' \in Y$ with $y' \in \overline{\mathcal{O}(y)}$, then $\sigma(y') \le \sigma(y)$, and
+    \item If $y \in Y$, then for some $y' \in \overline{\mathcal{O}(y)}$, $\sigma(y') < \sigma(y)$.
+\end{enumerate}
+The existence of such a function $\sigma$ implies that $Y$ has no minimal subsets. For, if $y \in Y$ and $\Gamma = \overline{\mathcal{O}(y)}$, let $y' \in Y$ with $\sigma(y') < \sigma(y)$. If $\Gamma$ were minimal, we would have $y \in \overline{\mathcal{O}(y')}$ and $\sigma(y) \le \sigma(y') < \sigma(y)$, a contradiction.
+
+
+If $y = (x_1, x_2) \in Y$, let $\sigma(y) = d(T^k(x_1), T^k(x_2))$ where $k$ is the unique integer such that $T^k(x_1)$ and $T^k(x_2)$ are on $\ell_0$. Note that $\sigma$ is $\psi$-invariant: $\sigma(\psi(y)) = \sigma(y)$, for $y \in Y$, so if $y' \in \mathcal{O}(y)$, $\sigma(y') = \sigma(y)$. Moreover, if $\{m_k\}$ is a sequence such that $|m_k| \to \infty$ and $\psi^{m_k}(y) \to y' \in Y$, then $\sigma(y') < \sigma(y)$. To see this suppose, without loss of generality, that $y, y' \in \ell_0$. Since $\ell_0$ is the unique segment of length one, and $T$ maps segments linearly,
+\[
+    d(T^{m_k}(x_1), T^{m_k}(x_2)) \le \tfrac{1}{2} d(x_1, x_2) = \tfrac{1}{2} \sigma(y),
+\]
+so, if $y' = (x_1', x_2')$, then $\sigma(y') = d(x_1', x_2') \le \tfrac{1}{2} \sigma(y)$. Finally, as was noted above, there is an $\varepsilon > 0$ and a sequence $n_k \to \infty$ such that $d(T^{n_k}(x_1), T^{n_k}(x_2)) \ge \varepsilon$, so there is a $y' \in Y$ with $\psi^{n_k}(y) \to y'$ (and therefore, as we have just shown, $\sigma(y') < \sigma(y)$). Thus properties (i) and (ii) are satisfied.
+
+
+Our next example is the “two circle’’ minimal set, due to Ellis. Let $Y$ be the circle, regarded as the real numbers modulo $2\pi$, and let $Y_1$ and $Y_2$ be two disjoint copies of $Y$. Points in $Y_1$ and $Y_2$ will be written $(y,1)$ and $(y,2)$ respectively. Let $X=Y_1\cup Y_2$. $X$ will be topologized by specifying an open closed neighborhood base for each point. If $\varepsilon>0$, let
+\[
+    N(y,1,\varepsilon)=\{(y+t,1)\mid 0\le t<\varepsilon\}\,\cup\,\{(y+t,2)\mid 0<t\le \varepsilon\}
+\]
+and
+\[
+    N(y,2,\varepsilon)=\{(y+t,1)\mid 0>t\ge -\varepsilon\}\,\cup\,\{(y+t,2)\mid 0\ge t>-\varepsilon\};
+\]
+$N(y,1,\varepsilon)$ and $N(y,2,\varepsilon)$ are open closed basic neighborhoods of $(y,1)$ and $(y,2)$ respectively. With this topology $X$ is a compact Hausdorff zero dimensional space which is first countable but not second countable (and therefore not metrizable). Let $\tau$ be the homeomorphism of $X$ defined by $\tau(y,j)=(y+1,j)$ $(j=1,2)$. Then the cascade $(X,\tau)$ is minimal. (Although each of $Y_1$ and $Y_2$ is invariant under $\tau$, a neighborhood of $x=(y,j)$ contains points of both $Y_1$ and $Y_2$ and it follows easily from the minimality of the corresponding rotation of the circle that every orbit meets every basic neighborhood.) If $y\in Y$, then $(y,1)$ and $(y,2)$ are proximal -- for every $\varepsilon>0$ there is an $n$ such that $\tau^n(y,1)$ and $\tau^n(y,2)$ are both in $N(y,1,\varepsilon)$. Thus, the map $(y,j)\mapsto y$ $(j=1,2)$, defines a proximal homomorphism of $Y$ onto the rotation of the circle by one radian.
+
+
+A flow is said to be proximal if it is a proximal extension of the trivial (one point) flow — equivalently every pair of points is proximal. Abelian groups admit no minimal proximal actions (exercise 16).
+
+A simple example of a minimal proximal flow is provided by the action of $T = \mathrm{SL}(2,\mathbb{R})$ (the group of $2 \times 2$ real matrices with determinant $1$) on $X = \mathbb{R} \cup \{\omega\}$. If $x \in X$ and $t = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \in T$, define $x t = \dfrac{a x + b}{c x + d}$. It is well known and easily checked that the action of $T$ on $X$ is transitive (if $x, x' \in X$, there is a $t \in T$ with $x t = x'$) so certainly $(X, T)$ is minimal. Moreover, if $x$ and $x'$ are distinct points of $X$, then there is a $t \in T$ with $x t = 0$, $x' t = 1$. Thus, to show that the action of $T$ on $X$ is proximal, it is sufficient to show that $x = 0$ and $x' = 1$ are proximal. Let
+\[
+    t_n = \begin{bmatrix} 1 & 0 \\ n & 1 \end{bmatrix}
+\]
+and note that $\lim x t_n = \lim x' t_n = 0$, so $x$ and $x'$ are proximal.
+
+\subsection*{Exercises}
+
+\begin{exercise*}[1]
+    Let $(X, \varphi_t)$ be a real flow, and let $x \in X$. Then the orbit of $x$ is a single point, a periodic orbit, or a one-to-one continuous image of $\mathbb{R}$. In the latter case, the orbit is homeomorphic with $\mathbb{R}$ if and only if $x$ is not recurrent.
+
+    There is apparently no known topological characterization of orbits. (Not every continuous one-to-one image of $\mathbb{R}$ is an orbit — for example, a “figure eight’’ cannot be an orbit.)
+\end{exercise*}
+
+
+\begin{exercise*}[2]
+    Let $\{\varphi_t\}$ be a real flow in the metric space $X$. The positive semi-orbit of $x$ is the set $O^+(x) = \{\varphi_t(x) \mid t \ge 0\}$. The \textit{omega limit set} of $x$ is defined by
+    \[
+        \omega(x) = \bigcap_{\tau \ge 0} \overline{O^+(\varphi_\tau(x))}.
+    \]
+    \begin{enumerate}[(i)]
+        \item $y \in \omega(x)$ if and only if there is a sequence $\{t_n\}$ in $\mathbb{R}$ with $t_n \to \infty$ and $\lim_{n \to \infty} \varphi_{t_n}(x) = y$. Hence $x$ is (positively) recurrent if and only if $x \in \omega(x)$.
+        \item $O^+(x) = O^+(x) \cup \omega(x)$ and this union is disjoint if and only if $x \notin \omega(x)$.
+        \item If $\tau_0 \in \mathbb{R}$, $\omega(x) = \bigcap_{\tau \ge \tau_0} \overline{O^+(\varphi_\tau(x))}$.
+        \item The omega limit set is (positively and negatively) invariant, and if $t \in \mathbb{R}$, $\omega(\varphi_t(x)) = \omega(x)$ (so we may speak of the omega limit set of an orbit).
+        \item If $X$ is compact, $\omega(x)$ is non-empty and connected.
+    \end{enumerate}
+    The omega limit set can be defined for cascades in the obvious manner. The properties above (except for the conclusion $\omega(x)$ is connected in (v)) hold in this case as well.
+\end{exercise*}
+
+
+\begin{exercise*}[3]
+    Let $(X, T)$ be a transformation group and let $x \in X$. The \textit{period} of $x$ is the set $P = \{t \in T \mid x t = x\}$. $P$ is clearly a subgroup of $T$, and $x$ is said to be a periodic point if $P$ is syndetic.
+
+    \textit{Show:} If $T$ is locally compact and separable, then $x$ is periodic if and only if $xT$ is compact. (The map of $T/P$ to $xT$, $Pt \mapsto x t$, is continuous and bijective and is a homeomorphism if and only if the map $t \mapsto x t$ is open at $e$.)
+\end{exercise*}
+
+
+\begin{exercise*}[5]
+    Let $(X, T)$ be a minimal flow (with $X$ compact) and let $\mu$ be an invariant measure on $X$. (That is, $\mu$ is a Borel measure on $X$ with $\mu(X) = 1$ and $\mu(At) = \mu(A)$ for $A$ measurable and $t \in T$.) Then, if $V$ is a non-empty open subset of $X$, $\mu(V) > 0$.
+\end{exercise*}
+
+
+
+\begin{exercise*}[6]
+    The flow $(X, T)$ is called \textit{topologically transitive} if every non-empty open invariant set is dense, and \textit{point transitive} if it has a dense orbit. (Points with dense orbits are called “transitive points.”) Note that the “full shift” on $p$ symbols is point transitive.
+
+    Every point transitive flow is topologically transitive, and if the phase space is second countable the converse holds. In this case the set of transitive points is residual.
+\end{exercise*}
+
+
+\begin{exercise*}[7]
+    A minimal cascade $(X, \varphi)$ is said to be \textit{totally minimal} if $(X, \varphi^n)$ is minimal for all integers $n \ne 0$.
+    \begin{enumerate}[(i)]
+        \item Show that a minimal cascade with a connected phase space is totally minimal.
+        \item Suppose $(X, \varphi)$ is minimal but not totally minimal.
+              \begin{enumerate}[(a)]
+                  \item Let $p_1$ be the smallest positive integer such that $(X, \varphi^{p_1})$ is not minimal. Show that $p_1$ is prime.
+                  \item Show that all minimal subsets of $(X, \varphi^{p_1})$ are isomorphic.
+                  \item Let $X_1$ be such a minimal subset, and let $\varphi_1 = \varphi^{p_1}|_{X_1}$. If $(X_1, \varphi_1)$ is not totally minimal, then the smallest positive integer $p_2$ such that $(X_1, \varphi_1^{p_2})$ is not minimal is a prime with $p_2 \ge p_1$.
+              \end{enumerate}
+              Continuing in this manner, we either obtain a totally minimal cascade $(X_n, \varphi_n)$ or a sequence of primes $p_1 \le p_2 \le \dots$. (In the case of the non-homogeneous minimal set considered in this chapter, all $p_i = 3$.)
+    \end{enumerate}
+\end{exercise*}
+
+
+\begin{exercise*}[8]
+    Let $\omega = \omega_0 \omega_1 \omega_2 \ldots$ be a one-sided almost periodic sequence on the finite alphabet $A$. (That is, every finite word in $\omega$ occurs syndetically.) For $n = 0, 1, 2, \ldots$, let $\omega^{(n)}$ be the bisequence defined by
+    \[
+        \omega^{(n)} = \ldots 0 0 \ldots 0 \omega_0 \omega_1 \ldots \omega_n \omega_{n+1} \ldots,
+    \]
+    where, as usual, the vertical arrow denotes the $0$th position. Let $\omega^*$ be a subsequential limit of the $\omega^{(n)}$, $\omega^* = \lim_{n_i \to \infty} \omega^{(n_i)}$. Show that $\omega^*$ is an almost periodic point of $A^{\mathbb{Z}}$. Show that any two such points define the same minimal set.
+\end{exercise*}
+
+
+\begin{exercise*}[9]
+    Consider the point $\omega = (\omega_j)$ in $\{0,1\}^{\mathbb{Z}}$ defined for $j > 0$ by
+    \[
+        \omega_j =
+        \begin{cases}
+            0 & \text{if } j = 3^k(3n + 1), \\
+            1 & \text{if } j = 3^k(3n + 2),
+        \end{cases}
+        \qquad (n, k \ge 0).
+    \]
+    (Extend by reflection to obtain a point in $\{0,1\}^{\mathbb{Z}}$.) Show that $\omega$ is an almost periodic (and not periodic) point of $(\{0,1\}^{\mathbb{Z}}, \sigma)$. (This sequence can be constructed “in stages” as follows. Corresponding to $k = 0$, write
+    \[
+        01\_01\_01\_01\_01\_01\_ \ldots
+    \]
+    Next, start “filling in the gaps” by the above pattern, so corresponding to $k = 1$, we obtain
+    \[
+        01001101\_01001101\_010\ldots,
+    \]
+    and continue this process for $k = 2, 3, \ldots$.)
+\end{exercise*}
+
+\begin{exercise*}[10]
+    Let $\Omega = \{0,1\}^{\mathbb{Z}}$ and $\sigma : \Omega \to \Omega$ be the shift homeomorphism. Define $\alpha : \Omega \to \Omega$ by $\alpha(x)(2n) = \alpha(x)(2n+1) = x(n)$ (so $\alpha(x)$ is obtained from $x$ by the “substitution” $0 \mapsto 00$, $1 \mapsto 11$). Let $x_0 \in \Omega$ be a bisequence which contains all finite blocks and define $x_n$ inductively by $x_n = \alpha(x_{n-1})$. Let
+    \[
+        \Omega_0 = \bigcup_{n=0,1,2,\ldots} \mathcal{O}(x_n).
+    \]
+    Show that the cascade $(\Omega_0, \sigma)$ has no minimal sets. (The space $\Omega_0$ is not locally compact.)
+\end{exercise*}
+
+\begin{exercise*}[11]
+    Suppose $T=\mathbb{R}$ or $\mathbb{Z}$.
+    \begin{enumerate}[(i)]
+        \item Suppose $(X,T)$ is minimal with $X$ compact. Then $X$ is \emph{positively minimal} (i.e., for every $x\in X$, $O^{+}(x)$ is dense).
+        \item Suppose $X$ is locally compact and $(X,T)$ is positively minimal. Suppose there is a recurrent point $x$ in $X$. Then $x$ is almost periodic (and so $X$ is in fact compact).
+        \item Suppose $(X,T)$ is minimal with $X$ locally compact and every $x\in X$ is positively and negatively recurrent. Then $X$ is compact.
+    \end{enumerate}
+\end{exercise*}
+
+
+\begin{exercise*}[12]
+    Suppose the group $T$ is $\sigma$-compact. Show that $f \in B_0(T)$ has compact orbit closure if and only if it is left uniformly continuous. (That is, if $\varepsilon>0$ there is a neighborhood $U$ of $e$ such that $s_1^{-1}s_2 \in U$ implies $\lvert f(s_1)-f(s_2)\rvert<\varepsilon$.)
+\end{exercise*}
+
+
+
+\begin{exercise*}[14]
+    Let $(Y,\psi)$ be the cascade discussed in this chapter which has no minimal subsets. Show that every point of $Y$ has a non-empty omega limit set, but that $(Y,\psi)$ has no recurrent points.
+\end{exercise*}
+
+\begin{exercise*}[15]
+    Let $(X,T)$ and $(Y,T)$ be flows and let $\pi : X \to Y$ be a homomorphism.
+    \begin{enumerate}[(i)]
+        \item Show that $\pi(P(X)) \subset P(Y)$.
+        \item Suppose $Y$ is minimal, and there is a $y_0 \in Y$ such that whenever $x, x' \in \pi^{-1}(y_0)$, $(x, x') \in P(X)$. Show that $\pi$ is a proximal homomorphism.
+    \end{enumerate}
+\end{exercise*}
+
+
+\begin{exercise*}[16]
+    \begin{enumerate}[(i)]
+        \item Let $(X,T)$ be a flow and let $x,y \in X$. Show that if $(x,y) \in P$ and also $(x,y)$ is an almost periodic point of $(X \times X, T)$, then $x = y$.
+        \item If the group $T$ is abelian, then there are no non-trivial minimal proximal actions of $T$.
+    \end{enumerate}
+\end{exercise*}
+

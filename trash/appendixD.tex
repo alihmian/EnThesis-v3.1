@@ -1,0 +1,1078 @@
+\chapter{Fraïssé’s construction}
+
+In 1954 Roland Fraïssé published a paper which has become a classic of model theory. He pointed out that we can think of the class of finite linear orderings as a set of approximations to the ordering of the rationals, and he described a way of building the rationals out of these finite approximations. Fraïssé’s construction is important because it works in many other cases too. Starting from a suitable set of finite structures, we can build their ‘limit’, and some of the structures built in this way have turned out to be remarkably interesting. Several will appear later in this book.
+
+\section{Basic Model Theory}
+
+\begin{mynote}
+    difference in notation:
+    \begin{itemize}
+        \item Main paper first defines signature and then calls an \(L\)-structure a ``a structure for \(L\)''
+    \end{itemize}
+\end{mynote}
+\begin{definition}[Structure]
+
+    A \emph{structure} \( A \) is an object with the following four ingredients.
+
+    \begin{enumerate}
+        \item[(1.1)] A set called the \emph{domain} of \( A \), written \( \mathrm{dom}(A) \) or \( \mathrm{dom}\,A \) (some people call it the \emph{universe} or \emph{carrier} of \( A \)). The elements of \( \mathrm{dom}(A) \) are called the \emph{elements} of the structure \( A \). The \emph{cardinality} of \( A \), in symbols \( |A| \), is defined to be the cardinality \( |\mathrm{dom}\,A| \) of \( \mathrm{dom}(A) \).
+
+        \item[(1.2)] A set of elements of \( A \) called \emph{constant elements}, each of which is named by one or more \emph{constants}. If \( c \) is a constant, we write \( c^A \) for the constant element named by \( c \).
+
+              \begin{mynote}
+                  I think it is best to include a note explaining that in the main part of the thesis (the main paper) constants are assumed as \(0\)-ary functions.
+              \end{mynote}
+
+
+        \item[(1.3)] For each positive integer \( n \), a set of \( n \)-ary relations on \( \mathrm{dom}(A) \) (i.e. subsets of \( (\mathrm{dom}\,A)^n \)), each of which is named by one or more \( n \)-ary \emph{relation symbols}. If \( R \) is a relation symbol, we write \( R^A \) for the relation named by \( R \).
+
+        \item[(1.4)] For each positive integer \( n \), a set of \( n \)-ary operations on \( \mathrm{dom}(A) \) (i.e. maps from \( (\mathrm{dom}\,A)^n \) to \( \mathrm{dom}(A) \)), each of which is named by one or more \( n \)-ary \emph{function symbols}. If \( F \) is a function symbol, we write \( F^A \) for the function named by \( F \).
+    \end{enumerate}
+
+
+\end{definition}
+
+
+
+Except where we say otherwise, any of the sets (1.1)--(1.4) may be empty. The constant, relation and function ‘symbols’ can be any mathematical objects, not necessarily written symbols; but for peace of mind one normally assumes that, for instance, a 3-ary relation symbol doesn’t also appear as a 3-ary function symbol or a 2-ary relation symbol. We shall use capital letters \( A, B, C, \ldots \) for structures.
+
+Sequences of elements of a structure are written \( \bar{a}, \bar{b} \) etc. A \emph{tuple in} \( A \) (or \emph{from} \( A \)) is a finite sequence of elements of \( A \); it is an \emph{\( n \)-tuple} if it has length \( n \). Usually we leave it to the context to determine the length of a sequence or tuple.
+
+
+
+\begin{definition}[signature]
+    The \emph{signature} of a structure \( A \) is specified by giving
+    \begin{enumerate}
+        \item[(1.5)] the set of constants of \( A \), and for each separate \( n > 0 \), the set of \( n \)-ary relation symbols and the set of \( n \)-ary function symbols of \( A \).
+    \end{enumerate}
+
+\end{definition}
+
+
+
+We shall assume that the signature of a structure can be read off uniquely from the structure.
+
+The symbol \( L \) will be used to stand for signatures. Later it will also stand for languages -- think of the signature of \( A \) as a kind of rudimentary language for talking about \( A \). If \( A \) has signature \( L \), we say \( A \) is an \emph{\( L \)-structure}.
+
+A signature \( L \) with no constants or function symbols is called a \emph{relational signature}, and an \( L \)-structure is then said to be a \emph{relational structure}. A signature with no relation symbols is sometimes called an \emph{algebraic signature}.
+
+
+
+The following definition is meant to take in, with one grand sweep of the arm, virtually all the things that are called ‘homomorphism’ in any branch of algebra.
+
+\begin{definition}[Homomorphism]\label{def:homomorphism}
+    Let \( L \) be a signature and let \( A \) and \( B \) be \( L \)-structures. By a \emph{homomorphism} \( f \) from \( A \) to \( B \), in symbols \( f\colon A \to B \), we shall mean a function \( f \) from \( \mathrm{dom}(A) \) to \( \mathrm{dom}(B) \) with the following three properties.
+
+    \begin{enumerate}
+        \item[(2.1)]\label{def:homomorphism-const}
+              For each constant \( c \) of \( L \), \( f(c^A) = c^B \).
+
+        \item[(2.2)]\label{def:homomorphism-rel}
+              For each \( n > 0 \) and each \( n \)-ary relation symbol \( R \) of \( L \) and \( n \)-tuple \( \bar{a} \) from \( A \), if \( \bar{a} \in R^A \) then \( f\bar{a} \in R^B \).
+
+        \item[(2.3)]\label{def:homomorphism-func}
+              For each \( n > 0 \) and each \( n \)-ary function symbol \( F \) of \( L \) and \( n \)-tuple \( \bar{a} \) from \( A \), \( f(F^A(\bar{a})) = F^B(f\bar{a}) \).
+    \end{enumerate}
+
+\end{definition}
+
+\begin{note}
+    If \( \bar{a} \) is \( (a_0, \ldots, a_{n-1}) \) then \( f\bar{a} \) means \( (fa_0, \ldots, fa_{n-1}) \)
+\end{note}
+
+
+
+\begin{definition}[embedding]
+    By an \emph{embedding} of \( A \) into \( B \) we mean a homomorphism \( f\colon A \to B \) which is injective and satisfies the following stronger version of (2.2):
+
+    \begin{enumerate}
+        \item[(2.4)] For each \( n > 0 \), each \( n \)-ary relation symbol \( R \) of \( L \) and each \( n \)-tuple \( \bar{a} \) from \( A \), \( \bar{a} \in R^A \Leftrightarrow f\bar{a} \in R^B \).
+    \end{enumerate}
+
+\end{definition}
+
+An \emph{isomorphism} is a surjective embedding. Homomorphisms \( f\colon A \to A \) are called \emph{endomorphisms} of \( A \). Isomorphisms \( f\colon A \to A \) are called \emph{automorphisms} of \( A \).
+
+We say that \( A \) is \emph{isomorphic} to \( B \), in symbols \( A \cong B \), if there is an isomorphism from \( A \) to \( B \).
+
+
+\begin{theorem}
+    \label{thm:homomorphism-basics}
+    Let \( L \) be a signature.
+    \begin{enumerate}
+        \item[(a)] If \( A, B, C \) are \( L \)-structures and \( f\colon A \to B \) and \( g\colon B \to C \) are homomorphisms, then the composed map \( gf \) is a homomorphism from \( A \) to \( C \). If moreover \( f \) and \( g \) are both embeddings then so is \( gf \).
+
+        \item[(b)] If \( A, B \) are \( L \)-structures and \( f\colon A \to B \) is a homomorphism then \( 1_B f = f = f 1_A \).
+
+        \item[(c)] Let \( A, B, C \) be \( L \)-structures. Then \( 1_A \) is an isomorphism. If \( f\colon A \to B \) is an isomorphism then the inverse map \( f^{-1}\colon \mathrm{dom}(B) \to \mathrm{dom}(A) \) exists and is an isomorphism from \( B \) to \( A \). If \( f\colon A \to B \) and \( g\colon B \to C \) are isomorphisms then so is \( gf \).
+
+        \item[(d)] The relation \( \cong \) is an equivalence relation on the class of \( L \)-structures.
+
+        \item[(e)] If \( A, B \) are \( L \)-structures, \( f\colon A \to B \) is a homomorphism and there exist homomorphisms \( g\colon B \to A \) and \( h\colon B \to A \) such that \( gf = 1_A \) and \( fh = 1_B \), then \( f \) is an isomorphism and \( g = h = f^{-1} \).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    (e)\quad \( g = g 1_B = gfh = 1_A h = h \). Since \( gf = 1_A \), \( f \) is an embedding. Since \( fh = 1_B \), \( f \) is surjective.
+\end{proof}
+
+
+
+
+\begin{definition}[Extension and Substructure]
+    If \( A \) and \( B \) are \( L \)-structures with \( \mathrm{dom}(A) \subseteq \mathrm{dom}(B) \) and the inclusion map \( i\colon \mathrm{dom}(A) \to \mathrm{dom}(B) \) is an embedding, then we say that \( B \) is an \emph{extension} of \( A \), or that \( A \) is a \emph{substructure} of \( B \), in symbols \( A \subseteq B \). Note that if \( i \) is the inclusion map from \( \mathrm{dom}(A) \) to \( \mathrm{dom}(B) \), then condition (2.1) above says that \( c^A = c^B \) for each constant \( c \), condition (2.2) says that \( R^A = R^B \cap (\mathrm{dom}(A))^n \) for each \( n \)-ary relation symbol \( R \), and finally condition (2.3) says that \( F^A = F^B|_{(\mathrm{dom}(A))^n} \) (the restriction of \( F^B \) to \( (\mathrm{dom}(A))^n \)) for each \( n \)-ary function symbol \( F \).
+\end{definition}
+
+
+\begin{lemma}
+    \label{lem:substructure-domain-characterization}
+    Let \( B \) be an \( L \)-structure and \( X \) a subset of \( \mathrm{dom}(B) \). Then the following are equivalent:
+    \begin{enumerate}
+        \item[(a)] \( X = \mathrm{dom}(A) \) for some \( A \subseteq B \).
+        \item[(b)] \emph{For every constant \( c \) of \( L \), \( c^B \in X \); and for every \( n > 0 \), every \( n \)-ary function symbol \( F \) of \( L \) and every \( n \)-tuple \( \bar{a} \) of elements of \( X \), \( F^B(\bar{a}) \in X \)}.
+    \end{enumerate}
+    If (a) and (b) hold, then \( A \) is uniquely determined.
+\end{lemma}
+
+\begin{proof}
+    Suppose (a) holds. Then for every constant \( c \) of \( L \), \( c^B = c^A \) by (2.1); but \( c^A \in \mathrm{dom}(A) = X \), so \( c^B \in X \). Similarly, for each \( n \)-ary function symbol \( F \) of \( L \) and each \( n \)-tuple \( \bar{a} \) of elements of \( X \), \( \bar{a} \) is an \( n \)-tuple in \( A \) and so \( F^B(\bar{a}) = F^A(\bar{a}) \in \mathrm{dom}(A) = X \). This proves (b).
+
+    Conversely, if (b) holds, then we can define \( A \) by putting \( \mathrm{dom}(A) = X \), \( c^A = c^B \) for each constant \( c \) of \( L \), \( F^A = F^B|_{X^n} \) for each \( n \)-ary function symbol \( F \) of \( L \), and \( R^A = R^B \cap X^n \) for each \( n \)-ary relation symbol \( R \) of \( L \). Then \( A \subseteq B \); moreover this is the only possible definition of \( A \), given that \( A \subseteq B \) and \( \mathrm{dom}(A) = X \).
+\end{proof}
+
+
+
+\begin{definition}
+    Let \( B \) be an \( L \)-structure and \( Y \) a set of elements of \( B \). Then it follows easily from Lemma \ref{lem:substructure-domain-characterization} that there is a unique smallest substructure \( A \) of \( B \) whose domain includes \( Y \); we call \( A \) the \emph{substructure of \( B \) generated by \( Y \)}, or the \emph{hull} of \( Y \) in \( B \), in symbols \( A = \langle Y \rangle_B \). We call \( Y \) a \emph{set of generators} for \( A \). A structure \( B \) is said to be \emph{finitely generated} if \( B \) is of form \( \langle Y \rangle_B \) for some finite set \( Y \) of elements.
+\end{definition}
+
+When the context allows, we write just \( \langle Y \rangle \) instead of \( \langle Y \rangle_B \). Sometimes it’s convenient to list the generators \( Y \) as a sequence \( \bar{a} \); then we write \( \langle \bar{a} \rangle_B \) for \( \langle Y \rangle_B \).
+
+
+
+
+\begin{proposition}
+    \label{prop:homomorphism-factorization}
+
+    Assume in the following, all structures are assumed to be \( L \)-structures for some fixed signature \( L \).
+    \begin{enumerate}
+        \item Every homomorphism \( f\colon A \to C \) can be factored as \( f = hg \) for some surjective homomorphism \( g\colon A \to B \) and extension \( h\colon B \to C \):
+              \[
+                  \begin{tikzcd}
+                      & A \arrow[dr, "f"] \arrow[dl, "g"'] & \\
+                      B \arrow[rr, "h"'] & & C
+                  \end{tikzcd}
+              \]
+        \item Every embedding \( f\colon A \to C \) can be factored as \( f = hg \) where \( g \) is an extension and \( h \) is an isomorphism. \emph{This is a small piece of set theory which often gets swept under the carpet. It says that when we have embedded \( A \) into \( C \), we can assume that \( A \) is a substructure of \( C \). The embedding of the rationals in the reals is a familiar example.}
+    \end{enumerate}
+\end{proposition}
+
+
+
+\begin{proof}
+    (1) Let $B$ be the \emph{image} $f(A)$ equipped with the induced $L$-substructure of $C$:
+    for each $n$-ary function symbol $F$, set $F^B=F^C\!\upharpoonright B^n$; for each $n$-ary relation
+    $R$, set $R^B=R^C\cap B^n$; and for each constant $c$, set $c^B=c^C$ (note $c^C=f(c^A)\in f(A)$).
+    Define $g\colon A\to B$ by $g(a)=f(a)$; then $g$ is a surjective homomorphism.
+    Let $h\colon B\hookrightarrow C$ be the inclusion map; it is an embedding (hence an extension).
+    Clearly $f=h\circ g$.
+
+
+    (2) Suppose $f\colon A\hookrightarrow C$ is an embedding. Form the disjoint union
+    $|B|:=A\;\dot\cup\;(C\setminus f(A))$. Define a bijection
+    \[
+        \sigma\colon |B|\longrightarrow |C|,\qquad
+        \sigma(a)=f(a)\ (a\in A),\ \ \ \sigma(x)=x\ (x\in C\setminus f(A)).
+    \]
+    Transport the $L$-structure from $C$ along $\sigma$: for an $n$-ary function $F$ put
+    \[
+        F^B(b_1,\dots,b_n):=\sigma^{-1}\!\big(F^C(\sigma(b_1),\dots,\sigma(b_n))\big),
+    \]
+    for an $n$-ary relation $R$ put
+    \[
+        R^B(b_1,\dots,b_n)\ \Longleftrightarrow\ R^C(\sigma(b_1),\dots,\sigma(b_n)),
+    \]
+    and for a constant $c$ put $c^B:=\sigma^{-1}(c^C)$. With these interpretations,
+    $h:=\sigma\colon B\to C$ is an isomorphism of $L$-structures.
+    Let $g\colon A\hookrightarrow B$ be the inclusion of the subset $A\subseteq |B|$.
+    Then for each $a\in A$ one has $(h\circ g)(a)=\sigma(a)=f(a)$, so $f=h\circ g$.
+
+    Moreover, $A$ is a substructure of $B$: for $a_1,\dots,a_n\in A$,
+    \[
+        \begin{aligned}
+            F^B(a_1,\dots,a_n)
+             & = \sigma^{-1}\!\big(F^C(f(a_1),\dots,f(a_n))\big) \\
+             & = \sigma^{-1}\!\big(f(F^A(a_1,\dots,a_n))\big)    \\
+             & = F^A(a_1,\dots,a_n)\in A,
+        \end{aligned}
+    \]
+    and similarly for relations and constants, using that $f$ is an embedding.
+    Hence $g$ is indeed an extension, and $h$ is an isomorphism as required.
+\end{proof}
+
+
+
+
+\begin{proposition}
+    \label{prop:finite-relational-language-finiteness}
+
+    Let \( L \) be a finite signature with no function symbols.
+    \begin{enumerate}
+        \item Show that every finitely generated \( L \)-structure is finite.
+        \item Show that for each \( n < \omega \) there are up to isomorphism only finitely many \( L \)-structures of cardinality \( n \).
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+\section{Age}
+
+Let \( L \) be a signature and \( D \) an \( L \)-structure. The \emph{age} of \( D \) is the class \( \mathbf{K} \) of all finitely generated structures that can be embedded in \( D \). Actually what interests us is not the structures in \( \mathbf{K} \) but their isomorphism types. So we shall also call a class \( \mathbf{J} \) the \emph{age} of \( D \) if the structures in \( \mathbf{J} \) are, \emph{up to isomorphism}, exactly the finitely generated substructures of \( D \). Thus it will make sense to say, for example, that \( D \) has ‘countable age’ -- it will mean that \( D \) has just countably many isomorphism types of finitely generated substructure.
+
+We call a class an \emph{age} if it is the age of some structure. If \( \mathbf{K} \) is an age, then clearly \( \mathbf{K} \) is non-empty and has the following two properties.
+
+\begin{enumerate}
+    \item[(1.1)] \textbf{(Hereditary property, HP for short)} If \( A \in \mathbf{K} \) and \( B \) is a finitely generated substructure of \( A \) then \( B \) is isomorphic to some structure in \( \mathbf{K} \).
+
+    \item[(1.2)] \textbf{(Joint embedding property, JEP for short)} If \( A, B \) are in \( \mathbf{K} \) then there is \( C \) in \( \mathbf{K} \) such that both \( A \) and \( B \) are embeddable in \( C \):
+
+          \[
+              \begin{tikzcd}[column sep=2em, row sep=2em]
+                  A \ar[dashed, drr] & & \\
+                  & & C \\
+                  B \ar[dashed, urr] & &
+              \end{tikzcd}
+          \]
+\end{enumerate}
+
+
+
+\begin{proof}
+    Let $\mathbf{K} = Age(M)$ be the age of a structure $M$, i.e.\ the class of all finitely generated structures isomorphic to substructures of $M$.
+
+
+    \noindent\emph{Non-emptiness.}
+    Pick any $a \in M$. The substructure $\langle a \rangle \leq M$ generated by $a$ is finitely generated, hence
+    \(\langle a \rangle \in Age(M) = \mathbf{K}\). Thus $\mathbf{K} \neq \varnothing$.
+
+
+    \noindent\emph{Hereditary property (HP).}
+    Suppose $A \in \mathbf{K}$ and $B \leq A$ is finitely generated. By definition there is an embedding
+    $e : A \hookrightarrow M$. Then $e\!\upharpoonright_B : B \hookrightarrow M$ is an embedding, so $B$ is isomorphic to the finitely generated substructure $e(B) \leq M$. Hence $B \in \mathbf{K}$.
+
+
+    \noindent\emph{Joint embedding property (JEP).}
+    If $A,B \in \mathbf{K}$, take embeddings $e_A : A \hookrightarrow M$ and $e_B : B \hookrightarrow M$. Let
+    \[
+        C := \langle e_A(A) \cup e_B(B) \rangle \;\leq\; M
+    \]
+    be the substructure of $M$ generated by the two images. Since $A$ and $B$ are finitely generated, so is $C$. Thus $C \in \mathbf{K}$, and the inclusions $e_A(A) \hookrightarrow C$ and $e_B(B) \hookrightarrow C$ show that both $A$ and $B$ embed into $C$.
+
+
+    Therefore, $\mathbf{K}$ is non-empty, has the hereditary property, and has the joint embedding property.
+\end{proof}
+
+One of Fraïssé’s theorems was a converse to this.
+
+\begin{theorem}
+    Suppose \( L \) is a signature and \( \mathbf{K} \) is a non-empty finite or countable set of finitely generated \( L \)-structures which has the HP and the JEP. Then \( \mathbf{K} \) is the age of some finite or countable structure.
+\end{theorem}
+
+\begin{proof}
+    List the structures in \( \mathbf{K} \), possibly with repetitions, as \( (A_i : i < \omega) \). Define a chain \( (B_i : i < \omega) \) of structures isomorphic to structures in \( \mathbf{K} \), as follows. First put \( B_0 = A_0 \). When \( B_i \) has been chosen, use the joint embedding property to find a structure \( B' \) in \( \mathbf{K} \) such that both \( B_i \) and \( A_{i+1} \) are embeddable in \( B' \). Take \( B_{i+1} \) to be an isomorphic copy of \( B' \) which extends \( B_i \) (recalling proposition \ref{prop:homomorphism-factorization}). Finally let \( C \) be the union \( \bigcup_{i<\omega} B_i \). Since \( C \) is the union of countably many structures which are at most countable, \( C \) is at most countable. By construction every structure in \( \mathbf{K} \) is embeddable in \( C \). If \( A \) is any finitely generated substructure of \( C \), then the finitely many generators of \( A \) lie in some \( B_i \), so that \( A \) is isomorphic to a structure in \( \mathbf{K} \) (by the hereditary property). So \( \mathbf{K} \) is the age of \( C \).
+\end{proof}
+
+
+
+The theorem holds even if \( L \) has function symbols. But one way to guarantee that \( \mathbf{K} \) is at most countable is to assume that \( L \) is a finite signature with no function symbols -- see proposition \ref{prop:finite-relational-language-finiteness} above.
+
+When there are no function symbols and only finitely many constant symbols, a finitely generated structure is the same thing as a finite structure.
+
+
+All infinite linear orderings have exactly the same age, namely the finite linear orderings. (In Fraïssé’s own charming terminology, any two infinite linear orderings are ‘younger than each other’.)
+
+
+\begin{proposition}
+    Let $L=\{<\}$ and let $(M,<)$ be an infinite linear order. Then
+    \[
+        Age(M)=\{\,\text{finite linear orders}\,\}.
+    \]
+    In particular, all infinite linear orders have the same age.
+\end{proposition}
+
+\begin{proof}
+    ($\subseteq$) Any finitely generated substructure of $(M,<)$ is just the
+    induced structure on a finite subset of $M$ (since the language is purely
+    relational). Restricting a linear order to a finite subset yields a finite
+    linear order. Hence $Age(M)$ consists of finite linear orders.
+
+    ($\supseteq$) Let $(F,<)$ be any finite linear order with $|F|=n$. Since $M$ is
+    infinite, it has at least $n$ distinct elements; choose $b_1,\dots,b_n\in M$
+    pairwise distinct and list them in increasing order:
+    \[ b_1<\cdots<b_n. \]
+    List $F$ in increasing order as $a_1<\cdots<a_n$. Then the map
+    \[
+        e\colon F\to M,\qquad e(a_i)=b_i
+    \]
+    is an order-embedding (preserves and reflects $<$). Its image is the induced
+    suborder on
+    \[
+        \{b_1,\dots,b_n\},
+    \] which is finite. Thus $F\in Age(M)$.
+
+    Combining the two inclusions gives $Age(M)=\{\text{finite linear orders}\}$,
+    independently of the infinite linear order $(M,<)$.
+\end{proof}
+
+
+
+
+
+In what sense do the finite linear orderings ‘tend to’ the rationals rather than, say, the ordering of the integers?
+
+In order to answer this, Fraïssé singled out one further property of the finite linear orderings, to set beside HP and JEP. This property, the amalgamation property, has been of crucial importance in model theory ever since; we met several variants in Chapter 6.
+
+\begin{enumerate}
+    \item [(1.3)] \label{Hodges:tag7.1.3}(\textbf{Amalgamation property, AP for short}) If \( A, B, C \) are in \( \mathbf{K} \) and \( e\colon A \to B \), \( f\colon A \to C \) are embeddings, then there are \( D \) in \( \mathbf{K} \) and embeddings \( g\colon B \to D \) and \( h\colon C \to D \) such that \( ge = hf \).
+
+\end{enumerate}
+
+\[
+    \begin{tikzcd}[row sep=3em, column sep=3.5em, ampersand replacement = \&]
+        \& B \ar[dashed,dr,"g"] \& \\
+        A \ar[ur,"e"] \ar[dr,"f"']
+        \& \& D \\
+        \& C \ar[dashed,ur,"h"'] \&
+    \end{tikzcd}
+\]
+
+\begin{remark}
+    In general JEP is not a special case of AP. Think of fields.
+\end{remark}
+
+
+
+\begin{proposition}[JEP fails for all fields]
+    The class $\mathcal{K}$ of all fields does not have the joint embedding property.
+\end{proposition}
+
+\begin{proof}
+    Take $\mathbb{Q}$ (characteristic $0$) and $\mathbb{F}_p$ (characteristic $p$). Any field
+    homomorphism preserves $1$, hence preserves the prime subfield and therefore the characteristic.
+    Thus no field can contain isomorphic copies of both $\mathbb{Q}$ and $\mathbb{F}_p$.
+    Hence $\mathbb{Q}$ and $\mathbb{F}_p$ do not jointly embed, so JEP fails.
+\end{proof}
+
+\begin{remark}[Why AP does not imply JEP here]
+    AP would imply JEP if there were an \emph{initial object} $I\in\mathcal{K}$ (a field
+    embedding into every field): given $B,C$, amalgamate the two embeddings $I\hookrightarrow B$,
+    $I\hookrightarrow C$ to get a joint embedding. But no such $I$ exists among fields:
+    if $I$ embedded into every field, then $I$ would embed into $\mathbb{Q}$ (char $0$) and
+    into $\mathbb{F}_p$ for each prime $p$, forcing $\operatorname{char}(I)=0$ and
+    $\operatorname{char}(I)=p$ simultaneously---a contradiction. Thus AP (which holds over a fixed
+    base field) does not yield JEP for the whole class of fields.
+\end{remark}
+
+
+
+\begin{proposition}[AP over a fixed base field]\label{prop:AP-fields}
+    Let $A$ be a field. In the class of field extensions of $A$ with $A$-embeddings
+    (i.e.\ embeddings fixing $A$ pointwise), the amalgamation property holds:
+    for any $A$-embeddings
+    \[
+        e\colon A\hookrightarrow B,\qquad f\colon A\hookrightarrow C,
+    \]
+    there exist a field $D$ and $A$-embeddings $i_B\colon B\hookrightarrow D$,
+    $i_C\colon C\hookrightarrow D$ with $i_B\circ e=i_C\circ f$.
+\end{proposition}
+
+\begin{proof}
+    Choose transcendence bases $S_B$ of $B$ over $A$ and $S_C$ of $C$ over $A$,
+    and make them disjoint (rename variables if necessary). Put
+    \[
+        S:=S_B\;\dot\cup\;S_C,\qquad F:=A(S)\ \text{ (a purely transcendental extension of $A$).}
+    \]
+    Then $B$ is algebraic over $A(S_B)$ and $C$ is algebraic over $A(S_C)$.
+    Identify $A(S_B)$ and $A(S_C)$ with the corresponding $A$-subfields of $F$
+    by sending each element of $S_B$ (resp.\ $S_C$) to the matching indeterminate in $S$.
+    Let $\Omega$ be an algebraic closure of $F$.
+
+    Since algebraic embeddings extend into algebraic closures, the inclusions
+    $A(S_B)\hookrightarrow F\hookrightarrow \Omega$ and $A(S_C)\hookrightarrow F\hookrightarrow \Omega$
+    extend to $A$-embeddings
+    \[
+        \iota_B\colon B\hookrightarrow \Omega,\qquad \iota_C\colon C\hookrightarrow \Omega.
+    \]
+    Define $D$ to be the subfield of $\Omega$ generated by $\iota_B(B)\cup \iota_C(C)$:
+    \[
+        D:=A\big(\,\iota_B(B)\cup \iota_C(C)\,\big)\ \subseteq\ \Omega.
+    \]
+    Then the inclusions $i_B\colon B\to D$, $i_C\colon C\to D$ (composed with $\iota_B,\iota_C$)
+    are $A$-embeddings and clearly agree on $A$. Hence $(D,i_B,i_C)$ is an amalgam over $A$.
+\end{proof}
+
+\begin{remark}[Finite fields case]
+    If $A=\mathbb{F}_{p^k}$, $B=\mathbb{F}_{p^m}$, $C=\mathbb{F}_{p^n}$ with $k\mid m,n$,
+    then the compositum inside a fixed algebraic closure $\overline{\mathbb{F}}_p$ is
+    \[
+        D=\mathbb{F}_{p^{\mathrm{lcm}(m,n)}},
+    \]
+    and the inclusions $B,C\hookrightarrow D$ agree on $A$. Thus AP holds in the subclass of finite fields over $A$ as well.
+\end{remark}
+
+
+
+The class of all finite linear orderings has the amalgamation property. The simplest way to see this is to start with the case where \( A \) is a substructure of \( B \) and \( C \), the maps \( e, f \) are inclusions and \( A \) is exactly the overlap of \( B \) and \( C \). In this case we can form \( D \) as an extension of \( B \), by adding the elements of \( C \) one by one in the appropriate places. (Formally, use an induction on the cardinality of \( C \).) The general case then follows by diagram-chasing.
+Given embeddings \(e\colon A\hookrightarrow B\) and \(f\colon A\hookrightarrow C\) of finite linear orders, factor them as
+\[
+    e=\beta\circ i_A,\qquad f=\gamma\circ i_A,
+\]
+where \(i_A\colon A\hookrightarrow B_1\) and \(i_A\colon A\hookrightarrow C_1\) are inclusions (extensions) and \(\beta\colon B_1\xrightarrow{\ \cong\ }B\), \(\gamma\colon C_1\xrightarrow{\ \cong\ }C\) are isomorphisms (Exercise 1.2.4(2)). Apply the special case to the inclusions \(A\subseteq B_1,C_1\) to obtain a finite linear order \(D_1\) and embeddings \(j_B\colon B_1\hookrightarrow D_1\), \(j_C\colon C_1\hookrightarrow D_1\) with \(j_B\circ i_A=j_C\circ i_A\). Now set
+\[
+    g:=j_B\circ \beta^{-1}\colon B\to D_1,\qquad h:=j_C\circ \gamma^{-1}\colon C\to D_1.
+\]
+\[
+    \begin{tikzcd}[column sep=large, row sep=large, ampersand replacement=\&]
+        \& B_1 \arrow[rr, "\beta", "\cong"'] \arrow[dr, "j_B"'] \& \& B \arrow[dl, dashed, "g:=j_B\circ\beta^{-1}"] \\
+        A \arrow[ur, "i_A"] \arrow[dr, "i_A"'] \arrow[urrr, bend left=5, "e"] \arrow[drrr, bend right=5, "f"'] \& \& D_1 \& \\
+        \& C_1 \arrow[rr, "\gamma"', "\cong"] \arrow[ur, "j_C"] \& \& C \arrow[ul, dashed, "h:=j_C\circ\gamma^{-1}"']
+    \end{tikzcd}
+\]
+Then
+\[
+    g\circ e=j_B\circ \beta^{-1}\circ \beta\circ i_A=j_B\circ i_A=j_C\circ i_A=j_C\circ \gamma^{-1}\circ \gamma\circ i_A=h\circ f,
+\]
+so \((D_1,g,h)\) is an amalgam of \(B\) and \(C\) over \(A\).
+
+
+
+\begin{definition}[ultrahomogeneous]
+    We call a structure \( D \) \emph{ultrahomogeneous} if every isomorphism between finitely generated substructures of \( D \) extends to an automorphism of \( D \). (Usually one says \emph{homogeneous}; in this book we have too many different notions that are known by this name.)
+\end{definition}
+
+
+Fraïssé’s main conclusion was as follows.
+
+\begin{theorem}[Fraïssé’s theorem]\label{thm:Fraïssé’s-theorem}
+    Let \( L \) be a countable signature and let \( \mathbf{K} \) be a non-empty finite or countable set of finitely generated \( L \)-structures which has HP, JEP and AP. Then there is an \( L \)-structure \( D \), unique up to isomorphism, such that
+    \begin{align}
+        \text{(1.4)}\quad & D \text{ has cardinality } \leq \omega, \notag          \\
+        \text{(1.5)}\quad & \mathbf{K} \text{ is the age of } D, \text{ and} \notag \\
+        \text{(1.6)}\quad & D \text{ is ultrahomogeneous}. \notag
+    \end{align}
+\end{theorem}
+
+
+There seems to be no accepted name for the structure \( D \) of the theorem. Some people, with Lemma 7.1.3 below in mind, refer to it as the \emph{universal homogeneous structure of age \( \mathbf{K} \)}. I shall call it the \emph{Fraïssé limit} of the class \( \mathbf{K} \). Of course it is only determined up to isomorphism.
+
+The rest of this section is devoted to the proof of Theorem \ref{thm:Fraïssé’s-theorem}.
+
+
+\begin{example}[A structure that is not weakly homogeneous]
+    Let \(D=(\mathbb{Z},<)\). Take \(A=\{0,2\}\subseteq D\) and \(B=\{0,1,2\}\subseteq D\) with the induced order.
+    Define an embedding \(f:A\to D\) by \(f(0)=0\) and \(f(2)=1\).
+
+    If there were an embedding \(g:B\to D\) extending \(f\), we would need an element \(g(1)\) with
+    \(0<g(1)<1\), which is impossible in \(\mathbb{Z}\) (there is no integer strictly between \(0\) and \(1\)).
+    Hence such a \(g\) does not exist, so \(D\) is not weakly homogeneous.
+
+    \[
+        \begin{tikzcd}[ampersand replacement=\&]
+            A=\{0,2\} \arrow[r,"f"] \arrow[d,hook] \& D=\mathbb{Z} \\
+            B=\{0,1,2\} \arrow[ur,dashed,"g\ \text{(impossible)}"']
+        \end{tikzcd}
+    \]
+\end{example}
+
+\begin{lemma}
+    If $D$ is ultrahomogeneous, then $D$ is weakly homogeneous.
+\end{lemma}
+
+\begin{proof}
+    Let $A\subseteq B\le D$ be finitely generated substructures and let
+    $f\colon A\to D$ be an embedding. Then $A':=f(A)$ is a finitely generated
+    substructure of $D$, and $f\colon A\xrightarrow{\ \cong\ }A'$ is an
+    isomorphism between finitely generated substructures of $D$.
+
+    By ultrahomogeneity, $f$ extends to some automorphism
+    $\alpha\in\Aut(D)$ with $\alpha\!\upharpoonright_A=f$.
+    Set $g:=\alpha\!\upharpoonright_B\colon B\to D$. Then $g$ is an embedding
+    (restriction of an automorphism) and $g\!\upharpoonright_A
+        =\alpha\!\upharpoonright_A=f$. Hence $g$ extends $f$, as required.
+\end{proof}
+
+
+\begin{lemma}
+    \label{lem:weakly-homogeneous-age-embedding}
+
+    Let \( C \) and \( D \) be \( L \)-structures which are both at most countable. Suppose the age of \( C \) is included in the age of \( D \), and \( D \) is weakly homogeneous. Then \( C \) is embeddable in \( D \); in fact any embedding from a finitely generated substructure of \( C \) into \( D \) can be extended to an embedding of \( C \) into \( D \).
+\end{lemma}
+
+
+\begin{proof}
+    Since $C$ is at most countable, enumerate $C\setminus A_0=\{c_0,c_1,\dots\}$ (possibly finite or empty).
+    Define a chain of finitely generated substructures
+    \[
+        A_0\ \le\ A_{n+1}:=\langle A_n\cup\{c_n\}\rangle\qquad(n<\omega).
+    \]
+    Then each $A_n$ is finitely generated, $A_n\subseteq A_{n+1}$, and $C=\bigcup_{n<\omega}A_n$
+    (if the enumeration is finite, the chain stabilizes and the union is still $C$).
+
+
+    Fix $n$ and suppose by induction that we have an embedding $f_n\colon A_n\to D$.
+    Because $A_{n+1}$ is a finitely generated substructure of $C$ and $Age(C)\subseteq Age(D)$,
+    there exist a finitely generated $B\le D$ and an isomorphism
+    \[
+        g\colon A_{n+1}\xrightarrow{\ \cong\ } B.
+    \]
+    Set $A:=g(A_n)\le B$. Then $A,B$ are finitely generated with $A\subseteq B$.
+
+
+    The map $f_n\circ g^{-1}\colon A\to D$ is an embedding (composition of embeddings).
+    Since $D$ is weakly homogeneous, it extends to some embedding
+    \[
+        h\colon B\hookrightarrow D\quad\text{with}\quad h\!\upharpoonright_A=f_n\circ g^{-1}.
+    \]
+    \[
+        \begin{tikzcd}[row sep=3em, column sep=3.5em, ampersand replacement=\&]
+            A_n \arrow[rr,"f_n"] \arrow[d,hook,"i"']
+            \arrow[dr,"g\!\upharpoonright_{A_n}" description] \& \& D  \\
+            A_{n+1}
+            \arrow[rr, bend right=25, "g \, (\cong)"']
+            \&
+            g(A_n) \arrow[r,hook] \arrow[ur,"f_n \circ g^{-1}", shift right=2] \&
+            B \arrow[u,"h"]
+        \end{tikzcd}
+    \]
+
+    Define
+    \[
+        f_{n+1}\ :=\ h\circ g\ \colon\ A_{n+1}\longrightarrow D.
+    \]
+
+
+
+    For $a\in A_n$ we have
+    \[
+        f_{n+1}(a)=h(g(a))=(f_n\circ g^{-1})(g(a))=f_n(a),
+    \]
+    so $f_n\subseteq f_{n+1}$. Thus by induction we obtain a chain
+    \[
+        f_0\subseteq f_1\subseteq f_2\subseteq\cdots,\qquad f_n\colon A_n\to D\ \text{embeddings}.
+    \]
+
+
+    Define $$f_\omega:=\bigcup_{n<\omega} f_n\colon C=\bigcup_{n<\omega}A_n\to D.$$ This is a well-defined function because the $f_n$ are compatible.
+
+    We claim that $f_\omega$ is an $L$-embedding.
+
+    \begin{itemize}
+        \item \emph{Injective:} If $x\neq y$ in $C$, choose $n$ with $\{x,y\}\subseteq A_n$. Since $f_n$ is injective, $f_n(x)\neq f_n(y)$, hence $f_\omega(x)\neq f_\omega(y)$.
+
+
+        \item \emph{Function symbols:} For an $m$-ary function symbol $F$ and $\bar a\in C^m$, choose $n$ with $\bar a\in A_n^m$. Because $A_n\le C$, we have $F^C(\bar a)\in A_n$. Then
+              \[
+                  f_\omega\!\big(F^C(\bar a)\big)=f_n\!\big(F^C(\bar a)\big)
+                  =F^D\!\big(f_n(\bar a)\big)=F^D\!\big(f_\omega(\bar a)\big).
+              \]
+
+        \item \emph{Relation symbols:} For an $m$-ary relation symbol $R$ and $\bar a\in C^m$, pick $n$ with $\bar a\in A_n^m$. Then
+              \[
+                  C\models R(\bar a)\ \Longleftrightarrow\ A_n\models R(\bar a)
+                  \ \Longleftrightarrow\ D\models R\big(f_n(\bar a)\big)
+                  \ \Longleftrightarrow\ D\models R\big(f_\omega(\bar a)\big),
+              \]
+              since $f_n$ is an embedding.
+
+              \emph{Constants:} For a constant $c$, some $n$ contains $c^C$; then $f_\omega(c^C)=f_n(c^C)=c^D$.
+    \end{itemize}
+
+
+
+
+
+
+    Thus $f_\omega$ is an embedding $C\to D$ extending $f_0$.
+
+\end{proof}
+
+
+
+
+This lemma justifies some terminology. We say that a countable structure
+\( D \) of age \( \mathbf{K} \) is \textbf{universal} (for \( \mathbf{K} \)) if every finite or countable
+structure of age \( \subseteq \mathbf{K} \) is embeddable in \( D \). Lemma \ref{lem:weakly-homogeneous-age-embedding} tells us that countable
+weakly homogeneous structures are universal for their age.
+
+When \( C \) and \( D \) are both weakly homogeneous and have the same age, we
+can throw the argument of this lemma to and fro between \( C \) and \( D \) to prove
+that \( C \) is isomorphic to \( D \).
+
+\begin{lemma}
+    \label{lem:weak-homogeneity-and-ultrahomogeneity}
+
+    \leavevmode
+    \begin{enumerate}[a]
+        \item Let \( C \) and \( D \) be \( L \)-structures with the same age. Suppose that \( C \) and \( D \) are both at most countable and are both weakly homogeneous. Then \( C \) is isomorphic to \( D \). In fact if \( A \) is a finitely generated substructure of \( C \) and \( f\colon A \to D \) is an embedding, then \( f \) extends to an isomorphism from \( C \) to \( D \).
+
+        \item A finite or countable structure is ultrahomogeneous (and hence is the Fraïssé limit of its age) if and only if it is weakly homogeneous.
+    \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+    \leavevmode
+    \begin{enumerate}[a]
+        \item
+              Fix enumerations $C\setminus A=\{c_0,c_1,\dots\}$ and $D\setminus f(A)=\{d_0,d_1,\dots\}$ (either may be finite/empty).
+              Define increasing chains of finitely generated substructures
+              \[
+                  C_n:=\langle A\cup\{c_0,\dots,c_{n-1}\}\rangle\ \le\ C,\qquad
+                  D_n:=\langle f(A)\cup\{d_0,\dots,d_{n-1}\}\rangle\ \le\ D.
+              \]
+              Thus $\bigcup_{n<\omega}C_n=C$ and $\bigcup_{n<\omega}D_n=D$.
+
+              We build inductively a chain of partial \emph{isomorphisms}
+              \[
+                  f_n\colon C_n'\xrightarrow{\ \cong\ } D_n'\qquad(n<\omega)
+              \]
+              between finitely generated substructures $C_n'\le C$, $D_n'\le D$ such that:
+
+              \begin{itemize}
+                  \item(I1) $f_0=f\colon C_0'=A \xrightarrow{\ \cong\ } D_0'=f(A)$.
+                  \item(I2) $f_n\subseteq f_{n+1}$ (compatibility).
+                  \item(I3 - forth) $\text{dom}(f_{2n})\supseteq C_n$.
+                  \item(I4 - back) $\text{im}(f_{2n+1})\supseteq D_n$.
+              \end{itemize}
+
+              Given such a sequence, the union $F:=\bigcup_{n<\omega}f_n$ is a well-defined
+              map $F\colon C\to D$, injective (as a union of injective maps), and
+              \[
+                  \text{im}(F)\ \supseteq\ \bigcup_{n<\omega}\text{im}(f_{2n+1})\ \supseteq\ \bigcup_{n<\omega}D_n\ =\ D,
+              \]
+              so $F$ is surjective as well; being a homomorphism on each finitely generated
+              domain and compatible, $F$ is an isomorphism extending $f$.
+
+
+              Assume $f_n\colon C_n'\to D_n'$ is already constructed.
+
+              Let $\widehat C:=\langle C_n'\cup C_{n+1}\rangle\le C$.
+              Then $f_n$ is an embedding $C_n'\hookrightarrow D$, and by $Age(C)=Age(D)$
+              together with weak homogeneity of $D$, Lemma~7.1.3 yields an embedding
+              $\widetilde f\colon C\hookrightarrow D$ extending $f_n$. Set
+              \[
+                  f_{n+1/2}:=\widetilde f\!\upharpoonright_{\widehat C}\ \colon\
+                  \widehat C \xrightarrow{\ \cong\ } \widetilde f(\widehat C).
+              \]
+              Define $C_{n+1/2}':=\widehat C$, $D_{n+1/2}':=\widetilde f(\widehat C)$.
+              Then $f_{n+1/2}$ extends $f_n$ and its domain contains $C_{n+1}$.
+
+              We now expand the image to cover $D_{n+1}$.
+              Consider the inverse isomorphism
+              \[
+                  (f_{n+1/2})^{-1}\colon D_{n+1/2}' \xrightarrow{\ \cong\ } C_{n+1/2}'.
+              \]
+              By $Age(D)=Age(C)$ and weak homogeneity of $C$, apply Lemma~7.1.3 (with roles of $C,D$ swapped) to extend
+              $(f_{n+1/2})^{-1}$ to an embedding $\widetilde g\colon D\hookrightarrow C$.
+              Let $\widehat D:=\langle D_{n+1/2}'\cup D_{n+1}\rangle\le D$ and set
+              \[
+                  f_{n+1}\ :=\ \big(\,\widetilde g\!\upharpoonright_{\widehat D}\,\big)^{-1}\ \colon\
+                  \widetilde g(\widehat D)\xrightarrow{\ \cong\ }\widehat D.
+              \]
+              Then $f_{n+1}$ extends $f_{n+1/2}$ (hence $f_n$), and its image contains $D_{n+1}$.
+
+              This completes the construction satisfying (I1)–(I4), hence the union $F$ is the required
+              isomorphism $C\xrightarrow{\ \cong\ }D$ extending the given $f$.
+
+
+
+
+        \item
+              (\(\Rightarrow\)) If $M$ is ultrahomogeneous, then by definition any isomorphism  between finitely generated substructures extends to an automorphism, so certainly  $M$ is weakly homogeneous.
+
+
+              (\(\Leftarrow\)) Let $M$ be finite or countable and weakly homogeneous.  Let $A,B\le M$ be finitely generated and let $f\colon A\xrightarrow{\ \cong\ }B$ be an isomorphism.  Apply part (1) with $C=D=M$ and the initial embedding $f$:  since $Age(M)=Age(M)$ and $M$ is weakly homogeneous, $f$ extends to an  isomorphism $F\colon M\xrightarrow{\ \cong\ }M$, i.e.\ an automorphism of $M$.  Thus $M$ is ultrahomogeneous.
+    \end{enumerate}
+\end{proof}
+
+What if \( C \) and \( D \) are not countable? Then part (a) of the lemma fails. For    example let \( \eta \) be the order-type of the rationals, and consider the order-type   \( \eta \cdot \omega_1 \) (\(= \omega_1 \) copies of \( \eta \) laid in a row) and its mirror image \( \xi \).  Both \( \eta \cdot \omega_1 \) and \( \xi \) are weakly homogeneous, and they have the same age,  namely the set of all finite linear orderings. But clearly they are not isomorphic, since  in \( \eta \cdot \omega_1 \) but not in \( \xi \) every element has uncountably many successors.
+
+
+\begin{mynote}
+    I really want to be able to include the next lemma.
+\end{mynote}
+
+The best we can say is the following.
+
+
+\begin{lemma}
+    Suppose \( C \) and \( D \) are weakly homogeneous \( L \)-structures with the same age. Then \( C \) is  back-and-forth equivalent to \( D \), so that \( C \equiv_{\infty\omega} D \). If moreover \( C \subseteq D \) then for every tuple \( \bar{c} \) in \( C \), \( (C, \bar{c}) \equiv_{\infty\omega} (D, \bar{c}) \), so that \( C \preceq D \).
+\end{lemma}
+
+\begin{proof}
+    The proof is by the proof of Lemma~\ref{lem:weak-homogeneity-and-ultrahomogeneity}. Use Karp's theorem (Corollary 3.5.3) for the connection with \( L_{\infty\omega} \).
+\end{proof}
+
+\begin{mynote}
+    Two \( L \)-structures \( A \) and \( B \) are said to be \emph{back-and-forth equivalent} if \( A \sim_\omega B \), i.e., if player \( \exists \) has a winning strategy for the game \( \mathrm{EF}_\omega(A, B) \).
+
+    The class of formulas of $L_{\infty \omega}$ of quantifier rank $\leq \alpha$ is written $L_{\alpha \omega}$. We write $A \equiv_{\alpha \omega} B$ to mean that $A$ and $B$ are $L_{\alpha \omega}$-equivalent, i.e.\ that for every sentence $\phi$ of $L_{\alpha \omega}$, $A \models \phi \Leftrightarrow B \models \phi$.
+
+    \begin{theorem}[3.5.2]
+        Let $A$ and $B$ be $L$-structures, $\bar{a}$ and $\bar{b}$ $n$-tuples from $A$ and $B$ respectively, and $\alpha$ an ordinal. Then the following are equivalent.
+        \begin{enumerate}[label=(\alph*)]
+            \item $A \models \theta^{(B,\bar{b}),\alpha}(\bar{a})$.
+            \item $(A, \bar{a}) \equiv_{\alpha \omega} (B, \bar{b})$.
+            \item $(A, \bar{a}) \sim^\alpha (B, \bar{b})$.
+        \end{enumerate}
+    \end{theorem}
+    \begin{corollary}[3.5.3, Karp’s theorem]
+        Let $A$ and $B$ be $L$-structures. Then $A$ and $B$ are back-and-forth equivalent if and only if they are $L_{\infty \omega}$-equivalent.
+    \end{corollary}
+
+    \begin{proof}
+        Immediate from (b) $\Leftrightarrow$ (c) of the theorem with $\bar{a}, \bar{b}$ empty, together with Theorem 3.4.2.
+    \end{proof}
+
+\end{mynote}
+
+
+
+Lemma \ref{lem:weak-homogeneity-and-ultrahomogeneity} takes care of the uniqueness of Fraïssé limits.
+
+If the signature \(L\) is finite and has no function symbols, the statement ‘The age of \(D\) is a subset of \(\mathcal{K}\)’ can be written as an \(\forall_1\) first-order theory \(T\).
+
+
+\begin{lemma}\label{lem:forall1}
+    Assume $L$ is a finite relational signature (no function symbols; constants allowed).
+    Let $\mathcal K$ be a class of finite $L$-structures. There is a (possibly infinite)
+    $\forall_1$-theory $T$ such that for every $L$-structure $D$,
+    \[
+        D\models T \quad\Longleftrightarrow\quad Age(D)\subseteq \mathcal K.
+    \]
+\end{lemma}
+
+\begin{proof}
+    Let $ Forb:=\{\,A\mid A \text{ finite $L$-structure and } A\notin\mathcal K\,\}/\cong$
+    be a set of isomorphism representatives of the finite structures \emph{not} in $\mathcal K$.
+    Fix $A\in Forb$ with underlying set $A=\{1,\dots,n\}$.
+
+
+    For each relation symbol $R\in L$ of arity $r$, set
+    \[
+        \phi^A_R(x_1,\dots,x_n)\ :=\
+        \bigwedge_{(i_1,\dots,i_r)\in R^A} R(x_{i_1},\dots,x_{i_r})
+        \ \ \wedge\ \
+        \bigwedge_{(i_1,\dots,i_r)\notin R^A} \neg R(x_{i_1},\dots,x_{i_r}).
+    \]
+    For each constant symbol $c\in L$ let $i_c\in\{1,\dots,n\}$ be such that $c^A=i_c$, and put
+    \[
+        \phi^A_{\mathrm{const}}(x_1,\dots,x_n)\ :=\ \bigwedge_{c\in L_{\mathrm{const}}}\ (x_{i_c}=c).
+    \]
+    (If $L$ has nullary relations, include the conjunct $R$ or $\neg R$ according to $R^A$; these
+    are quantifier-free literals.)
+
+    Let
+    \[
+        \mathrm{Diag}_A(x_1,\dots,x_n)\ :=\ \phi^A_{\mathrm{const}} \ \wedge\ \bigwedge_{R\in L}\phi^A_R.
+    \]
+    This quantifier-free formula says: “the tuple $(x_1,\dots,x_n)$, listed in the order
+    $1,\dots,n$, induces exactly the same $L$-structure as $A$”.
+
+
+    Because an isomorphic copy may enumerate the $n$ elements in any order, set
+    \[
+        \Theta_A(x_1,\dots,x_n)\ :=\ \bigvee_{\pi\in S_n} \mathrm{Diag}_A(x_{\pi(1)},\dots,x_{\pi(n)}).
+    \]
+    This is still quantifier-free (finite disjunction; finiteness of $L$ ensures each
+    $\mathrm{Diag}_A$ is a finite conjunction).
+
+
+    Define the universal sentence
+    \[
+        \chi_A\ :=\ \forall x_1\dots\forall x_n\
+        \Big( \big(\!\bigwedge_{1\le i<j\le n} x_i\neq x_j\big)\ \rightarrow\ \neg \Theta_A(x_1,\dots,x_n)\Big).
+    \]
+    Intuitively: no $n$ distinct elements of the structure can induce a copy of $A$.
+
+
+    Finally, set
+    \[
+        T\ :=\ \{\ \chi_A\ :\ A\in Forb\ \}.
+    \]
+
+
+    ($\Rightarrow$) Suppose $D\models T$. Let $E\le D$ be finite; write $E\cong A$ with $A$ finite.
+    If $A\notin\mathcal K$, then $A\in Forb$ and there are distinct $a_1,\dots,a_n\in D$
+    realizing $\Theta_A$, contradicting $D\models\chi_A$. Hence $A\in\mathcal K$, so $E\in\mathcal K$.
+    Thus $Age(D)\subseteq\mathcal K$.
+
+    ($\Leftarrow$) Suppose $Age(D)\subseteq\mathcal K$. Fix $A\in Forb$. If $D\not\models\chi_A$,
+    there exist distinct $d_1,\dots,d_n\in D$ with $D\models\Theta_A(d_1,\dots,d_n)$, so the induced
+    substructure on $\{d_1,\dots,d_n\}$ is isomorphic to $A$, contradicting $A\notin\mathcal K$.
+    Therefore $D\models\chi_A$ for all $A\in Forb$, i.e.\ $D\models T$.
+\end{proof}
+
+
+If \(L\) is not finite, or has function symbols, there is no guarantee that the statement ‘The age is a subset of \(\mathcal{K}\)’ can be written as a first-order theory, even when the structures in \(\mathcal{K}\) are all finite. (Consider for instance the class \(\mathcal{K}\) of all finite groups; see Example 1 below.) This will cause fewer difficulties than one might have feared. But it does remind us that we are working with a class of structures where the upward Löwenheim--Skolem theorem need not apply; Theorem \ref{thm:Fraïssé’s-theorem} will give us a structure of cardinality \(\leq \omega\), but it may be much harder a find a similar structure of uncountable cardinality.
+
+We first note an easy fact about ages.
+
+
+\begin{lemma}
+    Let $\mathcal J$ be a class of finitely generated $L$-structures, and let $(D_i)_{i<\alpha}$ be a chain of $L$-structures (i.e.\ $i\le j\Rightarrow D_i\subseteq D_j$). If for each $i<\alpha$ we have $Age(D_i)\subseteq\mathcal J$, then
+    \[
+        Age\Big(\bigcup_{i<\alpha} D_i\Big)\subseteq \mathcal J.
+    \]
+    If, moreover, $Age(D_i)=\mathcal J$ for all $i<\alpha$, then
+    \[
+        Age\Big(\bigcup_{i<\alpha} D_i\Big)= \mathcal J.
+    \]
+\end{lemma}
+
+\begin{proof}
+    Write $D:=\bigcup_{i<\alpha} D_i$.
+
+    \emph{Claim 1: $Age(D)\subseteq \mathcal J$.}
+    Let $A\subseteq D$ be finitely generated. Choose a finite generating tuple $\bar a=(a_1,\dots,a_n)$ for $A$.
+    For each $m$ pick $i_m<\alpha$ with $a_m\in D_{i_m}$. Since the index set is linearly ordered and $\{i_1,\dots,i_n\}$ is finite, there exists $j<\alpha$ with $i_m\le j$ for all $m$; hence $\bar a\in D_j^n$.
+
+    Because $D_j\subseteq D$, term evaluations in $D_j$ and in $D$ agree on $\bar a$. Therefore the substructure of $D$ generated by $\bar a$ coincides with the substructure of $D_j$ generated by $\bar a$; in particular,
+    \[
+        A=\langle \bar a\rangle_D=\langle \bar a\rangle_{D_j}\ \le\ D_j.
+    \]
+    Thus $A\in Age(D_j)\subseteq \mathcal J$, establishing $Age(D)\subseteq\mathcal J$.
+
+    \emph{Claim 2: If $Age(D_i)=\mathcal J$ for all $i$, then $\mathcal J\subseteq Age(D)$.}
+    Let $A\in\mathcal J$ be finitely generated. Fix any $i<\alpha$. Since $Age(D_i)=\mathcal J$, there is $A'\subseteq D_i$ with $A'\cong A$. As $D_i\subseteq D$, we also have $A'\subseteq D$, hence $A\in Age(D)$.
+
+    Combining the two claims gives the result.
+\end{proof}
+
+
+
+
+\begin{proof}[Proof of theorem~\ref{thm:Fraïssé’s-theorem}]
+    Henceforth we assume that \(\mathcal{K}\) is non-empty, has HP, JEP and AP, and contains at most countably many isomorphism types of structure. We can suppose without loss that \(\mathcal{K}\) is closed under taking isomorphic copies.
+
+    We shall construct a chain \((D_i : i < \omega)\) of structures in \(\mathcal{K}\), such that the following holds:
+
+    \begin{equation}
+        \tag{1.8}
+        \begin{aligned}
+             & \text{If } A \text{ and } B \text{ are structures in } \mathcal{K} \text{ with } A \subseteq B, \\
+             & \text{and there is an embedding } f\colon A \to D_i \text{ for some } i < \omega,               \\
+             & \text{then there are } j > i \text{ and an embedding } g\colon B \to D_j \text{ extending } f.
+        \end{aligned}
+    \end{equation}
+
+
+    We take \(D\) to be the union \(\bigcup_{i<\omega} D_i\). Then the age of \(D\) is included in \(\mathcal{K}\) by Lemma 7.1.6. In fact the age of \(D\) is exactly \(\mathcal{K}\). For suppose \(A\) is in \(\mathcal{K}\); then by JEP there is \(B\) in \(\mathcal{K}\) such that \(A \subseteq B\) and \(D_0\) is embeddable in \(B\). By (1.8) the identity map on \(D_0\) extends to an embedding of \(B\) in some \(D_j\), so that \(B\) and \(A\) lie in the age of \(D\). Thus (1.8) tells us that \(D\) is weakly homogeneous, and so by Lemma 7.1.4(b) it is ultrahomogeneous of age \(\mathcal{K}\) as required.
+
+    It remains to construct the chain. Let \(\mathcal{P}\) be a countable set of pairs of structures \((A, B)\) such that \(A, B \in \mathcal{K}\) and \(A \subseteq B\); we can choose \(\mathcal{P}\) so that it includes a representative of each isomorphism type of such pairs. Take a bijection \(\pi \colon \omega \times \omega \to \omega\) such that \(\pi(i, j) \geq i\) for all \(i\) and \(j\). Let \(D_0\) be any structure in \(\mathcal{K}\). The rest is by induction, as follows. When \(D_k\) has been chosen, list as \(((f_{kj}, A_{kj}, B_{kj}) : j < \omega)\) the triples \((f, A, B)\) where \((A, B) \in \mathcal{P}\) and \(f \colon A \to D_k\). Construct \(D_{k+1}\) by the amalgamation property, so that if \(k = \pi(i, j)\) then \(f_{ij}\) extends to an embedding of \(B_{ij}\) into \(D_{k+1}\).
+
+\end{proof}
+
+\begin{mynote}
+
+    \begin{proof}
+
+        Let $\mathcal{P}$ be a countable set of representatives of isomorphism types of pairs
+        $(A,B)$ with $A,B\in\mathcal{K}$ and $A\le B$ (countable because $\mathcal{K}$ is).
+        Fix a bijection $\pi:\omega\times\omega\to\omega$ with $\pi(i,j)\ge i$
+        (e.g.\ $\pi(i,j):=\langle i,j\rangle+i$, where $\langle\cdot,\cdot\rangle$ is a Cantor pairing).
+
+        \textbf{Inductive construction of a chain $(D_k)_{k<\omega}\subseteq\mathcal{K}$.}
+        Choose any $D_0\in\mathcal{K}$. Suppose $D_k\in\mathcal{K}$ is constructed.
+        List all embeddings from members of $\mathcal{P}$ into $D_k$:
+        \[
+            \bigl( f_{k j}:A_{k j}\hookrightarrow D_k,\; A_{k j}\le B_{k j},\; (A_{k j},B_{k j})\in\mathcal{P}\ \bigr)_{j<\omega}.
+        \]
+        (This is countable because $D_k$ is at most countable and $\mathcal{P}$ is countable.)
+        Now let $i,j<\omega$ be such that $k=\pi(i,j)$.
+        We require that at stage $k$ we \emph{realize the $j$-th task from stage $i$}, namely:
+        extend the embedding $f_{i j}:A_{i j}\to D_i$ to an embedding of $B_{i j}$ into the next
+        structure $D_{k+1}$.
+
+        To achieve this, consider the diagram
+        \[
+            A_{i j}\ \xrightarrow{\ \mathrm{incl}\ }\ B_{i j},\qquad
+            A_{i j}\ \xrightarrow{\ \iota_{i,k}\circ f_{i j}\ }\ D_k,
+        \]
+        where $\iota_{i,k}:D_i\hookrightarrow D_k$ is the inclusion along the chain.
+        By AP in $\mathcal{K}$, there exist $E\in\mathcal{K}$ and embeddings
+        \[
+            u: B_{i j}\hookrightarrow E,\qquad v: D_k\hookrightarrow E,
+        \]
+        such that $u\circ \mathrm{incl} = v\circ \iota_{i,k}\circ f_{i j}$.
+        Replace $E$ by an isomorphic copy (still in $\mathcal{K}$) so that we may regard $v$
+        as an \emph{inclusion} $D_k\le E$ (closure of $\mathcal{K}$ under isomorphism).
+        Set $D_{k+1}:=E$. This ensures that the $j$-th task from stage $i$ is met at stage $k+1$.
+
+        This completes the induction. Thus we have a chain
+        \[
+            D_0\ \le\ D_1\ \le\ \cdots\ \le\ D_k\ \le\ \cdots\qquad (D_k\in\mathcal{K})
+        \]
+        with the scheduling property: for every $i,j$, the triple $(f_{i j},A_{i j},B_{i j})$
+        is handled at stage $k+1$ with $k=\pi(i,j)\ge i$.
+
+        \smallskip
+        \textbf{Definition of $D$ and verification of (1.5) and weak homogeneity.}
+        Let $D:=\bigcup_{k<\omega}D_k$. By Lemma~7.1.6, $ Age(D)\subseteq\mathcal{K}$.
+
+        To see $\mathcal{K}\subseteq Age(D)$, fix $A\in\mathcal{K}$. By JEP, there exists
+        $B_0\in\mathcal{K}$ into which $A$ and $D_0$ embed. Let $B$ be the substructure of $B_0$
+        generated by the images of $A$ and $D_0$; by HP, $B\in\mathcal{K}$, $A\le B$, and $D_0$ embeds into $B$.
+        Thus there is an embedding $f:A\to D_0\le D$. The pair $(A,B)$ is isomorphic to some member of $\mathcal{P}$,
+        so for some $i,j$ we have scheduled the task “extend $f:A\to D_i$ to $B$”. Since $i$ can be chosen with
+        $A\le D_i$ (finite generation), the scheduling ensures that at stage $k+1$ with $k=\pi(i,j)$ there is
+        an embedding $g:B\hookrightarrow D_{k+1}\le D$ that extends $f$. Hence $A\in Age(D)$.
+
+        Moreover, the scheduling property yields \emph{weak homogeneity} of $D$:
+        if $A\le B\le D$ are finitely generated and $f:A\to D$ is an embedding, choose $i$ with $A\le D_i$ and
+        let $(A,B)$ be represented in $\mathcal{P}$. The corresponding task is eventually realized at some
+        $D_{k+1}\le D$, giving an extension $g:B\to D$ of $f$.
+
+        \smallskip
+        \textbf{Ultrahomogeneity (1.6).}
+        By Lemma~7.1.4(b), a finite or countable weakly homogeneous structure is ultrahomogeneous.
+        Thus $D$ is ultrahomogeneous.
+
+        \smallskip
+        \textbf{Cardinality (1.4).}
+        Each $D_k$ is finitely generated in a countable language, hence at most countable; therefore
+        $D=\bigcup_k D_k$ is at most countable.
+
+        \smallskip
+        \textbf{Uniqueness.}
+        If $D$ and $D'$ both satisfy (1.4)–(1.6) with the same $\mathcal{K}$, then
+        $ Age(D)= Age(D')=\mathcal{K}$ and both structures are (weakly) homogeneous and at most countable.
+        By Lemma~7.1.4(a), $D\cong D'$.
+    \end{proof}
+    %%%%%%
+
+\end{mynote}
+
+
+
+All the conditions on \(\mathbf{K}\) in Theorem \ref{thm:Fraïssé’s-theorem} were necessary, according to the next theorem.
+
+
+\begin{theorem}
+    Let \(L\) be a countable signature and \(D\) a finite or countable structure which is ultrahomogeneous. Let \(\mathcal{K}\) be the age of \(D\). Then \(\mathcal{K}\) is non-empty, \(\mathcal{K}\) has at most countably many isomorphism types of structure, and \(\mathcal{K}\) satisfies HP, JEP and AP.
+\end{theorem}
+
+\begin{proof}
+    We already know everything except that \(\mathcal{K}\) satisfies the amalgamation property. For this we can assume without loss that \(\mathcal{K}\) contains all finitely generated substructures of \(D\). Suppose that \(A, B, C\) are in \(\mathcal{K}\) and \(e \colon A \to B\), \(f \colon A \to C\) are embeddings. Then there are isomorphisms \(i_A \colon A \to A'\), \(i_B \colon B \to B'\) and \(i_C \colon C \to C'\) where \(A', B', C'\) are substructures of \(D\). So \(i_A \cdot e^{-1}\) embeds \(e(A)\) into \(D\), and by weak homogeneity there is an embedding \(j_B \colon B \to D\) which extends \(i_A \cdot e^{-1}\), so that the bottom left quadrilateral in (1.9) commutes; likewise with the bottom right quadrilateral:
+
+
+    \[
+        \begin{tikzcd}
+            & & \langle j_B(B)\cup j_C(C)\rangle & & \\
+            & j_B(B)\arrow[ur,hook] & & j_C(C)\arrow[ul,hook'] & \\
+            B\arrow[ur,"j_B"] & & A'\arrow[ul,hook']\arrow[ur,hook'] & & C\arrow[ul,"j_C"'] \\
+            & e(A)\arrow[ul,hook'] & & f(A)\arrow[ur,hook'] & \\
+            & & A\arrow[ul,"e"']\arrow[uu,"i_A"]\arrow[ur,"f"] & &b
+        \end{tikzcd}
+    \]
+
+
+
+    The top square commutes, and hence the outer maps in (1.9) give the needed amalgam.
+\end{proof}
+
+
+\begin{mynote}
+    %%%%%%
+    \begin{theorem}[7.1.7, AP part with details]
+        Let $D$ be finite or countable and ultrahomogeneous, and let $\mathcal K= Age(D)$.
+        Given embeddings $e\colon A\hookrightarrow B$ and $f\colon A\hookrightarrow C$ with
+        $A,B,C\in\mathcal K$, there exists $D_0\in\mathcal K$ and embeddings
+        $k_B\colon B\hookrightarrow D_0$, $k_C\colon C\hookrightarrow D_0$ with
+        $k_B\circ e = k_C\circ f$.
+    \end{theorem}
+
+    \begin{proof}[Proof (explicit alignment + amalgam)]
+        \textbf{Step 1: Place $A,B,C$ inside $D$ compatibly.}
+        Since $A,B,C\in Age(D)$, pick embeddings
+        \[
+            \iota_A\colon A\hookrightarrow D,\qquad
+            \iota_B\colon B\hookrightarrow D,\qquad
+            \iota_C\colon C\hookrightarrow D.
+        \]
+        We \emph{align} the three so that on $A$ they agree. Consider the partial isomorphism
+        \[
+            p_B\colon \iota_B\big(e(A)\big)\ \to\ \iota_A(A),\qquad
+            p_B\big(\iota_B(e(a))\big)\ :=\ \iota_A(a)\quad(a\in A).
+        \]
+        This is an isomorphism between finitely generated substructures of $D$, hence by
+        ultrahomogeneity extends to an automorphism $\alpha\in\Aut(D)$ with
+        $\alpha\!\upharpoonright_{\iota_B(e(A))}=p_B$. Replace $\iota_B$ by
+        $\iota_B':=\alpha\circ \iota_B$. Then
+        \[
+            \iota_B'\circ e = \alpha\circ \iota_B\circ e = \alpha\circ p_B^{-1}\circ \iota_A = \iota_A.
+        \]
+        Do the same for $C$: define $p_C(\iota_C(f(a)))=\iota_A(a)$ and extend to
+        $\beta\in\Aut(D)$; set $\iota_C':=\beta\circ \iota_C$, so that
+        \[
+            \iota_C'\circ f=\iota_A.
+        \]
+
+        Now we have embeddings $\iota_B'\colon B\hookrightarrow D$ and
+        $\iota_C'\colon C\hookrightarrow D$ satisfying the compatibility
+        \[
+            \iota_B'\circ e\ =\ \iota_A\ =\ \iota_C'\circ f.\tag{$\ast$}
+        \]
+
+        \textbf{Step 2: Generate the amalgam inside $D$.}
+        Let
+        \[
+            D_0 \ :=\ \langle\, \iota_B'(B)\ \cup\ \iota_C'(C)\,\rangle^D\ \le D.
+        \]
+        Since $B$ and $C$ are finitely generated, $D_0$ is finitely generated, hence
+        $D_0\in Age(D)=\mathcal K$. Let $k_B\colon B\to D_0$ and $k_C\colon C\to D_0$
+        be the inclusions $k_B:=\mathrm{incl}\circ \iota_B'$, $k_C:=\mathrm{incl}\circ \iota_C'$.
+
+        By $(\ast)$ and functoriality of inclusion,
+        \[
+            k_B\circ e \ =\ \mathrm{incl}\circ \iota_B'\circ e
+            \ =\ \mathrm{incl}\circ \iota_A
+            \ =\ \mathrm{incl}\circ \iota_C'\circ f
+            \ =\ k_C\circ f,
+        \]
+        so $(D_0,k_B,k_C)$ is the required amalgam.
+
+        \smallskip
+        \textbf{Where the original sketch hid work.}
+        The sketch wrote “by weak homogeneity there is $j_B\colon B\to D$ extending
+        $\iota_A\circ e^{-1}$”, but weak homogeneity applies only to \emph{substructures of $D$}.
+        To use it correctly you must first move $B$ inside $D$ (via an embedding $\iota_B$) and
+        \emph{align} the copy of $e(A)$ with $\iota_A(A)$ (via an automorphism of $D$ as above).
+        Equivalently, you can rephrase Step~1 using weak homogeneity by working with an
+        isomorphic copy $B'\le D$ and extending the embedding
+        $\iota_A\circ e^{-1}\circ (\iota_B|_{e(A)})^{-1}\colon \iota_B(e(A))\hookrightarrow D$
+        to $j_B'\colon B'\hookrightarrow D$, then set $j_B:=j_B'\circ \iota_B$.
+        Either way, you end up with the same $D_0=\langle j_B(B)\cup j_C(C)\rangle$ and the same check
+        $k_B\circ e=k_C\circ f$.
+    \end{proof}
+
+    % A compact diagram matching the proof:
+    % A --e--> B --\iota_B'--> D
+    % |        |               ^
+    % f        v               |
+    % v        C --\iota_C'--> D
+    % with \iota_B'\circ e = \iota_C'\circ f = \iota_A, and D_0 generated by the two images.
+
+
+    %%%%%%%%
+\end{mynote}

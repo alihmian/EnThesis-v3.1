@@ -1,0 +1,660 @@
+\chapter{Examples of Extremely Amenable Automorphism Groups}
+
+In Chapter~5 we proved that if $\mathcal K$ is a Fra\"iss\'e order class with Fra\"iss\'e limit $F$, then $\Aut(F)$ is extremely amenable if and only if $\mathcal K$ has the Ramsey property. The aim of this chapter is to apply that criterion to several standard Fra\"iss\'e classes and obtain concrete examples of extremely amenable automorphism groups.
+
+We begin with classes of finite ordered graphs and hypergraphs, where the required Ramsey property is provided by the theorems of Ne\v{s}et\v{r}il and R\"odl and their extensions. We then consider finite-dimensional vector spaces over a fixed finite field and finite Boolean algebras, which yield further examples of extremely amenable automorphism groups. Finally, we turn to finite metric spaces and the ordered rational Urysohn space, leading to Pestov's theorem on the extreme amenability of the isometry group of the Urysohn space.
+
+The purpose of the chapter is not to give an exhaustive catalogue of Ramsey classes, but to show how the criterion from Chapter~5 works in a range of important settings. These examples will also prepare the ground for the later computation of universal minimal flows via ordered expansions.
+
+\section{Graphs and equivalence relations}
+
+We begin with finite ordered graphs and some closely related classes. Let
+\[
+    L_0=\{E\}
+    \qquad\text{and}\qquad
+    L=\{E,<\},
+\]
+where $E$ is a binary relation symbol and $<$ is intended to denote a linear order. An $L_0$-structure $A_0$ is called a \emph{graph} if $E^{A_0}$ is irreflexive and symmetric. An \emph{ordered graph} is an $L$-structure
+\[
+    A=\langle A_0,<^A\rangle
+\]
+such that $A_0$ is a graph and $<^A$ is a linear ordering of $\dom(A)$.
+
+The most important Fra\"iss\'e classes of finite graphs for our purposes are the class $\mathcal{GR}$ of all finite graphs and, for each $n\geq 3$, the class $\mathrm{Forb}(K_n)$ of all finite $K_n$-free graphs. Their ordered expansions will give the first basic examples of extremely amenable automorphism groups. We will also consider finite equivalence relations, which provide a useful contrast: some ordered expansions are not Ramsey, while a more carefully chosen ordered expansion does lead to extreme amenability.
+
+\subsection{Ordered graphs and $K_n$-free ordered graphs}
+
+Let
+\[
+    \vec{\mathcal{GR}}
+\]
+denote the class of all finite ordered graphs, and for each $n\geq 3$ let
+\[
+    \vec{\mathrm{Forb}}(K_n)
+\]
+denote the class of all finite ordered $K_n$-free graphs.
+
+Both classes are hereditary and clearly contain structures of arbitrarily large cardinality. Since $\mathcal{GR}$ and $\mathrm{Forb}(K_n)$ have strong amalgamation and strong joint embedding, it follows that
+\[
+    \vec{\mathcal{GR}}
+    \qquad\text{and}\qquad
+    \vec{\mathrm{Forb}}(K_n)
+\]
+are Fra\"iss\'e order classes.
+
+\begin{mynote}
+    In any part of the thesis, were mentions of the strong amalgamation and strong joint embedding? should their defintion be included in chapter 1? plus showing why above examples have these properties in chapter 1?  or even in this chapter?
+\end{mynote}
+
+The Ramsey property for these classes is due to Ne\v{s}et\v{r}il and R\"odl \cite{NR77,NR83}; see also \cite{N89}. Therefore Chapter~5 applies immediately.
+
+\begin{theorem}
+    \label{thm:random-ordered-graph-ea}
+    Let
+    \[
+        OR=\mathrm{Flim}(\vec{\mathcal{GR}})
+    \]
+
+
+    be the random ordered graph. Then $\Aut(OR)$ is extremely amenable.
+\end{theorem}
+\begin{mynote}
+    why \(OR=\mathrm{Flim}(\vec{\mathcal{GR}})\)? do you think the reason for it should be included in chapter 1? as an example?  or even in this chapter?
+\end{mynote}
+\begin{proof}
+    The class $\vec{\mathcal{GR}}$ is a Fra\"iss\'e order class with the Ramsey property, so the conclusion follows from Corollary~\ref{cor:fraisse-order-class-ea}.
+\end{proof}
+
+\begin{theorem}
+    \label{thm:kn-free-ordered-graph-ea}
+    For each $n\geq 3$, let
+    \[
+        OR_n=\mathrm{Flim}(\vec{\mathrm{Forb}}(K_n))
+    \]
+    be the random ordered $K_n$-free graph. Then $\Aut(OR_n)$ is extremely amenable.
+\end{theorem}
+\begin{mynote}
+    why \(OR_n=\mathrm{Flim}(\vec{\mathrm{Forb}}(K_n))\)? do you think the reason for it should be included in chapter 1? as an example?  or even in this chapter?
+\end{mynote}
+\begin{proof}
+    The class $\vec{\mathrm{Forb}}(K_n)$ is a Fra\"iss\'e order class with the Ramsey property, so again the result follows from Corollary~\ref{cor:fraisse-order-class-ea}.
+\end{proof}
+
+These are the basic graph-theoretic examples. In contrast, the unordered automorphism groups $\Aut(\mathrm{Flim}(\mathcal{GR}))$ and $\Aut(\mathrm{Flim}(\mathrm{Forb}(K_n)))$ are not extremely amenable, since they do not preserve a linear ordering.
+
+\begin{mynote}
+    why they don't? sould a proof or even an explanation be included?
+\end{mynote}
+
+\subsection{A failure of the Ramsey property: equivalence relations}
+
+We now turn to finite equivalence relations. Strictly speaking, an equivalence relation is not a graph, since it is reflexive. Nevertheless, it is convenient to treat it in parallel with the graph examples by suppressing the diagonal.
+
+Let
+\[
+    \mathcal{EQ}
+\]
+denote the class of finite equivalence relations, viewed as $L_0$-structures, and let
+\[
+    \vec{\mathcal{EQ}}
+\]
+be the class of all finite linearly ordered equivalence relations. This class is a Fra\"iss\'e order class.
+\begin{mynote}
+    why? should it be included in chapter 1 as an example? or even in this chapter?
+\end{mynote}
+Its Fra\"iss\'e limit is, up to isomorphism,
+\[
+    \langle \mathbb{Q},E,<\rangle,
+\]
+where $<$ is the usual order on $\mathbb{Q}$ and $E$ is an equivalence relation with infinitely many classes, each of which is dense in $\mathbb{Q}$.
+\begin{mynote}
+    why? should it be included in chapter 1 as an example? or even in this chapter?
+\end{mynote}
+Unlike the graph classes above, $\vec{\mathcal{EQ}}$ does \emph{not} have the Ramsey property.
+
+\begin{theorem}
+    \label{thm:eq-not-ramsey}
+    The class $\vec{\mathcal{EQ}}$ does not have the Ramsey property. Consequently, the automorphism group of
+    \[
+        \langle \mathbb{Q},E,<\rangle,
+    \]
+    where $E$ has infinitely many dense classes, is not extremely amenable.
+\end{theorem}
+
+\begin{proof}
+    Let $A$ be the ordered structure with domain $\{a,b\}$ and
+    \[
+        a<^A b,
+    \]
+    and let $B$ be the ordered structure with domain $\{a,b,c\}$ such that
+    \[
+        a<^B b<^B c,
+    \]
+    and the $E^B$-classes are $\{a,c\}$ and $\{b\}$.We claim that there is no
+    \[
+        C\in \vec{\mathcal{EQ}}
+    \]
+    such that
+    \[
+        C\to (B)^A_2.
+    \]
+    Let $C$ be any member of $\vec{\mathcal{EQ}}$. Order the $E^C$-classes by the least element they contain. Color a copy $\{x,y\}$ of $A$ in $C$ red if the $E^C$-class of $x$ is lower than the $E^C$-class of $y$, and color it blue otherwise.
+
+    Now consider any copy $\{x,y,z\}$ of $B$ in $C$, with
+    \[
+        x<^C y<^C z.
+    \]
+    Since $x$ and $z$ lie in the same equivalence class while $y$ lies in a different one, the pair $\{x,y\}$ and the pair $\{y,z\}$ must receive different colors. Hence no copy of $B$ is monochromatic. Therefore $\vec{\mathcal{EQ}}$ fails the Ramsey property.
+
+    The final statement follows from Corollary~\ref{cor:fraisse-order-class-ea}.
+\end{proof}
+
+This example is useful because it shows that simply adding a linear order to a Fra\"iss\'e class does not automatically produce a Ramsey class.
+
+\subsection{Convexly ordered equivalence relations}
+
+There is, however, a natural ordered expansion of finite equivalence relations that \emph{does} have the Ramsey property.
+
+Let $\mathcal{K}$ be the class of all finite $L$-structures
+\[
+    A=\langle A,E^A,<^A\rangle
+\]
+such that $E^A$ is an equivalence relation on $A$, $<^A$ is a linear ordering on $A$, and each $E^A$-class is convex with respect to $<^A$; that is, whenever
+\[
+    a<^A b<^A c
+    \quad\text{and}\quad
+    a\,E^A\,c,
+\]
+we also have
+\[
+    a\,E^A\,b.
+\]
+
+It is straightforward to check that $\mathcal{K}$ is a Fra\"iss\'e order class. Its Fra\"iss\'e limit is, up to isomorphism,
+\[
+    F=\langle \mathbb{Q}^2,E,<_{\ell}\rangle,
+\]
+where $<_{\ell}$ is the lexicographic ordering on $\mathbb{Q}^2$ and
+\[
+    (r,s)\,E\,(r',s')
+    \quad\Longleftrightarrow\quad
+    r=r'.
+\]
+
+To prove that $\Aut(F)$ is extremely amenable, we use the following standard closure properties.
+
+\begin{lemma}
+    \label{lem:ea-closure-properties}
+    \leavevmode
+    \begin{enumerate}
+        \item[(i)] Let $G$ be a topological group and let $\mathcal{H}$ be a directed family of extremely amenable subgroups of $G$. If $\bigcup \mathcal{H}$ is dense in $G$, then $G$ is extremely amenable.
+        \item[(ii)] Let $N$ be a closed normal subgroup of a topological group $G$. If $N$ and $G/N$ are extremely amenable, then $G$ is extremely amenable.
+        \item[(iii)] An arbitrary direct product of extremely amenable groups is extremely amenable.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+
+    \begin{mynote}
+        what is the full, detailed proof?
+    \end{mynote}
+    For (i), let $X$ be a compact $G$-flow. For each $H\in\mathcal{H}$, the set
+    \[
+        X^H=\{x\in X : h\cdot x=x \text{ for all } h\in H\}
+    \]
+    is non-empty and closed. Since $\mathcal{H}$ is directed, the family $\{X^H : H\in\mathcal{H}\}$ has the finite intersection property, so compactness gives
+    \[
+        \bigcap_{H\in\mathcal{H}} X^H\neq\emptyset.
+    \]
+    Any point in this intersection is fixed by $\bigcup\mathcal{H}$, hence by all of $G$ because the action is continuous and $\bigcup\mathcal{H}$ is dense.
+
+    For (ii), let $X$ be a compact $G$-flow. Since $N$ is extremely amenable, the fixed-point set
+    \[
+        X^N=\{x\in X : n\cdot x=x \text{ for all } n\in N\}
+    \]
+    is non-empty. It is closed and $G$-invariant because $N$ is normal. The induced action of $G/N$ on $X^N$ is continuous, and since $G/N$ is extremely amenable, there is a point of $X^N$ fixed by $G/N$, hence by $G$.
+
+    For (iii), every finite subproduct is extremely amenable by repeated use of (ii). These finite subproducts form a directed family whose union is dense in the full product, so (i) applies.
+\end{proof}
+
+\begin{theorem}
+    \label{thm:convex-eq-ea}
+    Let
+    \[
+        F=\langle \mathbb{Q}^2,E,<_{\ell}\rangle
+    \]
+    be as above. Then $\Aut(F)$ is extremely amenable.
+\end{theorem}
+
+\begin{proof}
+
+    \begin{mynote}
+        what is the full, detailed proof?
+    \end{mynote}
+
+    For each $r\in \mathbb{Q}$, let
+    \[
+        I_r=\{r\}\times \mathbb{Q}.
+    \]
+    Any automorphism $\pi\in \Aut(F)$ permutes the fibers $I_r$, since these are exactly the $E$-classes. Thus $\pi$ induces an order automorphism
+    \[
+        f_{\pi}\in \Aut(\langle \mathbb{Q},<\rangle)
+    \]
+    given by
+    \[
+        \pi(I_r)=I_{f_{\pi}(r)}.
+    \]
+    Moreover, for each $r\in \mathbb{Q}$, the restriction of $\pi$ to the fiber $I_r$ induces an order automorphism
+    \[
+        (g_{\pi})_r\in \Aut(\langle \mathbb{Q},<\rangle).
+    \]
+    Therefore we obtain a homomorphism
+    \[
+        \Theta\colon \Aut(F)\to \Aut(\langle \mathbb{Q},<\rangle)\ltimes \Aut(\langle \mathbb{Q},<\rangle)^{\mathbb{Q}},
+    \]
+    where the first factor acts on the second by coordinate shift.
+
+    It is straightforward to check that $\Theta$ is a topological group isomorphism. Hence it is enough to show that
+    \[
+        \Aut(\langle \mathbb{Q},<\rangle)\ltimes \Aut(\langle \mathbb{Q},<\rangle)^{\mathbb{Q}}
+    \]
+    is extremely amenable.
+
+    By Theorem~\ref{thm:eq-order-extremely-amenable}, the group
+    \[
+        \Aut(\langle \mathbb{Q},<\rangle)
+    \]
+    is extremely amenable. By Lemma~\ref{lem:ea-closure-properties}(iii), so is the product
+    \[
+        \Aut(\langle \mathbb{Q},<\rangle)^{\mathbb{Q}}.
+    \]
+    Applying Lemma~\ref{lem:ea-closure-properties}(ii), we conclude that the semidirect product is extremely amenable, and therefore so is $\Aut(F)$.
+\end{proof}
+
+\begin{corollary}
+    \label{cor:convex-eq-ramsey}
+    The class of finite convexly ordered equivalence relations has the Ramsey property.
+\end{corollary}
+
+\begin{proof}
+    This follows from Theorem~\ref{thm:convex-eq-ea} and Corollary~\ref{cor:fraisse-order-class-ea}.
+\end{proof}
+
+The contrast between Theorem~\ref{thm:eq-not-ramsey} and Corollary~\ref{cor:convex-eq-ramsey} is instructive. In the first case, an arbitrary linear ordering does not interact well with the equivalence relation. In the second, convexity aligns the order with the equivalence classes, and the resulting ordered expansion fits the Ramsey framework.
+
+
+\section{Hypergraphs}
+
+The graph examples extend naturally to hypergraphs. Let
+\[
+    L_0=\{R_i : i\in I\}
+\]
+be a finite relational signature, where each $R_i$ has arity $n_i\geq 2$. An $L_0$-structure $A_0$ will be called a \emph{hypergraph} of type $L_0$ if, for each $i\in I$, the relation $R_i^{A_0}$ is irreflexive and symmetric. An \emph{ordered hypergraph} is an $L$-structure
+\[
+    A=\langle A_0,<^A\rangle,
+\]
+where $L=L_0\cup\{<\}$, $A_0$ is a hypergraph of type $L_0$, and $<^A$ is a linear ordering of $\dom(A)$.
+
+We first consider the class of all finite ordered hypergraphs of a fixed type. We then record a more general family obtained by forbidding finite irreducible substructures.
+
+\subsection{Ordered hypergraphs}
+
+Let
+\[
+    \vec{\mathcal H}_{L_0}
+\]
+denote the class of all finite ordered hypergraphs of type $L_0$. This is a Fra\"iss\'e order class. Indeed, heredity is immediate, and joint embedding and amalgamation are obtained by taking disjoint unions over the underlying ordered hypergraphs.
+
+The Ramsey property for such classes was proved by Ne\v{s}et\v{r}il and R\"odl, extending the graph case. Hence Chapter~5 applies exactly as before.
+
+\begin{theorem}
+    \label{thm:ordered-hypergraph-ea}
+    Let
+    \[
+        F=\mathrm{Flim}(\vec{\mathcal H}_{L_0}).
+    \]
+    Then $\Aut(F)$ is extremely amenable.
+\end{theorem}
+
+\begin{proof}
+    The class $\vec{\mathcal H}_{L_0}$ is a Fra\"iss\'e order class with the Ramsey property, so the conclusion follows from Corollary~\ref{cor:fraisse-order-class-ea}.
+\end{proof}
+
+Thus every fixed finite hypergraph type yields an extremely amenable automorphism group once a linear ordering is added.
+
+\subsection{Forbidden irreducible hypergraphs}
+
+The previous example admits a substantial generalization. Let $\mathcal A$ be a family of finite hypergraphs of type $L_0$. We write
+\[
+    \mathrm{Forb}(\mathcal A)
+\]
+for the class of all finite hypergraphs of type $L_0$ that admit no embedding of a member of $\mathcal A$.
+
+To obtain a Fra\"iss\'e class in this setting, one usually assumes that the forbidden structures are \emph{irreducible}. Recall that a finite hypergraph $A$ is called \emph{irreducible} if any two distinct vertices of $A$ lie together in some relation of $A$. Equivalently, $A$ cannot be written as a free amalgam of two proper substructures.
+
+Let
+\[
+    \vec{\mathrm{Forb}}(\mathcal A)
+\]
+denote the class of all finite linearly ordered members of $\mathrm{Forb}(\mathcal A)$.
+
+\begin{theorem}
+    \label{thm:forb-irreducible-hypergraph-ea}
+    Assume that $\mathcal A$ is a family of finite irreducible hypergraphs of type $L_0$. Then $\vec{\mathrm{Forb}}(\mathcal A)$ is a Fra\"iss\'e order class with the Ramsey property. Consequently, if
+    \[
+        F=\mathrm{Flim}(\vec{\mathrm{Forb}}(\mathcal A)),
+    \]
+    then $\Aut(F)$ is extremely amenable.
+\end{theorem}
+
+\begin{proof}
+    It is a standard result of Ne\v{s}et\v{r}il and R\"odl, in the form generalized by Abramson and Harrington, that $\vec{\mathrm{Forb}}(\mathcal A)$ is a Ramsey class whenever the forbidden structures are finite and irreducible. The hereditary property is immediate, and the Fra\"iss\'e properties are standard for this class. Therefore $\vec{\mathrm{Forb}}(\mathcal A)$ is a Fra\"iss\'e order class with the Ramsey property. The conclusion then follows from Corollary~\ref{cor:fraisse-order-class-ea}.
+\end{proof}
+
+This theorem contains the ordered graph examples from the previous section as special cases. Indeed, if $L_0=\{E\}$ and $\mathcal A=\{K_n\}$, then
+\[
+    \vec{\mathrm{Forb}}(\mathcal A)=\vec{\mathrm{Forb}}(K_n).
+\]
+The hypergraph setting is therefore not merely parallel to the graph case, but a genuine extension of it.
+
+\section{Vector spaces over finite fields}
+
+We now turn to finite-dimensional vector spaces over a fixed finite field. This provides a different kind of example, in which the ordering is not arbitrary but is induced by an ordered basis.
+
+Fix a finite field $F$. Let $\mathcal{V}_F$ denote the class of all finite-dimensional vector spaces over $F$, regarded as structures in the language of vector spaces over $F$. This is a Fra\"iss\'e class, and its Fra\"iss\'e limit is the countably infinite-dimensional vector space over $F$.
+
+To obtain an ordered expansion, we use the anti-lexicographic ordering associated with an ordered basis. Let $V$ be a finite-dimensional vector space over $F$, and let
+\[
+    b_1<\cdots<b_n
+\]
+be an ordered basis of $V$. Every element $v\in V$ may be written uniquely in the form
+\[
+    v=\alpha_1b_1+\cdots+\alpha_n b_n,
+    \qquad
+    \alpha_i\in F.
+\]
+Fix once and for all a linear ordering of the field $F$. This induces a linear ordering on $V$ by declaring that
+\[
+    v<w
+\]
+if, at the largest index $i$ for which the coefficients of $v$ and $w$ differ, the coefficient of $v$ is smaller than the coefficient of $w$. This is the anti-lexicographic ordering determined by the ordered basis $b_1<\cdots<b_n$.
+
+An ordering of a finite-dimensional vector space obtained in this way will be called a \emph{natural ordering}. Let
+\[
+    \mathcal{OV}_F
+\]
+denote the class of all finite-dimensional vector spaces over $F$ equipped with a natural ordering.
+
+The class $\mathcal{OV}_F$ is a Fra\"iss\'e order class. Indeed, heredity is immediate, and the amalgamation property follows from the corresponding property for finite-dimensional vector spaces together with the fact that natural orderings are determined by ordered bases.
+
+The Ramsey property for $\mathcal{OV}_F$ is a consequence of the Graham--Leeb--Rothschild theorem; see also Thomas's formulation for naturally ordered finite vector spaces. Hence Chapter~5 applies exactly as in the previous examples.
+
+\begin{theorem}
+    \label{thm:finite-field-vector-spaces-ea}
+    Let
+    \[
+        F_F=\mathrm{Flim}(\mathcal{OV}_F).
+    \]
+    Then $\Aut(F_F)$ is extremely amenable.
+\end{theorem}
+
+\begin{proof}
+    The class $\mathcal{OV}_F$ is a Fra\"iss\'e order class with the Ramsey property. Therefore Corollary~\ref{cor:fraisse-order-class-ea} yields that
+    \[
+        \Aut(F_F)
+    \]
+    is extremely amenable.
+\end{proof}
+
+Thus naturally ordered finite-dimensional vector spaces over a finite field give another family of extremely amenable automorphism groups. Unlike the graph and hypergraph examples, the ordering here is tied to the underlying algebraic structure, and this compatibility is exactly what makes the Ramsey property available.
+
+\section{Boolean algebras}
+
+We next consider finite Boolean algebras. Let
+\[
+    L_0=\{0,1,\neg,\wedge,\vee\},
+\]
+where $0$ and $1$ are constant symbols, $\neg$ is unary, and $\wedge,\vee$ are binary. Let
+\[
+    \mathcal{BA}
+\]
+denote the class of all finite Boolean algebras in this language. This is a Fra\"iss\'e class, and its Fra\"iss\'e limit is the countable atomless Boolean algebra.
+
+To obtain an ordered expansion, we define a natural ordering on each finite Boolean algebra in terms of its atoms. Let $B$ be a finite Boolean algebra, and let
+\[
+    a_1<\cdots<a_n
+\]
+be a linear ordering of the set of atoms of $B$. Every element $x\in B$ has a unique representation
+\[
+    x=\delta_1 a_1\vee\cdots\vee \delta_n a_n,
+    \qquad
+    \delta_i\in\{0,1\},
+\]
+where $\delta_i a_i$ means $a_i$ if $\delta_i=1$ and $0$ if $\delta_i=0$. This ordering of the atoms induces an anti-lexicographic ordering on $B$: for
+\[
+    x=\delta_1 a_1\vee\cdots\vee \delta_n a_n
+    \qquad\text{and}\qquad
+    y=\epsilon_1 a_1\vee\cdots\vee \epsilon_n a_n,
+\]
+we declare that
+\[
+    x<y
+\]
+if at the largest index $i$ for which $\delta_i\neq \epsilon_i$, one has
+\[
+    \delta_i<\epsilon_i.
+\]
+An ordering obtained in this way will be called a \emph{natural ordering} of $B$.
+
+Let
+\[
+    \mathcal{OBA}
+\]
+denote the class of all finite Boolean algebras equipped with a natural ordering.
+
+\begin{proposition}
+    \label{prop:oba-fraisse-order-class}
+    The class $\mathcal{OBA}$ is a Fra\"iss\'e order class.
+\end{proposition}
+
+\begin{proof}
+    Heredity is immediate. If $B$ is a finite Boolean algebra with a natural ordering and $C\leq B$ is a subalgebra, then the atoms of $C$ are unions of consecutive blocks of atoms of $B$, and the induced ordering on $C$ is again natural.
+
+    Joint embedding is clear. For amalgamation, one uses the atom structure of finite Boolean algebras: embeddings of finite Boolean algebras are determined by the images of atoms, and an amalgam may be constructed by refining the atom decompositions of the two larger algebras over the common subalgebra. Ordering the new atoms compatibly with the given orderings yields a natural ordering on the amalgam. Hence $\mathcal{OBA}$ is a Fra\"iss\'e order class.
+\end{proof}
+
+The Ramsey property for naturally ordered finite Boolean algebras is equivalent to the Dual Ramsey Theorem of Graham and Rothschild \cite{GR}. Therefore the criterion from Chapter~5 applies once again.
+
+\begin{theorem}
+    \label{thm:ordered-boolean-algebra-ea}
+    Let
+    \[
+        B_\infty^{*}=\mathrm{Flim}(\mathcal{OBA})
+    \]
+    be the countable atomless Boolean algebra with its canonical natural ordering. Then
+    \[
+        \Aut(B_\infty^{*})
+    \]
+    is extremely amenable.
+\end{theorem}
+
+\begin{proof}
+    By Proposition~\ref{prop:oba-fraisse-order-class}, the class $\mathcal{OBA}$ is a Fra\"iss\'e order class, and by the Dual Ramsey Theorem it has the Ramsey property. Corollary~\ref{cor:fraisse-order-class-ea} therefore gives that
+    \[
+        \Aut(B_\infty^{*})
+    \]
+    is extremely amenable.
+\end{proof}
+
+This example is parallel to the vector-space case. The ordering is not chosen arbitrarily, but is determined by an ordering of the atoms, and this compatibility is what places the class within the Ramsey framework.
+
+\section{Metric spaces}
+
+We conclude with metric spaces, which provide one of the most striking applications of the correspondence developed in Chapter~5.
+
+Let
+\[
+    L_0=\{R_q : q\in \mathbb{Q}_{>0}\},
+\]
+where each $R_q$ is a binary relation symbol. A metric space $(X,d)$ determines an $L_0$-structure
+\[
+    \mathbf X=\langle X,(R_q^{\mathbf X})_{q\in \mathbb{Q}_{>0}}\rangle
+\]
+by setting
+\[
+    R_q^{\mathbf X}(x,y)
+    \quad\Longleftrightarrow\quad
+    d(x,y)<q.
+\]
+In this way finite metric spaces with rational distances may be viewed as finite relational structures.
+
+Let
+\[
+    \mathcal{M}_{\mathbb Q}
+\]
+denote the class of all finite metric spaces with rational distances. This is a Fra\"iss\'e class; its Fra\"iss\'e limit will be denoted by
+\[
+    U_{\mathbb Q}
+\]
+and called the \emph{rational Urysohn space}. Let
+\[
+    \mathcal{OM}_{\mathbb Q}
+\]
+be the class of all finite linearly ordered metric spaces with rational distances. Since $\mathcal{M}_{\mathbb Q}$ has strong amalgamation and strong joint embedding, it follows that $\mathcal{OM}_{\mathbb Q}$ is a Fra\"iss\'e order class.
+
+The Fra\"iss\'e limit
+\[
+    U_{\mathbb Q}^{<}=\mathrm{Flim}(\mathcal{OM}_{\mathbb Q})
+\]
+will be called the \emph{ordered rational Urysohn space}. A result of Ne\v{s}et\v{r}il implies that $\mathcal{OM}_{\mathbb Q}$ has the Ramsey property. Hence the criterion from Chapter~5 yields the following.
+
+\begin{theorem}
+    \label{thm:ordered-rational-urysohn-ea}
+    The automorphism group of the ordered rational Urysohn space is extremely amenable.
+\end{theorem}
+
+\begin{proof}
+    The class $\mathcal{OM}_{\mathbb Q}$ is a Fra\"iss\'e order class with the Ramsey property, so the conclusion follows from Corollary~\ref{cor:fraisse-order-class-ea}.
+\end{proof}
+
+We now explain how this yields Pestov's theorem on the full Urysohn space.
+
+Let
+\[
+    \mathbb U
+\]
+denote the Urysohn space, that is, the unique complete separable metric space that is universal for separable metric spaces and ultrahomogeneous for isometries. Urysohn already showed that the completion of $U_{\mathbb Q}$ is isometric to $\mathbb U$, so we may regard $U_{\mathbb Q}$ as a dense subspace of $\mathbb U$. Uspenskij proved that $\operatorname{Iso}(\mathbb U)$, equipped with the pointwise convergence topology, is a universal Polish group. Pestov showed that this group is extremely amenable.
+
+\begin{theorem}[Pestov]
+    \label{thm:pestov-urysohn}
+    The topological group $\operatorname{Iso}(\mathbb U)$ is extremely amenable.
+\end{theorem}
+
+\begin{proof}
+    We first record a simple general fact.
+
+    \begin{lemma}
+        \label{lem:dense-image-ea}
+        Let $\pi\colon G\to H$ be a continuous homomorphism of topological groups with dense range. If $G$ is extremely amenable, then $H$ is extremely amenable.
+    \end{lemma}
+
+    \begin{proof}
+        Let $X$ be a compact $H$-flow. Via $\pi$, this becomes a $G$-flow, so by extreme amenability there is $x\in X$ fixed by every element of $G$. Since $\pi(G)$ is dense in $H$ and the action is continuous, $x$ is fixed by every element of $H$.
+    \end{proof}
+
+    Let
+    \[
+        U_{\mathbb Q}^{<}=\langle U_{\mathbb Q},\prec\rangle
+    \]
+    be the ordered rational Urysohn space. Every automorphism of $U_{\mathbb Q}^{<}$ is in particular an isometry of $U_{\mathbb Q}$, and therefore extends uniquely to an isometry of the completion $\mathbb U$. Thus we obtain a continuous homomorphism
+    \[
+        \Phi\colon \Aut(U_{\mathbb Q}^{<})\to \operatorname{Iso}(\mathbb U).
+    \]
+    By Theorem~\ref{thm:ordered-rational-urysohn-ea} and Lemma~\ref{lem:dense-image-ea}, it is enough to show that $\Phi(\Aut(U_{\mathbb Q}^{<}))$ is dense in $\operatorname{Iso}(\mathbb U)$.
+
+    Fix
+    \[
+        h\in \operatorname{Iso}(\mathbb U),\qquad x_1,\dots,x_n\in \mathbb U,\qquad \epsilon>0.
+    \]
+    We must find
+    \[
+        g\in \Aut(U_{\mathbb Q}^{<})
+    \]
+    such that
+    \[
+        d(\Phi(g)(x_i),h(x_i))<\epsilon
+        \qquad\text{for } i=1,\dots,n.
+    \]
+
+    For this we use the following approximation lemma.
+
+    \begin{lemma}
+        \label{lem:ordered-rational-approximation}
+        Let $x_1,\dots,x_n,y_1,\dots,y_n\in \mathbb U$ be such that
+        \[
+            x_i\mapsto y_i
+            \qquad (i=1,\dots,n)
+        \]
+        is an isometry between the two finite subspaces they generate. Then for every $\epsilon>0$ there exist points
+        \[
+            x_1',\dots,x_n',y_1',\dots,y_n'\in U_{\mathbb Q}
+        \]
+        such that:
+        \begin{enumerate}
+            \item[(i)] the map $x_i'\mapsto y_i'$ is an isometry;
+            \item[(ii)] this isometry is order-preserving with respect to $\prec$;
+            \item[(iii)]
+                  \[
+                      d(x_i,x_i')<\epsilon
+                      \qquad\text{and}\qquad
+                      d(y_i,y_i')<\epsilon
+                      \qquad (i=1,\dots,n).
+                  \]
+        \end{enumerate}
+    \end{lemma}
+
+    \begin{proof}
+        This is proved by induction on $n$, using the density of $U_{\mathbb Q}$ in $\mathbb U$ together with the one-point extension property of the rational Urysohn space. At each stage one chooses rational points sufficiently close to the given ones and realizes the required rational distance pattern so that the resulting partial isometry is order-preserving.
+    \end{proof}
+
+    Apply Lemma~\ref{lem:ordered-rational-approximation} to the tuples
+    \[
+        x_1,\dots,x_n
+        \qquad\text{and}\qquad
+        h(x_1),\dots,h(x_n).
+    \]
+    We obtain points
+    \[
+        x_1',\dots,x_n',y_1',\dots,y_n'\in U_{\mathbb Q}
+    \]
+    such that the map
+    \[
+        x_i'\mapsto y_i'
+    \]
+    is an order-preserving isometry and
+    \[
+        d(x_i,x_i')<\epsilon/2,
+        \qquad
+        d(h(x_i),y_i')<\epsilon/2
+        \qquad (i=1,\dots,n).
+    \]
+
+    Since $U_{\mathbb Q}^{<}$ is ultrahomogeneous, this finite order-preserving isometry extends to some
+    \[
+        g\in \Aut(U_{\mathbb Q}^{<}).
+    \]
+    Then $\Phi(g)$ extends the same map on $U_{\mathbb Q}$, so for each $i$,
+    \[
+        \begin{aligned}
+            d(\Phi(g)(x_i),h(x_i))
+             & \leq d(\Phi(g)(x_i),\Phi(g)(x_i')) + d(\Phi(g)(x_i'),h(x_i)) \\
+             & = d(x_i,x_i') + d(y_i',h(x_i))                               \\
+             & < \epsilon.
+        \end{aligned}
+    \]
+    Thus $\Phi(g)$ belongs to the prescribed neighbourhood of $h$, and the range of $\Phi$ is dense in $\operatorname{Iso}(\mathbb U)$. By Lemma~\ref{lem:dense-image-ea}, $\operatorname{Iso}(\mathbb U)$ is extremely amenable.
+\end{proof}
+
+The metric-space case is the culmination of this chapter. It shows that the criterion from Chapter~5 applies not only to combinatorial structures such as graphs, hypergraphs, vector spaces, and Boolean algebras, but also to metric structures, and it leads to one of the most important examples of an extremely amenable Polish group.
+
+The examples in this chapter show that the criterion from Chapter~5 applies to a broad range of Fra\"iss\'e order classes. In each case, the Ramsey property of a suitable ordered class yields the extreme amenability of the automorphism group of its Fra\"iss\'e limit. In the next chapter we turn from extreme amenability to universal minimal flows and ordered expansions, where the full scope of the Kechris--Pestov--Todorcevic correspondence becomes visible.

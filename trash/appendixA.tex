@@ -1,0 +1,1271 @@
+\chapter{Topological Groups}
+
+\section{Topological algebraic structures}
+The concept of a topological algebraic structure is a major unifying theme in functional analysis. The concept is best explained through representative examples of such structures.
+
+
+\begin{definition}
+    Let \( X \) be a monoid, i.e., a set \( X \) with an internal law of composition
+    \[
+        X \times X \to X,
+    \]
+    denoted, say, \( (x, y) \mapsto xy \), that is associative and admits a neutral element.
+    A topology on \( X \) is said to be compatible with the monoid structure if the mapping
+    \[
+        (x, y) \mapsto xy
+    \]
+    is continuous, where it is understood that \( X \times X \) bears the product topology.
+    A \emph{topological monoid} is a pair \( (X, \tau) \), where \( X \) is a monoid and \( \tau \) is a topology on \( X \) compatible with the monoid structure.
+\end{definition}
+
+
+\begin{definition}
+    Let \( G \) be a group (notated, say, multiplicatively).
+    A topology on \( G \) is said to be compatible with the group structure if the mappings
+    \[
+        (x, y) \mapsto xy \quad \text{and} \quad x \mapsto x^{-1}
+    \]
+    are continuous.
+    A \emph{topological group} is a pair \( (G, \tau) \), where \( G \) is a group and \( \tau \) is a topology on \( G \) compatible with the group structure.
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+\section{Topological groups}
+See the preceding section for the definition of a topological group (1.2).
+It is useful to begin with a modest repertory of examples:
+
+\begin{example}
+    \label{ex:group-discrete-topology}
+
+    \( G \) any group, with the discrete topology.
+\end{example}
+
+\begin{example}
+    \label{ex:subgroup-topological-group}
+
+    If \( G \) is a topological group and \( H \) is a subgroup of \( G \), then \( H \) is also a topological group for the relative topology.
+\end{example}
+
+\begin{proof}
+    The restrictions of the continuous mappings \( (x, y) \mapsto xy \) and \( x \mapsto x^{-1} \) to \( H \times H \) and \( H \), respectively, are continuous for the relative topology on \( H \).
+\end{proof}
+
+\begin{example}
+    \label{ex:complex-additive-topological-group}
+
+    The additive group of the complex field \( \mathbb{C} \) is a topological group with the topology defined by the usual metric
+    \[
+        d(\lambda, \mu) = |\lambda - \mu|.
+    \]
+    \{Compatibility means that \( \lambda_n \to \lambda \) and \( \mu_n \to \mu \) imply
+    \( \lambda_n + \mu_n \to \lambda + \mu \) and \( -\lambda_n \to -\lambda \).\}
+\end{example}
+
+
+\begin{proof}
+    Recall that a map \( f : X \to Y \) between topological spaces is continuous if and only if for every open set \( V \subseteq Y \), the preimage \( f^{-1}(V) \) is open in \( X \).  In metric spaces, this is equivalent to the sequential definition:
+    \[
+        f \text{ is continuous } \iff \big(x_n \to x \ \Rightarrow\ f(x_n) \to f(x)\big).
+    \]
+    Now let \( \lambda_n \to \lambda \) and \( \mu_n \to \mu \) in \( \mathbb{C} \).
+
+    For addition we compute
+    \[
+        |(\lambda_n+\mu_n)-(\lambda+\mu)|
+        \le |\lambda_n-\lambda| + |\mu_n-\mu|.
+    \]
+    Since both terms on the right tend to \(0\), it follows that
+    \[
+        \lambda_n+\mu_n \to \lambda+\mu .
+    \]
+
+    For inversion we have
+    \[
+        |-\lambda_n-(-\lambda)| = |\lambda_n-\lambda| \to 0,
+    \]
+    hence \( -\lambda_n \to -\lambda \).
+
+    Thus both addition and inversion are continuous, and therefore \( (\mathbb{C},+) \) is a topological group.
+
+    If one wishes to verify it directly for \( f(\lambda,\mu) = \lambda + \mu \),
+    let \( B(a,r) = \{ z \in \mathbb{C} : |z - a| < r \} \) be an open ball.
+    Then
+    \[
+        f^{-1}(B(a,r)) = \{ (\lambda,\mu) \in \mathbb{C}^2 : |\lambda + \mu - a| < r \}.
+    \]
+    Fix \( (\lambda_0,\mu_0) \in f^{-1}(B(a,r)) \) and choose
+    \[
+        \delta = \tfrac{1}{2}\big(r - |\lambda_0 + \mu_0 - a|\big) > 0.
+    \]
+    Whenever \( |\lambda - \lambda_0| < \delta \) and \( |\mu - \mu_0| < \delta \),
+    we have
+    \[
+        |\lambda + \mu - a|
+        \le |\lambda + \mu - (\lambda_0 + \mu_0)| + |\lambda_0 + \mu_0 - a|
+        < 2\delta + |\lambda_0 + \mu_0 - a| < r.
+    \]
+    Thus a neighborhood of \( (\lambda_0,\mu_0) \) lies inside \( f^{-1}(B(a,r)) \),
+    proving that \( f^{-1}(B(a,r)) \) is open.
+    The same reasoning applies to the inversion map \( g(\lambda) = -\lambda \).
+
+\end{proof}
+
+\begin{example}
+    \label{ex:additive-groups-R-Q-Z}
+
+    The additive groups of the real numbers \( \mathbb{R} \), the rational numbers \( \mathbb{Q} \), and the integers \( \mathbb{Z} \) are topological groups for the usual metric topologies.
+\end{example}
+
+
+
+\begin{proof}
+    By (\ref{ex:complex-additive-topological-group}), \( (\mathbb{C},+) \) is a topological group.
+    Since \( \mathbb{R} \subset \mathbb{C} \), \( \mathbb{Q} \subset \mathbb{R} \), and \( \mathbb{Z} \subset \mathbb{R} \) are subgroups, the result follows from (\ref{ex:subgroup-topological-group}).
+    For \( \mathbb{Z} \), the induced topology is discrete, so (\ref{ex:group-discrete-topology}) also applies.
+\end{proof}
+
+
+
+\begin{example}
+    \label{ex:nonzero-complex-topological-group}
+
+    The multiplicative group \( \mathbb{C}\setminus\{0\} \) of nonzero complex numbers, equipped with the usual topology, is a topological group.
+\end{example}
+
+\begin{proof}
+    Let \( \lambda_n \to \lambda \) and \( \mu_n \to \mu \) in \( \mathbb{C}\setminus\{0\} \).
+
+    For multiplication we write
+    \[
+        |\lambda_n\mu_n-\lambda\mu|
+        =|\lambda_n\mu_n-\lambda_n\mu+\lambda_n\mu-\lambda\mu|
+        \le |\lambda_n||\mu_n-\mu|+|\mu||\lambda_n-\lambda|.
+    \]
+    Since \( \lambda_n\to\lambda \), the sequence \( (\lambda_n) \) is bounded, and both
+    \( |\mu_n-\mu| \to 0 \) and \( |\lambda_n-\lambda| \to 0 \). Hence
+    \[
+        \lambda_n\mu_n \to \lambda\mu .
+    \]
+
+    For inversion, since \( \lambda\neq0 \) and \( \lambda_n\to\lambda \), we eventually have \( \lambda_n\neq0 \). Then
+    \[
+        \left|\frac{1}{\lambda_n}-\frac{1}{\lambda}\right|
+        = \frac{|\lambda-\lambda_n|}{|\lambda_n||\lambda|}.
+    \]
+    Because \( \lambda_n \to \lambda \neq 0 \), the sequence \( |\lambda_n| \) is bounded away from \(0\), and \( |\lambda-\lambda_n|\to0 \). Hence
+    \[
+        \frac{1}{\lambda_n} \to \frac{1}{\lambda}.
+    \]
+
+    Thus multiplication and inversion are continuous, so \( \mathbb{C}\setminus\{0\} \) is a topological group.
+\end{proof}
+
+
+\begin{example}
+    The multiplicative groups \( \mathbb{R}\setminus\{0\} \) and \( \mathbb{Q}\setminus\{0\} \), with their usual topologies, are topological groups.
+\end{example}
+
+
+\begin{proof}
+    By (\ref{ex:nonzero-complex-topological-group}), \( \mathbb{C}\setminus\{0\} \) is a topological group under multiplication.
+    Since \( \mathbb{R}\setminus\{0\} \subset \mathbb{C}\setminus\{0\} \) and \( \mathbb{Q}\setminus\{0\} \subset \mathbb{R}\setminus\{0\} \) are multiplicative subgroups, (\ref{ex:subgroup-topological-group}) implies that both are topological groups with the induced (usual) topologies.
+\end{proof}
+
+\begin{example}
+    \label{ex:circle-group}
+
+    The multiplicative group
+    \[
+        \mathbb{T} = \{ \lambda \in \mathbb{C} : |\lambda| = 1 \},
+    \]
+    with the usual topology, is a topological group;
+    \( \mathbb{T} \) is called the \emph{circle group}.
+    Note that \( \lambda^{-1} = \lambda^{*} \) (the complex conjugate of \( \lambda \)) for \( \lambda \in \mathbb{T} \).
+\end{example}
+
+
+\begin{proof}
+    Since \( \mathbb{T} \subset \mathbb{C}\setminus\{0\} \) is a multiplicative subgroup and \( \mathbb{C}\setminus\{0\} \) is a topological group by (\ref{ex:nonzero-complex-topological-group}), it follows from (\ref{ex:subgroup-topological-group}) that \( \mathbb{T} \) is a topological group with the relative topology.
+\end{proof}
+
+
+\begin{theorem}
+    \label{thm:topological-group-basic-homeomorphisms}
+
+    If \( a \) and \( b \) are fixed elements of a topological group \( G \),
+    then each of the following mappings is a homeomorphism of \( G \):
+    \begin{enumerate}
+        \item \( x \mapsto x^{-1} \),
+        \item \( x \mapsto ax \),
+        \item \( x \mapsto xb \),
+        \item \( x \mapsto axb \),
+        \item \( x \mapsto axa^{-1} \).
+    \end{enumerate}
+
+    For fixed \( a \in G \), the mapping
+    \[
+        x \mapsto xax^{-1}
+    \]
+    is continuous.
+\end{theorem}
+
+\begin{proof}
+    (1) In a topological group the inversion map \( x \mapsto x^{-1} \) is continuous by definition.
+    Moreover, it is its own inverse since \( (x^{-1})^{-1} = x \). Hence the map is bijective and
+    continuous with continuous inverse, so it is a homeomorphism.
+
+    (2) The map \( x \mapsto ax \) can be written as the composition
+    \[
+        x \mapsto (a,x) \mapsto ax,
+    \]
+    where the first map \( x \mapsto (a,x) \) from \( G \) to \( G \times G \) is continuous,
+    and the multiplication map \( (u,v) \mapsto uv \) is continuous in a topological group.
+    Hence \( x \mapsto ax \) is continuous. Its inverse is \( x \mapsto a^{-1}x \), which is
+    continuous by the same argument; therefore \( x \mapsto ax \) is a homeomorphism.
+
+    (3) Similarly, the map \( x \mapsto xb \) is continuous because it is given by
+    \( x \mapsto (x,b) \mapsto xb \). Its inverse is \( x \mapsto xb^{-1} \), which is also
+    continuous, so this map is a homeomorphism.
+
+    (4) The map \( x \mapsto axb \) can be written as the composition
+    \[
+        x \mapsto ax \mapsto (ax)b.
+    \]
+    Since both \( x \mapsto ax \) and \( y \mapsto yb \) are homeomorphisms, their composition
+    is also a homeomorphism.
+
+    (5) The map \( x \mapsto axa^{-1} \) is the composition
+    \[
+        x \mapsto ax \mapsto (ax)a^{-1}.
+    \]
+    Both maps are homeomorphisms by (2) and (3), hence their composition is also a homeomorphism.
+
+    (6) For fixed \( a \in G \), consider the map \( x \mapsto xax^{-1} \).
+    Write it as
+    \[
+        x \mapsto (xa, x^{-1}) \mapsto (xa)x^{-1}.
+    \]
+    The map \( x \mapsto (xa, x^{-1}) \) from \( G \) to \( G \times G \) is continuous because
+    its coordinate functions \( x \mapsto xa \) and \( x \mapsto x^{-1} \) are continuous.
+    Since the multiplication map \( (u,v) \mapsto uv \) is continuous, the composition
+    \( x \mapsto xax^{-1} \) is continuous.
+\end{proof}
+
+
+\begin{corollary}
+    \label{cor:top-group-neighborhood-translation}
+
+    If \( G \) is a topological group and \( \mathcal{B} \) is a fundamental system of neighborhoods of the neutral element \( e \),
+    then, for each \( a \in G \), the classes
+    \[
+        \{ aV : V \in \mathcal{B} \} \quad \text{and} \quad \{ Va : V \in \mathcal{B} \}
+    \]
+    are fundamental systems of neighborhoods of \( a \).
+    Also, \( \{ V^{-1} : V \in \mathcal{B} \} \) is a fundamental system of neighborhoods of \( e \).
+\end{corollary}
+
+\begin{proof}
+    The mapping \( x \mapsto ax \) is a homeomorphism of \( G \) (\ref{thm:topological-group-basic-homeomorphisms}), sending \( e \) to \( a \),
+    and therefore transforming \( \mathcal{B} \) into a fundamental system of neighborhoods of \( a \).
+    Similarly, \( x \mapsto xa \) (resp.\ \( x \mapsto x^{-1} \)) transforms \( \mathcal{B} \) into a fundamental system of neighborhoods of \( ea = a \) (resp.\ \( e^{-1} = e \)).
+\end{proof}
+
+For subsets \( S, T \) of \( G \), one writes
+\( ST = \{ st : s \in S,\, t \in T \} \),
+with the convention that \( ST = \emptyset \) if either \( S = \emptyset \) or \( T = \emptyset \).
+Similarly, \( S^{-1} = \{ s^{-1} : s \in S \}.\)
+
+\begin{corollary}
+    \label{cor:open-sets-inverse-translations}
+
+    If \( A \) is a subset of a topological group \( G \) and if \( U \) is an open subset of \( G \),
+    then the following subsets are also open: \( U^{-1} \), \( AU \), \( UA \).
+\end{corollary}
+
+\begin{proof}
+
+
+    We can suppose that \( A \) and \( U \) are nonempty.
+    Writing \( Jx = x^{-1} \), we have \( U^{-1} = J(U) \), which is open because \( J \) is a homeomorphism (\ref{thm:topological-group-basic-homeomorphisms}).
+    Similarly, \( aU \) and \( Ua \) are open for each \( a \in A \); therefore so are the sets
+    \[
+        AU = \bigcup_{a \in A} aU,
+        \qquad
+        UA = \bigcup_{a \in A} Ua.
+    \]
+\end{proof}
+
+
+\begin{remark}
+    \label{rem:top-group-translations-terminology}
+
+    The terminology for the mappings in (\ref{thm:topological-group-basic-homeomorphisms}) is as follows:
+    \begin{itemize}
+        \item \( x \mapsto x^{-1} \) is the \emph{inversion mapping};
+        \item \( x \mapsto ax \) is \emph{left translation} by \( a \);
+        \item \( x \mapsto xb \) is \emph{right translation} by \( b \);
+        \item \( x \mapsto axa^{-1} \) is the \emph{inner automorphism} of \( G \) induced by \( a \).
+    \end{itemize}
+
+    The fact that translations are homeomorphisms means that a topological group is \emph{topologically homogeneous}:
+    for any pair of points \( a, b \in G \), the mapping \( x \mapsto ba^{-1}x \) is a homeomorphism of \( G \) that sends \( a \) to \( b \).
+    Consequently, topological behavior at \( a \) is reflected at \( b \).
+    For example, if one point of \( G \) has a countable neighborhood base, then every point does (cf.\ \ref{cor:top-group-neighborhood-translation});
+    if one point has a compact neighborhood, then every point does; etc.
+\end{remark}
+
+If \( G \) and \( H \) are topological groups and notated multiplicatively, the product group structure on \( G \times H \) is defined by
+\[
+    (x, y)(x', y') = (xx', yy'),
+    \qquad
+    (x, y)^{-1} = (x^{-1}, y^{-1});
+\]
+in particular, the neutral element of \( G \times H \) is \( (e, e) \).
+
+
+\begin{theorem}
+    \label{thm:product-topological-groups}
+
+    If \( G \) and \( H \) are topological groups, then the product topology on \( G \times H \) is compatible with the product group structure.
+\end{theorem}
+
+\begin{proof}
+
+    Since \( x \mapsto x^{-1} \) and \( y \mapsto y^{-1} \) are continuous, so is \( (x, y) \mapsto (x^{-1}, y^{-1}) \);
+    thus, inversion in \( G \times H \) is continuous.
+
+    It remains to show that the mapping
+    \[
+        ((x, y), (x', y')) \mapsto (xx', yy'),
+    \]
+    from \( (G \times H) \times (G \times H) \) to \( G \times H \), is continuous.
+    Since \( (G \times H) \times (G \times H) \) is homeomorphic with \( G \times H \times G \times H \) via the mapping
+    \[
+        ((x, y), (x', y')) \mapsto (x, y, x', y'),
+    \]
+    it is equivalent to establish the continuity of \( (x, y, x', y') \mapsto (xx', yy') \). Indeed,
+    \[
+        (x, y, x', y') \mapsto (x, x') \mapsto xx'
+    \]
+    is the composition of two continuous mappings, as is the mapping
+    \[
+        (x, y, x', y') \mapsto (y, y') \mapsto yy',
+    \]
+    consequently \( (x, y, x', y') \mapsto (xx', yy') \) is also continuous.
+\end{proof}
+
+
+\begin{remark}
+    If \( G \) and \( H \) are topological groups, then \( G \times H \), with the product topology and product group structure, is a topological group (\ref{thm:product-topological-groups}).
+    More generally, one can show (directly, or by induction on (\ref{thm:product-topological-groups})) that if \( G_1, \ldots, G_n \) are topological groups,
+    then the product topology on \( G_1 \times \cdots \times G_n \) is compatible with the product group structure.
+    Thus \( G_1 \times \cdots \times G_n \) is a topological group, called the \emph{product topological group} of \( G_1, \ldots, G_n \).
+    This is a useful construct for generating new examples of topological groups.
+\end{remark}
+
+
+\begin{example}
+    Let \( \mathbb{C} \) be the additive group of complex numbers with the usual topology (\ref{ex:complex-additive-topological-group}),
+    \( \mathbb{C}^n \) the additive group of \( n \)-ples \( x = (\lambda_k),\, y = (\mu_k) \).
+    Each of the following metrics on \( \mathbb{C}^n \) yields the product topology:
+    \[
+        d(x, y) = \max_k |\lambda_k - \mu_k|,
+    \]
+    and
+    \[
+        d(x, y) = \left( \sum_{k=1}^{n} |\lambda_k - \mu_k|^p \right)^{1/p},
+    \]
+    where \( p \) is a fixed real number \( \geq 1 \) (the most popular choices are \( p = 1 \) and \( p = 2 \)).
+\end{example}
+
+\begin{example}
+    If \( \mathbb{R} \) is the additive group of real numbers with the usual topology (\ref{ex:additive-groups-R-Q-Z}),
+    the product topological group \( \mathbb{R}^n \) is called the \emph{\( n \)-dimensional vector group.}
+\end{example}
+
+\begin{example}
+    If \( \mathbb{T} \) is the circle group with the usual topology (\ref{ex:circle-group}),
+    the product topological group \( \mathbb{T}^n \) is called the \emph{\( n \)-dimensional torus.}
+\end{example}
+
+
+
+\section{Neighborhoods of \( e \)}
+Due to the homogeneity of a topological group (\ref{rem:top-group-translations-terminology}),
+the topology is completely determined by the system of neighborhoods of the neutral element \( e \) (see (\ref{thm:topology-from-neighborhood-system}) below);
+the pertinent properties of this neighborhood system are as follows.
+
+
+\begin{theorem}
+    \label{thm:identity-neighborhood-properties}
+
+
+    If \( G \) is a topological group, then the class \( \mathcal{V} \) of all neighborhoods of the neutral element \( e \) has the following properties:
+    \begin{enumerate}
+        \item \( e \in V \) for all \( V \in \mathcal{V} \);
+        \item if \( V, W \in \mathcal{V} \) then \( V \cap W \in \mathcal{V} \);
+        \item if \( V \in \mathcal{V} \) then there exists \( W \in \mathcal{V} \) such that \( WW \subset V \);
+        \item if \( V \in \mathcal{V} \) then \( V^{-1} \in \mathcal{V} \);
+        \item if \( V \in \mathcal{V} \) and \( a \in G \) then \( aVa^{-1} \in \mathcal{V} \);
+        \item if \( V \in \mathcal{V} \) and \( W \supset V \) then \( W \in \mathcal{V} \).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    (1), (2), (6) are general properties of the filter of neighborhoods of a point of a topological space.
+    \{Note that the term “neighborhood,” used in the Bourbaki sense, means any superset of an open superset.\}
+
+    (3) The mapping \( f(x, y) = xy \) is continuous at \( (e, e) \), and \( f(e, e) = e \).
+    Given any neighborhood \( V \) of \( e \), choose a neighborhood \( A \) of \( (e, e) \) in \( G \times G \) such that \( f(A) \subset V \).
+    One can suppose that \( A = W \times W \) for some \( W \in \mathcal{V} \) (such neighborhoods of \( (e, e) \) are basic).
+    Thus, \( WW = f(W \times W) \subset V \).
+
+    (4), (5) \( x \mapsto x^{-1} \) and \( x \mapsto axa^{-1} \) are homeomorphisms of \( G \) mapping \( e \) onto \( e \) (cf.\ \ref{cor:top-group-neighborhood-translation}).
+\end{proof}
+
+
+The properties listed in (\ref{thm:identity-neighborhood-properties}) are characteristic of compatibility of a topology with the group structure:
+
+
+\begin{theorem}
+    \label{thm:topology-from-neighborhood-system}
+
+    If \( G \) is an abstract group, with neutral element \( e \), and if \( \mathcal{V} \) is a nonempty class of subsets of \( G \) satisfying \textup{(1)}–\textup{(6)} of \textup{(\ref{thm:identity-neighborhood-properties})}, then there exists a unique topology on \( G \) such that
+    \begin{enumerate}[(i)]
+        \item the topology is compatible with the group structure, and
+        \item \( \mathcal{V} \) is the system of all neighborhoods of \( e \).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \textit{Uniqueness.}
+    Let $\tau_1$ and $\tau_2$ be two topologies on $G$ that are compatible with the group structure and have the same neighborhood system $\mathcal V$ at the neutral element $e$.
+    By Corollary~(\ref{cor:top-group-neighborhood-translation}), in any topological group the sets
+    \[
+        \{\,aV : V\in\mathcal V\,\}
+    \]
+    form a fundamental system of neighborhoods of $a\in G$. Since both $\tau_1$ and $\tau_2$ have the same $\mathcal V$ at $e$, they induce the same neighborhood system at every $a\in G$. Hence the neighborhood filters (and therefore the open sets) coincide at every point, which implies $\tau_1=\tau_2$.
+
+
+    \textit{Existence.}
+    By \textup{(1)}, \textup{(2)} and \textup{(6)}, \( \mathcal{V} \) is a filter of sets containing \( e \). For each \( a \in G \), define \( \mathcal{V}_a = \{ aV : V \in \mathcal{V} \} \); since \( x \mapsto ax \) is bijective and maps \( e \) onto \( a \), \( \mathcal{V}_a \) is a filter of sets containing \( a \). In particular, \( \mathcal{V}_e = \mathcal{V} \).
+
+    We assert that the family \( (\mathcal{V}_a)_{a \in G} \) is the family of neighborhood filters for a topology on \( G \). Given \( N \in \mathcal{V}_x \), it is to be shown that there exists \( M \in \mathcal{V}_x \) such that \( y \in M \) implies \( N \in \mathcal{V}_y \). Say \( N = xV \), \( V \in \mathcal{V} \). By \textup{(3)} choose \( W \in \mathcal{V} \) such that \( WW \subset V \), and set \( M = xW \). Then \( y \in M \) implies \( yW \subset xWW \subset xV = N \), thus \( N \in \mathcal{V}_y \).
+
+    It remains to show that the topology on \( G \) defined in the preceding paragraph is compatible with the group structure.
+
+    Fix \( a, b \in G \). To see that \( (x, y) \mapsto xy \) is continuous at \( (a, b) \), let a neighborhood \( C \) of \( ab \) be given, say \( C = abV \), \( V \in \mathcal{V} \); it will suffice to find \( U \in \mathcal{V} \) such that \( (aU)(bU) \subset abV \), i.e. \( (b^{-1}Ub)U \subset V \). By \textup{(3)} choose \( W \in \mathcal{V} \) with \( WW \subset V \); then \( bWb^{-1} \in \mathcal{V} \) by \textup{(5)}, and, setting \( U = (bWb^{-1}) \cap W \), one has
+    \( U \in \mathcal{V} \) and \( (b^{-1}Ub)U \subset [b^{-1}(bWb^{-1})b]W = WW \subset V \).
+
+
+    Finally, fixing \( a \in G \), it is to be shown that \( x \mapsto x^{-1} \) is continuous at \( a \).
+    Given any \( C \in \mathcal{V}_{a^{-1}} \), say \( C = a^{-1}V \), \( V \in \mathcal{V} \), we seek \( W \in \mathcal{V} \) such that
+    \[
+        (aW)^{-1} \subset a^{-1}V, \text{ i.e., } W^{-1} \subset a^{-1}Va, \text{ i.e., } W \subset a^{-1}V^{-1}a.
+    \]
+    Indeed, \( a^{-1}V^{-1}a \in \mathcal{V} \) by \textup{(4)} and \textup{(5)}, thus \( W = a^{-1}V^{-1}a \) is suitable.
+
+
+\end{proof}
+
+
+Recall that, in a topological space, “$\mathscr{B}$ is a  fundamental system of neighborhoods of $x$” means that $\mathscr{B}$ is a base for the filter of neighborhoods of $x$;
+that is,
+\begin{enumerate}[(i)]
+    \item every set in $\mathscr{B}$ is a neighborhood of $x$, and
+    \item every neighborhood of $x$ contains some set in $\mathscr{B}$.
+\end{enumerate}
+The statement “$B$ is a basic neighborhood of $x$” means that $B$ is a generic element of some fundamental system $\mathscr{B}$ of neighborhoods of $x$.
+Theorem~(\ref{thm:topology-from-neighborhood-system}) can be formulated in terms of basic neighborhoods of~$e$:
+
+\begin{theorem}
+    \label{thm:group-topology-from-identity-base}
+
+    Let \( G \) be an abstract group, with neutral element \( e \), and let \( \mathscr{B} \) be a nonempty class of subsets of \( G \) satisfying the following properties (1)--(5):
+    \begin{enumerate}
+        \item \( e \in B \) for all \( B \in \mathscr{B} \);
+        \item if \( B_1, B_2 \in \mathscr{B} \), then there exists \( B_3 \in \mathscr{B} \) such that \( B_3 \subset B_1 \cap B_2 \);
+        \item if \( B \in \mathscr{B} \), then there exists \( C \in \mathscr{B} \) such that \( CC \subset B \);
+        \item if \( B \in \mathscr{B} \), then there exists \( C \in \mathscr{B} \) such that \( C \subset B^{-1} \);
+        \item if \( B \in \mathscr{B} \) and \( a \in G \), then there exists \( C \in \mathscr{B} \) such that \( C \subset aBa^{-1} \).
+    \end{enumerate}
+    Then there exists a unique topology on \( G \) such that
+    \begin{enumerate}[(i)]
+        \item the topology is compatible with the group structure, and
+        \item \( \mathscr{B} \) is a fundamental system of neighborhoods of \( e \).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \( \mathscr{B} \) is the base for precisely one filter \( \mathscr{V} \), namely,
+    \[
+        \mathscr{V} = \{ V : V \supset B \text{ for some } B \in \mathscr{B} \}.
+    \]
+
+    \emph{(i) $\mathscr{V}$ is a filter.}
+    It is nonempty since $\mathscr{B}\neq\emptyset$. It is upward closed by definition:
+    if $V\in\mathscr{V}$ and $V\subseteq W$, then $W\in\mathscr{V}$.
+    For finite intersections, let $V_1,V_2\in\mathscr{V}$, so $B_1,B_2\in\mathscr{B}$ with
+    $B_i\subseteq V_i$. By (2) in the hypotheses, there is $B_3\in\mathscr{B}$ with
+    $B_3\subseteq B_1\cap B_2\subseteq V_1\cap V_2$, hence $V_1\cap V_2\in\mathscr{V}$.
+
+    \emph{(ii) Uniqueness among filters having base $\mathscr{B}$.}
+    Let $\mathscr{F}$ be any filter for which $\mathscr{B}$ is a base. Then every
+    $F\in\mathscr{F}$ contains some $B\in\mathscr{B}$, so $\mathscr{F}\subseteq\mathscr{V}$.
+    Conversely, if $V\in\mathscr{V}$, choose $B\in\mathscr{B}$ with $B\subseteq V$.
+    Since $B\in\mathscr{F}$ and $\mathscr{F}$ is upward closed, $V\in\mathscr{F}$; hence
+    $\mathscr{V}\subseteq\mathscr{F}$. Thus $\mathscr{F}=\mathscr{V}$.
+
+    Therefore $\mathscr{B}$ is the base for \emph{precisely one} filter, namely $\mathscr{V}$.
+
+    Evidently, \( \mathscr{V} \) satisfies the hypotheses (1)--(6) of Theorem~(\ref{thm:topology-from-neighborhood-system}).
+\end{proof}
+
+\begin{definition}
+    \label{def:hausdorff-space}
+
+    A topological space \( X \) is said to be \emph{Hausdorff} if, for each pair of distinct points \( x, y \) of \( X \), there exist neighborhoods \( U, V \) of \( x, y \), respectively, such that \( U \cap V = \emptyset \).
+\end{definition}
+
+\begin{theorem}
+    If \( G \) is a topological group and \( \mathscr{B} \) is any fundamental system of neighborhoods of the neutral element \( e \), then the following conditions are equivalent:
+    \begin{enumerate}[(a)]
+        \item \( G \) is Hausdorff;
+        \item \( \{ e \} \) is a closed subset of \( G \);
+        \item \( \displaystyle \bigcap_{B \in \mathscr{B}} B = \{ e \} \).
+    \end{enumerate}
+
+
+\end{theorem}
+
+
+\begin{proof}~
+    \begin{itemize}
+        \item (a) implies (b): In a Hausdorff space every singleton is closed.
+        \item (b) implies (c): Assuming \( x \neq e \), it is to be shown that some \( B \in \mathscr{B} \) excludes \( x \).
+              Since \( \{x\} \) is also closed (\ref{thm:topological-group-basic-homeomorphisms}) and \( e \notin \{x\} \), there exists a neighborhood \( V \) of \( e \) such that \( V \cap \{x\} = \emptyset \), i.e., \( x \notin V \).
+              Choose \( B \in \mathscr{B} \) with \( B \subset V \).
+        \item (c) implies (a): Assuming \( x \neq y \), we seek a neighborhood \( V \) of \( e \) such that \( (xV) \cap (yV) = \emptyset \).
+              Since \( y^{-1}x \neq e \), by (c) there exists \( B \in \mathscr{B} \) with \( y^{-1}x \notin B \).
+              Choose \( C \in \mathscr{B} \) with \( CC \subset B \) (cf. (3) of (\ref{thm:group-topology-from-identity-base})).
+              Then \( V = C \cap C^{-1} \) is a neighborhood of \( e \), and \( (xV) \cap (yV) \neq \emptyset \)
+              which implies  $\exists\,v,w\in V$ with $xv=yw$. Hence
+              \[
+                  y^{-1}x =  w\,v^{-1}\in V V^{-1}.
+              \]
+              But $V:=C\cap C^{-1}$, so $V^{-1}=V$ and $V\subset C$, $V^{-1}\subset C$. Therefore
+              \[
+                  VV^{-1}=VV \subset CC \subset B.
+              \]
+              would imply \( y^{-1}x \in VV^{-1} = VV \subset CC \subset B \),  a contradiction.
+    \end{itemize}
+\end{proof}
+
+
+\section{Subgroups and quotient groups}
+
+Subgroup, product group, quotient group—these constructs are part of the elementary grammar of group theory. In the theory of topological spaces, the parallel constructs are subspace, product space, quotient space. For topological groups, both sets of constructs are available; it is natural to ask whether the results of applying a pair of parallel constructs are compatible.
+
+If \( H \) is a subgroup of a topological group \( G \), is the relative topology on \( H \) compatible with its group structure? The obviously affirmative answer (\ref{ex:subgroup-topological-group}) allows one to say, briefly, that a subgroup of a topological group is a topological group. If \( G \) and \( H \) are topological groups, then the product topology on \( G \times H \) is compatible with the product group structure (\ref{thm:product-topological-groups}); briefly, the product of topological groups is a topological group.
+
+If \( N \) is a normal subgroup of the topological group \( G \), there is a quotient group structure on the set of cosets \( G / N \), and, via the canonical mapping \( \pi : G \to G / N \), a quotient topology on \( G / N \). The main result in this section is that the quotient topology on \( G / N \) is compatible with the quotient group structure, i.e., a quotient group of a topological group is a topological group.
+
+Also included are some odds and ends about subgroups, for which there is no better place.
+
+
+\begin{theorem}
+    In a topological group, the closure of a subgroup is a subgroup, and the closure of a normal subgroup is a normal subgroup.
+\end{theorem}
+
+\begin{proof}
+    Suppose \( H \) is a subgroup of the topological group \( G \). Write
+    \[
+        f : G \times G \to G, \quad f(x, y) = x^{-1}y.
+    \]
+    The subset \( H \) has the property \( f(H \times H) \subset H \); the desired conclusion,
+    \[
+        f(\overline{H} \times \overline{H}) \subset \overline{H},
+    \]
+    follows from the continuity of \( f \) and the fact that \( \overline{H} \times \overline{H} \) is the closure of \( H \times H \).
+
+    If, in addition, \( H \) is normal in \( G \), then for each \( a \in G \) the homeomorphism
+    \[
+        x \mapsto axa^{-1}
+    \]
+    (see (\ref{thm:topological-group-basic-homeomorphisms})) maps \( H \) into \( H \) and therefore \( \overline{H} \) into \( \overline{H} \).
+\end{proof}
+
+
+The following corollary is of interest only for nonHausdorff topological groups (see (\ref{def:hausdorff-space})):
+
+
+\begin{corollary}
+    In a topological group \( G \), with neutral element \( e \), the closure \( \overline{\{e\}} \) is a closed normal subgroup of \( G \).
+\end{corollary}
+
+\begin{definition}
+    If \( H \) is a subgroup of a group \( G \), \( G / H \) denotes the set of all \emph{left cosets} \( xH \) (i.e., the set of all equivalence classes for the equivalence relation \( x R y \) defined by \( x^{-1} y \in H \)). The \emph{canonical mapping} \( \pi : G \to G/H \) is defined by \( \pi(x) = xH \).
+
+    Dually, \( H \backslash G \) denotes the set of all \emph{right cosets} \( Hx \). When \( H \) is normal in \( G \), i.e., when \( xH = Hx \) for all \( x \in G \), we need not distinguish between \( G/H \) and \( H \backslash G \); for definiteness, we use the notation \( G/H \).
+\end{definition}
+
+
+\begin{lemma}
+    If \( H \) is a subgroup of a topological group \( G \), \( G/H \) is the space of left cosets equipped with the quotient topology, and \( \pi : G \to G/H \) is the canonical mapping, then
+    \begin{enumerate}[(i)]
+        \item \( \pi \) is an open, continuous mapping, and
+        \item for each \( a \in G \), the neighborhoods of \( \pi(a) \) are precisely the sets \( \pi(aV) \), where \( V \) is a neighborhood of the neutral element \( e \) of \( G \).
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    By definition, the quotient topology on \( G/H \) is the \emph{coarsest} topology that makes the canonical mapping \( \pi : G \to G/H \) continuous. Equivalently, a subset \( A \subset G/H \) is open if and only if \( \pi^{-1}(A) \) is open in \( G \). In particular, \( \pi \) is continuous.
+
+
+    \begin{enumerate}[(i)]
+        \item If \( U \) is an open subset of \( G \), then \( \pi^{-1}(\pi(U)) = UH \) is open in \( G \) (by (\ref{cor:open-sets-inverse-translations})); therefore \( \pi(U) \) is open in \( G/H \).
+
+        \item Fix \( a \in G \). If \( V \) is a neighborhood of \( e \), then \( aV \) is a neighborhood of \( a \); therefore \( \pi(aV) \) is a neighborhood of \( \pi(a) \) by (i).
+              Conversely, if \( A \) is a neighborhood of \( \pi(a) \), then by the continuity of \( \pi \), \( \pi^{-1}(A) \) is a neighborhood of \( a \).
+              Say \( \pi^{-1}(A) = aV \), where \( V \) is a neighborhood of \( e \); then \( \pi(aV) = \pi(\pi^{-1}(A)) = A \), since \( \pi \) is surjective.
+    \end{enumerate}
+\end{proof}
+\begin{theorem}
+    Let \( N \) be a normal subgroup of a topological group \( G \), let
+    \(\pi : G \to G/N\) be the canonical mapping, and equip \( G/N \) with the quotient group structure and the quotient topology.
+    Then:
+    \begin{enumerate}[(i)]
+        \item \( G/N \) is a topological group;
+        \item \(\pi\) is an open, continuous mapping;
+        \item for each \( a \in G \), the neighborhoods of \(\pi(a)\) for the quotient topology are precisely the sets \(\pi(a)\pi(V)\), where \(V\) is a neighborhood of the neutral element \(e\) of \(G\);
+        \item \(G/N\) is Hausdorff if and only if \(N\) is a closed subset of \(G\).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}~
+
+    \begin{itemize}
+        \item  \textit{(ii)} was proved in the lemma.
+        \item \textit{(iii)} Since \(N\) is normal, \(\pi\) is a homomorphism, because
+              let $\pi:G\to G/N$ be given by $\pi(x)=xN$ (left coset). Because $N\lhd G$, the product on $G/N$ is
+              \[
+                  (xN)\cdot(yN)=(xy)N,
+              \]
+              and this is well defined: if $x'=xn_1$, $y'=yn_2$ with $n_1,n_2\in N$, then
+              \[
+                  x'y' = x n_1 y n_2
+                  = x y \,(y^{-1} n_1 y)\, n_2,
+              \]
+              and $y^{-1} n_1 y\in N$ by normality, hence $x'y'\in xyN$, i.e. $(x'y')N=(xy)N$.
+
+              Therefore, for all $x,y\in G$,
+              \[
+                  \pi(xy)=(xy)N=(xN)(yN)=\pi(x)\,\pi(y),
+              \]
+              so $\pi$ is a group homomorphism.
+
+              Consequently, for any $a\in G$ and any $V\subseteq G$,
+              \[
+                  \pi(aV)=\{\pi(av):v\in V\}
+                  =\{\pi(a)\pi(v):v\in V\}
+                  =\pi(a)\,\pi(V).
+              \]
+
+
+              therefore \(\pi(aV) = \pi(a)\pi(V)\); quote the lemma.
+        \item \textit{(i)} Let \(\mathcal{V}\) be the set of all neighborhoods of \(e\). By (iii),
+              \(\pi(\mathcal{V}) = \{ \pi(V) : V \in \mathcal{V} \}\) is the set of all neighborhoods of \(\pi(e)\),
+              the neutral element of \(G/N\). Let us show that \(\pi(\mathcal{V})\) satisfies the neighborhood axioms (\ref{thm:topology-from-neighborhood-system})
+              for a topological group structure.
+
+              Of course \(\pi(\mathcal{V})\) is a filter of sets containing \(\pi(e)\), i.e., it satisfies conditions (1), (2), and (6)
+              of (\ref{thm:topology-from-neighborhood-system}); indeed, it is the filter of all neighborhoods of \(\pi(e)\) for the quotient topology.
+              Suppose \(V \in \mathcal{V}\); choosing \(W \in \mathcal{V}\) with \(WW \subset V\),
+              one has \(\pi(W)\pi(W) = \pi(WW) \subset \pi(V)\), thus \(\pi(\mathcal{V})\) satisfies condition (3) of (\ref{thm:topology-from-neighborhood-system}).
+              If \(V \in \mathcal{V}\) then \((\pi(V))^{-1} = \pi(V^{-1}) \in \pi(\mathcal{V})\) shows that
+              \(\pi(\mathcal{V})\) satisfies (4) of (\ref{thm:topology-from-neighborhood-system}). If \(V \in \mathcal{V}\) and \(a \in G\) then
+              \(\pi(a)\pi(V)\pi(a)^{-1} = \pi(aVa^{-1}) \in \pi(\mathcal{V})\) shows that \(\pi(\mathcal{V})\)
+              satisfies (5) of (\ref{thm:topology-from-neighborhood-system}).
+
+              It follows from (\ref{thm:topology-from-neighborhood-system}) that there exists a topology \(\tau\) on \(G/N\) compatible
+              with the group structure, for which \(\pi(\mathcal{V})\) is the system of neighborhoods of \(\pi(e)\);
+              since the \(\tau\)-neighborhoods of \(\pi(a)\) are the sets \(\pi(a)\pi(V)\) (\ref{cor:top-group-neighborhood-translation}),
+              it follows from (iii) that \(\tau\) coincides with the quotient topology.
+        \item \textit{(iv)} If \(G/N\) is Hausdorff then \(\{\pi(e)\}\) is closed in \(G/N\),
+              therefore \(N = \pi^{-1}(\{\pi(e)\})\) is closed in \(G\) by the continuity of \(\pi\).
+              Conversely, if \(N\) is closed then \(G \setminus N\) is open, thus \(\pi(G \setminus N)\) is open by (ii);
+              since \(\pi(G \setminus N) = G/N - \{\pi(e)\}\), \(\{\pi(e)\}\) is closed and therefore \(G/N\) is Hausdorff (\ref{def:hausdorff-space}).
+    \end{itemize}
+
+
+
+
+
+
+
+\end{proof}
+
+
+\section{Uniformity in topological groups}
+
+The neighborhoods \( V \) of the neutral element \( e \) play a central role in the description and determination of the topology of a topological group \( G \). Specifically, for fixed \( x \in G \) and variable \( V \), \( xV \) (or \( Vx \)) varies over the set of all neighborhoods of \( x \). A slight rearrangement of emphasis leads to the idea of \emph{uniformity}: for fixed \( V \), \( xV \) (or \( Vx \)) is a neighborhood of \( x \) for each \( x \in G \), so to speak of “uniform size” \( V \) independent of the particular point \( x \).
+
+The example (\ref{ex:additive-groups-R-Q-Z}) of the additive group of \( \mathbb{R} \) with the usual metric \( d(x, y) = |x - y| \) is instructive. The set of open intervals \( V_\varepsilon = (-\varepsilon, \varepsilon) \), \( \varepsilon > 0 \), is a fundamental system of neighborhoods of \( 0 \). Each \( V_\varepsilon \) is a measure of nearness to the origin: \( y \in V_\varepsilon \) means \( d(0, y) < \varepsilon \). The points of \( x + V_\varepsilon \) are the points “within \( V_\varepsilon \)” (i.e., within \( \varepsilon \)) of \( x \): \( y \in x + V_\varepsilon \) means \( y - x \in V_\varepsilon \), i.e., \( d(x, y) < \varepsilon \). Moreover, for fixed \( \varepsilon > 0 \), the neighborhoods \( x + V_\varepsilon \), \( x \) variable, are of uniform “size” (diameter).
+
+In a general topological group \( G \), with neutral element \( e \), a neighborhood \( V \) of \( e \) represents a degree of nearness to \( e \). By homogeneity, this notion of degree of nearness can be translated throughout the group: \( xV \) is the set of points “within \( V \)” of \( x \), in the sense that \( y \in xV \) precisely when \( x^{-1}y \in V \).
+\emph{(In general \( xV \neq Vx \); the \( y \in xV \) are, so to speak, “left-within \( V \)” of \( x \), and the \( y \in Vx \) are “right-within \( V \)” of \( x \).)} Thus the \( V \)’s play the role of \( \varepsilon \)’s in the theory of topological groups.
+
+The concept of uniformity is discernibly at work in condition (d) of the following theorem:
+
+\begin{theorem}
+    \label{thm:continuity-homomorphisms-top-groups}
+
+    If \( G \) and \( H \) are topological groups, with neutral elements \( e_G \) and \( e_H \), and if
+    \( f : G \to H \) is a group homomorphism, then the following conditions are equivalent:
+    \begin{enumerate}[(a)]
+        \item \( f \) is a continuous mapping;
+        \item \( f \) is continuous at some \( a \in G \);
+        \item \( f \) is continuous at \( e_G \);
+        \item given any neighborhood \( V \) of \( e_H \), there exists a neighborhood \( U \) of \( e_G \) such that \( x^{-1}y \in U \) implies \( f(x)^{-1}f(y) \in V \).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    By hypothesis, \( f(xy) = f(x)f(y) \) for all \( x, y \in G \).
+
+    \begin{itemize}
+        \item (a) implies (b) trivially.
+        \item (b) implies (c): Let \( V \) be a neighborhood of \( f(e_G) = e_H \); we seek a neighborhood \( U \) of \( e_G \) such that \( f(U) \subset V \).
+              Since \( f(a)V \) is a neighborhood of \( f(a) \), by hypothesis there exists a neighborhood \( U \) of \( e_G \) such that \( f(aU) \subset f(a)V \)
+              (cf. (\ref{cor:top-group-neighborhood-translation})), that is, \( f(a)f(U) \subset f(a)V \) and therefore \( f(U) \subset V \).
+              Moreover, \( x^{-1}y \in U \) implies \( f(x)^{-1}f(y) = f(x^{-1}y) \in f(U) \subset V \);
+              thus (c) implies (d).
+        \item (d) implies (a): Fix \( a \in G \); let us show that \( f \) is continuous at \( a \).
+              Let \( B \) be a neighborhood of \( f(a) \), say \( B = f(a)V \), \( V \) a neighborhood of \( e_H \).
+              Choose a neighborhood \( U \) of \( e_G \) satisfying the condition in (d).
+              For any \( y \in aU \) one has \( a^{-1}y \in U \) and therefore \( f(a)^{-1}f(y) \in V \),
+              i.e., \( f(y) \in f(a)V = B \); thus \( f(aU) \subset B \).
+    \end{itemize}
+
+\end{proof}
+
+
+\begin{remark}
+    The continuity of the homomorphism \( f \) at every \( x \), as implied by the relation between \( U \) and \( V \) in condition (d) of (\ref{thm:continuity-homomorphisms-top-groups}), can be expressed as follows:
+    \( y \in xU \) implies \( f(y) \in f(x)V \), i.e., \( f(xU) \subset f(x)V \).
+
+    To paraphrase: given any ‘\(\varepsilon\)’ (namely \( V \)) there exists a ‘\(\delta\)’ (namely \( U \)) that works at every \( x \).
+    This is the idea of \emph{uniform continuity}, to which we shall return shortly.
+
+    Let us first give a definite meaning to ‘uniformity’ in topological groups by making connection with the theory of uniform structures, as follows.
+\end{remark}
+
+
+\begin{definition}
+    \label{def:group-surroundings-diagonal}
+
+    Let \( G \) be a topological group and let \( \mathscr{V} \) be the class of all neighborhoods of the neutral element \( e \).
+    For each \( V \in \mathscr{V} \), define a subset \( V_s \) of \( G \times G \) by
+    \[
+        V_s = \{ (x, y) : x^{-1}y \in V \}.
+    \]
+    The class of all such \( V_s \) is denoted \( \mathscr{V}_s \).
+    Each \( V_s \) ‘surrounds’ the diagonal \( \Delta = \{ (x, x) : x \in G \} \) of \( G \times G \), in the sense that \( V_s \supset \Delta \).
+\end{definition}
+
+\begin{definition}
+    \label{def:uniformity-and-entourages}
+
+    If \( A \) and \( B \) are subsets of \( G \times G \), then
+    \[
+        A \circ B = \{ (x, z) : \exists y\, (x, y) \in A \,\&\, (y, z) \in B \},
+        \quad\text{and}\quad
+        A^{-1} = \{ (y, x) : (x, y) \in A \}.
+    \]
+
+    A \emph{uniformity} on \( G \) is a filter \( \mathscr{U} \) of subsets of \( G \times G \) such that:
+    \begin{enumerate}[(i)]
+        \item \( \Delta \subset A \) for all \( A \in \mathscr{U} \);
+        \item \( A \in \mathscr{U} \) implies \( A^{-1} \in \mathscr{U} \);
+        \item \( A \in \mathscr{U} \) implies there exists \( B \in \mathscr{U} \) such that \( B \circ B \subset A \).
+    \end{enumerate}
+
+    A \emph{uniform structure} is a pair \( (G, \mathscr{U}) \), where \( G \) is a set and \( \mathscr{U} \) is a uniformity on \( G \);
+    the sets \( A \in \mathscr{U} \) are called the \emph{entourages} for the uniform structure.
+
+    A \emph{base} for the uniformity is a base \( \mathscr{B} \) for the filter \( \mathscr{U} \) of entourages.
+    If \( G \) is a set and \( \mathscr{B} \) is the base for a filter \( \mathscr{U} \) of subsets of \( G \times G \), then
+    \( \mathscr{U} \) is a uniformity if and only if:
+    \begin{enumerate}[(i$'$)]
+        \item \( \Delta \subset A \) for all \( A \in \mathscr{B} \);
+        \item \( A \in \mathscr{B} \) implies there exists \( B \in \mathscr{B} \) such that \( B \subset A^{-1} \);
+        \item \( A \in \mathscr{B} \) implies there exists \( B \in \mathscr{B} \) such that \( B \circ B \subset A \).
+    \end{enumerate}
+
+    In any topological group, the filter of neighborhoods of the neutral element determines two uniform structures, in general distinct, called the left uniform structure and the right uniform structure.
+    For clarity we will consider them one at a time.
+\end{definition}
+
+
+\begin{theorem}
+    \label{thm:left-uniformity-topological-group}
+
+    If \( G \) is a topological group, \( \mathscr{V} \) is the system of neighborhoods of the neutral element \( e \), and \( \mathscr{V}_s \) is the class of subsets of \( G \times G \) described in (\ref{def:group-surroundings-diagonal}), then \( \mathscr{V}_s \) is the base for a uniformity \( \mathscr{U}_s \) on \( G \),
+    \[
+        \mathscr{U}_s = \{ A : A \supseteq V_s \text{ for some } V \in \mathscr{V} \}.
+    \]
+\end{theorem}
+
+\begin{proof}
+    Already noted is that the \( V_s \) are supersets of the diagonal \( \Delta \).
+    If \( U, V \in \mathscr{V} \), evidently \( U \subset V \) implies \( U_s \subset V_s \); consequently, if \( U, V \in \mathscr{V} \) are arbitrary, then for the neighborhood \( W = U \cap V \) one has \( W_s \subset U_s \cap V_s \).
+    Thus \( \mathscr{V}_s \) is the base for precisely one filter \( \mathscr{U}_s \), namely,
+    \[
+        \mathscr{U}_s = \{ A : A \supseteq V_s \text{ for some } V_s \in \mathscr{V}_s \}.
+    \]
+    It remains to verify the conditions (ii′), (iii′) of (\ref{def:uniformity-and-entourages}).
+
+    If \( V \in \mathscr{V} \), then also \( V^{-1} \in \mathscr{V} \), and \( (V^{-1})_s = (V_s)^{-1} \)
+    results from the chain of equivalent relations
+    \[
+        (x, y) \in (V^{-1})_s, \quad x^{-1}y \in V^{-1}, \quad y^{-1}x \in V, \quad (y, x) \in V_s, \quad (x, y) \in (V_s)^{-1}.
+    \]
+    Thus \( \mathscr{V}_s \) satisfies (ii′).
+
+    If \( V \in \mathscr{V} \) and if \( W \in \mathscr{V} \) is so chosen that \( WW \subset V \),
+    then \( W_s \circ W_s \subset V_s \)
+    results from the following chain of relations, each of which implies the next:
+    \[
+        (x, z) \in W_s \circ W_s, \quad (x, y) \in W_s \text{ and } (y, z) \in W_s \text{ for some } y, \quad x^{-1}y \in W, \, y^{-1}z \in W \text{ for some } y,
+    \]
+    hence \( (x^{-1}y)(y^{-1}z) \in WW \subset V \) for some \( y \), and therefore \( x^{-1}z \in V \), i.e., \( (x, z) \in V_s \).
+\end{proof}
+
+
+\begin{definition}
+    With notation as in (\ref{thm:left-uniformity-topological-group}), the uniform structure \( (G, \mathscr{U}_s) \) is called the \emph{left uniform structure} of the topological group \( G \), and \( \mathscr{U}_s \) the \emph{left uniformity} of \( G \).
+\end{definition}
+
+\begin{proposition}
+    \label{prop:left-uniformity-base-top-group}
+
+    With notation as in (\ref{thm:left-uniformity-topological-group}), if \( \mathscr{B} \) is a fundamental system of neighborhoods of \( e \) (i.e., if \( \mathscr{B} \) is a base for the filter \( \mathscr{V} \)) and if \( \mathscr{B}_s = \{ U_s : U \in \mathscr{B} \} \), then \( \mathscr{B}_s \) is a fundamental system of entourages for the left uniform structure of \( G \)
+    (i.e., \( \mathscr{B}_s \) is a base for the filter \( \mathscr{U}_s \)); this is immediate from (\ref{thm:left-uniformity-topological-group}) and the fact that \( U \subset V \) implies \( U_s \subset V_s \).
+\end{proposition}
+
+\begin{definition}
+    We recall another notation from the theory of relations (here \( G \) can be any set):
+    if \( A \subset G \times G \) and \( x \in G \), one defines
+    \[
+        A(x) = \{ y : (x, y) \in A \}.
+    \]
+    Informally, \( A(x) \) is the projection onto the \( y \)-axis of the vertical slice of \( A \) at \( x \).
+    In a topological group, one recaptures all neighborhoods by slicing the \( V_s \):
+\end{definition}
+
+\begin{lemma}
+    If \( V \) is a neighborhood of the neutral element of a topological group \( G \),
+    then \( V_s(x) = xV \) for all \( x \in G \).
+\end{lemma}
+
+\begin{proof}
+    The following relations are equivalent:
+    \[
+        y \in V_s(x), \quad (x, y) \in V_s, \quad x^{-1}y \in V, \quad y \in xV.
+    \]
+    (The argument is purely group-theoretic; topology enters only since we have chosen to define the notation \( V_s \)
+    only for neighborhoods \( V \) of the neutral element of a topological group.)
+\end{proof}
+
+
+\begin{theorem}
+    \label{thm:left-uniformity-induces-topology}
+
+    If \( G \) is a topological group, then the uniform topology deduced from its left uniform structure \( (G, \mathscr{U}_s) \) coincides with the given topology on \( G \). In particular, \( G \) is a uniformizable topological space.
+\end{theorem}
+
+\begin{proof}
+    Let \( x \in G \). As \( V \) varies over a fundamental system of neighborhoods of \( e \) in the given topology, \( V_s \) ranges over a fundamental system of entourages for the uniformity \( \mathscr{U}_s \) (\ref{prop:left-uniformity-base-top-group}), and therefore \( V_s(x) \) varies over a fundamental system of neighborhoods of \( x \) for the uniform topology deduced from \( \mathscr{U}_s \). Since the sets \( V_s(x) = xV \) are also a fundamental system of neighborhoods of \( x \) for the given topology (\ref{cor:top-group-neighborhood-translation}), the two topologies coincide.
+\end{proof}
+
+\begin{remark}
+    \label{rem:terminology-left-uniformity}
+
+    The rationale for the above terminology and notation is as follows.
+    The neighborhoods \( xV = V_s(x) \) are left translates of the neighborhoods \( V \) of the neutral element, hence \( \mathscr{U}_s \) is termed the \emph{left uniformity} on \( G \).
+    The subscript \( s \) abbreviates “sinistral” (in preference to \( l \) for “left,” which is too easily confused typographically with the numeral 1).
+\end{remark}
+
+
+Theorem (\ref{thm:continuity-homomorphisms-top-groups}) can now be reformulated as follows:
+
+
+\begin{theorem}
+    \label{thm:homomorphism-continuous-iff-uniformly-continuous}
+
+    Let \( G \) and \( H \) be topological groups, each equipped with its left uniform structure, and let \( f : G \to H \) be a group homomorphism. Then \( f \) is continuous if and only if it is uniformly continuous.
+\end{theorem}
+
+\begin{proof}
+    The condition on \( U, V \) in (d) of (\ref{thm:continuity-homomorphisms-top-groups}) is that \( (x, y) \in U_s \) implies \( (f(x), f(y)) \in V_s \).
+\end{proof}
+
+The closure operation in a topological group can be simply expressed in terms of the neighborhoods of \( e \):
+
+\begin{theorem}
+    \label{thm:closure-properties-topological-group}
+
+    If \( A \) is any subset of a topological group, then
+    \[
+        \overline{A} = \bigcap AV = \bigcap VA,
+    \]
+    where \( V \) runs over any fundamental system of neighborhoods of the neutral element.
+\end{theorem}
+
+\begin{proof}
+    Since the intersections are unaffected by the particular choice of fundamental system of neighborhoods, we may assume that \( V \) runs over the class \( \mathscr{V} \) of all neighborhoods of \( e \).
+    If \( V \in \mathscr{V} \), one defines
+    \[
+        V_s(A) = \{ x : \exists a \in A \text{ such that } (a, x) \in V_s \};
+    \]
+    thus
+    \[
+        V_s(A) = \{ x : \exists a \in A,\, x \in V_s(a) \} = \bigcup_{a \in A} V_s(a) = \bigcup_{a \in A} aV = AV.
+    \]
+    But \( \overline{A} = \bigcap_{V \in \mathscr{V}} V_s(A) \) by the theory of uniform spaces, thus
+    \[
+        \overline{A} = \bigcap_{V \in \mathscr{V}} AV.
+    \]
+    Since \( x \mapsto x^{-1} \) is a homeomorphism, and \( V \in \mathscr{V} \) iff \( V^{-1} \in \mathscr{V} \), one has (letting \( V \) vary over \( \mathscr{V} \))
+    \[
+        \bigcap VA = \bigcap V^{-1}A = \bigcap (A^{-1}V)^{-1} = \left(\bigcap A^{-1}V\right)^{-1} = (\overline{A^{-1}})^{-1} = \overline{A}.
+    \]
+\end{proof}
+
+\begin{corollary}
+    In any topological group, every point has a fundamental system of closed neighborhoods.
+\end{corollary}
+
+\begin{proof}
+    By translation it is sufficient to consider neighborhoods of the neutral element \( e \) (\ref{cor:top-group-neighborhood-translation}).
+    If \( U \) is any neighborhood of \( e \), choose a neighborhood \( V \) of \( e \) such that
+    \( VV \subset U \) (\ref{thm:identity-neighborhood-properties}). Citing (\ref{thm:closure-properties-topological-group}), \( \overline{V} \subset VV \subset U \).
+    Thus each neighborhood \( U \) contains a closed neighborhood \( \overline{V} \).
+\end{proof}
+
+\begin{theorem}
+    \label{thm:right-uniform-structure-topological-group}
+
+    The right uniform structure of a topological group \( G \) can be derived briefly as follows.
+    Suppose the binary operation of \( G \) is denoted \( xy \); let \( G' \) be the \textit{opposite group},
+    i.e., the set \( G \) equipped with the opposite binary operation \( x \circ y = yx \).
+    Then \( G' \) is also a topological group for the given topology.
+
+    Consider the left uniform structure for the topological group \( G' \):
+    a neighborhood \( V \) of \( e \) defines the entourage
+    \[
+        \{(x, y) : x^{-1} \circ y \in V\} = \{(x, y) : yx^{-1} \in V\},
+    \]
+    and, writing
+    \[
+        V_r = \{(x, y) : yx^{-1} \in V\},
+    \]
+    it follows at once from (\ref{thm:left-uniformity-topological-group}) that the class
+    \[
+        \mathcal{V}_r = \{V_r : V \in \mathcal{V}\}
+    \]
+    is the base for a uniformity \( \mathcal{U}_r \) on the set \( G' = G \).
+\end{theorem}
+
+
+\begin{definition}
+    With notation as in (\ref{thm:right-uniform-structure-topological-group}), the uniform structure \( (G, \mathcal{U}_r) \) is called the \textit{right uniform structure} of the topological group \( G \),
+    and \( \mathcal{U}_r \) the \textit{right uniformity} of \( G \).
+    \{In strict analogy with (\ref{rem:terminology-left-uniformity}), the appropriate subscript would be \( d \), for ‘dextral’; however, we are reserving the notation \( \mathcal{U}_d \)
+    for the uniformity derived from a metric \( d \).\}
+\end{definition}
+
+\begin{theorem}
+    \label{thm:right-uniformity-induces-topology}
+
+    If \( G \) is a topological group, then the uniform topology deduced from its right uniform structure \( (G, \mathcal{U}_r) \) coincides with the given topology on \( G \).
+\end{theorem}
+
+\begin{proof}
+    Write \( G' \) as in (\ref{thm:right-uniform-structure-topological-group}).
+    By (\ref{thm:left-uniformity-induces-topology}), the topology derived from the uniformity \( \mathcal{U}_r \) coincides with the given topology on \( G' \),
+    that is, with the given topology on \( G \).
+    Incidentally, \( V_r(x) = \{ y : (x, y) \in V_r \} = \{ y : yx^{-1} \in V \} = \{ y : y \in Vx \} = Vx. \)
+\end{proof}
+
+\begin{theorem}
+    For a topological group \( G \), the uniformities \( \mathcal{U}_s \) and \( \mathcal{U}_r \) may be different; nevertheless, in view of (\ref{thm:left-uniformity-induces-topology}) and (\ref{thm:right-uniformity-induces-topology}),
+    they define the same topology, namely, the given topology on \( G \).
+\end{theorem}
+
+\begin{theorem}
+    If \( G \) is a topological group and \( Jx = x^{-1} \) is the inversion mapping,
+    then \( J \) induces an isomorphism between the uniform structures \( (G, \mathcal{U}_s) \) and \( (G, \mathcal{U}_r) \).
+    Explicitly, \( (x, y) \mapsto (Jx, Jy) \) is a bijective mapping on \( G \times G \) that transforms \( \mathcal{U}_s \) into \( \mathcal{U}_r \).
+    Equivalently, \( J \) is a uniformly continuous mapping of \( (G, \mathcal{U}_s) \) onto \( (G, \mathcal{U}_r) \), with uniformly continuous inverse \( J^{-1} = J \).
+\end{theorem}
+
+\begin{proof}
+    If \( V \) is a neighborhood of \( e \), the following relations are equivalent:
+    \( (x, y) \in V_s \), \( x^{-1}y \in V \), \( y^{-1}x \in V^{-1} \), \( (Jy)(Jx)^{-1} \in V^{-1} \), \( (Jx, Jy) \in (V^{-1})_r \).
+    Thus \( (J \times J)(V_s) = (V^{-1})_r \).
+    Since the filters \( \mathcal{U}_s \), \( \mathcal{U}_r \) are generated by the sets \( V_s \), \( (V^{-1})_r \) respectively, the theorem follows.
+    Incidentally, another proof results from (\ref{thm:homomorphism-continuous-iff-uniformly-continuous}) and (\ref{thm:right-uniform-structure-topological-group}), since \( J \) is a bicontinuous group isomorphism of \( G \) onto \( G' \).
+    \{Stripped of fancy notation and terminology, the theorem essentially reduces to the calculation
+    \( (xV)^{-1} = V^{-1}x^{-1}. \)\}
+\end{proof}
+
+
+
+\section{Metrizable Topological Groups}
+
+A topological space \(X\) is called \emph{metrizable} if there exists a metric \(d\) on \(X\) such that the topology derived from \(d\) coincides with the given topology on \(X\); such a metric is said to be \emph{compatible} with the given topology.
+A metrizable topological space is obviously Hausdorff and first countable (i.e., at each point there exists a fundamental sequence of neighborhoods).
+
+A topological group \(G\) is said to be \emph{metrizable} if it is metrizable as a topological space; then each point of \(G\) (equivalently, the neutral element of \(G\)) has a fundamental sequence of neighborhoods.
+A remarkable fact, proved independently by G.~Birkhoff and S.~Kakutani, is that the converse is true:
+
+\begin{quote}
+    \textit{If the neutral element of a topological group \(G\) has a fundamental sequence of neighborhoods (equivalently, if \(G\) is first countable) and if \(G\) is Hausdorff, then \(G\) is metrizable.}
+\end{quote}
+
+The present section is devoted to a proof of this key result. Actually, the Birkhoff--Kakutani result includes significantly more, a point to which we will return after the following definitions.
+
+
+\begin{definition}
+    \label{def:left-right-invariant-metric}
+
+    A metric \( d \) on an abstract (i.e., not necessarily topological) group \( G \) is said to be \emph{left-invariant} if
+    \[
+        d(ax, ay) = d(x, y)
+    \]
+    identically, and \emph{right-invariant} if
+    \[
+        d(xa, ya) = d(x, y)
+    \]
+    identically.
+\end{definition}
+
+The full statement of the Birkhoff–Kakutani theorem is that a \emph{first countable, Hausdorff topological group is metrizable via a left-invariant metric.}
+Incidentally, if a topological group \( G \) admits a left-invariant compatible metric \( d \), then the metric
+\[
+    d'(x, y) = d(x^{-1}, y^{-1})
+\]
+is obviously right-invariant; and, since \( x \mapsto x^{-1} \) is a homeomorphism of \( G \), \( d' \) generates the same topology as \( d \), i.e., \( d' \) is also compatible with the topology of \( G \).
+Thus, in the Birkhoff–Kakutani theorem it is immaterial whether one says “left” or “right.”
+\emph{However, a metrizable topological group need not admit a compatible metric which is both left- and right-invariant}.
+
+Part of the machinery of the proof can be seperated out as an elementary combinatorial lemma:
+
+\begin{lemma}
+    Let \( X \) be a set and suppose \( f : X \times X \to \mathbb{R} \) is a function satisfying the following conditions:
+    \begin{enumerate}[(1)]
+        \item \( f(x, y) \ge 0 \) for all \( x, y \);
+        \item \( f(x, x) = 0 \) for all \( x \);
+        \item if \( \varepsilon > 0 \), the relations \( f(w, x) \le \varepsilon \), \( f(x, y) \le \varepsilon \), \( f(y, z) \le \varepsilon \) imply \( f(w, z) \le 2\varepsilon \).
+    \end{enumerate}
+
+    Define a function \( d : X \times X \to \mathbb{R} \) as follows.
+    If \( (x, y) \in X \times X \) and
+    \[
+        p = \{ x = x_0, x_1, \ldots, x_n = y \}
+    \]
+    is any finite system of points in \( X \) that begins at \( x \) and ends at \( y \), write
+    \[
+        |p| = \sum_{1}^{n} f(x_{k-1}, x_k),
+    \]
+    and define
+    \[
+        d(x, y) = \inf |p|,
+    \]
+    where \( p \) varies over all such finite systems.
+    Then \( d \) has the following properties:
+    \begin{enumerate}
+        \item[(4)] \( \tfrac{1}{2} f(x, y) \le d(x, y) \le f(x, y) \);
+        \item[(5)] \( d(x, z) \le d(x, y) + d(y, z) \);
+        \item[(6)] if \( f(x, y) = f(y, x) \) for all \( x, y \), then \( d(x, y) = d(y, x) \) for all \( x, y \).
+    \end{enumerate}
+
+    If \( f(x, y) = f(y, x) \) for all \( x, y \), and if \( f(x, y) > 0 \) whenever \( x \neq y \), then \( d \) is a metric on \( X \).
+\end{lemma}
+
+
+\begin{proof}
+    It is obvious that (6) holds and that the final assertion is immediate from (4), (5), (6); it remains only to verify (4) and (5).
+
+    First, we note that for each $\varepsilon > 0$, $f$ satisfies the following ‘weak triangle law’: if $f(x,y) \le \varepsilon$ and $f(y,z) \le \varepsilon$ then $f(x,z) \le 2\varepsilon$ (take $w = x$ in (3)). In particular, if $f(x,y) = f(y,z) = 0$ then $0 \le f(x,z) \le 2\varepsilon$ for every $\varepsilon > 0$ and therefore $f(x,z) = 0$. It follows by induction that if $f(x_0,x_1) = f(x_1,x_2) = \cdots = f(x_{n-1},x_n) = 0$ then $f(x_0,x_n) = 0$; in other words, if
+    \[
+        p = \{x = x_0, x_1, \dots, x_n = y\}
+    \]
+    is a system such that $|p| = 0$, then $f(x,y) = 0$.
+
+    (4) For the system
+    \[
+        q = \{x = x_0, x_1 = y\}
+    \]
+    one has $d(x,y) \le |q| = f(x,y)$.
+    To prove that $\tfrac{1}{2}f(x,y) \le d(x,y)$ one must show that $\tfrac{1}{2}f(x,y) \le |p|$ for every finite system
+    \[
+        p = \{x = x_0, x_1, \dots, x_n = y\}.
+    \]
+    The proof is by induction on $n$.
+
+    If $n=1$ then $p = \{x = x_0, x_1 = y\}$ and so $|p| = f(x,y) \ge \tfrac{1}{2}f(x,y)$ by (1). Suppose $n \ge 2$ and assume the assertion true for systems of length $< n$. We consider three cases.
+
+    \textit{Case 1:} $f(x_0,x_1) \ge \tfrac{1}{2}|p|$. Then
+    \[
+        \tfrac{1}{2}|p| = |p| - \tfrac{1}{2}|p| \ge |p| - f(x_0,x_1) = \sum_2^n f(x_{k-1},x_k) \ge \tfrac{1}{2}f(x_1,x_n)
+    \]
+    by the induction hypothesis, that is, $f(x_1,x_n) \le |p|$; obviously $f(x_0,x_1) \le |p|$, therefore $f(x_0,x_n) \le 2|p|$ by the remarks at the beginning of the proof (even if $|p|=0$), i.e. $\tfrac{1}{2}f(x,y) \le |p|$.
+
+    \textit{Case 2:} $f(x_{n-1},x_n) \ge \tfrac{1}{2}|p|$. The argument is similar to that for Case 1.
+
+    \textit{Case 3:} $f(x_0,x_1) < \tfrac{1}{2}|p|$ and $f(x_{n-1},x_n) < \tfrac{1}{2}|p|$. In particular, $|p| > 0$ and $n \ge 3$. Let $r$ be the largest integer such that
+    \begin{equation*}
+        (*) \qquad \sum_1^r f(x_{k-1},x_k) \le \tfrac{1}{2}|p|;
+    \end{equation*}
+    $r \ge 1$ because $f(x_0,x_1) < \tfrac{1}{2}|p|$. Since $f(x_{n-1},x_n) < \tfrac{1}{2}|p|$,
+    \[
+        \sum_1^{n-1} f(x_{k-1},x_k) = |p| - f(x_{n-1},x_n) > \tfrac{1}{2}|p|,
+    \]
+    therefore $r < n - 1$. Thus $1 \le r \le n - 2$. By the maximality of $r$,
+    \[
+        \sum_1^{r+1} f(x_{k-1},x_k) > \tfrac{1}{2}|p|,
+    \]
+    therefore
+    \begin{equation*}
+        (**) \qquad \sum_{r+2}^n f(x_{k-1},x_k) < \tfrac{1}{2}|p|.
+    \end{equation*}
+
+    By induction and (*), $\tfrac{1}{2}f(x_0,x_r) \le \sum_1^r f(x_{k-1},x_k) \le \tfrac{1}{2}|p|$,    thus
+    \begin{align*}
+        \text{(i)}\quad   & f(x_0,x_r) \le |p|;                                                                                                                             \\
+        \text{(ii)}\quad  & f(x_r,x_{r+1}) \le |p|;                                                                                                                         \\
+        \text{(iii)}\quad & \text{by induction and (**) } \tfrac{1}{2}f(x_{r+1},x_n) \le \sum_{r+2}^n f(x_{k-1},x_k) < \tfrac{1}{2}|p|, \text{ thus } f(x_{r+1},x_n) < |p|.
+    \end{align*}
+
+    Citing (3), it follows from (i), (ii), (iii) that $f(x_0,x_n) \le 2|p|$, that is, $\tfrac{1}{2}f(x,y) \le |p|$.
+
+    (5) Fix $x,y,z \in X$. Given any pair of systems
+    \[
+        p = \{x = x_0, x_1, \dots, x_n = y\}, \quad q = \{y = y_0, y_1, \dots, y_m = z\},
+    \]
+    let $s$ be the concatenation of the two systems,
+    \[
+        s = \{x = x_0, x_1, \dots, x_n = y = y_0, y_1, \dots, y_m = z\}.
+    \]
+    Obviously $d(x,z) \le |s| = |p| + |q|$; varying $p$ and $q$ independently,
+    \[
+        d(x,z) \le d(x,y) + d(y,z).
+    \]
+\end{proof}
+
+
+\begin{theorem}[Birkhoff–Kakutani]
+    \label{thm:birkhoff-kakutani}
+
+    A topological group $G$ is metrizable if and only if it is Hausdorff and the neutral element $e$ has a countable fundamental system of neighborhoods. A metrizable topological group admits a left-invariant (or a right-invariant) compatible metric.
+\end{theorem}
+
+\begin{proof}
+    \textit{Only if.} Any metrizable space is Hausdorff and first countable.
+
+    \textit{If.} Let $G$ be a Hausdorff topological group possessing a fundamental sequence of neighborhoods $U_n \ (n = 1,2,3,\dots)$ of $e$.
+
+    The first step is to construct an “improved” fundamental sequence of neighborhoods $V_n$. Replacing $U_n$ by $U_n \cap U_n^{-1}$, one can assume that the $U_n$ are symmetric ($U_n = U_n^{-1}$). Let $V_1 = U_1$. By (\ref{thm:identity-neighborhood-properties}) there exists $U_k$ such that
+    \[
+        U_k^3 \subset U_2 \cap V_1;
+    \]
+    let $V_2$ be the (say) first such $U_k$. Inductively, let $V_n$ be the first $U_k$ such that
+    \[
+        U_k^3 \subset U_n \cap V_{n-1}.
+    \]
+    Since $V_n \subset U_n$ for all $n$, the sequence of neighborhoods $V_n$ is also fundamental; also
+    \begin{equation}
+        \bigcap_{1}^{\infty} V_k = \{e\}
+    \end{equation}
+    because $G$ is Hausdorff (\ref{def:hausdorff-space}), and by construction
+    \begin{equation}
+        V_{k+1}^3 \subset V_k \qquad (k = 1,2,3,\dots).
+    \end{equation}
+    Set $V_0 = G$. From (ii) we have
+    \begin{equation}
+        G = V_0 \supset V_1 \supset V_2 \supset V_3 \supset \cdots;
+    \end{equation}
+    thus, every $x \in G$ belongs to some $V_k$, and it follows from (i) and (iii) that if $x \neq e$ then $V_k$ excludes $x$ from some $k$ onward, that is, $x$ belongs to only finitely many $V_k$. (Incidentally, if $G$ admits a finite fundamental system of neighborhoods of $e$, then $G$ is obviously discrete; in this case the discrete metric, $d(x,x) = 0$ for all $x$ and $d(x,y) = 1$ when $x \neq y$, is a left-invariant compatible metric. Having disposed of this case, let us assume $G$ nondiscrete.)
+
+    Each $V_k$ represents a degree of “nearness” to the “origin” $e$; alternatively, $x^{-1}y \in V_k$ is a measure of the nearness of $x$ to $y$. The problem is to express such qualitative statements in terms of real numbers (eventually, in terms of a metric). Left-invariance will then follow from the fact that the germinal relation $x^{-1}y \in V_k$ is itself left-invariant, i.e., $(ax)^{-1}(ay) = x^{-1}y$.
+
+    Suppose $x \neq y$. A qualitative assertion is that $x^{-1}y \in V_k$ for some $k$ (e.g., $k=0$). A quantitative assertion is that there exists a largest such $k$; this permits the definition
+    \[
+        f(x,y) = \min \{ (1/2)^k : x^{-1}y \in V_k \}.
+    \]
+    On the other hand, if $x = y$ then $x^{-1}y = e \in V_k$ for all $k$; setting $f(x,x) = 0$, one has
+    \begin{equation}
+        f(x,y) = \inf \{ (1/2)^k : x^{-1}y \in V_k \}
+    \end{equation}
+    for all $x,y \in G$. The desired metric $d$ will be derived from $f$ via the lemma; we now show that the hypotheses of the lemma are fulfilled.
+
+    Obviously $f(x,y) \ge 0$, and $f(x,y) = 0$ iff $x = y$. Also, $f(x,y) = f(y,x)$ since the $V_n$ are symmetric. To apply the lemma, we need only verify the condition (3); the left-invariance of $d$ will follow at once from the evident property $f(ax,ay) = f(x,y)$. Assuming $\varepsilon > 0$, $f(w,x) \le \varepsilon$, $f(x,y) \le \varepsilon$, $f(y,z) \le \varepsilon$, it is to be shown that $f(w,z) \le 2\varepsilon$. This is trivial if $\varepsilon \ge \tfrac{1}{2}$ (because $f \le 1$); suppose $0 < \varepsilon < \tfrac{1}{2}$. According to (iv) there exist positive integers $i,j,k$ such that
+    \[
+        w^{-1}x \in V_i \quad \text{and} \quad (1/2)^i \le \varepsilon, \qquad
+        x^{-1}y \in V_j \quad \text{and} \quad (1/2)^j \le \varepsilon, \qquad
+        y^{-1}z \in V_k \quad \text{and} \quad (1/2)^k \le \varepsilon;
+    \]
+    if $r = \min\{i,j,k\}$, then $(1/2)^r \le \varepsilon$ and it follows from (ii) that
+    \[
+        w^{-1}z = (w^{-1}x)(x^{-1}y)(y^{-1}z) \in V_i V_j V_k \subset V_r^3 \subset V_{r-1},
+    \]
+    therefore $f(w,z) \le (1/2)^{r-1} = 2(1/2)^r \le 2\varepsilon$.
+
+    The lemma is now applicable, and yields a left-invariant metric $d$; it remains to show that $d$ generates the given topology.
+
+    For any $\varepsilon > 0$ and any $a \in G$, define
+    \[
+        U_\varepsilon(a) = \{ x : f(a,x) < \varepsilon \}.
+    \]
+    We assert that the sets $U_\varepsilon(a)$, $\varepsilon > 0$, form a fundamental system of neighborhoods of $a$ for the given topology. First, every $U_\varepsilon(a)$ is a neighborhood of $a$; for, if $k$ is a positive integer such that $(1/2)^k < \varepsilon$, then $aV_k \subset U_\varepsilon(a)$ results from the chain of implications
+    \[
+        x \in aV_k \Rightarrow a^{-1}x \in V_k \Rightarrow f(a,x) \le (1/2)^k < \varepsilon.
+    \]
+    On the other hand, if $A$ is any neighborhood of $a$, let us show that $U_\varepsilon(a) \subset A$ for some $\varepsilon > 0$. Let $k$ be a positive integer such that $aV_k \subset A$ ($a^{-1}A$ is a neighborhood of $e$, and the $V_k$ are basic), and set $\varepsilon = (1/2)^k$. If $x \notin aV_k$ then $a^{-1}x$ can belong to $V_j$ only for $j < k$, therefore $f(a,x) > (1/2)^k = \varepsilon$ (by the definition of $f$) and so $x \notin U_\varepsilon(a)$; thus $U_\varepsilon(a) \subset aV_k \subset A$. (Incidentally, $U_\varepsilon(a) = aU_\varepsilon(e)$ follows at once from the left-invariance of $f$.)
+
+    By (4) of the lemma, $\tfrac{1}{2}f(x,y) \le d(x,y) \le f(x,y)$; it follows that, for $\varepsilon > 0$, $f(x,y) < \varepsilon \Rightarrow d(x,y) < \varepsilon \Rightarrow \tfrac{1}{2}f(x,y) < \varepsilon$, thus
+    \begin{equation}
+        U_\varepsilon(x) \subset \{y : d(x,y) < \varepsilon\} \subset U_{2\varepsilon}(x);
+    \end{equation}
+    since the $U_\varepsilon(x)$ are a fundamental system of neighborhoods of $x$ for the given topology, and the open balls $\{y : d(x,y) < \varepsilon\}$ are a fundamental system of neighborhoods of $x$ for the topology derived from the metric $d$, it is immediate from (v) that the two topologies coincide.
+
+    Finally, if $G$ is metrizable then $G$ is Hausdorff and first countable by the “only if” part of the proof, and therefore $G$ possesses a left-invariant compatible metric by the “if” part of the proof. For “right-invariant”, see the remarks following (\ref{def:left-right-invariant-metric}).
+\end{proof}
+
+
+In a metrizable topological group, every subgroup (with the relative topology) is also a metrizable topological group; this is an elementary remark valid for any subspace of a metrizable topological space. For quotient groups, the situation is deeper:
+
+
+\begin{corollary}
+    If $G$ is a metrizable topological group and if $N$ is a closed normal subgroup of $G$, then the quotient topological group $G/N$ is metrizable.
+\end{corollary}
+
+\begin{proof}
+    Let $\pi : G \to G/N$ be the canonical mapping. By hypothesis, the neutral element $e$ of $G$ admits a fundamental sequence of neighborhoods $V_n$; since $\pi$ is continuous and open, it follows that $\pi(V_n)$ is a fundamental sequence of neighborhoods of $\pi(e)$, therefore $G/N$ is metrizable (\ref{thm:birkhoff-kakutani}).
+\end{proof}
+
+
+The possibility of switching from an arbitrary compatible metric to an invariant one seems, at first glance, innocuous; actually, it is of great significance for the theory of completeness to be given in the next section.
+
+
+

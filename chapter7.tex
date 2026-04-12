@@ -1,0 +1,641 @@
+\chapter{Reasonable Ordered Expansions}
+
+In the previous chapters, ordered Fra\"iss\'e classes were used to obtain extremely amenable automorphism groups and to prepare the description of universal minimal flows. To pass from these ordered expansions back to the underlying unordered structures, one must understand how an ordered class is related to the class obtained by forgetting the linear order. The aim of this chapter is to isolate the conditions under which this passage behaves well.
+
+We first introduce the notion of a reasonable ordered expansion and show that, for a Fra\"iss\'e order class $\mathcal K$, reasonableness is exactly the condition ensuring that the reduct class $\mathcal K_0$ is again a Fra\"iss\'e class and that the reduct of the Fra\"iss\'e limit of $\mathcal K$ is the Fra\"iss\'e limit of $\mathcal K_0$. We then discuss freely ordered expansions and strong amalgamation, and conclude with a brief remark on order-forgetful expansions, where Ramsey properties pass directly between the ordered and unordered settings.
+
+\section{Reducts and expansions}
+
+Let $L$ be a signature containing a distinguished binary relation symbol $<$, and let
+\[
+    L_0=L\setminus\{<\}.
+\]
+If $A$ is an $L$-structure, we write
+\[
+    A_0=A\!\restriction\!L_0
+\]
+for the reduct of $A$ to the signature $L_0$. Thus $A_0$ is obtained from $A$ by forgetting the interpretation of the symbol $<$. Conversely, if $A_0$ is an $L_0$-structure and $\prec$ is a linear ordering of $\dom(A_0)$, we write
+\[
+    \langle A_0,\prec\rangle
+\]
+for the corresponding $L$-expansion of $A_0$ in which $<$ is interpreted by $\prec$.
+
+If $\mathcal K$ is a class of finite $L$-structures, we write
+\[
+    \mathcal K_0=\{A_0 : A\in\mathcal K\}
+\]
+for the class of all reducts of members of $\mathcal K$ to the signature $L_0$. In the situations that matter for us, $\mathcal K$ will be an order class, so each structure in $\mathcal K$ carries a linear ordering, while $\mathcal K_0$ is the corresponding unordered class obtained by forgetting that ordering.
+
+The basic question is then the following. Suppose that $\mathcal K$ is a Fra\"iss\'e order class with Fra\"iss\'e limit $F$. Under what conditions is the reduct class $\mathcal K_0$ again a Fra\"iss\'e class, and when is its Fra\"iss\'e limit simply the reduct
+\[
+    F_0=F\!\restriction\!L_0?
+\]
+The key condition is the notion of a reasonable ordered expansion, introduced in the next section.
+
+\section{Reasonable Fra\"iss\'e order classes}
+
+We now isolate the condition that controls when a Fra\"iss\'e order class behaves well after the linear order is forgotten. Intuitively, the issue is whether embeddings in the reduct can be lifted to embeddings in the ordered class by choosing a suitable ordering on the larger structure. This leads to the following definition.
+
+\begin{definition}
+    \label{def:reasonable}
+    Let $L$ be a signature with $L\supseteq\{<\}$, and put
+    \[
+        L_0=L\setminus\{<\}.
+    \]
+    Let $\mathcal K$ be a class of finite $L$-structures, and let
+    \[
+        \mathcal K_0=\{A_0 : A\in\mathcal K\}.
+    \]
+    We say that $\mathcal K$ is \emph{reasonable} if whenever $A_0,B_0\in\mathcal K_0$, $\pi\colon A_0\to B_0$ is an embedding, and $\prec$ is a linear ordering of $\mathrm{dom}(A_0)$ such that
+    \[
+        A=\langle A_0,\prec\rangle\in\mathcal K,
+    \]
+    there exists a linear ordering $\prec'$ of $\mathrm{dom}(B_0)$ such that
+    \[
+        B=\langle B_0,\prec'\rangle\in\mathcal K
+    \]
+    and $\pi\colon A\to B$ is an embedding.
+\end{definition}
+
+In other words, $\mathcal K$ is reasonable if every embedding in the reduct can be made compatible with the order after choosing a suitable ordering on the target structure.
+
+The importance of this condition is that it exactly characterizes when the reduct of a Fra\"iss\'e order class is again a Fra\"iss\'e class, with the expected Fra\"iss\'e limit.
+
+\begin{proposition}
+    \label{prop:reasonable-characterization}
+    Let $L\supseteq\{<\}$ be a signature, let
+    \[
+        L_0=L\setminus\{<\},
+    \]
+    and let $\mathcal K$ be a Fra\"iss\'e order class of finite $L$-structures. Put
+    \[
+        \mathcal K_0=\{A_0 : A\in\mathcal K\},
+        \qquad
+        F=\mathrm{Flim}(\mathcal K),
+        \qquad
+        F_0=F\!\restriction\!L_0.
+    \]
+    Then the following are equivalent.
+    \begin{enumerate}
+        \item[(i)] $\mathcal K_0$ is a Fra\"iss\'e class and
+              \[
+                  F_0=\mathrm{Flim}(\mathcal K_0).
+              \]
+        \item[(ii)] $\mathcal K$ is reasonable.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Assume first that $\mathcal K_0$ is a Fra\"iss\'e class and that
+    \[
+        F_0=\mathrm{Flim}(\mathcal K_0).
+    \]
+    We show that $\mathcal K$ is reasonable.
+
+    Let $A_0,B_0\in\mathcal K_0$, let $\pi\colon A_0\to B_0$ be an embedding, and let $\prec$ be a linear ordering of $\mathrm{dom}(A_0)$ such that
+    \[
+        A=\langle A_0,\prec\rangle\in\mathcal K.
+    \]
+    Since $F=\mathrm{Flim}(\mathcal K)$, there is an embedding
+    \[
+        \varphi\colon A\to F.
+    \]
+    Forgetting the order, we may also regard $\varphi$ as an embedding
+    \[
+        \varphi\colon A_0\to F_0.
+    \]
+    Because $F_0$ is the Fra\"iss\'e limit of $\mathcal K_0$, it has the extension property. Hence there is an embedding
+    \[
+        \psi\colon B_0\to F_0
+    \]
+    such that
+    \[
+        \psi\circ\pi=\varphi.
+    \]
+    Now let $\prec'$ be the linear ordering on $\mathrm{dom}(B_0)$ pulled back from $F$ by $\psi$, that is,
+    \[
+        x\prec' y
+        \quad\Longleftrightarrow\quad
+        \psi(x)<^F\psi(y).
+    \]
+    If we put
+    \[
+        B=\langle B_0,\prec'\rangle,
+    \]
+    then $B$ is isomorphic to the substructure $\psi(B_0)\subseteq F$, so
+    \[
+        B\in\Age(F)=\mathcal K.
+    \]
+    Moreover, since $\psi\circ\pi=\varphi$ and $\varphi$ preserves the order $\prec$, the map
+    \[
+        \pi\colon A\to B
+    \]
+    is an embedding. Thus $\mathcal K$ is reasonable.
+
+    Conversely, assume that $\mathcal K$ is reasonable. We show first that $\mathcal K_0$ is a Fra\"iss\'e class.
+
+    Since
+    \[
+        \mathcal K_0=\Age(F_0),
+    \]
+    the class $\mathcal K_0$ is hereditary, countable up to isomorphism, and has structures of arbitrarily large cardinality. It therefore remains only to verify the amalgamation property.
+
+    Let $A_0,B_0,C_0\in\mathcal K_0$, and let
+    \[
+        f\colon A_0\to B_0,
+        \qquad
+        g\colon A_0\to C_0
+    \]
+    be embeddings. Choose a linear ordering $\prec$ on $\mathrm{dom}(A_0)$ such that
+    \[
+        A=\langle A_0,\prec\rangle\in\mathcal K.
+    \]
+    Since $\mathcal K$ is reasonable, there exist linear orderings $\prec_B$ and $\prec_C$ on $\mathrm{dom}(B_0)$ and $\mathrm{dom}(C_0)$ such that
+    \[
+        B=\langle B_0,\prec_B\rangle\in\mathcal K,
+        \qquad
+        C=\langle C_0,\prec_C\rangle\in\mathcal K,
+    \]
+    and both
+    \[
+        f\colon A\to B
+        \qquad\text{and}\qquad
+        g\colon A\to C
+    \]
+    are embeddings. Since $\mathcal K$ is a Fra\"iss\'e class, it has the amalgamation property. Hence there exist
+    \[
+        D\in\mathcal K
+    \]
+    and embeddings
+    \[
+        r\colon B\to D,
+        \qquad
+        s\colon C\to D
+    \]
+    such that
+    \[
+        r\circ f=s\circ g.
+    \]
+    Passing to reducts, if
+    \[
+        D_0=D\!\restriction\!L_0,
+    \]
+    then $r$ and $s$ are also embeddings
+    \[
+        r\colon B_0\to D_0,
+        \qquad
+        s\colon C_0\to D_0,
+    \]
+    and still satisfy
+    \[
+        r\circ f=s\circ g.
+    \]
+    Thus $\mathcal K_0$ has the amalgamation property, and therefore $\mathcal K_0$ is a Fra\"iss\'e class.
+
+    It remains to show that
+    \[
+        F_0=\mathrm{Flim}(\mathcal K_0).
+    \]
+    Since
+    \[
+        \Age(F_0)=\mathcal K_0,
+    \]
+    it is enough to verify that $F_0$ is ultrahomogeneous, or equivalently that it has the extension property.
+
+    Let $A_0,B_0\in\mathcal K_0$, let $\pi\colon A_0\to B_0$ be an embedding, and let
+    \[
+        \varphi\colon A_0\to F_0
+    \]
+    be an embedding. Pull back the order on $F$ along $\varphi$ and define a linear ordering $\prec$ on $\mathrm{dom}(A_0)$ by
+    \[
+        x\prec y
+        \quad\Longleftrightarrow\quad
+        \varphi(x)<^F\varphi(y).
+    \]
+    Then
+    \[
+        A=\langle A_0,\prec\rangle\in\mathcal K,
+    \]
+    and $\varphi$ is in fact an embedding
+    \[
+        \varphi\colon A\to F.
+    \]
+    Since $\mathcal K$ is reasonable, there exists a linear ordering $\prec'$ on $\mathrm{dom}(B_0)$ such that
+    \[
+        B=\langle B_0,\prec'\rangle\in\mathcal K
+    \]
+    and
+    \[
+        \pi\colon A\to B
+    \]
+    is an embedding. Because $F=\mathrm{Flim}(\mathcal K)$, it has the extension property, so there is an embedding
+    \[
+        \psi\colon B\to F
+    \]
+    such that
+    \[
+        \psi\circ\pi=\varphi.
+    \]
+    Forgetting the order, $\psi$ is also an embedding
+    \[
+        \psi\colon B_0\to F_0
+    \]
+    with
+    \[
+        \psi\circ\pi=\varphi.
+    \]
+    Thus $F_0$ has the extension property. It follows that $F_0$ is ultrahomogeneous and
+    \[
+        \Age(F_0)=\mathcal K_0,
+    \]
+    so
+    \[
+        F_0=\mathrm{Flim}(\mathcal K_0).
+    \]
+\end{proof}
+
+The proposition shows that for Fra\"iss\'e order classes, reasonableness is exactly the condition that allows one to pass from the ordered class back to its reduct without losing the Fra\"iss\'e structure. In the next section we consider an important source of reasonable order classes, namely freely ordered expansions.
+
+
+
+\section{Freely ordered expansions and strong amalgamation}
+
+A particularly important source of ordered expansions is obtained by imposing no compatibility condition between the additional linear order and the underlying $L_0$-structure.
+
+\begin{definition}
+    Let $\mathcal K_0$ be a class of finite $L_0$-structures. We define
+    \[
+        \mathcal K_0 * \mathcal{LO}
+        =
+        \{\langle A_0,\prec\rangle : A_0\in\mathcal K_0 \text{ and } \prec \text{ is a linear ordering of } \dom(A_0)\}.
+    \]
+    We call $\mathcal K_0 * \mathcal{LO}$ the \emph{freely ordered expansion} of $\mathcal K_0$.
+\end{definition}
+
+The point is that in a freely ordered expansion every linear order is allowed. In particular, such classes are automatically reasonable.
+
+\begin{lemma}
+    Let $\mathcal K=\mathcal K_0 * \mathcal{LO}$. Then $\mathcal K$ is reasonable.
+\end{lemma}
+
+\begin{proof}
+    Let $A_0,B_0\in\mathcal K_0$, let $\pi\colon A_0\to B_0$ be an embedding, and suppose that
+    \[
+        A=\langle A_0,\prec\rangle\in\mathcal K.
+    \]
+    Choose any linear ordering $\prec'$ of $\dom(B_0)$ extending the order transported from $\prec$ along $\pi$. Then
+    \[
+        B=\langle B_0,\prec'\rangle\in\mathcal K,
+    \]
+    and $\pi\colon A\to B$ is an embedding.
+\end{proof}
+
+For freely ordered expansions, amalgamation in the ordered class is controlled exactly by strong amalgamation in the reduct.
+
+\begin{proposition}
+    \label{prop:free-orders-sap}
+    Let $L\supseteq\{<\}$ be a signature, let
+    \[
+        L_0=L\setminus\{<\},
+    \]
+    let $\mathcal K_0$ be a class of finite $L_0$-structures, and put
+    \[
+        \mathcal K=\mathcal K_0 * \mathcal{LO}.
+    \]
+    Then the following are equivalent.
+    \begin{enumerate}
+        \item[(i)] $\mathcal K$ has the amalgamation property.
+        \item[(ii)] $\mathcal K$ has the strong amalgamation property.
+        \item[(iii)] $\mathcal K_0$ has the strong amalgamation property.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    The implication (ii) $\Rightarrow$ (i) is immediate.
+
+    We prove (i) $\Rightarrow$ (iii). Let
+    \[
+        A_0,B_0,C_0\in\mathcal K_0
+    \]
+    and let
+    \[
+        f\colon A_0\to B_0,
+        \qquad
+        g\colon A_0\to C_0
+    \]
+    be embeddings. Choose a linear ordering $\prec$ on $\dom(A_0)$. Since
+    \[
+        \mathcal K=\mathcal K_0 * \mathcal{LO},
+    \]
+    we may choose linear orderings $\prec_B$ on $\dom(B_0)$ and $\prec_C$ on $\dom(C_0)$ such that
+    \[
+        A=\langle A_0,\prec\rangle,\qquad
+        B=\langle B_0,\prec_B\rangle,\qquad
+        C=\langle C_0,\prec_C\rangle
+    \]
+    all belong to $\mathcal K$, the maps
+    \[
+        f\colon A\to B,
+        \qquad
+        g\colon A\to C
+    \]
+    are embeddings, and in addition
+    \[
+        f(A_0)\prec_B (B_0\setminus f(A_0))
+        \qquad\text{and}\qquad
+        (C_0\setminus g(A_0))\prec_C g(A_0).
+    \]
+    Since $\mathcal K$ has the amalgamation property, there exist
+    \[
+        D\in\mathcal K
+    \]
+    and embeddings
+    \[
+        r\colon B\to D,
+        \qquad
+        s\colon C\to D
+    \]
+    such that
+    \[
+        r\circ f=s\circ g.
+    \]
+    We claim that
+    \[
+        r(B_0)\cap s(C_0)=r(f(A_0)).
+    \]
+    Suppose, toward a contradiction, that there is
+    \[
+        d\in r(B_0)\cap s(C_0)\setminus r(f(A_0)).
+    \]
+    Since $d\in r(B_0\setminus f(A_0))$, we have
+    \[
+        r(f(A_0))<^D d.
+    \]
+    On the other hand, since $d\in s(C_0\setminus g(A_0))$, we have
+    \[
+        d<^D s(g(A_0))=r(f(A_0)).
+    \]
+    This is impossible. Hence the amalgam is strong in the reduct, and $\mathcal K_0$ has the strong amalgamation property.
+
+    Finally, we prove (iii) $\Rightarrow$ (ii). Let
+    \[
+        A,B,C\in\mathcal K
+    \]
+    and let
+    \[
+        f\colon A\to B,
+        \qquad
+        g\colon A\to C
+    \]
+    be embeddings. Forgetting the order, we obtain embeddings
+    \[
+        f\colon A_0\to B_0,
+        \qquad
+        g\colon A_0\to C_0.
+    \]
+    By strong amalgamation in $\mathcal K_0$, there exist
+    \[
+        D_0\in\mathcal K_0
+    \]
+    and embeddings
+    \[
+        r\colon B_0\to D_0,
+        \qquad
+        s\colon C_0\to D_0
+    \]
+    such that
+    \[
+        r\circ f=s\circ g
+        \qquad\text{and}\qquad
+        r(B_0)\cap s(C_0)=r(f(A_0)).
+    \]
+    Since the images of $B_0$ and $C_0$ intersect only in the common copy of $A_0$, and the orders on $B$ and $C$ agree there, the two induced linear orders on
+    \[
+        r(B_0)\subseteq D_0
+        \qquad\text{and}\qquad
+        s(C_0)\subseteq D_0
+    \]
+    can be amalgamated to a linear ordering $\prec$ of $\dom(D_0)$. If we now put
+    \[
+        D=\langle D_0,\prec\rangle,
+    \]
+    then
+    \[
+        D\in\mathcal K
+    \]
+    because $\mathcal K=\mathcal K_0 * \mathcal{LO}$, and the maps
+    \[
+        r\colon B\to D,
+        \qquad
+        s\colon C\to D
+    \]
+    are embeddings witnessing strong amalgamation in $\mathcal K$.
+\end{proof}
+
+The same argument gives the corresponding statement for strong joint embedding.
+
+\begin{corollary}
+    \label{cor:free-orders-sjep}
+    Let $L$, $L_0$, $\mathcal K_0$, and $\mathcal K$ be as in Proposition~\ref{prop:free-orders-sap}. Then $\mathcal K$ has the strong joint embedding property if and only if $\mathcal K_0$ has the strong joint embedding property.
+\end{corollary}
+
+\begin{proof}
+    Assume first that $\mathcal K$ has the strong joint embedding property. Let
+    \[
+        B_0,C_0\in\mathcal K_0.
+    \]
+    Choose arbitrary linear orderings on their domains and form
+    \[
+        B=\langle B_0,\prec_B\rangle,
+        \qquad
+        C=\langle C_0,\prec_C\rangle
+    \]
+    in $\mathcal K$. By strong joint embedding in $\mathcal K$, there exist
+    \[
+        D\in\mathcal K
+    \]
+    and embeddings
+    \[
+        r\colon B\to D,
+        \qquad
+        s\colon C\to D
+    \]
+    with disjoint images. Passing to reducts shows that $\mathcal K_0$ has the strong joint embedding property.
+
+    Conversely, assume that $\mathcal K_0$ has the strong joint embedding property. Let
+    \[
+        B,C\in\mathcal K.
+    \]
+    Then there exist
+    \[
+        D_0\in\mathcal K_0
+    \]
+    and embeddings
+    \[
+        r\colon B_0\to D_0,
+        \qquad
+        s\colon C_0\to D_0
+    \]
+    with disjoint images. Since the images are disjoint, the linear orders on $B$ and $C$ may be combined into a linear ordering $\prec$ of $\dom(D_0)$. Setting
+    \[
+        D=\langle D_0,\prec\rangle,
+    \]
+    we have
+    \[
+        D\in\mathcal K,
+    \]
+    and the embeddings
+    \[
+        r\colon B\to D,
+        \qquad
+        s\colon C\to D
+    \]
+    have disjoint images. Thus $\mathcal K$ has the strong joint embedding property.
+\end{proof}
+
+In particular, if $\mathcal K_0$ is a Fra\"iss\'e class with the strong amalgamation property, then
+\[
+    \mathcal K_0 * \mathcal{LO}
+\]
+is a reasonable Fra\"iss\'e order class. Many of the ordered graph, hypergraph, and metric-space classes considered earlier arise in exactly this way.
+
+\section{Order-forgetful expansions and Ramsey transfer}
+
+We conclude with a special situation in which the passage between an ordered class and its reduct is particularly simple. Roughly speaking, this happens when the additional order does not create new isomorphism types beyond those already present in the reduct.
+
+\begin{definition}
+    \label{def:order-forgetful}
+    Let $L\supseteq\{<\}$ be a signature, let
+    \[
+        L_0=L\setminus\{<\},
+    \]
+    and let $\mathcal K$ be a class of finite $L$-structures. We say that $\mathcal K$ is \emph{order forgetful} if whenever
+    \[
+        A,B\in\mathcal K
+    \]
+    satisfy
+    \[
+        A_0\cong B_0,
+    \]
+    it follows that
+    \[
+        A\cong B.
+    \]
+    Equivalently, for every isomorphism type in the reduct class $\mathcal K_0$, there is at most one isomorphism type in $\mathcal K$ lying above it.
+\end{definition}
+
+Thus, in an order-forgetful class, the linear order does not contribute additional isomorphism-type information. A basic example is provided by naturally ordered finite-dimensional vector spaces over a fixed finite field: once the underlying vector space is given, any two natural orderings yield isomorphic ordered structures.
+
+For hereditary order-forgetful classes, the Ramsey property passes directly between the ordered and unordered settings.
+
+\begin{proposition}
+    \label{prop:order-forgetful-ramsey}
+    Let $L\supseteq\{<\}$ be a signature, let
+    \[
+        L_0=L\setminus\{<\},
+    \]
+    and let $\mathcal K$ be a hereditary order-forgetful class of finite $L$-structures. Put
+    \[
+        \mathcal K_0=\{A_0 : A\in\mathcal K\}.
+    \]
+    Then $\mathcal K$ has the Ramsey property if and only if $\mathcal K_0$ has the Ramsey property.
+\end{proposition}
+
+\begin{proof}
+    Assume first that $\mathcal K$ has the Ramsey property. Let
+    \[
+        A_0\leq B_0
+    \]
+    be structures in $\mathcal K_0$, and let $k\geq 2$. Choose an expansion
+    \[
+        B\in\mathcal K
+    \]
+    with reduct $B_0$. Since $A_0\leq B_0$, there is a copy $A_0'\subseteq B_0$ of $A_0$. Let $A'$ be the ordered structure induced on $A_0'$ by the order of $B$. Because $\mathcal K$ is hereditary, we have
+    \[
+        A'\in\mathcal K.
+    \]
+    Since $\mathcal K$ is order forgetful and $A_0'\cong A_0$, every expansion of $A_0$ in $\mathcal K$ is isomorphic to $A'$. In particular, if $A\in\mathcal K$ is any expansion of $A_0$, then
+    \[
+        A\cong A'\leq B.
+    \]
+    Hence, replacing $A$ by an isomorphic copy if necessary, we may apply the Ramsey property of $\mathcal K$ to the pair $A\leq B$. We claim that
+    \[
+        C_0\to (B_0)^{A_0}_k.
+    \]
+
+    Let
+    \[
+        c_0\colon \begin{pmatrix} C_0 \\ A_0 \end{pmatrix}\to\{1,\dots,k\}
+    \]
+    be a coloring. Every copy $A_0'\subseteq C_0$ inherits from $C$ a linear ordering, and since $\mathcal K$ is hereditary, the induced ordered structure on $A_0'$ belongs to $\mathcal K$. Because $\mathcal K$ is order forgetful and $A_0'\cong A_0$, this induced ordered structure is isomorphic to $A$. Hence $c_0$ induces a coloring
+    \[
+        c\colon \begin{pmatrix} C \\ A \end{pmatrix}\to\{1,\dots,k\}
+    \]
+    by setting
+    \[
+        c(A')=c_0(A_0'),
+    \]
+    where $A_0'$ is the underlying reduct of the copy $A'$.
+
+    Choose
+    \[
+        B'\in \begin{pmatrix} C \\ B \end{pmatrix}
+    \]
+    homogeneous for $c$. Then the reduct $B_0'$ is a copy of $B_0$ in $C_0$, and every copy of $A_0$ inside $B_0'$ inherits an ordered structure isomorphic to $A$. Since $B'$ is homogeneous for $c$, it follows that $B_0'$ is homogeneous for $c_0$. Thus
+    \[
+        C_0\to (B_0)^{A_0}_k,
+    \]
+    and $\mathcal K_0$ has the Ramsey property.
+
+    Conversely, assume that $\mathcal K_0$ has the Ramsey property. Let
+    \[
+        A\leq B
+    \]
+    be structures in $\mathcal K$, and let $k\geq 2$. Since $\mathcal K_0$ has the Ramsey property, there exists
+    \[
+        C_0\in\mathcal K_0
+    \]
+    such that
+    \[
+        C_0\to (B_0)^{A_0}_k.
+    \]
+    Choose any expansion
+    \[
+        C\in\mathcal K
+    \]
+    with reduct $C_0$.
+
+    We claim that
+    \[
+        C\to (B)^A_k.
+    \]
+    Let
+    \[
+        c\colon \begin{pmatrix} C \\ A \end{pmatrix}\to\{1,\dots,k\}
+    \]
+    be a coloring. Define
+    \[
+        c_0\colon \begin{pmatrix} C_0 \\ A_0 \end{pmatrix}\to\{1,\dots,k\}
+    \]
+    by
+    \[
+        c_0(A_0')=c(A'),
+    \]
+    where $A'$ is the ordered structure induced on $A_0'$ by the order of $C$. This is well defined because $\mathcal K$ is hereditary, and $A'$ is isomorphic to $A$ by order forgetfulness.
+
+    Choose
+    \[
+        B_0'\in \begin{pmatrix} C_0 \\ B_0 \end{pmatrix}
+    \]
+    homogeneous for $c_0$. Let $B'$ be the ordered structure induced on $B_0'$ by the order of $C$. Again, since $\mathcal K$ is hereditary and order forgetful, we have
+    \[
+        B'\cong B.
+    \]
+    Moreover, every copy of $A$ inside $B'$ has the same $c$-color, because the corresponding copies of $A_0$ inside $B_0'$ all have the same $c_0$-color. Hence $B'$ is homogeneous for $c$, and therefore
+    \[
+        C\to (B)^A_k.
+    \]
+    Thus $\mathcal K$ has the Ramsey property.
+\end{proof}
+
+The results of this chapter provide the structural link between an ordered Fra\"iss\'e class and its reduct. In the next chapter we use this link to study spaces of admissible orderings and to formulate the additional conditions under which ordered expansions determine the universal minimal flow.

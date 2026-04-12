@@ -1,0 +1,787 @@
+\chapter{Universal Minimal Flows and the Ordering Property}
+
+In the previous chapter we studied reasonable ordered expansions and the passage from an ordered Fra\"iss\'{e} class to its reduct. We now return to the dynamical side of the Kechris--Pestov--Todorcevic correspondence. Starting from a reasonable Fra\"iss\'{e} order class $\k$, we associate to it a compact flow $X_\k$ of admissible orderings on the Fra\"iss\'{e} limit of the reduct class $\k_0$. The aim of this chapter is to show that the ordering property characterizes the minimality of this flow, and that together with the Ramsey property it yields the universal minimal flow.
+
+\section{Admissible orderings and the flow $X_\k$}
+
+Let $L\supseteq\{<\}$ be a signature, and put
+\[
+    L_0=L\setminus\{<\}.
+\]
+Let $\k$ be a reasonable Fra\"iss\'{e} order class in the language $L$, and let
+\[
+    \k_0=\k|L_0
+\]
+be its reduct to the language $L_0$. By the results of Chapter~7, the class $\k_0$ is a Fra\"iss\'{e} class, and if
+\[
+    \bff={\rm Flim}(\k),
+    \qquad
+    \bff_0={\rm Flim}(\k_0),
+\]
+then
+\[
+    \bff_0=\bff|L_0.
+\]
+Let
+\[
+    <^{\bff}=\prec_0,
+\]
+and put
+\[
+    G_0={\rm Aut}(\bff_0).
+\]
+
+Let $\mathrm{LO}(F_0)$ denote the compact space of all linear orderings on the underlying set $F_0$ of $\bff_0$, equipped with the logic action of $G_0$. We define
+\[
+    X_\k=\overline{G_0\cdot \prec_0}\subseteq \mathrm{LO}(F_0).
+\]
+Thus $X_\k$ is the orbit closure of the distinguished ordering $\prec_0$ induced from the Fra\"iss\'{e} limit $\bff$.
+
+The first point is that membership in $X_\k$ can be recognized purely in terms of finite substructures.
+
+\begin{proposition}
+    \label{prop:admissible-orderings-characterization}
+    Let $\prec$ be a linear ordering on $F_0$. Then $\prec\in X_\k$ if and only if for every finite substructure $\bfb_0$ of $\bff_0$, the ordered structure
+    \[
+        \langle \bfb_0,\prec|B_0\rangle
+    \]
+    belongs to $\k$.
+\end{proposition}
+
+\begin{proof}
+    Assume first that $\prec\in X_\k$, and let $\bfb_0$ be a finite substructure of $\bff_0$. Since
+    \[
+        \prec\in \overline{G_0\cdot \prec_0},
+    \]
+    there exists $g\in G_0$ such that
+    \[
+        \prec|B_0=(g\cdot \prec_0)|B_0.
+    \]
+    Let
+    \[
+        \bfa_0=g^{-1}(\bfb_0),
+    \]
+    which is again a finite substructure of $\bff_0$, and let
+    \[
+        \bfa=\langle \bfa_0,\prec_0|A_0\rangle.
+    \]
+    Since $\bfa$ is a finite substructure of $\bff$, we have $\bfa\in\k$. Moreover, the map
+    \[
+        g|A_0\colon A_0\to B_0
+    \]
+    is an isomorphism from $\bfa$ onto
+    \[
+        \bfb=\langle \bfb_0,\prec|B_0\rangle.
+    \]
+    Hence $\bfb\in\k$.
+
+    Conversely, assume that for every finite substructure $\bfb_0$ of $\bff_0$, the ordered structure
+    \[
+        \bfb=\langle \bfb_0,\prec|B_0\rangle
+    \]
+    belongs to $\k$. We show that $\prec\in X_\k$.
+
+    Fix a finite substructure $\bfb_0$ of $\bff_0$. Since $\bfb\in\k=\Age(\bff)$, there exists an embedding
+    \[
+        \pi\colon \bfb\to \bff.
+    \]
+    Let
+    \[
+        \bfa=\pi(\bfb),
+        \qquad
+        \bfa_0=\bfa|L_0.
+    \]
+    Then $\pi$ is an isomorphism from $\bfb$ onto $\bfa$, and in particular an isomorphism from $\bfb_0$ onto $\bfa_0$. Since $\bfa_0$ and $\bfb_0$ are finite substructures of the ultrahomogeneous structure $\bff_0$, there exists
+    \[
+        g\in {\rm Aut}(\bff_0)=G_0
+    \]
+    extending $\pi^{-1}$. It follows that
+    \[
+        \prec|B_0=(g\cdot \prec_0)|B_0.
+    \]
+    As $\bfb_0$ was arbitrary, this shows that every finite restriction of $\prec$ agrees with a finite restriction of some translate of $\prec_0$. Therefore
+    \[
+        \prec\in \overline{G_0\cdot \prec_0}=X_\k.
+    \]
+\end{proof}
+
+\begin{definition}
+    \label{def:k-admissible-ordering}
+    A linear ordering $\prec$ on $F_0$ is called \emph{$\k$-admissible} if
+    \[
+        \prec\in X_\k.
+    \]
+    Equivalently, $\prec$ is $\k$-admissible if every finite substructure of $\bff_0$, equipped with the induced ordering from $\prec$, belongs to $\k$.
+\end{definition}
+
+In other words, the points of $X_\k$ are exactly the linear orderings on $F_0$ whose finite restrictions are compatible with the class $\k$. Since $X_\k$ is a closed $G_0$-invariant subspace of the compact space $\mathrm{LO}(F_0)$, it is a compact $G_0$-flow. In the next section we determine exactly when this flow is minimal.
+
+\section{The ordering property and minimality of $X_\k$}
+
+We now introduce the combinatorial condition that characterizes the minimality of the flow $X_\k$.
+
+\begin{definition}
+    \label{def:ordering-property}
+    We say that $\k$ has the \emph{ordering property} if for every
+    \[
+        \bfa_0\in\k_0
+    \]
+    there exists
+    \[
+        \bfb_0\in\k_0
+    \]
+    such that whenever
+    \[
+        \bfa=\langle \bfa_0,\prec\rangle\in\k
+        \qquad\text{and}\qquad
+        \bfb=\langle \bfb_0,\prec'\rangle\in\k,
+    \]
+    one has
+    \[
+        \bfa\leq \bfb.
+    \]
+\end{definition}
+
+Thus the ordering property says that for every finite reduct $\bfa_0$, there is a larger finite reduct $\bfb_0$ such that every admissible ordering of $\bfb_0$ contains every admissible ordering of $\bfa_0$.
+
+The classes considered in Chapter~6 provide both positive and negative examples. For instance, the freely ordered graph and hypergraph classes satisfy the ordering property, whereas the class of all linearly ordered finite equivalence relations does not.
+
+The key step is the following finite reformulation of the condition
+\[
+    \prec_0\in\overline{G_0\cdot \prec}.
+\]
+
+\begin{lemma}
+    \label{lem:orbit-closure-characterization}
+    Let $\prec$ be a linear ordering on $F_0$. Then the following are equivalent.
+    \begin{enumerate}
+        \item[(i)]
+              \[
+                  \prec_0\in\overline{G_0\cdot \prec}.
+              \]
+        \item[(ii)] For every
+              \[
+                  \bfa\in\k,
+              \]
+              there exists a finite substructure $\bfc_0$ of $\bff_0$ such that
+              \[
+                  \langle \bfc_0,\prec|C_0\rangle\in\k
+                  \qquad\text{and}\qquad
+                  \bfa\leq \langle \bfc_0,\prec|C_0\rangle.
+              \]
+    \end{enumerate}
+    In particular, if $\prec\in X_\k$, then condition {\rm(ii)} says exactly that every member of $\k$ embeds into a finite substructure of the ordered structure
+    \[
+        \langle F_0,\prec\rangle.
+    \]
+\end{lemma}
+
+\begin{proof}
+    Assume first that
+    \[
+        \prec_0\in\overline{G_0\cdot \prec},
+    \]
+    and let
+    \[
+        \bfa\in\k.
+    \]
+    Since $\k=\Age(\bff)$, we may identify $\bfa$ with a finite substructure of $\bff$, so that
+    \[
+        \bfa=\langle \bfa_0,\prec_0|A_0\rangle
+    \]
+    for some finite substructure $\bfa_0$ of $\bff_0$. By the assumption on $\prec$, there exists
+    \[
+        g\in G_0
+    \]
+    such that
+    \[
+        (g\cdot \prec)|A_0=\prec_0|A_0.
+    \]
+    Let
+    \[
+        \bfc_0=g^{-1}(\bfa_0).
+    \]
+    Then
+    \[
+        g\colon \langle \bfc_0,\prec|C_0\rangle\to \bfa
+    \]
+    is an isomorphism. Hence
+    \[
+        \langle \bfc_0,\prec|C_0\rangle\in\k
+        \qquad\text{and}\qquad
+        \bfa\leq \langle \bfc_0,\prec|C_0\rangle.
+    \]
+
+    Conversely, assume (ii). To show that
+    \[
+        \prec_0\in\overline{G_0\cdot \prec},
+    \]
+    it suffices to verify that for every finite substructure $\bfa_0$ of $\bff_0$, there exists
+    \[
+        g\in G_0
+    \]
+    such that
+    \[
+        (g\cdot \prec)|A_0=\prec_0|A_0.
+    \]
+    Fix such a finite substructure $\bfa_0$, and let
+    \[
+        \bfa=\langle \bfa_0,\prec_0|A_0\rangle\in\k.
+    \]
+    By (ii), there exists a finite substructure $\bfc_0$ of $\bff_0$ such that
+    \[
+        \bfc=\langle \bfc_0,\prec|C_0\rangle\in\k
+        \qquad\text{and}\qquad
+        \bfa\leq \bfc.
+    \]
+    Let
+    \[
+        \pi\colon \bfa\to \bfc
+    \]
+    be an embedding. Forgetting the order, $\pi$ is an embedding
+    \[
+        \pi\colon \bfa_0\to \bff_0.
+    \]
+    Since $\bff_0$ is ultrahomogeneous, $\pi^{-1}$ extends to some
+    \[
+        g\in G_0.
+    \]
+    For $x,y\in A_0$ we then have
+    \[
+        x\,(g\cdot \prec)\,y
+        \iff
+        g^{-1}(x)\prec g^{-1}(y)
+        \iff
+        \pi(x)\prec \pi(y)
+        \iff
+        x\prec_0 y,
+    \]
+    because $\pi$ is an embedding of ordered structures. Thus
+    \[
+        (g\cdot \prec)|A_0=\prec_0|A_0,
+    \]
+    as required.
+\end{proof}
+
+We can now characterize the minimality of $X_\k$.
+
+\begin{theorem}
+    \label{thm:minimality-ordering-property}
+    The flow $X_\k$ is minimal if and only if $\k$ has the ordering property.
+\end{theorem}
+
+\begin{proof}
+    Assume first that $\k$ has the ordering property. Let
+    \[
+        \prec\in X_\k.
+    \]
+    We show that
+    \[
+        \prec_0\in\overline{G_0\cdot \prec}.
+    \]
+    By Lemma~\ref{lem:orbit-closure-characterization}, it is enough to verify condition (ii) of that lemma.
+
+    So let
+    \[
+        \bfa\in\k.
+    \]
+    Write
+    \[
+        \bfa=\langle \bfa_0,\prec_A\rangle.
+    \]
+    By the ordering property, there exists
+    \[
+        \bfb_0\in\k_0
+    \]
+    such that whenever
+    \[
+        \bfb=\langle \bfb_0,\prec_B\rangle\in\k,
+    \]
+    one has
+    \[
+        \bfa\leq \bfb.
+    \]
+    Since
+    \[
+        \Age(\bff_0)=\k_0,
+    \]
+    we may realize $\bfb_0$ as a finite substructure of $\bff_0$. Because $\prec\in X_\k$, Proposition~\ref{prop:admissible-orderings-characterization} implies that
+    \[
+        \langle \bfb_0,\prec|B_0\rangle\in\k.
+    \]
+    Hence
+    \[
+        \bfa\leq \langle \bfb_0,\prec|B_0\rangle.
+    \]
+    By Lemma~\ref{lem:orbit-closure-characterization},
+    \[
+        \prec_0\in\overline{G_0\cdot \prec}.
+    \]
+
+    Now let
+    \[
+        \prec\in X_\k.
+    \]
+    The orbit closure $\overline{G_0\cdot \prec}$ is a closed $G_0$-invariant subset of $X_\k$ containing $\prec_0$. Since
+    \[
+        X_\k=\overline{G_0\cdot \prec_0},
+    \]
+    it follows that
+    \[
+        X_\k\subseteq \overline{G_0\cdot \prec}.
+    \]
+    The reverse inclusion is automatic, so
+    \[
+        \overline{G_0\cdot \prec}=X_\k.
+    \]
+    Thus every orbit is dense, and $X_\k$ is minimal.
+
+    Conversely, assume that $X_\k$ is minimal. Let
+    \[
+        \bfa_0\in\k_0.
+    \]
+    We must find
+    \[
+        \bfb_0\in\k_0
+    \]
+    witnessing the ordering property for $\bfa_0$.
+
+    There are only finitely many linear orderings on the finite set $A_0$, hence only finitely many ordered structures of the form
+    \[
+        \langle \bfa_0,\prec\rangle
+    \]
+    that belong to $\k$. List them as
+    \[
+        \bfa^1,\dots,\bfa^m.
+    \]
+
+    Fix
+    \[
+        \prec\in X_\k.
+    \]
+    Since $X_\k$ is minimal,
+    \[
+        \prec_0\in\overline{G_0\cdot \prec}.
+    \]
+    Applying Lemma~\ref{lem:orbit-closure-characterization} to each $\bfa^j$, we obtain finite substructures
+    \[
+        \bfc^{\,j}_{\prec,0}\leq \bff_0
+        \qquad (j=1,\dots,m)
+    \]
+    such that
+    \[
+        \bfc^{\,j}_{\prec}
+        =
+        \langle \bfc^{\,j}_{\prec,0},\prec|C^{\,j}_{\prec,0}\rangle\in\k
+    \]
+    and
+    \[
+        \bfa^j\leq \bfc^{\,j}_{\prec}.
+    \]
+    Let
+    \[
+        C_{\prec,0}=C^{\,1}_{\prec,0}\cup\cdots\cup C^{\,m}_{\prec,0},
+    \]
+    viewed as the finite substructure of $\bff_0$ generated by this union. Since $\prec\in X_\k$, Proposition~\ref{prop:admissible-orderings-characterization} gives
+    \[
+        \langle C_{\prec,0},\prec|C_{\prec,0}\rangle\in\k,
+    \]
+    and by construction every $\bfa^j$ embeds into this ordered structure.
+
+    Now define
+    \[
+        U_{\prec}
+        =
+        \{\prec'\in X_\k : \prec'|C_{\prec,0}=\prec|C_{\prec,0}\}.
+    \]
+    This is an open neighbourhood of $\prec$ in $X_\k$. As $\prec$ ranges over $X_\k$, the sets $U_{\prec}$ form an open cover of the compact space $X_\k$. Hence there exist
+    \[
+        \prec_1,\dots,\prec_n\in X_\k
+    \]
+    such that
+    \[
+        X_\k=U_{\prec_1}\cup\cdots\cup U_{\prec_n}.
+    \]
+
+    Choose a finite substructure
+    \[
+        \bfb_0\leq \bff_0
+    \]
+    containing each of the finite substructures
+    \[
+        C_{\prec_1,0},\dots,C_{\prec_n,0}.
+    \]
+    We claim that $\bfb_0$ witnesses the ordering property for $\bfa_0$.
+
+    Let
+    \[
+        \bfa=\langle \bfa_0,\prec_A\rangle\in\k
+        \qquad\text{and}\qquad
+        \bfb=\langle \bfb_0,\prec_B\rangle\in\k.
+    \]
+    Since $\bfb\in\Age(\bff)=\k$, there exists a finite ordered substructure
+    \[
+        \widetilde{\bfb}\leq \bff
+    \]
+    isomorphic to $\bfb$. Let
+    \[
+        h\colon \widetilde{\bfb}\to \bfb
+    \]
+    be an isomorphism, and let
+    \[
+        g\in G_0
+    \]
+    be an automorphism of $\bff_0$ extending
+    \[
+        h^{-1}\colon \bfb_0\to \widetilde{B}_0.
+    \]
+    Then
+    \[
+        \widehat{\prec}=g\cdot \prec_0
+    \]
+    belongs to $X_\k$, and its restriction to $B_0$ is exactly $\prec_B$.
+
+    Since
+    \[
+        X_\k=U_{\prec_1}\cup\cdots\cup U_{\prec_n},
+    \]
+    there exists $i\in\{1,\dots,n\}$ such that
+    \[
+        \widehat{\prec}\in U_{\prec_i}.
+    \]
+    Hence
+    \[
+        \widehat{\prec}|C_{\prec_i,0}=\prec_i|C_{\prec_i,0}.
+    \]
+    By construction of $C_{\prec_i,0}$, every ordered expansion of $\bfa_0$ belonging to $\k$ embeds into
+    \[
+        \langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle.
+    \]
+    In particular,
+    \[
+        \bfa\leq \langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle
+        =
+        \langle C_{\prec_i,0},\widehat{\prec}|C_{\prec_i,0}\rangle.
+    \]
+    Since
+    \[
+        C_{\prec_i,0}\subseteq B_0
+    \]
+    and $\widehat{\prec}|B_0=\prec_B$, the latter is a substructure of $\bfb$. Therefore
+    \[
+        \bfa\leq \bfb.
+    \]
+    This proves that $\k$ has the ordering property.
+\end{proof}
+
+The theorem shows that the minimality of the flow $X_\k$ is controlled by a purely finite combinatorial condition on the class $\k$. In the next section we add the Ramsey property and obtain the universal minimal flow.
+
+\section{Ramsey property and universal minimal flows}
+
+We now add the Ramsey property and obtain the main dynamical consequence of the Kechris--Pestov--Todorcevic correspondence.
+
+Let
+\[
+    G={\rm Aut}(\bff).
+\]
+Since $\bff$ is an ordered expansion of $\bff_0$, we have
+\[
+    G\leq G_0,
+\]
+and every element of $G$ fixes the distinguished ordering $\prec_0$.
+
+The first result shows that, under the Ramsey property, the pointed flow
+\[
+    (X_\k,\prec_0)
+\]
+is universal among $G_0$-ambits whose distinguished point is fixed by $G$.
+
+\begin{lemma}
+    \label{lem:graph-uniqueness}
+    Assume that $\k$ has the Ramsey property. Let $(X,x_0)$ be a $G_0$-ambit such that
+    \[
+        g\cdot x_0=x_0
+        \qquad\text{for all } g\in G.
+    \]
+    Let
+    \[
+        \Phi
+        =
+        \overline{\{(g\cdot \prec_0,g\cdot x_0):g\in G_0\}}
+        \subseteq X_\k\times X.
+    \]
+    If
+    \[
+        (\prec,x),(\prec,x')\in \Phi,
+    \]
+    then
+    \[
+        x=x'.
+    \]
+\end{lemma}
+
+\begin{proof}
+    Suppose that
+    \[
+        (\prec,x),(\prec,x')\in \Phi
+        \qquad\text{and}\qquad
+        x\neq x'.
+    \]
+    Choose disjoint open neighbourhoods
+    \[
+        U\ni x,
+        \qquad
+        U'\ni x'.
+    \]
+    Since $X$ is compact Hausdorff, there exists an open neighbourhood $D$ of the diagonal in $X\times X$ such that
+    \[
+        D[U]\cap U'=\emptyset,
+    \]
+    where
+    \[
+        D[U]=\{y\in X:\text{ there exists } z\in U \text{ with } (z,y)\in D\}.
+    \]
+    By replacing $D$ with
+    \[
+        D\cap D^{-1},
+    \]
+    we may assume that $D$ is symmetric.
+
+    Because the action of $G_0$ on the compact space $X$ is continuous, there exists an open neighbourhood $V$ of the identity in $G_0$ such that
+    \[
+        (v\cdot z,z)\in D
+        \qquad\text{for all } z\in X \text{ and all } v\in V.
+    \]
+    Since $G_0\leq S_\infty$ is non-Archimedean, we may choose a finite substructure
+    \[
+        \bfa_0\leq \bff_0
+    \]
+    such that the pointwise stabilizer
+    \[
+        G_{0,(\bfa_0)}\subseteq V.
+    \]
+
+    Because
+    \[
+        (\prec,x),(\prec,x')\in \Phi,
+    \]
+    there exist
+    \[
+        g,h\in G_0
+    \]
+    such that
+    \[
+        g\cdot x_0\in U,
+        \qquad
+        h\cdot x_0\in U',
+    \]
+    and
+    \[
+        (g\cdot \prec_0)|A_0=(h\cdot \prec_0)|A_0=\prec|A_0.
+    \]
+    Consider the map
+    \[
+        \theta=h^{-1}g\colon g^{-1}(A_0)\to h^{-1}(A_0).
+    \]
+    Since
+    \[
+        (g\cdot \prec_0)|A_0=(h\cdot \prec_0)|A_0,
+    \]
+    the map $\theta$ is an isomorphism of the finite ordered structures
+    \[
+        \langle g^{-1}(\bfa_0),\prec_0\rangle
+        \quad\text{and}\quad
+        \langle h^{-1}(\bfa_0),\prec_0\rangle.
+    \]
+    Because
+    \[
+        \Age(\bff)=\k
+    \]
+    and $\bff$ is ultrahomogeneous, $\theta$ extends to some
+    \[
+        \gamma\in G={\rm Aut}(\bff).
+    \]
+    Then for every $a\in A_0$,
+    \[
+        h\gamma g^{-1}(a)=a,
+    \]
+    so
+    \[
+        v:=h\gamma g^{-1}\in G_{0,(\bfa_0)}\subseteq V.
+    \]
+    Since $\gamma\in G$ fixes $x_0$, we obtain
+    \[
+        h\cdot x_0=v\cdot g\cdot \gamma^{-1}\cdot x_0=v\cdot g\cdot x_0.
+    \]
+    Hence
+    \[
+        (h\cdot x_0,g\cdot x_0)\in D.
+    \]
+    Because $D$ is symmetric, this implies
+    \[
+        h\cdot x_0\in D[U].
+    \]
+    But
+    \[
+        g\cdot x_0\in U
+        \qquad\text{and}\qquad
+        h\cdot x_0\in U',
+    \]
+    so
+    \[
+        h\cdot x_0\in D[U]\cap U',
+    \]
+    contrary to the choice of $D$. Therefore
+    \[
+        x=x'.
+    \]
+\end{proof}
+
+\begin{theorem}
+    \label{thm:ramsey-universal-ambit}
+    Assume that $\k$ has the Ramsey property. Let $(X,x_0)$ be a $G_0$-ambit such that
+    \[
+        g\cdot x_0=x_0
+        \qquad\text{for all } g\in G.
+    \]
+    Then there exists a unique $G_0$-map
+    \[
+        \pi\colon X_\k\to X
+    \]
+    such that
+    \[
+        \pi(\prec_0)=x_0.
+    \]
+    In particular, $(X_\k,\prec_0)$ is universal among $G_0$-ambits whose distinguished point is fixed by $G$.
+\end{theorem}
+
+\begin{proof}
+    Let
+    \[
+        \Phi
+        =
+        \overline{\{(g\cdot \prec_0,g\cdot x_0):g\in G_0\}}
+        \subseteq X_\k\times X.
+    \]
+    Since the projection
+    \[
+        p_1\colon X_\k\times X\to X_\k
+    \]
+    is a closed map and
+    \[
+        p_1(\Phi)
+    \]
+    contains the dense set
+    \[
+        G_0\cdot \prec_0,
+    \]
+    we have
+    \[
+        p_1(\Phi)=X_\k.
+    \]
+    Thus for every
+    \[
+        \prec\in X_\k
+    \]
+    there exists
+    \[
+        x\in X
+    \]
+    such that
+    \[
+        (\prec,x)\in \Phi.
+    \]
+    By Lemma~\ref{lem:graph-uniqueness}, this $x$ is unique. Hence $\Phi$ is the graph of a function
+    \[
+        \pi\colon X_\k\to X.
+    \]
+
+    The map
+    \[
+        p_1|\Phi\colon \Phi\to X_\k
+    \]
+    is a continuous bijection from a compact space to a Hausdorff space, hence a homeomorphism. Therefore
+    \[
+        \pi=p_2\circ (p_1|\Phi)^{-1}
+    \]
+    is continuous.
+
+    The set
+    \[
+        \{(g\cdot \prec_0,g\cdot x_0):g\in G_0\}
+    \]
+    is $G_0$-invariant, and so is its closure $\Phi$. It follows that $\pi$ is $G_0$-equivariant. Also,
+    \[
+        (\prec_0,x_0)\in \Phi,
+    \]
+    so
+    \[
+        \pi(\prec_0)=x_0.
+    \]
+
+    To prove uniqueness, let
+    \[
+        \pi'\colon X_\k\to X
+    \]
+    be another $G_0$-map with
+    \[
+        \pi'(\prec_0)=x_0.
+    \]
+    For every $g\in G_0$ we then have
+    \[
+        \pi'(g\cdot \prec_0)=g\cdot \pi'(\prec_0)=g\cdot x_0=\pi(g\cdot \prec_0).
+    \]
+    Since
+    \[
+        G_0\cdot \prec_0
+    \]
+    is dense in $X_\k$ and both maps are continuous, it follows that
+    \[
+        \pi'=\pi.
+    \]
+
+    Finally, because $(X,x_0)$ is an ambit, the orbit
+    \[
+        G_0\cdot x_0
+    \]
+    is dense in $X$. Since $\pi$ is continuous and $G_0$-equivariant, its image is a closed $G_0$-invariant subset of $X$ containing
+    \[
+        \pi(G_0\cdot \prec_0)=G_0\cdot x_0.
+    \]
+    Hence
+    \[
+        \pi(X_\k)=X.
+    \]
+    Thus $(X_\k,\prec_0)$ is universal among such ambits.
+\end{proof}
+
+We can now combine this with the results of Chapters~5 and~7 and the minimality criterion from the previous section.
+
+\begin{corollary}
+    \label{cor:ramsey-ordering-umf}
+    Assume that $\k$ has both the Ramsey property and the ordering property. Then $X_\k$ is the universal minimal flow of $G_0={\rm Aut}(\bff_0)$.
+\end{corollary}
+
+\begin{proof}
+    By Corollary~\ref{cor:fraisse-order-class-ea}, the Ramsey property of the Fra\"iss\'e order class $\k$ implies that
+    \[
+        G={\rm Aut}(\bff)
+    \]
+    is extremely amenable. Let $Y$ be a minimal compact $G_0$-flow. Restricting the action to the subgroup $G$, we obtain a compact $G$-flow, so extreme amenability yields a point
+    \[
+        y_0\in Y
+    \]
+    fixed by every element of $G$. Since $Y$ is minimal as a $G_0$-flow, the orbit
+    \[
+        G_0\cdot y_0
+    \]
+    is dense in $Y$, and therefore $(Y,y_0)$ is a $G_0$-ambit with $G$-fixed distinguished point.
+
+    By Theorem~\ref{thm:ramsey-universal-ambit}, there exists a surjective $G_0$-map
+    \[
+        \pi\colon X_\k\to Y.
+    \]
+    On the other hand, by Theorem~\ref{thm:minimality-ordering-property}, the ordering property implies that $X_\k$ is minimal. Hence every minimal compact $G_0$-flow is a factor of $X_\k$, which is therefore the universal minimal flow of $G_0$.
+\end{proof}
+
+The preceding theorem shows how the Ramsey property and admissible orderings determine the universal minimal flow of the automorphism group of the reduct. In the following chapters we turn to the converse direction, uniqueness questions for such expansions, and the role of Ramsey degrees in the computation of universal minimal flows.

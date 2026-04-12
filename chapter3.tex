@@ -1,0 +1,474 @@
+\chapter{Topological Groups}
+
+This chapter collects the general facts on topological groups that will be used later in the thesis. Chapter~\ref{chap:automorphism-groups} showed that automorphism groups of countable structures, equipped with the permutation topology, are Polish groups. We now develop the broader topological-group background needed for their actions on compact spaces. We begin with the definition of a topological group and some basic examples, then study neighborhoods of the identity, subgroups, coset spaces, and quotient groups, and finally recall the notions of metrizability and Polish groups.
+
+\section{Topological groups and basic examples}
+
+In this section we introduce the basic notion of a topological group and record several standard examples. The structural facts established here will be used later in the study of flows and universal minimal flows.
+\begin{definition}
+    Let \(G\) be a group. A topology on \(G\) is said to be \emph{compatible} with the group structure if the maps
+    \[
+        m \colon G \times G \to G, \qquad m(x,y)=xy,
+    \]
+    and
+    \[
+        i \colon G \to G, \qquad i(x)=x^{-1},
+    \]
+    are continuous, where \(G\times G\) is equipped with the product topology. A \emph{topological group} is a group together with a compatible topology.
+\end{definition}
+
+Thus a topological group is a group for which the algebraic operations vary continuously with the topology. In particular, a topological group is simultaneously an algebraic and a topological object, and the interaction between these two structures is the source of its rigidity.
+
+\begin{example}
+    Every group equipped with the discrete topology is a topological group.
+\end{example}
+
+\begin{example}
+    Let \(G\) be a topological group and let \(H \leq G\) be a subgroup. Then \(H\), equipped with the subspace topology inherited from \(G\), is again a topological group.
+\end{example}
+
+\begin{proof}
+    The multiplication map on \(H\) is the restriction of the multiplication map on \(G\) to \(H\times H\), and the inversion map on \(H\) is the restriction of the inversion map on \(G\) to \(H\). Since restrictions of continuous maps are continuous, both operations are continuous on \(H\).
+\end{proof}
+
+\begin{example}
+    The additive groups \((\mathbb{R},+)\), \((\mathbb{Q},+)\), and \((\mathbb{Z},+)\), equipped with their usual topologies, are topological groups.
+\end{example}
+
+\begin{proof}
+    Addition and additive inversion are continuous on \(\mathbb{R}\). Hence \((\mathbb{R},+)\) is a topological group. Since \(\mathbb{Q}\) and \(\mathbb{Z}\) are subgroups of \((\mathbb{R},+)\), the previous example shows that they are topological groups with the induced topologies.
+\end{proof}
+
+\begin{example}
+    The multiplicative group
+    \[
+        \mathbb{T}=\{z\in\mathbb{C}:|z|=1\},
+    \]
+    equipped with the subspace topology inherited from \(\mathbb{C}\), is a topological group. It is called the \emph{circle group}.
+\end{example}
+
+\begin{proof}
+    The set \(\mathbb{T}\) is a subgroup of the multiplicative group \(\mathbb{C}\setminus\{0\}\), and multiplication and inversion are continuous on \(\mathbb{C}\setminus\{0\}\). Hence \(\mathbb{T}\) is a topological group with the relative topology.
+\end{proof}
+
+\begin{example}
+    If \((G_\alpha)_{\alpha\in A}\) is a family of topological groups, then the product
+    \[
+        \prod_{\alpha\in A} G_\alpha,
+    \]
+    equipped with the product topology and coordinatewise group operations, is a topological group.
+\end{example}
+
+\begin{proof}
+    Multiplication and inversion are defined coordinatewise, so they are continuous by the universal property of the product topology.
+\end{proof}
+
+The next proposition records the basic symmetries of a topological group. It will be used repeatedly.
+
+\begin{proposition}
+    \label{prop:translations-homeomorphisms}
+    Let \(G\) be a topological group and let \(a,b\in G\). Then the following maps are homeomorphisms of \(G\):
+    \[
+        x\mapsto x^{-1}, \qquad x\mapsto ax, \qquad x\mapsto xb, \qquad x\mapsto axb, \qquad x\mapsto axa^{-1}.
+    \]
+    In particular, every left translation and every right translation is a homeomorphism.
+\end{proposition}
+
+\begin{proof}
+    The inversion map \(x\mapsto x^{-1}\) is continuous by definition of a topological group, and it is its own inverse, hence a homeomorphism.
+
+    The map \(x\mapsto ax\) is continuous because it is obtained by composing the continuous map
+    \[
+        x\mapsto (a,x)
+    \]
+    from \(G\) to \(G\times G\) with the multiplication map. Its inverse is the map \(x\mapsto a^{-1}x\), which is continuous by the same argument. Thus \(x\mapsto ax\) is a homeomorphism. Similarly, \(x\mapsto xb\) is a homeomorphism.
+
+    The map \(x\mapsto axb\) is the composition of the two homeomorphisms \(x\mapsto ax\) and \(x\mapsto xb\), so it is again a homeomorphism. Finally, \(x\mapsto axa^{-1}\) is a special case of the previous map.
+\end{proof}
+
+Proposition~\ref{prop:translations-homeomorphisms} shows that a topological group is homogeneous as a topological space: any point can be moved to any other point by a homeomorphism. Consequently, much of the topology of \(G\) is already determined by the neighborhoods of the identity element. This observation will be developed in the next section.
+
+
+
+\section{Neighborhoods of the identity}
+
+By Proposition~\ref{prop:translations-homeomorphisms}, every left and right translation in a topological group is a homeomorphism. As a result, the topology of a topological group is determined by the neighborhoods of the identity element. We record the basic properties of this neighborhood system and the converse construction.
+
+\begin{theorem}
+    \label{thm:identity-neighborhoods}
+    Let \(G\) be a topological group, and let \(\mathcal{V}\) denote the collection of all neighborhoods of the identity element \(e\). Then \(\mathcal{V}\) has the following properties:
+    \begin{enumerate}
+        \item \(e \in V\) for every \(V \in \mathcal{V}\);
+        \item if \(V,W \in \mathcal{V}\), then \(V \cap W \in \mathcal{V}\);
+        \item if \(V \in \mathcal{V}\), then there exists \(W \in \mathcal{V}\) such that \(WW \subseteq V\);
+        \item if \(V \in \mathcal{V}\), then \(V^{-1} \in \mathcal{V}\);
+        \item if \(V \in \mathcal{V}\) and \(a \in G\), then \(aVa^{-1} \in \mathcal{V}\);
+        \item if \(V \in \mathcal{V}\) and \(V \subseteq W \subseteq G\), then \(W \in \mathcal{V}\).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Properties \((1)\), \((2)\), and \((6)\) are true for the neighborhood filter of any point in a topological space.
+
+    For \((3)\), let \(V \in \mathcal{V}\). Since the multiplication map
+    \[
+        m \colon G \times G \to G, \qquad m(x,y)=xy,
+    \]
+    is continuous at \((e,e)\) and \(m(e,e)=e\), there exist neighborhoods \(W_1\) and \(W_2\) of \(e\) such that
+    \[
+        W_1W_2 \subseteq V.
+    \]
+    Setting \(W=W_1 \cap W_2\), we still have \(W \in \mathcal{V}\), and then
+    \[
+        WW \subseteq W_1W_2 \subseteq V.
+    \]
+
+    Property \((4)\) follows because inversion is a homeomorphism of \(G\) fixing \(e\).
+
+    Property \((5)\) follows because the map
+    \[
+        x \mapsto axa^{-1}
+    \]
+    is a homeomorphism of \(G\) fixing \(e\).
+\end{proof}
+
+The preceding theorem shows that the neighborhoods of \(e\) satisfy strong algebraic compatibility conditions. Conversely, such a family determines a unique group topology.
+
+\begin{theorem}
+    \label{thm:topology-determined-by-identity-neighborhoods}
+    Let \(G\) be an abstract group with identity element \(e\), and let \(\mathcal{V}\) be a nonempty collection of subsets of \(G\) satisfying \textup{(1)}--\textup{(6)} of Theorem~\ref{thm:identity-neighborhoods}. Then there is a unique topology on \(G\) such that:
+    \begin{enumerate}
+        \item \(G\) becomes a topological group;
+        \item \(\mathcal{V}\) is exactly the collection of neighborhoods of \(e\).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    For each \(a \in G\), define
+    \[
+        \mathcal{V}_a=\{aV:V\in\mathcal{V}\}.
+    \]
+    We claim that the family \((\mathcal{V}_a)_{a \in G}\) is the neighborhood system of a topology on \(G\).
+
+    First, every set in \(\mathcal{V}_a\) contains \(a\), since \(e \in V\) for every \(V \in \mathcal{V}\). Also, \(\mathcal{V}_a\) is closed under finite intersections and upward inclusion, because \(\mathcal{V}\) has the corresponding properties.
+
+    It remains to verify the neighborhood axiom. Let \(N \in \mathcal{V}_a\), say \(N=aV\) with \(V \in \mathcal{V}\). By \((3)\), choose \(W \in \mathcal{V}\) such that \(WW \subseteq V\), and set \(M=aW\). Then \(M \in \mathcal{V}_a\). If \(y \in M\), write \(y=aw\) with \(w \in W\). We claim that \(N \in \mathcal{V}_y\). Indeed,
+    \[
+        yW=(aw)W=a(wW)\subseteq aWW \subseteq aV=N,
+    \]
+    and \(yW \in \mathcal{V}_y\). Thus every point of \(M\) has a neighborhood contained in \(N\), so the family \((\mathcal{V}_a)_{a\in G}\) defines a topology on \(G\).
+
+    By construction, \(\mathcal{V}\) is the collection of neighborhoods of \(e\). We now show that the group operations are continuous.
+
+    Let \(a,b \in G\), and let \(abV\) be a neighborhood of \(ab\), where \(V \in \mathcal{V}\). By \((3)\), choose \(W \in \mathcal{V}\) such that \(WW \subseteq V\). By \((5)\), the set \(bWb^{-1}\) belongs to \(\mathcal{V}\) . Hence
+    \[
+        U := W \cap bWb^{-1}
+    \]
+    also belongs to \(\mathcal{V}\). We show that
+    \[
+        (aU)(bU)\subseteq abV.
+    \]
+    Indeed, if \(u_1,u_2 \in U\), then
+    \[
+        (au_1)(bu_2)=ab\,(b^{-1}u_1b)\,u_2.
+    \]
+    Since \(u_1 \in U \subseteq bWb^{-1}\), we have \(b^{-1}u_1b \in W\), and since \(u_2 \in U \subseteq W\), it follows that
+    \[
+        (b^{-1}u_1b)u_2 \in WW \subseteq V.
+    \]
+    Therefore \((au_1)(bu_2) \in abV\), proving continuity of multiplication.
+
+    To prove continuity of inversion, let \(a \in G\) and let \(a^{-1}V\) be a neighborhood of \(a^{-1}\), where \(V \in \mathcal{V}\). By \((4)\) and \((5)\), the set
+    \[
+        U:=a^{-1}V^{-1}a
+    \]
+    belongs to \(\mathcal{V}\). If \(x \in aU\), then \(x=au\) for some \(u \in U\), and hence
+    \[
+        x^{-1}=u^{-1}a^{-1}.
+    \]
+    Since \(u \in a^{-1}V^{-1}a\), we have \(u^{-1} \in a^{-1}Va\), so
+    \[
+        x^{-1}=u^{-1}a^{-1} \in a^{-1}V.
+    \]
+    Thus
+    \[
+        (aU)^{-1} \subseteq a^{-1}V,
+    \]
+    and inversion is continuous at \(a\). Hence \(G\) is a topological group.
+
+    Finally, uniqueness is immediate: in any topological group, the neighborhoods of an arbitrary point \(a\) are exactly the left translates \(aV\) of neighborhoods \(V\) of \(e\). Therefore the topology is completely determined by the neighborhood system at the identity.
+\end{proof}
+
+In practice one usually works with a neighborhood basis at the identity rather than with the full neighborhood filter.
+
+\begin{corollary}
+    \label{cor:identity-neighborhood-basis}
+    Let \(G\) be an abstract group, and let \(\mathscr{B}\) be a nonempty collection of subsets of \(G\) such that:
+    \begin{enumerate}
+        \item \(e \in B\) for every \(B \in \mathscr{B}\);
+        \item for all \(B_1,B_2 \in \mathscr{B}\), there exists \(B_3 \in \mathscr{B}\) with \(B_3 \subseteq B_1 \cap B_2\);
+        \item for every \(B \in \mathscr{B}\), there exists \(C \in \mathscr{B}\) such that \(CC \subseteq B\);
+        \item for every \(B \in \mathscr{B}\), there exists \(C \in \mathscr{B}\) such that \(C \subseteq B^{-1}\);
+        \item for every \(B \in \mathscr{B}\) and every \(a \in G\), there exists \(C \in \mathscr{B}\) such that \(C \subseteq aBa^{-1}\).
+    \end{enumerate}
+    Then there exists a unique topology on \(G\) making \(G\) a topological group and making \(\mathscr{B}\) a neighborhood basis at \(e\).
+\end{corollary}
+
+\begin{proof}
+    Let \(\mathcal{V}\) be the collection of all subsets \(V \subseteq G\) containing some \(B \in \mathscr{B}\). Then \(\mathcal{V}\) satisfies the hypotheses of Theorem~\ref{thm:topology-determined-by-identity-neighborhoods}, so the result follows.
+\end{proof}
+
+The importance of these results is that they reduce many topological questions about a group to the behavior of a suitably chosen family of neighborhoods of the identity. This will be used repeatedly in the metrizable case.
+
+
+
+\section{Subgroups, coset spaces, and quotient groups}
+
+We now consider the basic constructions obtained from a topological group by passing to subgroups and quotients. These constructions will be used later both for coset spaces of open subgroups and for quotient groups by closed normal subgroups.
+
+\begin{proposition}
+    \label{prop:subgroup-top-group}
+    Let \(G\) be a topological group and let \(H \leq G\). Then \(H\), equipped with the subspace topology inherited from \(G\), is a topological group.
+\end{proposition}
+
+\begin{proof}
+    The multiplication map on \(H\) is the restriction of the multiplication map on \(G\) to \(H \times H\), and the inversion map on \(H\) is the restriction of the inversion map on \(G\) to \(H\). Since restrictions of continuous maps are continuous, both operations are continuous.
+\end{proof}
+
+\begin{proposition}
+    \label{prop:closure-subgroup}
+    Let \(G\) be a topological group and let \(H \leq G\). Then \(\overline{H}\) is a subgroup of \(G\). If \(H\) is normal, then \(\overline{H}\) is normal.
+\end{proposition}
+
+\begin{proof}
+    Let \(x,y \in \overline{H}\). Since multiplication is continuous, we have
+    \[
+        xy^{-1} \in \overline{H H^{-1}}.
+    \]
+    As \(H\) is a subgroup, \(H H^{-1}=H\), so \(xy^{-1} \in \overline{H}\). Hence \(\overline{H}\) is a subgroup.
+
+    Now assume that \(H\) is normal. Fix \(g \in G\). Since the conjugation map
+    \[
+        c_g \colon G \to G, \qquad c_g(x)=gxg^{-1},
+    \]
+    is a homeomorphism, we obtain
+    \[
+        g\overline{H}g^{-1}=c_g(\overline{H})=\overline{c_g(H)}=\overline{gHg^{-1}}=\overline{H}.
+    \]
+    Thus \(\overline{H}\) is normal.
+\end{proof}
+
+We next turn to coset spaces.
+
+\begin{definition}
+    Let \(G\) be a topological group and let \(H \leq G\). The set of left cosets of \(H\) in \(G\) is denoted by
+    \[
+        G/H=\{gH:g\in G\}.
+    \]
+    Let
+    \[
+        \pi_H \colon G \to G/H, \qquad \pi_H(g)=gH,
+    \]
+    be the canonical map. We equip \(G/H\) with the quotient topology induced by \(\pi_H\).
+\end{definition}
+
+\begin{proposition}
+    \label{prop:quotient-map-open}
+    Let \(G\) be a topological group and let \(H \leq G\). Then the quotient map
+    \[
+        \pi_H \colon G \to G/H
+    \]
+    is continuous, surjective, and open.
+\end{proposition}
+
+\begin{proof}
+    Continuity and surjectivity are immediate from the definition of the quotient topology.
+
+    Let \(U \subseteq G\) be open. We show that \(\pi_H(U)\) is open in \(G/H\). By definition of the quotient topology, it suffices to show that
+    \[
+        \pi_H^{-1}(\pi_H(U))
+    \]
+    is open in \(G\). But
+    \[
+        \pi_H^{-1}(\pi_H(U))=UH=\bigcup_{h \in H} Uh,
+    \]
+    and each right translate \(Uh\) is open by Proposition~\ref{prop:translations-homeomorphisms}. Hence \(UH\) is open, so \(\pi_H(U)\) is open.
+\end{proof}
+
+The case of open subgroups is especially important.
+
+\begin{corollary}
+    \label{cor:open-subgroup-discrete-cosets}
+    Let \(G\) be a topological group and let \(H \leq G\) be open. Then \(G/H\) is discrete.
+\end{corollary}
+
+\begin{proof}
+    Since \(H\) is open in \(G\), Proposition~\ref{prop:quotient-map-open} implies that
+    \[
+        \{\pi_H(e)\}=\pi_H(H)=\{H\}
+    \]
+    is open in \(G/H\). Every singleton in \(G/H\) is a left translate of \(\{H\}\), hence is open. Therefore \(G/H\) is discrete.
+\end{proof}
+
+We now consider quotient groups. For this, normality is needed in order that multiplication of cosets be well defined.
+
+\begin{proposition}
+    \label{prop:quotient-group}
+    Let \(G\) be a topological group and let \(N \trianglelefteq G\) be a normal subgroup. Then \(G/N\), equipped with the quotient topology, is a topological group under the operations
+    \[
+        (gN)(hN)=ghN
+        \qquad\text{and}\qquad
+        (gN)^{-1}=g^{-1}N.
+    \]
+\end{proposition}
+
+\begin{proof}
+    Since \(N\) is normal, the operations are well defined algebraically.
+
+    Let
+    \[
+        q \colon G \to G/N
+    \]
+    denote the quotient map. To prove continuity of multiplication on \(G/N\), consider the diagram
+    \[ \begin{tikzcd}[column sep=large, row sep=large]
+            G \times G \arrow[r, "m"] \arrow[d, "q \times q"'] & G \arrow[d, "q"] \\
+            G/N \times G/N \arrow[r, dashed, "\widetilde m"'] & G/N
+        \end{tikzcd}
+    \]
+    where \(m(g,h)=gh\). Since \(q(gh)=q(g)q(h)\), the map \(\widetilde m\) is well defined and satisfies
+    \[
+        \widetilde m \circ (q \times q)=q \circ m.
+    \]
+    The map \(q \times q\) is a quotient map because \(q\) is open and surjective. Since \(q \circ m\) is continuous, it follows from the universal property of quotient maps that \(\widetilde m\) is continuous.
+
+    Similarly, inversion on \(G/N\) is induced by inversion on \(G\). Indeed, if \(i(g)=g^{-1}\), then the map
+    \[
+        \widetilde i \colon G/N \to G/N, \qquad \widetilde i(gN)=g^{-1}N,
+    \]
+    satisfies
+    \[
+        \widetilde i \circ q = q \circ i.
+    \]
+    Since \(q\) is a quotient map and \(q \circ i\) is continuous, \(\widetilde i\) is continuous. Thus \(G/N\) is a topological group.
+\end{proof}
+
+In many applications one wants the quotient group to remain Hausdorff. This is guaranteed by closedness of the normal subgroup.
+
+\begin{proposition}
+    \label{prop:closed-normal-hausdorff-quotient}
+    Let \(G\) be a Hausdorff topological group and let \(N \trianglelefteq G\) be a closed normal subgroup. Then \(G/N\) is Hausdorff.
+\end{proposition}
+
+\begin{proof}
+    Let \(gN,hN \in G/N\) with \(gN \neq hN\). Then \(h^{-1}g \notin N\). Since \(N\) is closed and \(G\) is Hausdorff, there exists an open neighborhood \(U\) of \(h^{-1}g\) such that
+    \[
+        U \cap N = \varnothing.
+    \]
+    By continuity of multiplication, there exist neighborhoods \(V\) of \(g\) and \(W\) of \(h\) such that
+    \[
+        W^{-1}V \subseteq U.
+    \]
+    We claim that \(\pi_N(V)\) and \(\pi_N(W)\) are disjoint neighborhoods of \(gN\) and \(hN\), respectively. Suppose not. Then there exist \(v \in V\), \(w \in W\), and \(n_1,n_2 \in N\) such that
+    \[
+        v n_1 = w n_2.
+    \]
+    Hence
+    \[
+        w^{-1}v = n_2 n_1^{-1} \in N.
+    \]
+    But \(w^{-1}v \in W^{-1}V \subseteq U\), contradicting \(U \cap N = \varnothing\). Therefore \(\pi_N(V)\) and \(\pi_N(W)\) are disjoint, and \(G/N\) is Hausdorff.
+\end{proof}
+
+We shall later apply these facts in two different ways. For open subgroups \(V \leq G\), the coset space \(G/V\) is discrete by Corollary~\ref{cor:open-subgroup-discrete-cosets}. For closed normal subgroups \(N \trianglelefteq G\), the quotient \(G/N\) is again a Hausdorff topological group by Propositions~\ref{prop:quotient-group} and~\ref{prop:closed-normal-hausdorff-quotient}.
+
+
+\section{Metrizable and Polish groups}
+
+For the groups that arise in this thesis, the most important topological groups are the metrizable ones, and especially the Polish groups. We therefore record the basic definitions and the standard metrization theorem for topological groups.
+
+\begin{definition}
+    Let \(G\) be a topological group.
+    \begin{enumerate}
+        \item A metric \(d\) on \(G\) is said to be \emph{compatible} if it induces the given topology on \(G\).
+        \item A metric \(d\) on \(G\) is \emph{left-invariant} if
+              \[
+                  d(gx,gy)=d(x,y)
+              \]
+              for all \(g,x,y \in G\).
+        \item A topological group is \emph{metrizable} if its topology is induced by some metric.
+        \item A topological group is \emph{Polish} if its topology is separable and completely metrizable.
+    \end{enumerate}
+\end{definition}
+
+The key fact is that, for Hausdorff topological groups, first countability already implies metrizability.
+
+\begin{theorem}[Birkhoff--Kakutani]
+    \label{thm:birkhoff-kakutani}
+    Let \(G\) be a Hausdorff topological group. Then the following are equivalent:
+    \begin{enumerate}
+        \item \(G\) is first countable;
+        \item \(G\) is metrizable;
+        \item \(G\) admits a compatible left-invariant metric.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    The implication \((3)\Rightarrow(2)\) is immediate, and every metric space is first countable, so \((2)\Rightarrow(1)\).
+
+    It remains to prove \((1)\Rightarrow(3)\). Assume that \(G\) is first countable. Since \(G\) is Hausdorff, we have
+    \[
+        \bigcap \mathcal{V}_e=\{e\},
+    \]
+    where \(\mathcal{V}_e\) denotes the collection of neighborhoods of \(e\). Choose a countable neighborhood basis \((U_n)_{n\geq 1}\) at \(e\). By Corollary~\ref{cor:identity-neighborhood-basis}, we may recursively choose a sequence \((V_n)_{n\geq 1}\) of neighborhoods of \(e\) such that
+    \[
+        V_1=G,\qquad V_{n+1}=V_{n+1}^{-1},\qquad V_{n+1}^3\subseteq V_n \cap U_n
+    \]
+    for every \(n\geq 1\). In particular,
+    \[
+        V_{n+1}\subseteq V_n
+        \qquad\text{and}\qquad
+        \bigcap_{n\geq 1} V_n=\{e\}.
+    \]
+
+    Define a function \(\rho \colon G\times G \to [0,\infty)\) by
+    \[
+        \rho(x,y)=\inf\{2^{-n}:x^{-1}y\in V_n\}.
+    \]
+    Then \(\rho\) is left-invariant, symmetric, and satisfies \(\rho(x,y)=0\) if and only if \(x=y\).
+
+    Now define
+    \[
+        d(x,y)=\inf\left\{\sum_{i=0}^{m-1}\rho(z_i,z_{i+1}) :
+        m\geq 1,\ z_0=x,\ z_m=y,\ z_1,\dots,z_{m-1}\in G\right\}.
+    \]
+    Since \(\rho\) is left-invariant and symmetric, the same is true of \(d\). Also, by construction, \(d\) satisfies the triangle inequality.
+
+    We claim that \(d\) is a metric. It only remains to show that \(d(x,y)=0\) implies \(x=y\). Suppose \(x\neq y\). Then \(x^{-1}y\neq e\), so there exists \(n\) such that \(x^{-1}y\notin V_n\). By the standard Birkhoff--Kakutani argument using the condition \(V_{n+1}^3\subseteq V_n\), any chain from \(x\) to \(y\) has total \(\rho\)-length at least \(2^{-n-1}\). Hence \(d(x,y)>0\), as required.
+
+    Finally, the metric \(d\) induces the original topology on \(G\). Indeed, one shows again from the construction that for each \(n\geq 1\),
+    \[
+        B_d(e,2^{-n-1}) \subseteq V_n \subseteq B_d(e,2^{1-n}),
+    \]
+    so the \(d\)-balls about \(e\) form a neighborhood basis at the identity. By translation, \(d\) induces the given topology on all of \(G\).
+\end{proof}
+
+For later use we isolate the most important consequence.
+
+\begin{corollary}
+    \label{cor:hausdorff-first-countable-metrizable-group}
+    Every Hausdorff first countable topological group is metrizable. More precisely, it admits a compatible left-invariant metric.
+\end{corollary}
+
+\begin{proof}
+    This is immediate from Theorem~\ref{thm:birkhoff-kakutani}.
+\end{proof}
+
+We now turn to Polish groups.
+
+\begin{definition}
+    A topological space is called \emph{Polish} if it is separable and completely metrizable. A \emph{Polish group} is a topological group whose underlying topological space is Polish.
+\end{definition}
+
+Polish groups form the natural ambient class for the automorphism groups considered in this thesis. In Chapter~\ref{chap:automorphism-groups} we used the fact that closed subgroups of Polish groups are again Polish in order to show that automorphism groups of countable structures are Polish. In the next chapter these groups will act on compact spaces, and that dynamical viewpoint will become central.
+
+The main point of this chapter is that the topological structure of a group is largely controlled by the neighborhoods of the identity, and that in the metrizable setting one obtains a particularly tractable class of groups, namely Polish groups. In the next chapter we turn from the internal structure of topological groups to their actions on compact spaces, which will provide the dynamical framework needed for the Kechris--Pestov--Todorcevic correspondence.

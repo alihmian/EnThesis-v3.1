@@ -1,0 +1,256 @@
+\chapter{Examples of Universal Minimal Flows}
+
+In Chapter~8 we proved that if a reasonable Fra\"iss\'e order class $\k$ has both the Ramsey property and the ordering property, then the flow $X_\k$ of admissible orderings is the universal minimal flow of the automorphism group of the reduct. The aim of this chapter is to apply that theorem to concrete classes and to see how different kinds of universal minimal flows arise in practice.
+
+The examples naturally divide into three types. In some cases every linear ordering is admissible, so the universal minimal flow is the full space of linear orderings. In other cases admissible orderings form a proper closed subspace determined by the underlying structure. Finally, there are examples in which the universal minimal flow is finite. We begin with the first phenomenon.
+
+\section{Cases where the universal minimal flow is the full ordering space}
+
+In the examples considered in this section, the ordered expansion is the free one: no compatibility condition is imposed between the additional linear order and the underlying structure. As a result, every linear ordering is admissible, so the flow $X_\k$ coincides with the full ordering space. Once the Ramsey and ordering properties are known, the universal minimal flow follows immediately from Chapter~8.
+
+We write $\mathrm{LO}(F_0)$ for the compact space of all linear orderings on the underlying set of a countable structure $F_0$.
+
+\begin{theorem}
+\label{thm:umf-full-ordering-space}
+The following groups have universal minimal flow equal to the full space of linear orderings on their underlying countable structure.
+\begin{enumerate}
+    \item[(i)] Let $\Gamma$ be the random graph. Then the universal minimal flow of $\Aut(\Gamma)$ is $\mathrm{LO}(\Gamma)$.
+
+    \item[(ii)] For each $n\geq 3$, let $\Gamma_n$ be the random $K_n$-free graph. Then the universal minimal flow of $\Aut(\Gamma_n)$ is $\mathrm{LO}(\Gamma_n)$.
+
+    \item[(iii)] The universal minimal flow of $S_\infty$ is $\mathrm{LO}(\mathbb N)$.
+
+    \item[(iv)] Let $F$ be the Fra\"iss\'e limit of the class of all finite hypergraphs of a fixed finite relational type $L_0$. Then the universal minimal flow of $\Aut(F)$ is $\mathrm{LO}(F)$.
+
+    \item[(v)] Let $\mathcal A$ be a family of finite irreducible hypergraphs of type $L_0$, and let $F_{\mathcal A}$ be the Fra\"iss\'e limit of $\mathrm{Forb}(\mathcal A)$. Then the universal minimal flow of $\Aut(F_{\mathcal A})$ is $\mathrm{LO}(F_{\mathcal A})$.
+
+    \item[(vi)] Let $U_{\mathbb Q}$ be the rational Urysohn space. Then the universal minimal flow of $\Aut(U_{\mathbb Q})$ is $\mathrm{LO}(U_{\mathbb Q})$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+In each case, let $\k_0$ be the relevant Fra\"iss\'e class and let
+\[
+\k=\k_0*\mathcal{LO}
+\]
+be its free ordered expansion. By construction, every linear ordering on a finite member of $\k_0$ gives a member of $\k$, so every linear ordering on the Fra\"iss\'e limit of $\k_0$ is $\k$-admissible. Therefore
+\[
+X_\k=\mathrm{LO}(F_0).
+\]
+
+It remains to verify that $\k$ has the Ramsey property and the ordering property. The Ramsey property was established in the preceding chapters: for graphs and $K_n$-free graphs by the theorem of Ne\v{s}et\v{r}il and R\"odl, for finite hypergraphs and $\mathcal A$-free hypergraphs by the corresponding hypergraph Ramsey theorems, and for finite rational metric spaces by Ne\v{s}et\v{r}il's theorem. The ordering property holds for these free ordered expansions. Hence Chapter~8 applies and gives that the universal minimal flow of the automorphism group of the reduct is exactly $X_\k$.
+
+This yields (i), (ii), (iv), (v), and (vi). For (iii), take $\k_0$ to be the class of finite sets in the empty language. Then its Fra\"iss\'e limit is a countably infinite set, whose automorphism group is $S_\infty$, and again
+\[
+X_\k=\mathrm{LO}(\mathbb N).
+\]
+Thus the universal minimal flow of $S_\infty$ is $\mathrm{LO}(\mathbb N)$.
+\end{proof}
+
+These examples show that when the ordered expansion is completely free, no information is lost in passing from admissible orderings to all linear orderings. In the next section we consider the opposite situation, where admissibility imposes genuine structural restrictions and the universal minimal flow becomes a proper closed subspace of the full ordering space.
+
+\section{Structured spaces of admissible orderings}
+
+We now consider examples in which not every linear ordering is admissible. In these cases the universal minimal flow is still obtained from Chapter~8, but it is a proper closed subspace of the full ordering space, determined by compatibility conditions between the order and the underlying structure.
+
+\begin{theorem}
+\label{thm:umf-structured-ordering-spaces}
+The following groups have universal minimal flow equal to a proper space of admissible orderings.
+\begin{enumerate}
+    \item[(i)] Let
+    \[
+    \bff_0=\langle \mathbb Q,E\rangle
+    \]
+    be the countable equivalence relation with infinitely many equivalence classes, each of which is dense in $\mathbb Q$. Let $X_{\mathcal K}$ be the space of all convex linear orderings on $\mathbb Q$, where $\mathcal K$ is the Fra\"iss\'e order class of all finite convexly ordered equivalence relations. Then the universal minimal flow of
+    \[
+    \Aut(\bff_0)
+    \]
+    is $X_{\mathcal K}$.
+
+    \item[(ii)] Let $V_F$ be the countably infinite-dimensional vector space over a finite field $F$, and let $X_{\mathcal K}$ be the space of all natural orderings on $V_F$, where $\mathcal K$ is the class of naturally ordered finite-dimensional vector spaces over $F$. Then the universal minimal flow of
+    \[
+    \Aut(V_F)
+    \]
+    is $X_{\mathcal K}$.
+
+    \item[(iii)] Let $\bfb_\infty$ be the countable atomless Boolean algebra, and let $X_{\mathcal K}$ be the space of all natural orderings on $\bfb_\infty$, where $\mathcal K$ is the class of naturally ordered finite Boolean algebras. Then the universal minimal flow of
+    \[
+    \Aut(\bfb_\infty)
+    \]
+    is $X_{\mathcal K}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+In each case, the relevant ordered class $\mathcal K$ was introduced in Chapter~6. We verify that it fits the framework of Chapter~8.
+
+For (i), let $\mathcal K$ be the class of finite convexly ordered equivalence relations. By Chapter~6, $\mathcal K$ is a Fra\"iss\'e order class with the Ramsey property, and its reduct $\mathcal K_0$ is the class of finite equivalence relations. Moreover, Chapter~6 showed that arbitrary linear orderings do not work here: the admissible orderings are exactly the convex ones. Thus the flow $X_{\mathcal K}$ is the space of convex linear orderings on $\mathbb Q$. Since $\mathcal K$ also has the ordering property, Chapter~8 implies that $X_{\mathcal K}$ is the universal minimal flow of $\Aut(\bff_0)$.
+
+For (ii), let $\mathcal K$ be the class of naturally ordered finite-dimensional vector spaces over $F$. By Chapter~6, this is a Fra\"iss\'e order class with the Ramsey property, and its reduct is the class of finite-dimensional vector spaces over $F$. The admissible orderings are precisely the natural orderings induced by ordered bases. Hence the corresponding flow $X_{\mathcal K}$ is the space of natural orderings on $V_F$. Since $\mathcal K$ has the ordering property, Chapter~8 yields that $X_{\mathcal K}$ is the universal minimal flow of $\Aut(V_F)$.
+
+For (iii), let $\mathcal K$ be the class of naturally ordered finite Boolean algebras. Again, Chapter~6 shows that $\mathcal K$ is a Fra\"iss\'e order class with the Ramsey property, with reduct the class of finite Boolean algebras. The admissible orderings are precisely the natural orderings induced by orderings of the atoms. Therefore $X_{\mathcal K}$ is the space of natural orderings on $\bfb_\infty$. Since $\mathcal K$ also has the ordering property, Chapter~8 implies that $X_{\mathcal K}$ is the universal minimal flow of $\Aut(\bfb_\infty)$.
+\end{proof}
+
+The significance of these examples is that the universal minimal flow is no longer the full space of all linear orderings. Instead, admissibility imposes a structural constraint: convexity with respect to the equivalence classes, or naturality with respect to a basis or an atomic decomposition. In the Boolean algebra case, this space of admissible orderings admits a more concrete topological description, which we discuss next.
+
+\section{Boolean algebras and maximal chains}
+
+We now return to the Boolean algebra example and record a more concrete description of the corresponding universal minimal flow. Besides the space of natural orderings on the countable atomless Boolean algebra, there is a second model in terms of maximal chains of closed subsets of the Cantor space. The two descriptions are equivalent.
+
+Let
+\[
+\mathcal C=2^{\mathbb N}
+\]
+be the Cantor space, and let
+\[
+\Phi(\mathcal C)
+\]
+denote the compact space of all maximal chains of closed subsets of $\mathcal C$, ordered by inclusion. The group
+\[
+\mathrm{Homeo}(\mathcal C)
+\]
+acts continuously on $\Phi(\mathcal C)$ by
+\[
+g\cdot \mathcal M=\{g(M):M\in\mathcal M\}.
+\]
+
+By Stone duality, the countable atomless Boolean algebra $\bfb_\infty$ may be identified with the Boolean algebra of clopen subsets of $\mathcal C$, and under this identification the group
+\[
+\Aut(\bfb_\infty)
+\]
+is naturally isomorphic to
+\[
+\mathrm{Homeo}(\mathcal C).
+\]
+The next theorem identifies the universal minimal flow described in Section~2 with the maximal-chain flow on $\mathcal C$.
+
+\begin{theorem}
+\label{thm:boolean-maximal-chains}
+Under the natural identification
+\[
+\Aut(\bfb_\infty)\cong \mathrm{Homeo}(2^{\mathbb N}),
+\]
+the universal minimal flow of $\Aut(\bfb_\infty)$ is isomorphic to
+\[
+\Phi(2^{\mathbb N}).
+\]
+Equivalently, the space of natural orderings on $\bfb_\infty$ is $\,\Aut(\bfb_\infty)$-equivariantly homeomorphic to the space of maximal chains of closed subsets of $2^{\mathbb N}$.
+\end{theorem}
+
+\begin{proof}
+We sketch the construction. By Theorem~\ref{thm:umf-structured-ordering-spaces}(iii), the universal minimal flow of $\Aut(\bfb_\infty)$ is the space $X_{\mathcal K}$ of natural orderings on $\bfb_\infty$.
+
+Given a maximal chain
+\[
+\mathcal M\in \Phi(2^{\mathbb N}),
+\]
+one obtains a linear ordering on the atoms of each finite subalgebra of $\bfb_\infty$ by comparing the unique points at which the members of $\mathcal M$ first separate those atoms. Passing to the induced anti-lexicographic orderings, this defines a natural ordering on every finite subalgebra, and these finite orderings are coherent. Hence $\mathcal M$ determines an element of $X_{\mathcal K}$.
+
+Conversely, let
+\[
+\prec\in X_{\mathcal K}.
+\]
+The ordering $\prec$ induces, on each finite clopen partition of $2^{\mathbb N}$, a linear ordering of its atoms compatible with refinement. From these finite orderings one reconstructs a unique maximal chain of closed subsets of $2^{\mathbb N}$ by taking the nested family of closed sets determined by initial segments of the induced orderings. This produces an element of $\Phi(2^{\mathbb N})$.
+
+These two constructions are inverse to one another, and they are continuous and $\Aut(\bfb_\infty)$-equivariant. Therefore
+\[
+X_{\mathcal K}\cong \Phi(2^{\mathbb N})
+\]
+as $\Aut(\bfb_\infty)$-flows. Since $X_{\mathcal K}$ is the universal minimal flow, the same is true of $\Phi(2^{\mathbb N})$.
+\end{proof}
+
+This identification is useful because it shows that the same universal minimal flow may appear in two rather different forms: combinatorially, as a space of natural orderings on a Fra\"iss\'e limit, and topologically, as a space of maximal chains in the Cantor space. In the next section we consider a different phenomenon, where the universal minimal flow is finite.
+
+\section{A finite universal minimal flow}
+
+We conclude with an example in which the universal minimal flow is finite. This shows that, although many of the flows considered so far are infinite compact spaces of orderings, the universal minimal flow can also be a finite homogeneous space.
+
+Fix $n\geq 1$, and let
+\[
+\langle \bbQ,<,E_n\rangle
+\]
+be the structure consisting of the rationals with their usual ordering together with an equivalence relation $E_n$ having exactly $n$ classes, each of which is dense in $\bbQ$. Let
+\[
+A_1,\dots,A_n
+\]
+be an enumeration of the $E_n$-classes, and put
+\[
+\bff_n=\langle \bbQ,<,A_1,\dots,A_n\rangle.
+\]
+We write
+\[
+G_n=\Aut(\langle \bbQ,<,E_n\rangle)
+\qquad\text{and}\qquad
+H_n=\Aut(\bff_n).
+\]
+
+Thus $G_n$ preserves the equivalence relation and may permute its $n$ dense classes, while $H_n$ preserves each class individually.
+
+\begin{theorem}
+\label{thm:finite-umf-gn}
+For each $n\geq 1$, the subgroup $H_n$ is a clopen normal subgroup of finite index in $G_n$, and the natural action of $G_n$ on
+\[
+G_n/H_n
+\]
+is the universal minimal flow of $G_n$.
+\end{theorem}
+
+\begin{proof}
+Each element of $G_n$ permutes the $n$ equivalence classes of $E_n$, so there is a natural continuous homomorphism
+\[
+\pi\colon G_n\to S_n
+\]
+sending an automorphism to the permutation it induces on
+\[
+\{A_1,\dots,A_n\}.
+\]
+Its kernel is exactly $H_n$. Hence $H_n$ is a normal subgroup of $G_n$ of finite index at most $n!$. Since the quotient is finite and discrete, $H_n$ is clopen.
+
+We now show that $H_n$ is extremely amenable. Let $\mathcal{OP}_n$ be the class of all finite structures of the form
+\[
+\langle A,<^A,P_1^A,\dots,P_n^A\rangle,
+\]
+where $<^A$ is a linear ordering of $A$ and
+\[
+P_1^A,\dots,P_n^A
+\]
+form a partition of $A$ into pairwise disjoint unary predicates. This is a Fra\"iss\'e order class, and its Fra\"iss\'e limit is precisely
+\[
+\bff_n=\langle \bbQ,<,A_1,\dots,A_n\rangle.
+\]
+Moreover, $\mathcal{OP}_n$ has the Ramsey property; this is a special case of the general Ramsey theorem for finite ordered relational structures. Therefore, by Corollary~\ref{cor:fraisse-order-class-ea},
+\[
+H_n=\Aut(\bff_n)
+\]
+is extremely amenable.
+
+Let now $Y$ be a minimal compact $G_n$-flow. Restricting the action to the subgroup $H_n$, extreme amenability gives a point
+\[
+y_0\in Y
+\]
+fixed by every element of $H_n$. The orbit map
+\[
+g\mapsto g\cdot y_0
+\]
+is therefore constant on left cosets of $H_n$, so it factors through a continuous $G_n$-map
+\[
+\varphi\colon G_n/H_n\to Y.
+\]
+Since $Y$ is minimal, the orbit
+\[
+G_n\cdot y_0=\varphi(G_n/H_n)
+\]
+is dense in $Y$. But $G_n/H_n$ is finite, so its image is finite and hence closed. Therefore
+\[
+\varphi(G_n/H_n)=Y,
+\]
+and $\varphi$ is surjective. Thus every minimal compact $G_n$-flow is a factor of $G_n/H_n$.
+
+Finally, the action of $G_n$ on $G_n/H_n$ is transitive, hence minimal. It follows that
+\[
+G_n/H_n
+\]
+is the universal minimal flow of $G_n$.
+\end{proof}
+
+For $n=1$, the quotient $G_1/H_1$ is trivial, so this recovers the extreme amenability of $\Aut(\bbQ,<)$. For $n\geq 2$, the universal minimal flow is finite and nontrivial. This contrasts sharply with the earlier examples, where the universal minimal flow was an infinite compact space of orderings.
