@@ -4,6 +4,10 @@
 # Allow Git to enter directories
 !*/
 
+# Ignore generated PDF/rendering caches.
+tmp/
+tmp/**
+
 # Ignore trash explicitly
 trash/
 trash/**

@@ -5,44 +5,36 @@
 \let\cleardoublepage\clearpage
 
 \usepackage{amsmath,amssymb,amsthm}
-\usepackage{tikz}
 \usepackage[margin=1in]{geometry}
-\usepackage{tikz-cd}
 \usepackage[shortlabels]{enumitem}
-\usepackage[most]{tcolorbox}
-\usepackage{subcaption}
-\usepackage{pgfplots}
-\usepackage{mathrsfs}
-\usepackage{marginnote}
-\usepackage{xcolor}
-\usepackage{mdframed}
-\usepackage{environ}
 \usepackage[nottoc]{tocbibind}
 \usepackage[hidelinks]{hyperref}
 
-\pgfplotsset{compat=1.18}
 \setlength{\emergencystretch}{0.5em}
+\raggedbottom
+\setlist[enumerate,1]{label=(\roman*)}
 
 %------------------------------------------------
 % Thesis metadata
 %------------------------------------------------
 \newcommand{\thesistitle}{The Kechris--Pestov--Todorcevic Correspondence}
-\newcommand{\thesissubtitle}{Fra\"iss\'e Theory, Ramsey Theory, and Topological Dynamics}
+\newcommand{\thesissubtitle}{Fraïssé Theory, Ramsey Theory, and Topological Dynamics}
 \newcommand{\thesisauthor}{Ali Hushemian}
 \newcommand{\thesisdate}{July 2026}
 
 \hypersetup{
+  unicode=true,
   pdftitle={The Kechris-Pestov-Todorcevic Correspondence},
-  pdfsubject={Fraisse Theory, Ramsey Theory, and Topological Dynamics},
+  pdfsubject={Fraïssé Theory, Ramsey Theory, and Topological Dynamics},
   pdfauthor={Ali Hushemian}
 }
 
 
 %------------------------------------------------
-% Theorem–like environments
+% Theorem-like environments
 %------------------------------------------------
 \theoremstyle{plain}                    % default
-\newtheorem{theorem}{Theorem}           % numbered within chapters
+\newtheorem{theorem}{Theorem}           % numbered within sections
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -57,7 +49,6 @@
 \newtheorem*{example*}{Example}
 \newtheorem*{examples*}{Examples}
 \newtheorem{examples}[theorem]{Examples}
-\newtheorem*{proofsketch}{Proof sketch}
 \newtheorem*{theorem*}{Theorem}
 \newtheorem*{definition*}{Definition}
 
@@ -74,104 +65,45 @@
 \newtheorem{problem}[theorem]{Problem}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{notation}[theorem]{Notation}
-\newtheorem{warning}{Warning}
-
-
-
-%------------------------------------------------
-% Proof environment is provided by amsthm
-%------------------------------------------------
-\usetikzlibrary{arrows.meta}
-\tikzset{
-  dot/.style={circle,fill,inner sep=1.8pt},
-  thinedge/.style={line cap=round},
-  thickedge/.style={line cap=round, very thick},
-}
-
-
-\tcbset{
-    mynote/.style={
-        colback=yellow!15,
-        colframe=orange!80!black,
-        boxrule=0.8pt,
-        arc=2pt,
-        outer arc=2pt,
-        fonttitle=\bfseries,
-        title=Note,
-        left=6pt,
-        right=6pt,
-        top=4pt,
-        bottom=4pt
-    }
-}
-
-
-% === Notes toggle (show/hide all at once) ===
-\newif\ifshownotes
-% \shownotestrue           % <-- change to \shownotesfalse to hide all notes
-\shownotesfalse
-
-% Minimalist styles: black left bar; with/without faint gray background
-\mdfdefinestyle{note-leftbar-bg}{
-  linecolor=black, linewidth=2pt,
-  topline=false, rightline=false, bottomline=false,
-  skipabove=\baselineskip, skipbelow=\baselineskip,
-  innerleftmargin=8pt, innerrightmargin=8pt,
-  innertopmargin=6pt, innerbottommargin=6pt,
-  backgroundcolor=black!3
-}
-\mdfdefinestyle{note-leftbar}{
-  linecolor=black, linewidth=2pt,
-  topline=false, rightline=false, bottomline=false,
-  skipabove=\baselineskip, skipbelow=\baselineskip,
-  innerleftmargin=8pt, innerrightmargin=8pt,
-  innertopmargin=6pt, innerbottommargin=6pt
-}
-
-% Environments that obey the global toggle
-\NewEnviron{mynote}{%
-  \ifshownotes\begin{mdframed}[style=note-leftbar-bg]\BODY\end{mdframed}\fi}
-\NewEnviron{mynoteplain}{%
-  \ifshownotes\begin{mdframed}[style=note-leftbar]\BODY\end{mdframed}\fi}
-
-% Optional: inline command variant (for short remarks)
-\newcommand{\inlinenote}[1]{%
-  \ifshownotes\textit{\footnotesize\ensuremath{\triangleright}\,#1}\fi}
-
-
-
-\usetikzlibrary{intersections,patterns,calc}
-
+\newtheorem{warning}[theorem]{Warning}
 %------------------------------------------------
 % Custom macros (add as needed)
 %------------------------------------------------
-                  
-\newcommand{\Age}{\mathrm{Age}}
-\newcommand{\ZZ}{\mathbb{Z}}
+
+\DeclareMathOperator{\Age}{Age}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\N}{\mathbb{N}}
-\newcommand{\Sym}{\mathrm{Sym}}
-\newcommand{\Stab}{\mathrm{Stab}}
-\newcommand{\Orb}{\mathrm{Orb}}
-\newcommand{\rk}{\mathrm{rk}}
-\newcommand{\dom}{\mathrm{dom}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cLO}{\mathcal{LO}}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\Orb}{Orb}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\dom}{dom}
 \newcommand{\nset}[2]{\left[{#1}\right]^{#2}} % n-element subsets
-\newcommand{\kto}[4]{{#1}\rightarrow({#2})^{#3}_{#4}} % arrow notation
+\newcommand{\kto}[4]{{#1}\to({#2})^{#3}_{#4}} % arrow notation
 % \newcommand{\Aut}{\operatorname{Aut}}
-\newcommand{\id}{\mathrm{id}}
-\newcommand{\Flim}{\operatorname{Flim}}
-\newcommand{\LO}{\operatorname{LO}}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Flim}{Flim}
+\DeclareMathOperator{\LO}{LO}
+\DeclareMathOperator{\Forb}{Forb}
+\DeclareMathOperator{\Adm}{Adm}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\Iso}{Iso}
+\DeclareMathOperator{\pat}{pat}
+\DeclareMathOperator{\tp}{tp}
 
 \newcommand{\ncl}[2]{\left\langle\!\left\langle #1 \right\rangle\!\right\rangle^{#2}}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Def}{Def}
-\DeclareMathOperator{\PF}{PF}   
-\def\qedsymbol{{$\dashv$}}
+\DeclareMathOperator{\PF}{PF}
+\renewcommand{\qedsymbol}{\ensuremath{\dashv}}
 \DeclareMathOperator{\Fix}{Fix}
 
 \DeclareMathOperator{\DCL}{DCL}
@@ -182,47 +114,23 @@
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Rad}{Rad}
 
-\def\bbC{{\mathbb C}}
-\def\bbZ{{\mathbb Z}}
-\def\bbN{{\mathbb N}}
-\def\bbR{{\mathbb R}}
-\def\bbQ{{\mathbb Q}}
-\def\bbU{{\mathbb U}}
-\def\bfa{{\boldsymbol A}}
-\def\bfb{{\boldsymbol B}}
-\def\bfc{{\boldsymbol C}}
-\def\bfd{{\boldsymbol D}}
-\def\bfe{{\boldsymbol E}}
-\def\bff{{\boldsymbol F}}
-\def\bfh{{\boldsymbol H}}
-\def\bfo{{\boldsymbol O}}
-\def\bfr{{\boldsymbol R}}
-\def\bfu{{\boldsymbol U}}
-\def\bfx{{\boldsymbol X}}
-\def\bfv{{\boldsymbol V}}
-\def\bffa{{\boldsymbol a}}
-\def\bffb{{\boldsymbol b}}
-\def\bfzero{{\boldsymbol 0}}
-\def\bfone{{\boldsymbol 1}}
-\def\a{{\mathcal A}}
-\def\b{{\mathcal B}}
-\def\calc{{\mathcal C}}
-\def\e{{\mathcal E}}
-\def\f{{\mathcal F}}
-\def\g{{\mathcal G}}
-\def\h{{\mathcal H}}
-\def\k{{\mathcal K}}
-\def\l{{\mathcal L}}
-\def\m{{\mathcal M}}
-\def\n{{\mathcal N}}
-\def\o{{\mathcal O}}
-\def\p{{\mathcal P}}
-\def\q{{\mathcal Q}}
-\def\r{{\mathcal R}}
-\def\calu{{\mathcal U}}
-\def\calv{{\mathcal V}}
-\def\forb{{\mathcal Forb}}
-\def\norm#1{{\lVert{#1}\rVert}}
+\newcommand{\bfa}{\boldsymbol{A}}
+\newcommand{\bfb}{\boldsymbol{B}}
+\newcommand{\bfc}{\boldsymbol{C}}
+\newcommand{\bfd}{\boldsymbol{D}}
+\newcommand{\bfe}{\boldsymbol{E}}
+\newcommand{\bff}{\boldsymbol{F}}
+\newcommand{\bfh}{\boldsymbol{H}}
+\newcommand{\bfo}{\boldsymbol{O}}
+\newcommand{\bfr}{\boldsymbol{R}}
+\newcommand{\bfu}{\boldsymbol{U}}
+\newcommand{\bfx}{\boldsymbol{X}}
+\newcommand{\bfv}{\boldsymbol{V}}
+\newcommand{\bffa}{\boldsymbol{a}}
+\newcommand{\bffb}{\boldsymbol{b}}
+\newcommand{\bfzero}{\boldsymbol{0}}
+\newcommand{\bfone}{\boldsymbol{1}}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
 
 
 \numberwithin{theorem}{section}

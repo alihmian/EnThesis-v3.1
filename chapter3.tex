@@ -2,94 +2,94 @@
 \chapter[Extreme Amenability and Ramsey Theory]{Extreme Amenability and the Ramsey Property}
 \label{chap:extreme-amenability-ramsey}
 
-The aim of this chapter is to connect the dynamical notion of extreme amenability introduced in the previous chapter with the Ramsey property for classes of finite structures. This is the first decisive step in the Kechris--Pestov--Todorcevic correspondence. For closed subgroups of $S_\infty$, the topology is controlled by stabilizers of finite sets, and this makes it possible to reformulate a fixed-point property for flows in terms of finite colorings of finite configurations. The result is a bridge from topological dynamics to structural Ramsey theory.
+The aim of this chapter is to connect the dynamical notion of extreme amenability introduced in the previous chapter with the Ramsey property for classes of finite structures. This is the first decisive step in the Kechris--Pestov--Todorcevic correspondence. For closed subgroups of \(S_\infty\), the topology is controlled by stabilisers of finite sets, and this makes it possible to reformulate a fixed-point property for flows in terms of finite colourings of finite configurations. The result is a bridge from topological dynamics to structural Ramsey theory.
 
-We begin by recalling the basic notions of structural Ramsey theory and some standard examples. We then prove a characterization of extremely amenable closed subgroups of $S_\infty$ in terms of a Ramsey property for the corresponding finite types. Finally, we translate this characterization into Fra\"iss\'e-theoretic language and obtain the fundamental criterion that if $F$ is the Fra\"iss\'e limit of a Fra\"iss\'e order class $\mathcal{K}$, then $\Aut(F)$ is extremely amenable if and only if $\mathcal{K}$ has the Ramsey property. This criterion will be the main tool in the next chapter, where we construct concrete examples of extremely amenable automorphism groups.
+We begin by recalling the basic notions of structural Ramsey theory and some standard examples. We then prove a characterisation of extremely amenable closed subgroups of \(S_\infty\) in terms of a Ramsey property for the corresponding finite types. Finally, we translate this characterisation into Fraïssé-theoretic language and obtain the fundamental criterion that if \(\bff\) is the Fraïssé limit of a Fraïssé order class \(\cK\), then \(\Aut(\bff)\) is extremely amenable if and only if \(\cK\) has the Ramsey property. This criterion will be the main tool in the next chapter, where we construct concrete examples of extremely amenable automorphism groups.
 
 
 \section{Structural Ramsey theory}
 \label{sec:structural-ramsey-theory}
 
-We begin by recalling the basic notions of structural Ramsey theory that will be used in the sequel. The point of this section is to formulate the combinatorial property that later characterizes extreme amenability for automorphism groups of Fra\"iss\'e limits.
+We begin by recalling the basic notions of structural Ramsey theory that will be used in the sequel. The point of this section is to formulate the combinatorial property that later characterises extreme amenability for automorphism groups of Fraïssé limits.
 
-Let $A$ and $B$ be $L$-structures. If \(A\hookrightarrow B\), we let
+Let \(\bfa\) and \(\bfb\) be \(L\)-structures. If \(\bfa\hookrightarrow \bfb\), we let
 \[
-    \begin{pmatrix} B \\ A \end{pmatrix}
+    \begin{pmatrix} \bfb \\ \bfa \end{pmatrix}
     =
-    \{A_0 \subseteq B : A_0 \cong A\},
+    \{\bfa' \leq \bfb : \bfa' \cong \bfa\},
 \]
-the set of all substructures of $B$ isomorphic to $A$.
+the set of all substructures of \(\bfb\) isomorphic to \(\bfa\).
 
-If \(A\hookrightarrow B\hookrightarrow C\) and $k \geq 2$, we write \(C \to (B)^A_k\) to mean that for every coloring
-\(c \colon \begin{pmatrix} C \\ A \end{pmatrix} \to \{1,\dots,k\}\), there is some
-$B_0 \in \begin{pmatrix} C \\ B \end{pmatrix}$ such that
-\(c \restriction \begin{pmatrix} B_0 \\ A \end{pmatrix}\) is constant. In this situation we say that $B_0$ is \emph{homogeneous} for the coloring $c$.
+If \(\bfa\hookrightarrow \bfb\hookrightarrow \bfc\) and \(k \geq 2\), we write \(\bfc \to (\bfb)^{\bfa}_k\) to mean that for every colouring
+\(c \colon \begin{pmatrix} \bfc \\ \bfa \end{pmatrix} \to \{1,\dots,k\}\), there is some
+\(\bfb' \in \begin{pmatrix} \bfc \\ \bfb \end{pmatrix}\) such that
+\(c \restriction \begin{pmatrix} \bfb' \\ \bfa \end{pmatrix}\) is constant. In this situation we say that \(\bfb'\) is \emph{homogeneous} for the colouring \(c\).
 
 \begin{definition}
-    Let $\mathcal{K}$ be a class of finite $L$-structures. We say that $\mathcal{K}$ has the \emph{Ramsey property} if $\mathcal{K}$ is hereditary and for every $A,B \in \mathcal{K}$ with \(A\hookrightarrow B\) and every integer $k \geq 2$, there exists $C \in \mathcal{K}$ such that
+    Let \(\cK\) be a class of finite \(L\)-structures. We say that \(\cK\) has the \emph{Ramsey property} if \(\cK\) is hereditary and for every \(\bfa,\bfb \in \cK\) with \(\bfa\hookrightarrow \bfb\) and every integer \(k \geq 2\), there exists \(\bfc \in \cK\) such that
     \[
-        C \to (B)^A_k.
+        \bfc \to (\bfb)^{\bfa}_k.
     \]
 \end{definition}
 
-As usual, it is enough to verify the Ramsey property for two colors.
+As usual, it is enough to verify the Ramsey property for two colours.
 
 \begin{proposition}
-    A hereditary class $\mathcal{K}$ of finite structures has the Ramsey property if and only if for every $A,B \in \mathcal{K}$ with \(A\hookrightarrow B\), there exists $C \in \mathcal{K}$ such that
+    A hereditary class \(\cK\) of finite structures has the Ramsey property if and only if for every \(\bfa,\bfb \in \cK\) with \(\bfa\hookrightarrow \bfb\), there exists \(\bfc \in \cK\) such that
     \[
-        C \to (B)^A_2.
+        \bfc \to (\bfb)^{\bfa}_2.
     \]
 \end{proposition}
 
 \begin{proof}
-    Only one implication needs proof. Assume the two-color condition holds. We show by induction on $k \geq 2$ that for all \(A\hookrightarrow B\) in $\mathcal{K}$ there exists $C \in \mathcal{K}$ with \(C \to (B)^A_k\).
+    Only one implication needs proof. Assume the two-colour condition holds. We show by induction on \(k \geq 2\) that for all \(\bfa\hookrightarrow \bfb\) in \(\cK\) there exists \(\bfc \in \cK\) with \(\bfc \to (\bfb)^{\bfa}_k\).
 
-    The case $k=2$ is our assumption. Suppose the statement has been proved for $k-1$, where $k \geq 3$, and fix \(A\hookrightarrow B\) in $\mathcal{K}$. Choose $D \in \mathcal{K}$ such that \(D \to (B)^A_{k-1}\), and then choose $C \in \mathcal{K}$ such that \(C \to (D)^A_2\).
+    The case \(k=2\) is our assumption. Suppose the statement has been proved for \(k-1\), where \(k \geq 3\), and fix \(\bfa\hookrightarrow \bfb\) in \(\cK\). Choose \(\bfd \in \cK\) such that \(\bfd \to (\bfb)^{\bfa}_{k-1}\), and then choose \(\bfc \in \cK\) such that \(\bfc \to (\bfd)^{\bfa}_2\).
 
-    Now let \(c \colon \begin{pmatrix} C \\ A \end{pmatrix} \to \{1,\dots,k\}\) be a $k$-coloring. Define a two-coloring \(c' \colon \begin{pmatrix} C \\ A \end{pmatrix} \to \{0,1\}\) by
+    Now let \(c \colon \begin{pmatrix} \bfc \\ \bfa \end{pmatrix} \to \{1,\dots,k\}\) be a \(k\)-colouring. Define a two-colouring \(c' \colon \begin{pmatrix} \bfc \\ \bfa \end{pmatrix} \to \{0,1\}\) by
     \[
-        c'(A_0)=
+        c'(\bfa')=
         \begin{cases}
-            0, & c(A_0)=k,                 \\
-            1, & c(A_0)\in\{1,\dots,k-1\}.
+            0, & c(\bfa')=k,                 \\
+            1, & c(\bfa')\in\{1,\dots,k-1\}.
         \end{cases}
     \]
-    Since $C \to (D)^A_2$, there is $D_0 \in \begin{pmatrix} C \\ D \end{pmatrix}$ homogeneous for $c'$. If $c'$ is constantly $0$ on $\begin{pmatrix} D_0 \\ A \end{pmatrix}$, then every copy of $A$ in $D_0$ has color $k$, so $D_0$ contains a homogeneous copy of $B$. If $c'$ is constantly $1$, then the original coloring $c$ uses only the colors $1,\dots,k-1$ on $\begin{pmatrix} D_0 \\ A \end{pmatrix}$. Since $D_0 \cong D$ and $D \to (B)^A_{k-1}$, there is a copy of $B$ inside $D_0$ homogeneous for $c$.
+    Since \(\bfc \to (\bfd)^{\bfa}_2\), there is \(\bfd' \in \begin{pmatrix} \bfc \\ \bfd \end{pmatrix}\) homogeneous for \(c'\). If \(c'\) is constantly \(0\) on \(\begin{pmatrix} \bfd' \\ \bfa \end{pmatrix}\), then every copy of \(\bfa\) in \(\bfd'\) has colour \(k\), so \(\bfd'\) contains a homogeneous copy of \(\bfb\). If \(c'\) is constantly \(1\), then the original colouring \(c\) uses only the colours \(1,\dots,k-1\) on \(\begin{pmatrix} \bfd' \\ \bfa \end{pmatrix}\). Since \(\bfd' \cong \bfd\) and \(\bfd \to (\bfb)^{\bfa}_{k-1}\), there is a copy of \(\bfb\) inside \(\bfd'\) homogeneous for \(c\).
 
-    Thus $C \to (B)^A_k$, as required.
+    Thus \(\bfc \to (\bfb)^{\bfa}_k\), as required.
 \end{proof}
 
 We now record several standard examples.
 
 \begin{example}
-    The class $\mathcal{LO}$ of finite linear orders has the Ramsey property.
+    The class \(\cLO\) of finite linear orders has the Ramsey property.
 \end{example}
 
 \begin{proof}
-    Two finite linear orders are isomorphic if and only if they have the same cardinality. Thus, for finite linear orders $A$, $B$, and $C$, the set
-    \(\begin{pmatrix} C \\ A \end{pmatrix}\) may be identified with the family of $|A|$-element subsets of the underlying set of $C$. Under this identification, the statement \(C \to (B)^A_k\) is exactly the classical finite Ramsey theorem.
+    Two finite linear orders are isomorphic if and only if they have the same cardinality. Thus, for finite linear orders \(\bfa\), \(\bfb\), and \(\bfc\), the set
+    \(\begin{pmatrix} \bfc \\ \bfa \end{pmatrix}\) may be identified with the family of \(|A|\)-element subsets of \(C\). Under this identification, the statement \(\bfc \to (\bfb)^{\bfa}_k\) is exactly the classical finite Ramsey theorem.
 \end{proof}
 
 \begin{example}
-    Let $L=\{<,E\}$, where $<$ is a binary relation symbol and $E$ is a binary relation symbol interpreted as a symmetric irreflexive graph relation. Then the class $\vec{\mathcal{GR}}$ of finite ordered graphs has the Ramsey property.
+    Let \(L=\{<,E\}\), where \(<\) is a binary relation symbol and \(E\) is a binary relation symbol interpreted as a symmetric irreflexive graph relation. Then the class \(\vec{\mathcal{GR}}\) of finite ordered graphs has the Ramsey property.
 \end{example}
 
-This is the theorem of Ne\v{s}et\v{r}il and R\"odl \cite{NR77,NR83}.
+This is the theorem of Ne\v{s}et\v{r}il and R\"odl~\cite{NR77,NR83}.
 
 \begin{example}
-    Let $F$ be a finite field, and let $\mathcal{V}_F$ be the class of finite-dimensional vector spaces over $F$, regarded as structures in a language coding addition and scalar multiplication. Then $\mathcal{V}_F$ has the Ramsey property.
+    Let \(F\) be a finite field, and let \(\mathcal{V}_F\) be the class of finite-dimensional vector spaces over \(F\), regarded as structures in a language coding addition and scalar multiplication. Then \(\mathcal{V}_F\) has the Ramsey property.
 \end{example}
 
-This is the Graham--Leeb--Rothschild theorem \cite{GLR}.
+This is the Graham--Leeb--Rothschild theorem~\cite{GLR}.
 
 \begin{example}
-    Let $\mathcal{BA}$ be the class of finite Boolean algebras in the usual algebraic language. Then $\mathcal{BA}$ has the Ramsey property.
+    Let \(\mathcal{BA}\) be the class of finite Boolean algebras in the usual algebraic language. Then \(\mathcal{BA}\) has the Ramsey property.
 \end{example}
 
-This is an equivalent formulation of the Dual Ramsey Theorem of Graham and Rothschild; see, for example, \cite[\S 4.13]{N95}.
+This is an equivalent formulation of the Dual Ramsey Theorem of Graham and Rothschild; see, for example,~\cite[\S 4.13]{N95}.
 
 \begin{definition}
-    A structure $A$ is said to be \emph{rigid} if every automorphism of $A$ is the identity. Equivalently, \(\Aut(A)=\{\id_A\}\).
+    A structure \(\bfa\) is said to be \emph{rigid} if every automorphism of \(\bfa\) is the identity. Equivalently, \(\Aut(\bfa)=\{\id_{\bfa}\}\).
     A class of finite structures is called rigid if every member of the class is rigid.
 \end{definition}
 
@@ -97,99 +97,79 @@ For our purposes, ordered classes are especially important, since finite linearl
 
 \begin{proposition}
     \label{prop:rigid-rp-implies-ap}
-    Let $\mathcal{K}$ be a hereditary class of finite rigid $L$-structures. If $\mathcal{K}$ has the joint embedding property and the Ramsey property, then $\mathcal{K}$ has the amalgamation property.
+    Let \(\cK\) be a hereditary class of finite rigid \(L\)-structures. If \(\cK\) has the joint embedding property and the Ramsey property, then \(\cK\) has the amalgamation property.
 \end{proposition}
 
 \begin{proof}
-    Let $A,B,C \in \mathcal{K}$ and let \(f \colon A \to B\) and \(g \colon A \to C\) be embeddings. Since $\mathcal{K}$ has the joint embedding property, there exists $E \in \mathcal{K}$ into which both $B$ and $C$ embed. Fix embeddings \(u \colon B \to E\) and \(v \colon C \to E\). By the Ramsey property, there is $D \in \mathcal{K}$ such that \(D \to (E)^A_4\).
+    Let \(\bfa,\bfb,\bfc \in \cK\) and let \(f \colon \bfa \hookrightarrow \bfb\) and \(g \colon \bfa \hookrightarrow \bfc\) be embeddings. Since \(\cK\) has the joint embedding property, there exists \(\bfe \in \cK\) into which both \(\bfb\) and \(\bfc\) embed. Fix embeddings \(u \colon \bfb \hookrightarrow \bfe\) and \(v \colon \bfc \hookrightarrow \bfe\). By the Ramsey property, there is \(\bfd \in \cK\) such that \(\bfd \to (\bfe)^{\bfa}_4\).
 
-    We define a coloring of $\begin{pmatrix} D \\ A \end{pmatrix}$ with values in the four-element set $\mathcal{P}(\{B,C\})$. For $A_0 \in \begin{pmatrix} D \\ A \end{pmatrix}$, put
+    We define a colouring of \(\begin{pmatrix} \bfd \\ \bfa \end{pmatrix}\) with values in the four-element set \(\mathcal{P}(\{\bfb,\bfc\})\). For \(\bfa' \in \begin{pmatrix} \bfd \\ \bfa \end{pmatrix}\), put
     \[
-        B \in c(A_0)
+        \bfb \in c(\bfa')
         \quad\Longleftrightarrow\quad
-        \text{there exists an embedding } r \colon B \to D \text{ with } r(f(A))=A_0,
+        \text{there exists an embedding } r \colon \bfb \hookrightarrow \bfd \text{ with } r(f(A))=A',
     \]
     and define similarly
     \[
-        C \in c(A_0)
+        \bfc \in c(\bfa')
         \quad\Longleftrightarrow\quad
-        \text{there exists an embedding } s \colon C \to D \text{ with } s(g(A))=A_0.
+        \text{there exists an embedding } s \colon \bfc \hookrightarrow \bfd \text{ with } s(g(A))=A'.
     \]
 
-    Choose $E_0 \in \begin{pmatrix} D \\ E \end{pmatrix}$ homogeneous for this coloring. Since $E_0 \cong E$ contains copies of both $B$ and $C$, there is some copy of $A$ inside $E_0$ whose color contains $B$, and also some copy of $A$ inside $E_0$ whose color contains $C$. Because $E_0$ is homogeneous, the common color of all members of \(\begin{pmatrix} E_0 \\ A \end{pmatrix}\) must therefore be exactly $\{B,C\}$.
+    Choose \(\bfe' \in \begin{pmatrix} \bfd \\ \bfe \end{pmatrix}\) homogeneous for this colouring. Since \(\bfe' \cong \bfe\) contains copies of both \(\bfb\) and \(\bfc\), there is some copy of \(\bfa\) inside \(\bfe'\) whose colour contains \(\bfb\), and also some copy of \(\bfa\) inside \(\bfe'\) whose colour contains \(\bfc\). Because \(\bfe'\) is homogeneous, the common colour of all members of \(\begin{pmatrix} \bfe' \\ \bfa \end{pmatrix}\) must therefore be exactly \(\{\bfb,\bfc\}\).
 
-    Now choose any $A_0 \in \begin{pmatrix} E_0 \\ A \end{pmatrix}$. Since $c(A_0)=\{B,C\}$, there are embeddings \(r \colon B \to D\) and \(s \colon C \to D\) such that \(r(f(A))=A_0=s(g(A))\). Hence both $r \circ f$ and $s \circ g$ are isomorphisms from $A$ onto $A_0$. Since $A$ is rigid, this isomorphism is unique, so \(r \circ f = s \circ g\).
-    Thus $D$, together with the embeddings $r$ and $s$, is an amalgam of $B$ and $C$ over $A$. Therefore $\mathcal{K}$ has the amalgamation property.
+    Now choose any \(\bfa' \in \begin{pmatrix} \bfe' \\ \bfa \end{pmatrix}\). Since \(c(\bfa')=\{\bfb,\bfc\}\), there are embeddings \(r \colon \bfb \hookrightarrow \bfd\) and \(s \colon \bfc \hookrightarrow \bfd\) such that \(r(f(A))=A'=s(g(A))\). Hence both \(r \circ f\) and \(s \circ g\) are isomorphisms from \(\bfa\) onto \(\bfa'\). Since \(\bfa\) is rigid, this isomorphism is unique, so \(r \circ f = s \circ g\).
+    Thus \(\bfd\), together with the embeddings \(r\) and \(s\), is an amalgam of \(\bfb\) and \(\bfc\) over \(\bfa\). Therefore \(\cK\) has the amalgamation property.
 \end{proof}
 
-In particular, if $\mathcal{K}$ is a non-empty countable hereditary class of finite rigid structures, has the joint embedding property, contains structures of arbitrarily large cardinality, and has the Ramsey property, then $\mathcal{K}$ is a Fra\"iss\'e class.
+In particular, if \(\cK\) is a nonempty countable hereditary class of finite rigid structures, has the joint embedding property, contains structures of arbitrarily large cardinality, and has the Ramsey property, then \(\cK\) is a Fraïssé class.
 
-The importance of these observations for us is that many of the classes arising in the Kechris--Pestov--Todorcevic correspondence are order classes. For such classes, rigidity is automatic, and Proposition \ref{prop:rigid-rp-implies-ap} shows that once the Ramsey property is established, the amalgamation property follows under mild additional hypotheses.
+The importance of these observations for us is that many of the classes arising in the Kechris--Pestov--Todorcevic correspondence are order classes. For such classes, rigidity is automatic, and Proposition~\ref{prop:rigid-rp-implies-ap} shows that once the Ramsey property is established, the amalgamation property follows under mild additional hypotheses.
 
 
 
-\section{Extreme amenability for closed subgroups of \texorpdfstring{$S_\infty$}{S-infinity}}
+\section{Extreme amenability for closed subgroups of \texorpdfstring{\(S_\infty\)}{S-infinity}}
 
 \label{sec:ea-closed-subgroups-sinf}
 
-We now reformulate extreme amenability for closed subgroups of $S_\infty$ in combinatorial terms. The basic idea is that for such groups, open subgroups are determined by finite information, and this allows one to express a fixed-point property for flows as a Ramsey-type statement about finite configurations.
+We now reformulate extreme amenability for closed subgroups of \(S_\infty\) in combinatorial terms. The basic idea is that for such groups, open subgroups are determined by finite information, and this allows one to express a fixed-point property for flows as a Ramsey-type statement about finite configurations.
 
 We begin with a general criterion for the existence of a fixed point.
 
 \begin{lemma}
     \label{lem:fixed-point-criterion}
-    Let $G$ be a topological group and let $X$ be a $G$-flow. Then the following are equivalent.
+    Let \(G\) be a topological group and let \(X\) be a \(G\)-flow. Then the following are equivalent.
     \begin{enumerate}
-        \item[(i)] $X$ has a fixed point.
-        \item[(ii)] For every $n \geq 1$, every continuous map $f \colon X \to \bbR^n$, every $\epsilon >0$, and every finite set $F \subseteq G$, there exists $x \in X$ such that
+        \item[(i)] \(X\) has a fixed point.
+        \item[(ii)] For every \(n \geq 1\), every continuous map \(f \colon X \to \R^n\), every \(\epsilon >0\), and every finite set \(F \subseteq G\), there exists \(x \in X\) such that
               \[
-                  |f(x)-f(g\cdot x)|\leq \epsilon
+                  \norm{f(x)-f(g\cdot x)}\leq \epsilon
                   \qquad\text{for all } g\in F,
               \]
-              where $|\cdot|$ denotes the Euclidean norm.
+              where \(\norm{\cdot}\) denotes the Euclidean norm.
     \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-    The implication (i) $\Rightarrow$ (ii) is immediate.
+    The implication (i) \(\Rightarrow\) (ii) is immediate.
 
-    For (ii) $\Rightarrow$ (i), define, for each continuous $f \colon X \to \bbR^n$, each $\epsilon>0$, and each finite $F\subseteq G$,
+    For (ii) \(\Rightarrow\) (i), define, for each continuous \(f \colon X \to \R^n\), each \(\epsilon>0\), and each finite \(F\subseteq G\),
     \[
         A_{f,\epsilon,F}
         =
-        \{x\in X : |f(x)-f(g\cdot x)|\leq \epsilon \text{ for all } g\in F\}.
+        \{x\in X : \norm{f(x)-f(g\cdot x)}\leq \epsilon \text{ for all } g\in F\}.
     \]
-    Each set $A_{f,\epsilon,F}$ is closed.
-    \begin{mynote}
-        The argument is just that $A_{f,\epsilon,F}$ is a finite intersection of inverse images of closed sets under continuous maps.
-
-        For each fixed $g\in F$, define \(\varphi_g(x)=|f(x)-f(g\cdot x)|\).
-        Since the action map $x\mapsto g\cdot x$ is continuous and $f$ is continuous, the map $\varphi_g\colon X\to\bbR$ is continuous. Then
-        \[
-            \{x\in X:\varphi_g(x)\leq \epsilon\}
-            =
-            \varphi_g^{-1}((-\infty,\epsilon])
-        \]
-        is closed, because $(-\infty,\epsilon]$ is closed in $\bbR$.
-
-        Therefore
-        \[
-            A_{f,\epsilon,F}
-            =
-            \bigcap_{g\in F}\{x\in X:\varphi_g(x)\leq \epsilon\}
-        \]
-        is closed as a finite intersection of closed sets.
-    \end{mynote}
+    Each set \(A_{f,\epsilon,F}\) is closed.
     We claim that the family \(\{A_{f,\epsilon,F}\}\) has the finite intersection property.
-    Indeed, given finitely many triples $(f_j,\epsilon_j,F_j)$, $j=1,\dots,m$, let \(\bar F=F_1\cup\cdots\cup F_m\) and \(\bar\epsilon=\min\{\epsilon_1,\dots,\epsilon_m\}\), and define \(\bar f=(f_1,\dots,f_m)\colon X \to \bbR^{n_1+\cdots+n_m}\), where $f_j\colon X\to\bbR^{n_j}$.
+    Indeed, given finitely many triples \((f_j,\epsilon_j,F_j)\), \(j=1,\dots,m\), let \(\bar F=F_1\cup\cdots\cup F_m\) and \(\bar\epsilon=\min\{\epsilon_1,\dots,\epsilon_m\}\), and define \(\bar f=(f_1,\dots,f_m)\colon X \to \R^{n_1+\cdots+n_m}\), where \(f_j\colon X\to\R^{n_j}\).
     Then
     \[
         A_{\bar f,\bar\epsilon,\bar F}
         \subseteq
         \bigcap_{j=1}^m A_{f_j,\epsilon_j,F_j},
     \]
-    and $A_{\bar f,\bar\epsilon,\bar F}$ is non-empty by (ii).
-    Since $X$ is compact, it follows that
+    and \(A_{\bar f,\bar\epsilon,\bar F}\) is nonempty by (ii).
+    Since \(X\) is compact, it follows that
     \[
         \bigcap_{f,\epsilon,F} A_{f,\epsilon,F}\neq\emptyset.
     \]
@@ -197,291 +177,100 @@ We begin with a general criterion for the existence of a fixed point.
     \[
         x\in \bigcap_{f,\epsilon,F} A_{f,\epsilon,F}.
     \]
-    We show that $x$ is fixed. Suppose not. Then there exists $g\in G$ such that $g\cdot x\neq x$. By complete regularity of the compact Hausdorff space $X$, there is a continuous function $f\colon X\to\bbR$ such that \(f(x)=0\) and \(f(g\cdot x)=1\).
-    \begin{mynote}
-        The point is simply that compact Hausdorff spaces are completely regular.
-
-        Since $x\neq g\cdot x$, the singleton $\{g\cdot x\}$ is closed. Complete regularity says that if $p\in X$ and $C\subseteq X$ is closed with $p\notin C$, then there exists a continuous map \(f\colon X\to [0,1]\) such that \(f(p)=0\) and \(f\restriction C \equiv 1\). Apply this with \(p=x\) and \(C=\{g\cdot x\}\). Then we get a continuous function $f$ with \(f(x)=0\) and \(f(g\cdot x)=1\).
-
-        If you prefer, one can also appeal to Urysohn's lemma, since compact Hausdorff spaces are normal.
-    \end{mynote}
-    But then \(x\notin A_{f,1/2,\{g\}}\), a contradiction. Hence $x$ is a fixed point.
+    We show that \(x\) is fixed. Suppose not. Then there exists \(g\in G\) such that \(g\cdot x\neq x\). By complete regularity of the compact Hausdorff space \(X\), there is a continuous function \(f\colon X\to\R\) such that \(f(x)=0\) and \(f(g\cdot x)=1\).
+    But then \(x\notin A_{f,1/2,\{g\}}\), a contradiction. Hence \(x\) is a fixed point.
 \end{proof}
 
-We now specialize to closed subgroups of $S_\infty$.
+We now specialize to closed subgroups of \(S_\infty\).
 
 \begin{proposition}
     \label{prop:coset-characterization}
-    Let $G\leq S_\infty$ be a closed subgroup. Then the following are equivalent.
+    Let \(G\leq S_\infty\) be a closed subgroup. Then the following are equivalent.
     \begin{enumerate}
-        \item[(i)] $G$ is extremely amenable.
-        \item[(ii)] For every open subgroup $V\leq G$, every finite coloring \(c\colon G/V\to\{1,\dots,k\}\), and every finite set $A\subseteq G/V$, there exist $g\in G$ and $i\in\{1,\dots,k\}$ such that
+        \item[(i)] \(G\) is extremely amenable.
+        \item[(ii)] For every open subgroup \(V\leq G\), every finite colouring \(c\colon G/V\to\{1,\dots,k\}\), and every finite set \(A\subseteq G/V\), there exist \(g\in G\) and \(i\in\{1,\dots,k\}\) such that
               \[
                   c(g\cdot a)=i
                   \qquad\text{for all } a\in A,
               \]
-              where $G$ acts on $G/V$ by left translation.
+              where \(G\) acts on \(G/V\) by left translation.
     \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-    Assume first that $G$ is extremely amenable. Let $V\leq G$ be open, let \(c\colon G/V\to\{1,\dots,k\}\) be a coloring, and let $A\subseteq G/V$ be finite. Consider the compact space \(Y=\{1,\dots,k\}^{G/V}\) with the product topology, endowed with the shift action
+    Assume first that \(G\) is extremely amenable. Let \(V\leq G\) be open, let \(c\colon G/V\to\{1,\dots,k\}\) be a colouring, and let \(A\subseteq G/V\) be finite. Consider the compact space \(Y=\{1,\dots,k\}^{G/V}\) with the product topology, endowed with the shift action
     \[
         (g\cdot p)(x)=p(g^{-1}\cdot x)
         \qquad
         (g\in G,\ p\in Y,\ x\in G/V).
     \]
-    Let $X=\overline{G\cdot c}\subseteq Y$. Since $G$ is extremely amenable, $X$ has a fixed point $\gamma$. Because the action of $G$ on $G/V$ is transitive,
-    \begin{mynote}
-        An action is \emph{transitive} if it has exactly one orbit. Equivalently, an action of $G$ on a set $\Omega$ is transitive if for every $x,y\in\Omega$ there exists $g\in G$ such that \(g\cdot x=y\).
+    Let \(X=\overline{G\cdot c}\subseteq Y\). Since \(G\) is extremely amenable, \(X\) has a fixed point \(\gamma\). Because the action of \(G\) on \(G/V\) is transitive,
+    every fixed point of \(Y\) is constant.
+    Thus there is \(i\in\{1,\dots,k\}\) such that \(\gamma(x)=i\) for all \(x\in G/V\). Since \(\gamma\in\overline{G\cdot c}\), there is \(g\in G\) such that \((g^{-1}\cdot c)(a)=\gamma(a)=i\) for all \(a\in A\).
+    Equivalently, \(c(g\cdot a)=i\) for all \(a\in A\).
 
-        The action of $G$ on $G/V$ by left translation is transitive for a very simple reason: given any two cosets \(aV,bV \in G/V\), take \(g=ba^{-1}\). Then \(g\cdot (aV)=(ba^{-1})aV=bV\).
-        So every coset can be moved to every other coset by some element of $G$.
-    \end{mynote}
-    every fixed point of $Y$ is constant.
-    \begin{mynote}
-        This means the following. A point of \(Y=\{1,\dots,k\}^{G/V}\) is just a function \(p\colon G/V\to\{1,\dots,k\}\). Saying that $p$ is a fixed point means \(g\cdot p=p\) for every $g\in G$. By the definition of the action, this says \(p(g^{-1}\cdot x)=p(x)\) for all $g\in G$ and $x\in G/V$.
+    Conversely, assume (ii), and let \(X\) be a \(G\)-flow. By Lemma~\ref{lem:fixed-point-criterion}, it is enough to verify condition (ii) of that lemma. So fix a continuous map \(f\colon X\to\R^n\), an \(\epsilon>0\), and a finite set \(F\subseteq G\).
 
-        Now take any two points $x,y\in G/V$. Since the action on $G/V$ is transitive, there exists $g\in G$ such that \(g^{-1}\cdot x=y\). Plugging this into the fixed-point identity gives \(p(y)=p(g^{-1}\cdot x)=p(x)\).
-        Since this holds for all $x,y$, the function $p$ has the same value everywhere. In other words, $p$ is constant.
-    \end{mynote}
-    Thus there is $i\in\{1,\dots,k\}$ such that \(\gamma(x)=i\) for all $x\in G/V$. Since $\gamma\in\overline{G\cdot c}$, there is $g\in G$ such that \((g^{-1}\cdot c)(a)=\gamma(a)=i\) for all $a\in A$.
-    \begin{mynote}
-        The point here is just the meaning of closure in the product space \(Y=\{1,\dots,k\}^{G/V}\). An element of $Y$ is a function \(p\colon G/V\to\{1,\dots,k\}\), so one may think of a point of $Y$ as a list of values, one for each coordinate $a\in G/V$.
-
-        The topology on $Y$ is the product topology, and since $\{1,\dots,k\}$ is discrete, a basic open neighbourhood of a point $\gamma\in Y$ is obtained by requiring agreement with $\gamma$ on only finitely many coordinates. Thus, if \(A\subseteq G/V\) is finite, then
-        \[
-            U(\gamma,A)
-            =
-            \{p\in Y : p(a)=\gamma(a)\text{ for all }a\in A\}
-        \]
-        is a basic open neighbourhood of $\gamma$.
-
-        Now the statement \(\gamma\in\overline{G\cdot c}\) means exactly that every open neighbourhood of $\gamma$ meets the orbit $G\cdot c$. In particular, \(U(\gamma,A)\cap (G\cdot c)\neq\emptyset\). Therefore there exists some $h\in G$ such that \(h\cdot c\in U(\gamma,A)\), which means \((h\cdot c)(a)=\gamma(a)\) for all $a\in A$.
-
-        Writing $h=g^{-1}$, we obtain \((g^{-1}\cdot c)(a)=\gamma(a)\) for all $a\in A$. Since $\gamma$ is constant with value $i$, this becomes \((g^{-1}\cdot c)(a)=\gamma(a)=i\) for all $a\in A$.
-
-        Finally, by the definition of the shift action, \((g^{-1}\cdot c)(a)=c(g\cdot a)\), so \(c(g\cdot a)=i\) for all $a\in A$.
-
-        Thus the only real point is that in the product topology, membership in the closure of an orbit means that one can approximate a point of the closure on any prescribed finite set of coordinates.
-    \end{mynote}
-    Equivalently, \(c(g\cdot a)=i\) for all $a\in A$.
-
-    Conversely, assume (ii), and let $X$ be a $G$-flow. By Lemma \ref{lem:fixed-point-criterion}, it is enough to verify condition (ii) of that lemma. So fix a continuous map \(f\colon X\to\bbR^n\), an $\epsilon>0$, and a finite set $F\subseteq G$.
-
-    By continuity of the action and compactness of $X$, there exists an open neighbourhood $U$ of the identity in $G$ such that
+    By continuity of the action and compactness of \(X\), there exists an open neighbourhood \(U\) of the identity in \(G\) such that
     \[
-        |f(x)-f(u\cdot x)|\leq \epsilon/3
+        \norm{f(x)-f(u\cdot x)}\leq \epsilon/3
         \qquad\text{for all } x\in X,\ u\in U.
     \]
-    \begin{mynote}
-        The clean way to see this is to look at the map \(\Phi\colon G\times X\to\bbR\), defined by \(\Phi(u,x)=|f(x)-f(u\cdot x)|\). This map is continuous, because the action \(G\times X\to X\), \((u,x)\mapsto u\cdot x\), is continuous, $f$ is continuous, and the norm is continuous.
-
-        For every $x\in X$ we have \(\Phi(1_G,x)=|f(x)-f(x)|=0\).
-        Since $\Phi$ is continuous at $(1_G,x)$, there exist an open neighbourhood $U_x$ of $1_G$ in $G$ and an open neighbourhood $O_x$ of $x$ in $X$ such that
-        \[
-            \Phi(u,y)<\epsilon/3
-            \qquad\text{whenever } u\in U_x,\ y\in O_x.
-        \]
-
-        The sets $O_x$ cover $X$. Since $X$ is compact, choose finitely many points $x_1,\dots,x_m$ such that \(X=O_{x_1}\cup\cdots\cup O_{x_m}\). Now let \(U=U_{x_1}\cap\cdots\cap U_{x_m}\).
-        Then $U$ is still an open neighbourhood of $1_G$.
-
-        If $u\in U$ and $y\in X$, choose $j$ with $y\in O_{x_j}$. Since $u\in U\subseteq U_{x_j}$, we get
-        \[
-            |f(y)-f(u\cdot y)|
-            =
-            \Phi(u,y)
-            <\epsilon/3.
-        \]
-        This is exactly the required uniform estimate.
-    \end{mynote}
-    Since $G$ is a subgroup of $S_\infty$ equipped with the subspace topology, it has a neighbourhood basis at the identity consisting of open subgroups.
-    \begin{mynote}
-        This comes from the pointwise convergence topology on $S_\infty$.
-
-        In $S_\infty$, a basic open neighbourhood of the identity is obtained by fixing finitely many natural numbers. Concretely, for a finite set $E\subseteq\bbN$, put
-        \[
-            S_{\infty,(E)}
-            =
-            \{\pi\in S_\infty : \pi(n)=n \text{ for all } n\in E\}.
-        \]
-        Each $S_{\infty,(E)}$ is an open subgroup of $S_\infty$, and these sets form a neighbourhood basis at the identity.
-
-        Since $G$ is a subgroup of $S_\infty$ with the subspace topology, the sets \(G\cap S_{\infty,(E)}\) form a neighbourhood basis at the identity in $G$. But
-        \[
-            G\cap S_{\infty,(E)}
-            =
-            \{g\in G : g(n)=n \text{ for all } n\in E\}
-            =
-            G_{(E)}.
-        \]
-        So $G$ has a neighbourhood basis at the identity consisting of open subgroups, namely the pointwise stabilizers of finite sets.
-    \end{mynote}
+    Since \(G\) is a subgroup of \(S_\infty\) equipped with the subspace topology, it has a neighbourhood basis at the identity consisting of open subgroups.
     Choose an open subgroup \(V\leq U\).
 
-    Partition the compact set $f(X)\subseteq\bbR^n$ into finitely many sets \(A_1,\dots,A_k\) of diameter at most $\epsilon/3$. Fix $x_0\in X$ and define \(U_i=\{g\in G : f(g\cdot x_0)\in A_i\}\). Let \(W_i=V U_i=\{vg : v\in V,\ g\in U_i\}\).
-    Each $W_i$ is a union of right cosets of $V$. Equivalently, each $W_i^{-1}$ is a union of left cosets of $V$. Since \(G=U_1\cup\cdots\cup U_k\), we also have \(G=W_1\cup\cdots\cup W_k\).
-    \begin{mynote}
-        The first covering is immediate from the definition of the sets $U_i$.
-
-        Take any $g\in G$. Then \(g\cdot x_0\in X\), so \(f(g\cdot x_0)\in f(X)\). Since \(f(X)\subseteq A_1\cup\cdots\cup A_k\), there is some $i$ such that \(f(g\cdot x_0)\in A_i\). By definition of $U_i$, this means \(g\in U_i\). So indeed \(G=U_1\cup\cdots\cup U_k\).
-
-        For the second covering, note that \(W_i=VU_i\) contains $U_i$, because the identity element belongs to $V$. So \(U_i\subseteq W_i\) for every $i$.
-        Therefore
-        \[
-            G
-            =
-            U_1\cup\cdots\cup U_k
-            \subseteq
-            W_1\cup\cdots\cup W_k
-            \subseteq G.
-        \]
-        Hence \(G=W_1\cup\cdots\cup W_k\).
-    \end{mynote}
-    Define a coloring \(c\colon G/V\to\{1,\dots,k\}\) so that
+    Partition the compact set \(f(X)\subseteq\R^n\) into finitely many sets \(A_1,\dots,A_k\) of diameter at most \(\epsilon/3\). Fix \(x_0\in X\) and define \(U_i=\{g\in G : f(g\cdot x_0)\in A_i\}\). Let \(W_i=V U_i=\{vg : v\in V,\ g\in U_i\}\).
+    Each \(W_i\) is a union of right cosets of \(V\). Equivalently, each \(W_i^{-1}\) is a union of left cosets of \(V\). Since \(G=U_1\cup\cdots\cup U_k\), we also have \(G=W_1\cup\cdots\cup W_k\).
+    Define a colouring \(c\colon G/V\to\{1,\dots,k\}\) so that
     \[
         c(gV)=i
         \quad\Longrightarrow\quad
         g^{-1}\in W_i.
     \]
-    This is possible because the sets $W_i^{-1}$ cover $G$ and each is a union of left cosets of $V$.
+    This is possible because the sets \(W_i^{-1}\) cover \(G\) and each is a union of left cosets of \(V\).
 
-    Apply (ii) to the finite subset \(A'=\{hV : h\in F\cup\{1_G\}\}\subseteq G/V\). There exist $g\in G$ and $i\in\{1,\dots,k\}$ such that \(c(ghV)=i\) for all $h\in F\cup\{1_G\}$. By the definition of $c$, this means that \(h^{-1}g^{-1}\in W_i=V U_i\) for all $h\in F\cup\{1_G\}$, or equivalently, \(hg\in U_i^{-1}V\).
-    \begin{mynote}
-        \(V\) is an open subgroup
-    \end{mynote}
-    Replacing $U_i$ by $U_i^{-1}$ in the construction if necessary, we may assume that for each $h\in F\cup\{1_G\}$ there exists $v_h\in V$ such that \(v_h h g \in U_i\). Set \(x=g\cdot x_0\). Then for each $h\in F\cup\{1_G\}$ we have \(f(v_h h\cdot x)=f(v_h h g\cdot x_0)\in A_i\). Since $v_h\in V\subseteq U$, it follows that \(|f(h\cdot x)-f(v_h h\cdot x)|\leq \epsilon/3\).
-    Hence $f(h\cdot x)$ lies in the $\epsilon/3$-neighbourhood of $A_i$ for every $h\in F\cup\{1_G\}$. As the diameter of $A_i$ is at most $\epsilon/3$, we obtain
+    Apply (ii) to the finite subset \(A'=\{hV : h\in F\cup\{1_G\}\}\subseteq G/V\). There exist \(g\in G\) and \(i\in\{1,\dots,k\}\) such that \(c(ghV)=i\) for all \(h\in F\cup\{1_G\}\). By the definition of \(c\), this means that \(h^{-1}g^{-1}\in W_i=V U_i\) for all \(h\in F\cup\{1_G\}\), or equivalently, \(hg\in U_i^{-1}V\).
+    Replacing \(U_i\) by \(U_i^{-1}\) in the construction if necessary, we may assume that for each \(h\in F\cup\{1_G\}\) there exists \(v_h\in V\) such that \(v_h h g \in U_i\). Set \(x=g\cdot x_0\). Then for each \(h\in F\cup\{1_G\}\) we have \(f(v_h h\cdot x)=f(v_h h g\cdot x_0)\in A_i\). Since \(v_h\in V\subseteq U\), it follows that \(\norm{f(h\cdot x)-f(v_h h\cdot x)}\leq \epsilon/3\).
+    Hence \(f(h\cdot x)\) lies in the \(\epsilon/3\)-neighbourhood of \(A_i\) for every \(h\in F\cup\{1_G\}\). As the diameter of \(A_i\) is at most \(\epsilon/3\), we obtain
     \[
-        |f(x)-f(h\cdot x)|\leq \epsilon
+        \norm{f(x)-f(h\cdot x)}\leq \epsilon
         \qquad\text{for all } h\in F.
     \]
-    \begin{mynote}
-        For each \(h\in F\cup\{1_G\}\), we know that \(f(h\cdot x)\) lies in the \(\epsilon/3\)-neighbourhood of \(A_i\). Hence there exists \(y_h\in A_i\) such that \(|f(h\cdot x)-y_h|\leq \epsilon/3\). In particular, taking \(h=1_G\), there exists \(y_0\in A_i\) with \(|f(x)-y_0|\leq \epsilon/3\).
-
-        Since \(A_i\) has diameter at most \(\epsilon/3\), we also have \(|y_0-y_h|\leq \epsilon/3\).
-        Therefore, by the triangle inequality,
-        \[
-            |f(x)-f(h\cdot x)|
-            \leq
-            |f(x)-y_0|+|y_0-y_h|+|y_h-f(h\cdot x)|
-            \leq
-            \epsilon/3+\epsilon/3+\epsilon/3
-            =
-            \epsilon.
-        \]
-        Thus \(|f(x)-f(h\cdot x)|\leq \epsilon\) for all $h\in F$.
-    \end{mynote}
-    Thus $X$ has a fixed point, and $G$ is extremely amenable.
+    Thus \(X\) has a fixed point, and \(G\) is extremely amenable.
 \end{proof}
 
-For closed subgroups of $S_\infty$, it is enough to consider pointwise stabilizers of finite sets. For each non-empty finite $F\subseteq \bbN$, let
+For closed subgroups of \(S_\infty\), it is enough to consider pointwise stabilisers of finite sets. For each nonempty finite \(F\subseteq \N\), let
 \[
     G_{(F)}=\{g\in G : g(n)=n \text{ for all } n\in F\}.
 \]
 These subgroups form a neighbourhood basis at the identity.
 
-We now recast the preceding proposition in terms of finite subsets of $\bbN$. The action of $G$ on $\bbN$ induces an action on the set of all finite subsets of $\bbN$ by \(g\cdot F=\{g(n): n\in F\}\).
-For a finite non-empty set $F\subseteq\bbN$, let
+We now recast the preceding proposition in terms of finite subsets of \(\N\). The action of \(G\) on \(\N\) induces an action on the set of all finite subsets of \(\N\) by \(g\cdot F=\{g(n): n\in F\}\).
+For a finite nonempty set \(F\subseteq\N\), let
 \[
-    G_F=\{g\in G : g\cdot F=F\}
+    G_{\{F\}}=\{g\in G : g\cdot F=F\}
 \]
-be its setwise stabilizer. The orbit \(G\cdot F\) will be called the \emph{$G$-type} of $F$. If $\rho$ and $\sigma$ are $G$-types, we write \(\rho\leq \sigma\) if some, equivalently every, member of $\sigma$ contains some member of $\rho$.
+be its setwise stabiliser. The orbit \(G\cdot F\) will be called the \emph{\(G\)-type} of \(F\). If \(\rho\) and \(\sigma\) are \(G\)-types, we write \(\rho\leq \sigma\) if some, equivalently every, member of \(\sigma\) contains some member of \(\rho\).
 
-We also need the logic action on the space of structures on $\bbN$. If $L$ is a countable signature, let $X_L$ denote the space of all $L$-structures with universe $\bbN$. When $L$ is relational, $X_L$ is compact, and the natural action of $S_\infty$ on $X_L$ is continuous.
+We also need the logic action on the space of structures on \(\N\). If \(L\) is a countable signature, let \(X_L\) denote the space of all \(L\)-structures with universe \(\N\). When \(L\) is relational, \(X_L\) is compact, and the natural action of \(S_\infty\) on \(X_L\) is continuous.
 
-\begin{mynote}
-    Here is the standard proof.
-
-    Assume first that $L$ is relational, say \(L=\{R_i : i\in I\}\),
-    where each $R_i$ has finite arity $n_i$, and $I$ is countable.
-
-    An $L$-structure $M$ on universe $\bbN$ is completely determined by the truth values of all statements \(R_i(a_1,\dots,a_{n_i})\), where \(a_1,\dots,a_{n_i}\in \bbN\).
-    So we can identify $M$ with the tuple of characteristic functions of the relations $R_i^M$. Equivalently,
-    \[
-        X_L
-        \cong
-        \prod_{i\in I} 2^{\bbN^{n_i}},
-    \]
-    where each factor $2^{\bbN^{n_i}}$ is the set of all subsets of $\bbN^{n_i}$, viewed as a product of copies of the discrete two-point space $2=\{0,1\}$.
-
-    Now each space $2$ is compact, so by Tychonoff's theorem each product \(2^{\bbN^{n_i}}\) is compact, and therefore the countable product \(\prod_{i\in I}2^{\bbN^{n_i}}\) is compact as well. Hence $X_L$ is compact.
-
-    Concretely, a basic clopen set in $X_L$ is obtained by prescribing finitely many atomic facts and negated atomic facts, for example \(R_i(\bar a)\) holds while \(R_j(\bar b)\) fails, for finitely many tuples $\bar a,\bar b$.
-
-    The action of $S_\infty$ is defined by transport of structure:
-    \[
-        R_i^{g\cdot M}(\bar a)
-        \quad\Longleftrightarrow\quad
-        R_i^M(g^{-1}\bar a).
-    \]
-    In words, $g\cdot M$ is the structure obtained by relabelling the underlying set by $g$.
-
-    Why is the action continuous? It is enough to check that the preimage of a basic clopen cylinder is open. So fix a basic condition such as \(R_i(\bar a)\) holding in $g\cdot M$. By the definition of the action, this means that \(R_i^M(g^{-1}\bar a)\) holds in $M$.
-    Thus whether $(g,M)$ lands in that cylinder depends only on finitely many values of $g$ and on finitely many coordinates of $M$. Therefore around any given pair $(g_0,M_0)$ one can force the same condition by requiring:
-    \begin{itemize}
-        \item $g$ to agree with $g_0$ on finitely many points, and
-        \item $M$ to agree with $M_0$ on finitely many relation-values.
-    \end{itemize}
-    That is exactly an open condition in \(S_\infty\times X_L\).
-    So the action is continuous.
-
-    This is why the relational assumption is convenient: an $L$-structure is then encoded by a product of discrete two-point spaces, and compactness becomes immediate.
-\end{mynote}
-In the special case $L=\{<\}$, let $\mathrm{LO}\subseteq X_L$ be the compact space of all linear orderings on $\bbN$. We say that $G$ \emph{preserves an ordering} if the $G$-flow $\mathrm{LO}$ has a fixed point, that is, if there is a linear order on $\bbN$ invariant under every element of $G$.
-\begin{mynote}
-    The space \(\mathrm{LO}\) is compact because it is a closed subspace of a compact space.
-
-    First consider the ambient space
-    \[
-        X_{\{<\}} \cong 2^{\bbN\times \bbN},
-    \]
-    where each binary relation on \(\bbN\) is identified with its characteristic function. Since \(2=\{0,1\}\) is compact and discrete, Tychonoff's theorem implies that \(2^{\bbN\times \bbN}\) is compact. Hence \(X_{\{<\}}\) is compact.
-
-    Now \(\mathrm{LO}\subseteq X_{\{<\}}\) is the subset consisting of those binary relations which are linear orders on \(\bbN\). To show that \(\mathrm{LO}\) is compact, it therefore suffices to show that it is closed.
-
-    This follows because each defining property of a linear order is a closed condition in the product topology:
-    \begin{itemize}
-        \item for each \(n\in\bbN\), the condition \(\neg(n<n)\) says that the coordinate \((n,n)\) has value \(0\);
-
-        \item for each distinct \(i,j\in\bbN\), the condition \(i<j \text{ or } j<i\) is determined by the two coordinates \((i,j)\) and \((j,i)\);
-
-        \item for each \(i,j,k\in\bbN\), transitivity says that one cannot have \(i<j\), \(j<k\), and \(\neg(i<k)\).
-    \end{itemize}
-
-    Each such requirement depends only on finitely many coordinates, so it defines a closed (indeed clopen) subset of \(X_{\{<\}}\). Therefore \(\mathrm{LO}\) is the intersection of all these closed sets, hence is itself closed.
-
-    The reason these conditions define a closed subset of \(X_{\{<\}} \cong 2^{\bbN\times \bbN}\) is that each of them can be expressed by forbidding certain \emph{finite patterns} of values of the binary relation. In the product topology, any condition depending on only finitely many coordinates defines a clopen set.
-
-    For irreflexivity, for each fixed \(n\in\bbN\) we require \(\neg(n<n)\), that is, the coordinate \((n,n)\) must have value \(0\). Thus \(\{R : R(n,n)=0\}\) is clopen, since it depends on a single coordinate. Intersecting over all \(n\) gives the set of irreflexive relations, so that set is closed.
-
-    For totality, for each distinct \(i,j\in\bbN\) we require \(i<j\) or \(j<i\). Equivalently, we forbid the pattern \(R(i,j)=0\) and \(R(j,i)=0\).
-    The set of relations realizing this bad pattern depends only on the two coordinates \((i,j)\) and \((j,i)\), so it is clopen. Therefore its complement, namely the set of relations satisfying totality for that pair \(i,j\), is closed. Intersecting over all distinct \(i,j\) gives a closed set.
-
-    For transitivity, for each \(i,j,k\in\bbN\) we require \(i<j \text{ and } j<k \Longrightarrow i<k\). Equivalently, we forbid the pattern \(R(i,j)=1\), \(R(j,k)=1\), and \(R(i,k)=0\).
-    Again this depends on only three coordinates, so the set of relations realizing this bad pattern is clopen. Its complement is therefore closed, and intersecting over all triples \(i,j,k\) gives the set of transitive relations as a closed set.
-
-    So in each case, the point is the same: the property is defined by excluding finitely many local configurations, and such exclusions are closed conditions in the product topology.
-
-    Since \(\mathrm{LO}\) is a closed subspace of the compact space \(X_{\{<\}}\), it follows that \(\mathrm{LO}\) is compact.
-\end{mynote}
+In the special case \(L=\{<\}\), let \(\LO(\N)\subseteq X_L\) be the compact space of all linear orderings on \(\N\). We say that \(G\) \emph{preserves an ordering} if the \(G\)-flow \(\LO(\N)\) has a fixed point, that is, if there is a linear order on \(\N\) invariant under every element of \(G\).
 \begin{proposition}
     \label{prop:type-characterization}
-    Let $G\leq S_\infty$ be a closed subgroup. Then the following are equivalent.
+    Let \(G\leq S_\infty\) be a closed subgroup. Then the following are equivalent.
     \begin{enumerate}
-        \item[(i)] $G$ is extremely amenable.
+        \item[(i)] \(G\) is extremely amenable.
         \item[(ii)]
               \begin{enumerate}
-                  \item[(a)] For every finite non-empty $F\subseteq\bbN$,
+                  \item[(a)] For every finite nonempty \(F\subseteq\N\),
                         \[
-                            G_{(F)}=G_F.
+                            G_{(F)}=G_{\{F\}}.
                         \]
-                  \item[(b)] Whenever $\rho\leq \sigma$ are $G$-types and
+                  \item[(b)] Whenever \(\rho\leq \sigma\) are \(G\)-types and
                         \[
                             c\colon \rho\to\{1,\dots,k\}
                         \]
-                        is a finite coloring, there exist $i\in\{1,\dots,k\}$ and $F\in \sigma$ such that
+                        is a finite colouring, there exist \(i\in\{1,\dots,k\}\) and \(F\in \sigma\) such that
                         \[
                             c(F')=i
                             \qquad\text{for every } F'\subseteq F \text{ with } F'\in \rho.
@@ -489,7 +278,7 @@ In the special case $L=\{<\}$, let $\mathrm{LO}\subseteq X_L$ be the compact spa
               \end{enumerate}
         \item[(iii)]
               \begin{enumerate}
-                  \item[(a$'$)] $G$ preserves an ordering.
+                  \item[(a')] \(G\) preserves an ordering.
                   \item[(b)] The condition in (ii)(b) holds.\end{enumerate}
     \end{enumerate}
 \end{proposition}
@@ -497,121 +286,53 @@ In the special case $L=\{<\}$, let $\mathrm{LO}\subseteq X_L$ be the compact spa
 \begin{proof}
 
 
-    Assume first that $G$ is extremely amenable. Then $G$ preserves an ordering because $\mathrm{LO}$ is a compact $G$-flow. This gives (iii)(a$'$).
+    Assume first that \(G\) is extremely amenable. Then \(G\) preserves an ordering because \(\LO(\N)\) is a compact \(G\)-flow. This gives (iii)(a').
 
-    To prove (iii)(b), let $\rho\leq \sigma$ be $G$-types and let \(c\colon \rho\to\{1,\dots,k\}\) be a coloring.
-    Choose $F'\in\rho$ and let \(V=G_{(F')}\).
-    Since $G$ preserves an ordering, every finite setwise stabilizer equals the corresponding pointwise stabilizer, so \(G_{(F')}=G_{F'}\).
+    To prove (iii)(b), let \(\rho\leq \sigma\) be \(G\)-types and let \(c\colon \rho\to\{1,\dots,k\}\) be a colouring.
+    Choose \(F'\in\rho\) and let \(V=G_{(F')}\).
+    Since \(G\) preserves an ordering, every finite setwise stabiliser equals the corresponding pointwise stabiliser, so \(G_{(F')}=G_{\{F'\}}\).
     Hence \(G/V \cong G\cdot F'=\rho\).
-    Now fix $F_0\in\sigma$ and consider the finite subset \(A=\{F_0'\subseteq F_0 : F_0'\in\rho\}\subseteq \rho\).
-    Applying Proposition \ref{prop:coset-characterization}, we obtain $g\in G$ and $i\in\{1,\dots,k\}$ such that \(c(g\cdot F_0')=i\) for all $F_0'\in A$.
-    Let \(F=g\cdot F_0\in \sigma\).
-    If $F'\subseteq F$ and $F'\in\rho$, then \(g^{-1}\cdot F'\subseteq F_0\) and \(g^{-1}\cdot F'\in \rho\), so \(c(F')=i\).
+    Now fix \(F_\sigma\in\sigma\) and consider the finite subset \(A=\{D\subseteq F_\sigma : D\in\rho\}\subseteq \rho\).
+    Applying Proposition~\ref{prop:coset-characterization}, we obtain \(g\in G\) and \(i\in\{1,\dots,k\}\) such that \(c(g\cdot D)=i\) for all \(D\in A\).
+    Let \(F=g\cdot F_\sigma\in \sigma\).
+    If \(F'\subseteq F\) and \(F'\in\rho\), then \(g^{-1}\cdot F'\subseteq F_\sigma\) and \(g^{-1}\cdot F'\in \rho\), so \(c(F')=i\).
     Thus (iii)(b) holds.
 
-    The implication (iii) $\Rightarrow$ (ii) is immediate, since an invariant linear order on $\bbN$ forces every finite setwise stabilizer to equal the corresponding pointwise stabilizer.
+    The implication (iii) \(\Rightarrow\) (ii) is immediate, since an invariant linear order on \(\N\) forces every finite setwise stabiliser to equal the corresponding pointwise stabiliser.
 
     Finally, assume (ii).
-    We verify condition (ii) of Proposition \ref{prop:coset-characterization} for open subgroups of the form $G_{(F)}$.
-    By (ii)(a), these equal the setwise stabilizers $G_F$.
-    Fix a coloring \(c\colon G/G_F \to \{1,\dots,k\}\) and a finite subset \(A\subseteq G/G_F\).
-    Identify \(G/G_F \cong G\cdot F = \rho\).
-    Let \(F_0=\bigcup A\) and let $\sigma$ be the $G$-type of $F_0$.
-    Then $\rho\leq \sigma$.
-    By (ii)(b), there exist $i\in\{1,\dots,k\}$ and $E\in \sigma$ such that \(c(F')=i\) for every $F'\subseteq E$ with $F'\in \rho$.
-    Since $E$ and $F_0$ lie in the same $G$-type, we may write \(E=g\cdot F_0\) for some $g\in G$.
-    Every element of $A$ is a member of $\rho$ contained in $F_0$, so after applying $g$ it becomes a member of $\rho$ contained in $E$.
-    Hence \(c(g\cdot a)=i\) for all $a\in A$.
-    By Proposition \ref{prop:coset-characterization}, $G$ is extremely amenable.
+    We verify condition (ii) of Proposition~\ref{prop:coset-characterization} for open subgroups of the form \(G_{(F)}\).
+    By (ii)(a), these equal the setwise stabilisers \(G_{\{F\}}\).
+    Fix a colouring \(c\colon G/G_{\{F\}} \to \{1,\dots,k\}\) and a finite subset \(A\subseteq G/G_{\{F\}}\).
+    Identify \(G/G_{\{F\}} \cong G\cdot F = \rho\).
+    Let \(F_\sigma=\bigcup A\) and let \(\sigma\) be the \(G\)-type of \(F_\sigma\).
+    Then \(\rho\leq \sigma\).
+    By (ii)(b), there exist \(i\in\{1,\dots,k\}\) and \(E\in \sigma\) such that \(c(F')=i\) for every \(F'\subseteq E\) with \(F'\in \rho\).
+    Since \(E\) and \(F_\sigma\) lie in the same \(G\)-type, we may write \(E=g\cdot F_\sigma\) for some \(g\in G\).
+    Every element of \(A\) is a member of \(\rho\) contained in \(F_\sigma\), so after applying \(g\) it becomes a member of \(\rho\) contained in \(E\).
+    Hence \(c(g\cdot a)=i\) for all \(a\in A\).
+    By Proposition~\ref{prop:coset-characterization}, \(G\) is extremely amenable.
 \end{proof}
-\begin{mynote}
-    Here is the proof in full detail.
-
-    First assume that \(G\) is extremely amenable.
-    We want to prove (iii).
-
-    Since $\mathrm{LO}$ is a compact $G$-flow, extreme amenability implies that $\mathrm{LO}$ has a fixed point. But a fixed point of $\mathrm{LO}$ is exactly a linear order on $\bbN$ preserved by every element of $G$. So $G$ preserves an ordering. This proves (iii)(a$'$).
-
-    Now we prove (iii)(b). Let \(\rho\leq \sigma\) be $G$-types, and let \(c\colon \rho\to\{1,\dots,k\}\) be a coloring.
-
-    Choose some finite set \(F'\in \rho\), and let \(V=G_{(F')}\). We claim that in fact \(G_{(F')}=G_{F'}\).
-    Why? Because $G$ preserves a linear order on $\bbN$.
-    If $g\in G_{F'}$, then $g$ maps the finite set $F'$ onto itself.
-    Since $g$ also preserves the global $G$-invariant linear order on $\bbN$, it preserves the induced linear order on the finite set $F'$.
-    But a permutation of a finite linearly ordered set that preserves the order must be the identity.
-    Therefore $g$ fixes each element of $F'$ pointwise, so \(g\in G_{(F')}\).
-    The reverse inclusion \(G_{(F')}\subseteq G_{F'}\) is obvious, so equality holds.
-
-    Because of this equality, the coset space \(G/V = G/G_{(F')}\) can be identified with the orbit \(G\cdot F'=\rho\). The identification is \(gV \longmapsto g\cdot F'\). This is well defined because if \(g_1V=g_2V\), then \(g_2^{-1}g_1\in V=G_{F'}\), so \(g_1\cdot F' = g_2\cdot F'\).
-    It is surjective by definition of the orbit, and injective because the stabilizer of $F'$ is exactly $G_{F'}=V$.
-
-    Next choose some \(F_0\in \sigma\). Consider the finite set \(A=\{F_0'\subseteq F_0 : F_0'\in \rho\}\subseteq \rho\).
-    This is finite because $F_0$ is finite.
-
-    Now apply Proposition \ref{prop:coset-characterization} to the open subgroup $V$, the coloring $c$ on $G/V\cong \rho$, and the finite subset $A$. Since $G$ is extremely amenable, that proposition gives some \(g\in G\) and \(i\in\{1,\dots,k\}\) such that
-    \[
-        c(g\cdot F_0')=i
-        \qquad\text{for all } F_0'\in A.
-    \]
-
-    Let \(F=g\cdot F_0\). Since $F_0\in \sigma$ and $\sigma$ is a $G$-orbit, we have \(F\in \sigma\).
-
-    We now show that $F$ has the desired monochromatic property. So let \(E\subseteq F\) with \(E\in \rho\). Apply $g^{-1}$ to both sides of the inclusion $E\subseteq F=g\cdot F_0$. Then \(g^{-1}\cdot E \subseteq F_0\). Also, since $\rho$ is a $G$-orbit and $E\in \rho$, we have \(g^{-1}\cdot E \in \rho\). Therefore \(g^{-1}\cdot E \in A\).
-    By the choice of $g$ and $i$,
-    \[
-        c(E)
-        =
-        c\bigl(g\cdot(g^{-1}\cdot E)\bigr)
-        =
-        i.
-    \]
-    Since this holds for every $E\subseteq F$ with $E\in \rho$, condition (iii)(b) follows.
-
-    This proves \((i)\Longrightarrow (iii)\).
-
-    Next we prove \((iii)\Longrightarrow (ii)\). Here condition (b) is literally the same in (ii) and (iii), so only (a) needs explanation. Assume that $G$ preserves a linear order on $\bbN$, and let $F\subseteq\bbN$ be finite and non-empty. We want to show \(G_{(F)}=G_F\). The inclusion \(G_{(F)}\subseteq G_F\) is automatic. Conversely, let \(g\in G_F\).
-    Then $g$ maps $F$ onto itself. Since $g$ preserves the invariant linear order on $\bbN$, it also preserves the induced order on the finite set $F$. But an order-preserving permutation of a finite linearly ordered set must be the identity. Hence $g$ fixes every element of $F$, so \(g\in G_{(F)}\). Therefore \(G_F=G_{(F)}\).
-    Thus (ii)(a) holds, and so (iii) implies (ii).
-
-    Finally we prove \((ii)\Longrightarrow (i)\). By Proposition \ref{prop:coset-characterization}, it is enough to verify the coloring condition there for open subgroups. Since the pointwise stabilizers of finite sets form a neighbourhood basis at the identity, it is enough to check that condition for subgroups of the form \(G_{(F)}\).
-
-    So fix a finite non-empty \(F\subseteq\bbN\), a coloring \(c\colon G/G_{(F)}\to\{1,\dots,k\}\), and a finite subset \(A\subseteq G/G_{(F)}\).
-
-    By assumption (ii)(a), \(G_{(F)}=G_F\). Therefore the coset space can be identified with the orbit of $F$: \(G/G_F \cong G\cdot F = \rho\).
-    Under this identification, the coloring $c$ becomes a coloring of the $G$-type $\rho$.
-
-    Now look at the finite family $A$ of members of $\rho$, and let \(F_0=\bigcup A\).
-    Since $A$ is finite and each member of $A$ is finite, the set $F_0$ is finite. Let $\sigma$ be the $G$-type of $F_0$. Every member of $A$ is a member of $\rho$ contained in $F_0$, so certainly \(\rho\leq \sigma\).
-
-    Apply assumption (ii)(b) to the coloring $c\colon \rho\to\{1,\dots,k\}$. Then there exist \(i\in\{1,\dots,k\}\) and \(E\in \sigma\) such that \(c(E')=i\) for every \(E'\subseteq E\) with \(E'\in \rho\).
-
-    Because $E$ and $F_0$ lie in the same $G$-type $\sigma$, there exists \(g\in G\) such that \(E=g\cdot F_0\). Now take any \(a\in A\). Since $a\subseteq F_0$ and $a\in \rho$, applying $g$ gives \(g\cdot a \subseteq g\cdot F_0 = E\) and \(g\cdot a \in \rho\). Therefore the monochromaticity property of $E$ implies \(c(g\cdot a)=i\).
-    Since this holds for every $a\in A$, the condition in Proposition \ref{prop:coset-characterization} is satisfied.
-
-    Hence $G$ is extremely amenable.
-
-    So all three conditions are equivalent.
-\end{mynote}
 We now isolate the corresponding Ramsey property for the group itself.
 
 \begin{definition}
     \label{def:group-ramsey-property}
-    Let $G\leq S_\infty$. Suppose that $\rho\leq \sigma$ are $G$-types. For $F\in \sigma$, define
+    Let \(G\leq S_\infty\). Suppose that \(\rho\leq \sigma\) are \(G\)-types. For \(F\in \sigma\), define
     \[
         \begin{pmatrix} F \\ \rho \end{pmatrix}
         =
         \{F'\subseteq F : F'\in \rho\}.
     \]
-    If $\rho\leq \sigma\leq \tau$ are $G$-types and $k\geq 2$, we write
+    If \(\rho\leq \sigma\leq \tau\) are \(G\)-types and \(k\geq 2\), we write
     \[
         \tau \to (\sigma)^\rho_k
     \]
-    if for every $F\in\tau$ and every coloring
+    if for every \(F\in\tau\) and every colouring
     \(c\colon \begin{pmatrix} F \\ \rho \end{pmatrix}\to\{1,\dots,k\}\), there exists
-    \(F_0\in \begin{pmatrix} F \\ \sigma \end{pmatrix}\) such that
-    \(c\restriction \begin{pmatrix} F_0 \\ \rho \end{pmatrix}\) is constant.
+    \(F_\sigma\in \begin{pmatrix} F \\ \sigma \end{pmatrix}\) such that
+    \(c\restriction \begin{pmatrix} F_\sigma \\ \rho \end{pmatrix}\) is constant.
 
-    We say that $G$ has the \emph{Ramsey property} if for all $G$-types $\rho\leq \sigma$ and all $k\geq 2$, there exists a $G$-type $\tau\geq \sigma$ such that
+    We say that \(G\) has the \emph{Ramsey property} if for all \(G\)-types \(\rho\leq \sigma\) and all \(k\geq 2\), there exists a \(G\)-type \(\tau\geq \sigma\) such that
     \[
         \tau \to (\sigma)^\rho_k.
     \]
@@ -619,297 +340,131 @@ We now isolate the corresponding Ramsey property for the group itself.
 
 \begin{theorem}
     \label{thm:ea-iff-ordering-plus-group-ramsey}
-    Let $G\leq S_\infty$ be a closed subgroup. Then the following are equivalent.
+    Let \(G\leq S_\infty\) be a closed subgroup. Then the following are equivalent.
     \begin{enumerate}
-        \item[(i)] $G$ is extremely amenable.
-        \item[(ii)] $G$ preserves an ordering and has the Ramsey property.
+        \item[(i)] \(G\) is extremely amenable.
+        \item[(ii)] \(G\) preserves an ordering and has the Ramsey property.
     \end{enumerate}
 \end{theorem}
 
 \begin{proof}
 
-    Assume that $G$ is extremely amenable. Then $G$ preserves an ordering by Proposition \ref{prop:type-characterization}.
+    Assume that \(G\) is extremely amenable. Then \(G\) preserves an ordering by Proposition~\ref{prop:type-characterization}.
 
-    We show that $G$ has the Ramsey property. As in the usual Ramsey argument, it is enough to treat the case of two colors. Suppose instead that there exist $G$-types $\rho\leq \sigma$ such that no $G$-type $\tau\geq \sigma$ satisfies
+    We show that \(G\) has the Ramsey property. As in the usual Ramsey argument, it is enough to treat the case of two colours. Suppose instead that there exist \(G\)-types \(\rho\leq \sigma\) such that no \(G\)-type \(\tau\geq \sigma\) satisfies
     \[
         \tau\to (\sigma)^\rho_2.
     \]
-    Fix $F_0\in \sigma$. Then for every finite set $E\supseteq F_0$ there exists a coloring \(c_E\colon \begin{pmatrix} E \\ \rho \end{pmatrix}\to\{1,2\}\) with no homogeneous member of \(\begin{pmatrix} E \\ \sigma \end{pmatrix}\).
+    Fix \(F_\sigma\in \sigma\). Then for every finite set \(E\supseteq F_\sigma\) there exists a colouring \(c_E\colon \begin{pmatrix} E \\ \rho \end{pmatrix}\to\{1,2\}\) with no homogeneous member of \(\begin{pmatrix} E \\ \sigma \end{pmatrix}\).
 
-    Let $I$ be the set of all finite non-empty subsets of $\bbN$, and choose an ultrafilter $\mathcal U$ on $I$ containing every set of the form \(\{E\in I : F\subseteq E\}\), where $F\subseteq\bbN$ is finite. For each $D\in \rho$, exactly one of the sets
+    Let \(I\) be the set of all finite nonempty subsets of \(\N\), and choose an ultrafilter \(\mathcal U\) on \(I\) containing every set of the form \(\{E\in I : F\subseteq E\}\), where \(F\subseteq\N\) is finite. For each \(D\in \rho\), exactly one of the sets
     \[
-        \{E\supseteq D\cup F_0 : c_E(D)=1\},
+        \{E\supseteq D\cup F_\sigma : c_E(D)=1\},
         \qquad
-        \{E\supseteq D\cup F_0 : c_E(D)=2\}
+        \{E\supseteq D\cup F_\sigma : c_E(D)=2\}
     \]
-    belongs to $\mathcal U$.
-    Define \(c(D)=i\) if the $i$th set belongs to $\mathcal U$.
-    This gives a coloring \(c\colon \rho\to\{1,2\}\).
-    By Proposition \ref{prop:type-characterization}, there exists $F\in \sigma$ such that \(c\restriction \begin{pmatrix} F \\ \rho \end{pmatrix}\) is constant, say constantly equal to $i$.
-    For each \(D\in \begin{pmatrix} F \\ \rho \end{pmatrix}\), the set \(A_D=\{E\supseteq F\cup F_0 : c_E(D)=i\}\) belongs to $\mathcal U$.
-    Since there are only finitely many such $D$, their intersection is non-empty.
+    belongs to \(\mathcal U\).
+    Define \(c(D)=i\) if the \(i\)th set belongs to \(\mathcal U\).
+    This gives a colouring \(c\colon \rho\to\{1,2\}\).
+    By Proposition~\ref{prop:type-characterization}, there exists \(F\in \sigma\) such that \(c\restriction \begin{pmatrix} F \\ \rho \end{pmatrix}\) is constant, say constantly equal to \(i\).
+    For each \(D\in \begin{pmatrix} F \\ \rho \end{pmatrix}\), the set \(A_D=\{E\supseteq F\cup F_\sigma : c_E(D)=i\}\) belongs to \(\mathcal U\).
+    Since there are only finitely many such \(D\), their intersection is nonempty.
     Choose
     \[
         E\in \bigcap_{D\in \begin{pmatrix} F \\ \rho \end{pmatrix}} A_D.
     \]
-    Then \(E\supseteq F_0\) and \(c_E(D)=i\) for all \(D\in \begin{pmatrix} F \\ \rho \end{pmatrix}\).
-    Thus $F$ is a homogeneous member of \(\begin{pmatrix} E \\ \sigma \end{pmatrix}\) for the coloring $c_E$, contradicting the choice of $c_E$.
-    Therefore $G$ has the Ramsey property.
+    Then \(E\supseteq F_\sigma\) and \(c_E(D)=i\) for all \(D\in \begin{pmatrix} F \\ \rho \end{pmatrix}\).
+    Thus \(F\) is a homogeneous member of \(\begin{pmatrix} E \\ \sigma \end{pmatrix}\) for the colouring \(c_E\), contradicting the choice of \(c_E\).
+    Therefore \(G\) has the Ramsey property.
 
-    Conversely, assume that $G$ preserves an ordering and has the Ramsey property. To prove extreme amenability, by Proposition \ref{prop:type-characterization} it is enough to verify condition (ii)(b) there. Let $\rho\leq \sigma$ be $G$-types and let \(c\colon \rho\to\{1,\dots,k\}\) be a coloring. Since $G$ has the Ramsey property, there exists a $G$-type $\tau\geq \sigma$ such that
+    Conversely, assume that \(G\) preserves an ordering and has the Ramsey property. To prove extreme amenability, by Proposition~\ref{prop:type-characterization} it is enough to verify condition (ii)(b) there. Let \(\rho\leq \sigma\) be \(G\)-types and let \(c\colon \rho\to\{1,\dots,k\}\) be a colouring. Since \(G\) has the Ramsey property, there exists a \(G\)-type \(\tau\geq \sigma\) such that
     \[
         \tau\to (\sigma)^\rho_k.
     \]
-    Choose $F\in\tau$. Then the restriction of $c$ to \(\begin{pmatrix} F \\ \rho \end{pmatrix}\) has a homogeneous member of \(\begin{pmatrix} F \\ \sigma \end{pmatrix}\), which is exactly the statement required in Proposition \ref{prop:type-characterization}. Hence $G$ is extremely amenable.
+    Choose \(F\in\tau\). Then the restriction of \(c\) to \(\begin{pmatrix} F \\ \rho \end{pmatrix}\) has a homogeneous member of \(\begin{pmatrix} F \\ \sigma \end{pmatrix}\), which is exactly the statement required in Proposition~\ref{prop:type-characterization}. Hence \(G\) is extremely amenable.
 \end{proof}
 
-\begin{mynote}
-    Here is the proof with all the main ideas spelled out.
-
-    We prove first that \((i)\Longrightarrow (ii)\).
-
-    So assume that \(G\) is extremely amenable.
-    By Proposition \ref{prop:type-characterization}, extreme amenability already implies that $G$ preserves an ordering. So only the Ramsey property remains to be proved.
-
-    As in the usual finite Ramsey theorem, it is enough to prove the two-color case. The reason is the same as before: once one can find monochromatic copies for two colors, one gets the general $k$-color version by induction on $k$. So suppose, towards a contradiction, that $G$ does \emph{not} have the Ramsey property for two colors.
-
-    Then there exist $G$-types \(\rho\leq \sigma\) such that for no $G$-type \(\tau\geq \sigma\) do we have \(\tau\to (\sigma)^\rho_2\).
-
-    Fix one particular \(F_0\in \sigma\). Now let $E$ be any finite set with \(F_0\subseteq E\). Let $\tau$ be the $G$-type of $E$. Since $E$ contains $F_0\in\sigma$, we have \(\tau\geq \sigma\). By the assumed failure of the Ramsey property, this type $\tau$ does not satisfy \(\tau\to (\sigma)^\rho_2\). Therefore there exists a coloring \(c_E\colon \begin{pmatrix} E \\ \rho \end{pmatrix}\to\{1,2\}\) such that no member of \(\begin{pmatrix} E \\ \sigma \end{pmatrix}\) is homogeneous for $c_E$.
-
-    So for every large enough finite set $E$ containing $F_0$, we have chosen a bad two-coloring $c_E$.
-
-    The next step is to combine all these bad colorings into one global coloring \(c\colon \rho\to\{1,2\}\).
-    This is exactly where the ultrafilter is used.
-
-    Let $I$ be the set of all finite non-empty subsets of $\bbN$. For every finite set $F\subseteq\bbN$, the collection \(\{E\in I : F\subseteq E\}\) is non-empty, and finite intersections of such sets are again of the same form. So these sets generate a filter on $I$. Extend that filter to an ultrafilter $\mathcal U$.
-
-    Now fix \(D\in \rho\).
-    Consider the two sets
-    \[
-        S_D^1=\{E\in I : D\cup F_0\subseteq E \text{ and } c_E(D)=1\},
-    \]
-    \[
-        S_D^2=\{E\in I : D\cup F_0\subseteq E \text{ and } c_E(D)=2\}.
-    \]
-    Their union is \(\{E\in I : D\cup F_0\subseteq E\}\), which belongs to $\mathcal U$ by construction.
-    Since
-    \[
-        S_D^1\cup S_D^2
-        =
-        \{E\in I : D\cup F_0\subseteq E\}\in\mathcal U
-    \]
-    and \(S_D^1\cap S_D^2=\emptyset\),
-    exactly one of the sets \(S_D^1,S_D^2\) belongs to \(\mathcal U\). Indeed, at least one of them must lie in \(\mathcal U\), for otherwise both complements would lie in \(\mathcal U\), and hence so would
-    \[
-        (S_D^1)^c\cap (S_D^2)^c=(S_D^1\cup S_D^2)^c,
-    \]
-    contradicting the fact that \(S_D^1\cup S_D^2\in\mathcal U\). On the other hand, both cannot belong to \(\mathcal U\), since then their intersection \(S_D^1\cap S_D^2=\emptyset\) would belong to \(\mathcal U\), which is impossible.
-
-    So we may define \(c(D)=i\) if \(S_D^i\in \mathcal U\). This gives a well-defined coloring \(c\colon \rho\to\{1,2\}\).
-
-    Now we use Proposition \ref{prop:type-characterization}. Since $G$ is extremely amenable, that proposition tells us that for the coloring $c$ there exists some \(F\in \sigma\) such that all members of \(\begin{pmatrix} F \\ \rho \end{pmatrix}\) receive the same color. Say that common color is \(i\in\{1,2\}\).
-
-    For each \(D\in \begin{pmatrix} F \\ \rho \end{pmatrix}\), define \(A_D=\{E\in I : F\cup F_0\subseteq E \text{ and } c_E(D)=i\}\). We claim that \(A_D\in \mathcal U\).
-    Indeed, since $c(D)=i$, the set \(S_D^i=\{E\in I : D\cup F_0\subseteq E \text{ and } c_E(D)=i\}\) lies in $\mathcal U$. Also \(\{E\in I : F\cup F_0\subseteq E\}\in \mathcal U\). Because \(D\subseteq F\), the intersection of these two sets is exactly $A_D$. Since ultrafilters are closed under finite intersections, $A_D\in\mathcal U$.
-
-    Now there are only finitely many elements of
-    \(\begin{pmatrix} F \\ \rho \end{pmatrix}\), because $F$ is finite. Hence
-    \[
-        \bigcap_{D\in \begin{pmatrix} F \\ \rho \end{pmatrix}} A_D
-        \in\mathcal U,
-    \]
-    and in particular this intersection is non-empty. Choose
-    \[
-        E\in \bigcap_{D\in \begin{pmatrix} F \\ \rho \end{pmatrix}} A_D.
-    \]
-
-    Then \(F\cup F_0\subseteq E\), so $F\subseteq E$, and for every \(D\in \begin{pmatrix} F \\ \rho \end{pmatrix}\) we have \(c_E(D)=i\).
-    In other words, the copy $F\in \sigma$ inside $E$ is homogeneous for the coloring $c_E$.
-
-    But that is impossible, because $c_E$ was chosen specifically so that no member of \(\begin{pmatrix} E \\ \sigma \end{pmatrix}\) is homogeneous.
-
-    This contradiction shows that the assumed failure of the Ramsey property was impossible. Therefore $G$ has the Ramsey property. This proves \((i)\Longrightarrow (ii)\).
-
-    Now we prove the converse \((ii)\Longrightarrow (i)\).
-
-    So assume that $G$ preserves an ordering and has the Ramsey property. By Proposition \ref{prop:type-characterization}, in order to prove extreme amenability it is enough to verify condition (ii)(b) of that proposition.
-
-    Accordingly, let \(\rho\leq \sigma\) be $G$-types, and let \(c\colon \rho\to\{1,\dots,k\}\) be any finite coloring.
-
-    Since $G$ has the Ramsey property, there exists a $G$-type \(\tau\geq \sigma\) such that
-    \[
-        \tau\to (\sigma)^\rho_k.
-    \]
-    Choose some \(F\in \tau\). Now restrict the coloring $c$ to the finite set \(\begin{pmatrix} F \\ \rho \end{pmatrix}\). By the arrow relation \(\tau\to (\sigma)^\rho_k\), there exists \(F_0\in \begin{pmatrix} F \\ \sigma \end{pmatrix}\) such that \(c\restriction \begin{pmatrix} F_0 \\ \rho \end{pmatrix}\) is constant.
-
-    But this is exactly what Proposition \ref{prop:type-characterization}(ii)(b) asks for: we have found a member \(F_0\in \sigma\) such that all members of type $\rho$ contained in $F_0$ have the same color.
-
-    Therefore condition (ii)(b) of Proposition \ref{prop:type-characterization} holds. Since $G$ also preserves an ordering, that proposition tells us that $G$ is extremely amenable.
-
-    So \((ii)\Longrightarrow (i)\).
-
-    Hence the two conditions are equivalent.
-\end{mynote}
 
 
 \begin{remark}
     \label{rem:cofinal-types}
-    A family $T$ of $G$-types is called \emph{cofinal} if for every $G$-type $\rho$ there exists $\sigma\in T$ such that \(\rho\leq \sigma\).
-    It is enough in Definition \ref{def:group-ramsey-property} to consider $\rho$, $\sigma$, and $\tau$ ranging over any fixed cofinal family of $G$-types.
+    A family \(T\) of \(G\)-types is called \emph{cofinal} if for every \(G\)-type \(\rho\) there exists \(\sigma\in T\) such that \(\rho\leq \sigma\).
+    It is enough in Definition~\ref{def:group-ramsey-property} to consider \(\rho\), \(\sigma\), and \(\tau\) ranging over any fixed cofinal family of \(G\)-types.
 \end{remark}
 
 
 
-\section[Fra\"iss\'e order classes]{Fra\"iss\'e order classes and extremely amenable automorphism groups}
+\section[Fraïssé order classes]{Fraïssé order classes and extremely amenable\\automorphism groups}
 \label{sec:fraisse-order-classes-and-ea-groups}
 
-We now translate the characterization obtained in the previous section into Fra\"iss\'e-theoretic language.
+We now translate the characterisation obtained in the previous section into Fraïssé-theoretic language.
 
-Let $L$ be a signature containing a distinguished binary relation symbol $<$. An \emph{order structure} for $L$ is an $L$-structure $A$ such that $<^A$ is a linear ordering on $\dom(A)$. A class $\mathcal K$ of finite $L$-structures is called an \emph{order class} if every member of $\mathcal K$ is an order structure.
+Let \(L\) be a signature containing a distinguished binary relation symbol \(<\). An \emph{order structure} for \(L\) is an \(L\)-structure \(\bfa\) such that its interpretation \(\prec^{\bfa}\) of \(<\) is a linear ordering on \(A\). A class \(\cK\) of finite \(L\)-structures is called an \emph{order class} if every member of \(\cK\) is an order structure.
 
-The next theorem identifies the extremely amenable closed subgroups of $S_\infty$ with automorphism groups of Fra\"iss\'e limits of Ramsey order classes.
+The next theorem identifies the extremely amenable closed subgroups of \(S_\infty\) with automorphism groups of Fraïssé limits of Ramsey order classes.
 
 \begin{theorem}
     \label{thm:ea-iff-fraisse-order-ramsey}
-    Let $G\leq S_\infty$ be a closed subgroup. Then the following are equivalent.
+    Let \(G\leq S_\infty\) be a closed subgroup. Then the following are equivalent.
     \begin{enumerate}
-        \item[(i)] $G$ is extremely amenable.
-        \item[(ii)] There is a Fra\"iss\'e order class $\mathcal K$ with the Ramsey property such that \(G=\Aut(F)\), where $F=\mathrm{Flim}(\mathcal K)$.
+        \item[(i)] \(G\) is extremely amenable.
+        \item[(ii)] There is a Fraïssé order class \(\cK\) with the Ramsey property such that \(G=\Aut(\bff)\), where \(\bff=\Flim(\cK)\).
     \end{enumerate}
 \end{theorem}
 
 \begin{proof}
 
 
-    Assume first that $G$ is extremely amenable. Let $A_G$ be the canonical structure on $\bbN$ associated with $G$; recall from Chapter~\ref{chap:fraisse-automorphism-groups} that its basic $n$-ary relations are the $G$-orbits on $\bbN^n$, and that \(\Aut(A_G)=G\).
-    By construction, the structure $A_G$ is ultrahomogeneous and has a relational signature.
+    Assume first that \(G\) is extremely amenable. Let \(\bfa_G\) be the canonical structure on \(\N\) associated with \(G\); recall from Chapter~\ref{chap:fraisse-automorphism-groups} that its basic \(n\)-ary relations are the \(G\)-orbits on \(\N^n\), and that \(\Aut(\bfa_G)=G\).
+    By construction, the structure \(\bfa_G\) is ultrahomogeneous and has a relational signature.
 
-    Since $G$ is extremely amenable, Theorem~\ref{thm:ea-iff-ordering-plus-group-ramsey} shows that $G$ preserves an ordering on $\bbN$.
-    Let $\prec$ be a linear ordering of $\bbN$ fixed by every element of $G$.
-    Expand $A_G$ by a new binary relation symbol $<$ interpreted as $\prec$, and denote the resulting structure by \(A=\langle A_G,\prec\rangle\).
-    Then every element of $G$ preserves $\prec$, so \(G\leq \Aut(A)\).
-    Conversely, every automorphism of $A$ is in particular an automorphism of $A_G$, hence belongs to $G$.
-    Therefore \(\Aut(A)=G\).
+    Since \(G\) is extremely amenable, Theorem~\ref{thm:ea-iff-ordering-plus-group-ramsey} shows that \(G\) preserves an ordering on \(\N\).
+    Let \(\prec^{\bfa}\) be a linear ordering of \(\N\) fixed by every element of \(G\).
+    Expand \(\bfa_G\) by a new binary relation symbol \(<\) interpreted as \(\prec^{\bfa}\), and denote the resulting structure by \(\bfa=\langle \bfa_G,\prec^{\bfa}\rangle\).
+    Then every element of \(G\) preserves \(\prec^{\bfa}\), so \(G\leq \Aut(\bfa)\).
+    Conversely, every automorphism of \(\bfa\) is in particular an automorphism of \(\bfa_G\), hence belongs to \(G\).
+    Therefore \(\Aut(\bfa)=G\).
 
-    Since $A_G$ is ultrahomogeneous and $\prec$ is $G$-invariant, the expansion $A$ is also ultrahomogeneous: if $\varphi\colon B\to C$ is an isomorphism between finite substructures of $A$, then $\varphi$ is in particular an isomorphism between finite substructures of $A_G$, so it extends to some $g\in G=\Aut(A_G)$; because $g$ preserves $\prec$, it is an automorphism of $A$ extending $\varphi$.
-    Because the signature is relational, finitely generated substructures of $A$ are finite, so $A$ is locally finite.
-    It follows that \(\mathcal K:=\Age(A)\) is a Fra\"iss\'e order class with Fra\"iss\'e limit $A$.
+    Since \(\bfa_G\) is ultrahomogeneous and \(\prec^{\bfa}\) is \(G\)-invariant, the expansion \(\bfa\) is also ultrahomogeneous: if \(\varphi\colon \bfb\hookrightarrow \bfc\) is an isomorphism between finite substructures of \(\bfa\), then \(\varphi\) is in particular an isomorphism between finite substructures of \(\bfa_G\), so it extends to some \(g\in G=\Aut(\bfa_G)\); because \(g\) preserves \(\prec^{\bfa}\), it is an automorphism of \(\bfa\) extending \(\varphi\).
+    Because the signature is relational, finitely generated substructures of \(\bfa\) are finite, so \(\bfa\) is locally finite.
+    It follows that \(\cK:=\Age(\bfa)\) is a Fraïssé order class with Fraïssé limit \(\bfa\).
 
-    It remains to show that $\mathcal K$ has the Ramsey property.
-    Let $B_0,B_1\in\mathcal K$ with \(B_0\hookrightarrow B_1\), and let $k\geq 2$.
-    Consider the $G$-types $\rho_0$ and $\rho_1$ consisting of all subsets of $\bbN$ which, with the induced structure from $A$, are isomorphic to $B_0$ and $B_1$, respectively.
-    Since $A$ is ultrahomogeneous, copies of a finite substructure in $A$ form a single $G$-type.
-    By Theorem~\ref{thm:ea-iff-ordering-plus-group-ramsey}, the group $G$ has the Ramsey property.
-    Hence there exists a $G$-type $\tau\geq \rho_1$ such that \(\tau\to (\rho_1)^{\rho_0}_k\).
-    Choose a finite substructure $C\leq A$ whose underlying set belongs to $\tau$.
-    Then $C\in\mathcal K$, and the statement \(C\to (B_1)^{B_0}_k\) is exactly the same as \(\tau\to (\rho_1)^{\rho_0}_k\).
-    Thus $\mathcal K$ has the Ramsey property.
+    It remains to show that \(\cK\) has the Ramsey property.
+    Let \(\bfb,\bfc\in\cK\) with \(\bfb\hookrightarrow \bfc\), and let \(k\geq 2\).
+    Consider the \(G\)-types \(\rho_{\bfb}\) and \(\rho_{\bfc}\) consisting of all subsets of \(\N\) which, with the induced structure from \(\bfa\), are isomorphic to \(\bfb\) and \(\bfc\), respectively.
+    Since \(\bfa\) is ultrahomogeneous, copies of a finite substructure in \(\bfa\) form a single \(G\)-type.
+    By Theorem~\ref{thm:ea-iff-ordering-plus-group-ramsey}, the group \(G\) has the Ramsey property.
+    Hence there exists a \(G\)-type \(\tau\geq \rho_{\bfc}\) such that \(\tau\to (\rho_{\bfc})^{\rho_{\bfb}}_k\).
+    Choose a finite substructure \(\bfd\leq \bfa\) whose underlying set belongs to \(\tau\).
+    Then \(\bfd\in\cK\), and the statement \(\bfd\to (\bfc)^{\bfb}_k\) is exactly the same as \(\tau\to (\rho_{\bfc})^{\rho_{\bfb}}_k\).
+    Thus \(\cK\) has the Ramsey property.
 
-    This proves (i) $\Rightarrow$ (ii).
+    This proves (i) \(\Rightarrow\) (ii).
 
-    Now assume (ii). Let \(F=\mathrm{Flim}(\mathcal K)\) and \(G=\Aut(F)\), where $\mathcal K$ is a Fra\"iss\'e order class with the Ramsey property.
+    Now assume (ii). Let \(\bff=\Flim(\cK)\) and \(G=\Aut(\bff)\), where \(\cK\) is a Fraïssé order class with the Ramsey property.
 
-    Since $F$ is an order structure, the linear order $<^F$ on $\dom(F)$ is preserved by every automorphism of $F$. Thus $G$ preserves an ordering.
+    Since \(\bff\) is an order structure, its linear order \(\prec^{\bff}\) on \(F\) is preserved by every automorphism of \(\bff\). Thus \(G\) preserves an ordering.
 
-    To show that $G$ is extremely amenable, it is enough by Theorem~\ref{thm:ea-iff-ordering-plus-group-ramsey} to verify that $G$ has the Ramsey property. By Remark~\ref{rem:cofinal-types}, it suffices to check this on any cofinal family of $G$-types. We take the family of $G$-types arising from finite substructures of $F$.
+    To show that \(G\) is extremely amenable, it is enough by Theorem~\ref{thm:ea-iff-ordering-plus-group-ramsey} to verify that \(G\) has the Ramsey property. By Remark~\ref{rem:cofinal-types}, it suffices to check this on any cofinal family of \(G\)-types. We take the family of \(G\)-types arising from finite substructures of \(\bff\).
 
-    Let $B_0,B_1\in\Age(F)=\mathcal K$ with \(B_0\hookrightarrow B_1\), and let $\rho_0,\rho_1$ be the corresponding $G$-types of copies of $B_0$ and $B_1$ in $F$. Since $\mathcal K$ has the Ramsey property, for every $k\geq 2$ there exists \(C\in\mathcal K\) such that \(C\to (B_1)^{B_0}_k\). Let $\tau$ be the $G$-type of copies of $C$ in $F$. Then \(\tau\to (\rho_1)^{\rho_0}_k\).
-    Therefore $G$ has the Ramsey property on this cofinal family of types, hence $G$ has the Ramsey property. Since $G$ also preserves an ordering, Theorem~\ref{thm:ea-iff-ordering-plus-group-ramsey} yields that $G$ is extremely amenable.
+    Let \(\bfb,\bfc\in\Age(\bff)=\cK\) with \(\bfb\hookrightarrow \bfc\), and let \(\rho_{\bfb},\rho_{\bfc}\) be the corresponding \(G\)-types of copies of \(\bfb\) and \(\bfc\) in \(\bff\). Since \(\cK\) has the Ramsey property, for every \(k\geq 2\) there exists \(\bfd\in\cK\) such that \(\bfd\to (\bfc)^{\bfb}_k\). Let \(\tau\) be the \(G\)-type of copies of \(\bfd\) in \(\bff\). Then \(\tau\to (\rho_{\bfc})^{\rho_{\bfb}}_k\).
+    Therefore \(G\) has the Ramsey property on this cofinal family of types, hence \(G\) has the Ramsey property. Since \(G\) also preserves an ordering, Theorem~\ref{thm:ea-iff-ordering-plus-group-ramsey} yields that \(G\) is extremely amenable.
 \end{proof}
-\begin{mynote}
-    We prove the two implications separately.
 
-    \smallskip
-
-    \emph{Step 1: assume that $G$ is extremely amenable. We want to build a Fra\"iss\'e order class whose limit has automorphism group $G$.}
-
-    Start with the canonical structure $A_G$ from Chapter~\ref{chap:fraisse-automorphism-groups}. By construction, the relations of $A_G$ record the $G$-orbits on tuples of natural numbers, and Chapter~\ref{chap:fraisse-automorphism-groups} showed that \(\Aut(A_G)=G\).
-    It also showed that $A_G$ is ultrahomogeneous and relational.
-
-    Since $G$ is extremely amenable, the previous theorem says that $G$ preserves a linear order on $\bbN$. So choose a linear order \(\prec\) on $\bbN$ such that every element of $G$ preserves $\prec$.
-
-    Now expand $A_G$ by adding this order. Call the new structure \(A=\langle A_G,\prec\rangle\).
-    This is now an order structure.
-
-    We claim that \(\Aut(A)=G\).
-
-    First, if $g\in G=\Aut(A_G)$, then $g$ preserves the relations of $A_G$. Since $\prec$ was chosen to be $G$-invariant, $g$ also preserves $\prec$. Therefore $g$ is an automorphism of the expanded structure $A$. So \(G\subseteq \Aut(A)\).
-
-    Conversely, if $h\in \Aut(A)$, then $h$ certainly preserves all the old relations coming from $A_G$. So $h\in \Aut(A_G)=G$. Hence \(\Aut(A)\subseteq G\). Therefore \(\Aut(A)=G\).
-
-    Next we claim that $A$ is ultrahomogeneous. Take finite substructures \(B,C\leq A\) and an isomorphism \(\varphi\colon B\to C\).
-    Because $B$ and $C$ are substructures of the expansion $A$, the map $\varphi$ preserves in particular all the relations coming from $A_G$. So it is an isomorphism between finite substructures of $A_G$ as well. Since $A_G$ is ultrahomogeneous, $\varphi$ extends to some \(g\in \Aut(A_G)=G\).
-    But every element of $G$ preserves the order $\prec$, so this same $g$ is actually an automorphism of $A$. Thus every isomorphism between finite substructures of $A$ extends to an automorphism of $A$, which is exactly ultrahomogeneity.
-
-    Since the language is relational, finitely generated substructures are just finite subsets with the induced structure. So every finitely generated substructure of $A$ is finite. In other words, $A$ is locally finite.
-
-    Now apply Fra\"iss\'e's theorem: because $A$ is countable, relational, locally finite, and ultrahomogeneous, its age \(\mathcal K:=\Age(A)\) is a Fra\"iss\'e class, and \(A=\mathrm{Flim}(\mathcal K)\) is its Fra\"iss\'e limit.
-    Since $A$ carries a linear order, every member of $\mathcal K$ is an order structure, so $\mathcal K$ is in fact a Fra\"iss\'e order class.
-
-    It remains to prove that $\mathcal K$ has the Ramsey property.
-
-    So let \(B_0,B_1\in \mathcal K\) with \(B_0\hookrightarrow B_1\), and let $k\geq 2$. We must find some \(C\in \mathcal K\) such that \(C\to (B_1)^{B_0}_k\).
-
-    Since $B_0,B_1\in\Age(A)$, copies of them occur inside $A$. Let $\rho_0$ be the $G$-type consisting of all finite subsets of $\bbN$ whose induced structure in $A$ is isomorphic to $B_0$, and let $\rho_1$ be defined similarly for $B_1$.
-
-    Because $A$ is ultrahomogeneous, any two copies of $B_0$ in $A$ lie in the same $G$-orbit, and similarly for $B_1$. So $\rho_0$ and $\rho_1$ are well-defined $G$-types.
-
-    Since $G$ is extremely amenable, the previous theorem tells us that $G$ has the Ramsey property. Therefore there exists a $G$-type $\tau\geq \rho_1$ such that \(\tau\to (\rho_1)^{\rho_0}_k\).
-
-    Choose a finite subset of $\bbN$ belonging to $\tau$, and let $C$ be the induced substructure of $A$ on that set. Then $C\in\mathcal K$ because $\mathcal K=\Age(A)$.
-
-    Why does this $C$ work? Because copies of $B_0$ inside $C$ are exactly the members of type $\rho_0$ contained in the underlying set of $C$, and copies of $B_1$ inside $C$ are exactly the members of type $\rho_1$ contained in that same set. So the statement \(\tau\to (\rho_1)^{\rho_0}_k\) says precisely that every coloring of copies of $B_0$ inside $C$ has a copy of $B_1$ inside $C$ on which all copies of $B_0$ have the same color. In other words, \(C\to (B_1)^{B_0}_k\).
-
-    This proves that $\mathcal K$ has the Ramsey property. So from an extremely amenable closed subgroup $G\leq S_\infty$ we have produced a Fra\"iss\'e order class $\mathcal K$ with the Ramsey property such that
-    \[
-        G=\Aut(A)=\Aut(\mathrm{Flim}(\mathcal K)).
-    \]
-
-    \smallskip
-
-    \emph{Step 2: assume now that there is a Fra\"iss\'e order class $\mathcal K$ with the Ramsey property, and let \(F=\mathrm{Flim}(\mathcal K)\) and \(G=\Aut(F)\).}
-    We want to prove that $G$ is extremely amenable.
-
-    Since $\mathcal K$ is an order class, the Fra\"iss\'e limit $F$ comes equipped with a distinguished linear order $<^F$. Every automorphism of $F$ must preserve all relations of the language, including this order. Therefore $G$ preserves an ordering.
-
-    By the theorem from the previous section, to prove extreme amenability it is enough to show that $G$ has the Ramsey property.
-
-    By the remark on cofinal families of types, we do not need to check all possible $G$-types. It is enough to check the types that come from finite substructures of $F$, because every finite subset of $\bbN$ generates a finite induced substructure of $F$, so these types are cofinal.
-
-    So let \(B_0,B_1\in \Age(F)=\mathcal K\) with \(B_0\hookrightarrow B_1\), and let $\rho_0,\rho_1$ be the corresponding $G$-types of copies of $B_0$ and $B_1$ inside $F$.
-
-    Because $\mathcal K$ has the Ramsey property, for every $k\geq 2$ there exists \(C\in \mathcal K\) such that \(C\to (B_1)^{B_0}_k\).
-    Since $C\in \Age(F)$, the structure $C$ appears inside $F$. Let $\tau$ be the $G$-type of copies of $C$ in $F$.
-
-    Now interpret the Ramsey statement inside $F$. A member of $\tau$ is a copy of $C$, a member of $\rho_1$ is a copy of $B_1$, and a member of $\rho_0$ is a copy of $B_0$. Therefore \(C\to (B_1)^{B_0}_k\) is exactly the same combinatorial statement as \(\tau\to (\rho_1)^{\rho_0}_k\).
-
-    So for the cofinal family of types coming from finite substructures of $F$, the group $G$ satisfies the Ramsey property. Hence $G$ has the Ramsey property.
-
-    We have now proved two things:
-    \begin{itemize}
-        \item $G$ preserves an ordering;
-        \item $G$ has the Ramsey property.
-    \end{itemize}
-    The theorem from the previous section then gives that $G$ is extremely amenable.
-
-    This proves the converse implication, and therefore the two conditions are equivalent.
-\end{mynote}
-
-The preceding theorem immediately gives the Fra\"iss\'e-theoretic form that will be used in the next chapter.
+The preceding theorem immediately gives the Fraïssé-theoretic form that will be used in the next chapter.
 
 \begin{corollary}
     \label{cor:fraisse-order-class-ea}
-    Let $\mathcal K$ be a Fra\"iss\'e order class and let \(F=\mathrm{Flim}(\mathcal K)\).
+    Let \(\cK\) be a Fraïssé order class and let \(\bff=\Flim(\cK)\).
     Then the following are equivalent.
     \begin{enumerate}
-        \item[(i)] $\Aut(F)$ is extremely amenable.
-        \item[(ii)] $\mathcal K$ has the Ramsey property.
+        \item[(i)] \(\Aut(\bff)\) is extremely amenable.
+        \item[(ii)] \(\cK\) has the Ramsey property.
     \end{enumerate}
 \end{corollary}
 
 \begin{proof}
-    Apply Theorem~\ref{thm:ea-iff-fraisse-order-ramsey} with $G=\Aut(F)$.
+    Apply Theorem~\ref{thm:ea-iff-fraisse-order-ramsey} with \(G=\Aut(\bff)\).
 \end{proof}
 
-The preceding corollary is the form of the Kechris--Pestov--Todorcevic correspondence that will be used in the next chapter. It shows that, for a Fra\"iss\'e order class, the extreme amenability of the automorphism group of its Fra\"iss\'e limit is exactly equivalent to the Ramsey property of the class. In Chapter~\ref{chap:examples-extreme-amenability} we apply this criterion to concrete examples.
+The preceding corollary is the form of the Kechris--Pestov--Todorcevic correspondence that will be used in the next chapter. It shows that, for a Fraïssé order class, the extreme amenability of the automorphism group of its Fraïssé limit is exactly equivalent to the Ramsey property of the class. In Chapter~\ref{chap:examples-extreme-amenability} we apply this criterion to concrete examples.
