@@ -20,7 +20,11 @@ two Fra\"iss\'e order expansions of the same reduct class \(\k_0\).
 We begin by formalizing the notion that one of the two orderings can be recovered from the other by a formula of particularly simple form.
 
 \begin{definition}
-    A formula in a relational language is called \emph{simple} if it is quantifier-free. Equivalently, it is a finite Boolean combination of atomic formulas.
+    A formula in a relational language $L$ is called \emph{simple} if it is a
+    quantifier-free formula of the infinitary language $L_{\omega_1\omega}$.
+    Equivalently, it is built from atomic formulas using negation and countable
+    conjunctions and disjunctions. If only finite conjunctions and
+    disjunctions are used, the formula is called \emph{first-order simple}.
 
     Let $\bfa=\langle \bfa_0,\prec^A\rangle$ be an $L$-structure and let
     $\varphi(x,y)$ be a simple formula in the language $L$. We write
@@ -77,7 +81,7 @@ The relevance of this notion is that it preserves the two combinatorial properti
     We prove the forward implications; the converse directions are symmetric.
 
     Assume first that $\k$ has the Ramsey property. Let
-    \(\bfa'\leq \bfb'\)
+    \(\bfa'\hookrightarrow \bfb'\)
     be structures in $\k'$, and let $k\geq 2$. Using simple bi-definability, let $\bfa,\bfb\in\k$ be the corresponding structures on the same underlying sets. Choose
     \(\bfc\in\k\)
     such that
@@ -98,9 +102,9 @@ The relevance of this notion is that it preserves the two combinatorial properti
     such that every member of $\k$ with reduct $\bfb_0$ contains a copy of $\bfa$. Let
     \(\bfb'=\langle \bfb_0,\triangleleft\rangle\in\k'\)
     be arbitrary, and let $\bfb\in\k$ be the corresponding structure. Then
-    \(\bfa\leq \bfb\),
+    \(\bfa\hookrightarrow \bfb\),
     and therefore, translating back by simple bi-definability,
-    \(\bfa'\leq \bfb'\).
+    \(\bfa'\hookrightarrow \bfb'\).
     Thus $\k'$ has the ordering property.
 \end{proof}
 
@@ -136,30 +140,27 @@ We now come to the main uniqueness theorem.
     minimal flows of $G_0$. Hence there exists a $G_0$-flow isomorphism
     \(\pi\colon X_\k\to X_{\k'}\).
 
-    We claim that
+    We claim that \(G_0\cdot\prec_0\) is the unique dense
+    \(G_\delta\) orbit in \(X_\k\). It is dense by the definition of
+    \(X_\k\). Moreover, for \(\prec\in X_\k\),
     \[
-        \pi(G_0\cdot \prec_0)=G_0\cdot \prec_0'.
+        \prec\in G_0\cdot\prec_0
+        \quad\Longleftrightarrow\quad
+        \langle\bff_0,\prec\rangle\cong\bff.
     \]
-    Indeed, for a linear ordering $\prec\in X_\k$, the condition
-    \(\prec\in G_0\cdot \prec_0\)
-    is equivalent to the statement that the ordered structure
-    \(\langle \bff_0,\prec\rangle\)
-    is isomorphic to $\bff$, or equivalently that it has age $\k$ and the extension property. This witnesses the triangle condition for $\k'$. Applying Corollary~\ref{cor:triangle-condition} with the roles of $\k$ and $\k'$ interchanged, we obtain
+    The condition on the right is equivalent to requiring that
+    \(\langle\bff_0,\prec\rangle\) have age \(\k\) and satisfy the
+    Fra\"iss\'e extension property. Since the language and the underlying set
+    are countable, these requirements are countable intersections of open
+    conditions on finite restrictions of \(\prec\). Thus
+    \(G_0\cdot\prec_0\) is \(G_\delta\). A compact metrizable space cannot
+    contain two disjoint dense \(G_\delta\) sets, so this orbit is unique.
+
+    The same argument applies to \(G_0\cdot\prec_0'\) in \(X_{\k'}\).
+    Since \(\pi\) is a homeomorphism, it follows that
     \[
-        \k=\k'
-        \qquad\text{or}\qquad
-        \k=(\k')^*.
+        \pi(G_0\cdot\prec_0)=G_0\cdot\prec_0'.
     \]
-    \begin{mynote}
-        Something is missing. what the heck is \(\k^*\)?
-    \end{mynote}
-    Equivalently,
-    \[
-        \k'=\k
-        \qquad\text{or}\qquad
-        \k'=\k^*.
-    \]
-    Similarly, $G_0\cdot \prec_0'$ is a dense $G_\delta$ subset of $X_{\k'}$. Because $\pi$ is a homeomorphism, it must send the unique dense $G_\delta$ orbit of $X_\k$ onto the unique dense $G_\delta$ orbit of $X_{\k'}$. This proves the claim.
 
     Composing $\pi$ with a suitable element of $G_0$ if necessary, we may
     therefore assume that \(\pi(\prec_0)=\prec_0'\). Let
@@ -177,7 +178,13 @@ We now come to the main uniqueness theorem.
 
     We now define $<'$ from $<$ by a simple formula. Since $G=G'$, the relation
     \(x<' y\)
-    is invariant under $\Aut(\bff)$. Because $\bff$ is ultrahomogeneous in the relational language $L$, every $\Aut(\bff)$-invariant binary relation is a union of $2$-orbits, and each such orbit is determined by the quantifier-free type of the ordered pair in $\bff$. There are only finitely many such $2$-orbits, so the relation $<'$ is defined in $\bff$ by a simple formula \(\varphi(x,y)\) in the language $L$.
+    is invariant under $\Aut(\bff)$. Because $\bff$ is ultrahomogeneous in the
+    countable relational language $L$, every $\Aut(\bff)$-invariant binary
+    relation is a union of countably many $2$-orbits. Each orbit is determined
+    by the quantifier-free type of an ordered pair and is therefore defined by
+    a countable conjunction of atomic and negated atomic formulas. Taking the
+    disjunction over the relevant orbits gives a simple formula
+    \(\varphi(x,y)\) in $L$ defining $<'$ in $\bff$.
 
     By the same argument, the relation $<$ is defined in $\bff'$ by a simple
     formula \(\varphi'(x,y)\) in the language $L'$.
@@ -225,11 +232,11 @@ We now record two useful strengthenings of Theorem~\ref{thm:uniqueness-simple-bi
     such that for every expansion
     \(\bfb'=\langle \bfb_0,\prec'\rangle\in \k'\)
     one has
-    \(\bfa\leq \bfb'\).
+    \(\bfa\hookrightarrow \bfb'\).
     Choose any expansion
     \(\bfb=\langle \bfb_0,\prec'\rangle\in \k\).
     Since $\k\subseteq \k'$, we also have $\bfb\in\k'$, and therefore
-    \(\bfa\leq \bfb\).
+    \(\bfa\hookrightarrow \bfb\).
     But $\k$ is hereditary, so this implies
     \(\bfa\in \k\),
     a contradiction. Hence $\k=\k'$.
@@ -383,7 +390,7 @@ We now record two examples.
     then Proposition~\ref{prop:comparable-expansions-equal} yields
     \(\k'=\k\).
     So suppose instead that $\k'\nsubseteq \k$. Then $\k'$ contains some
-    \(\bfa'=\langle \bfa_0,E,\prec'\rangle\)
+    \(\bfa'=\langle \bfa_0,\prec'\rangle\)
     with
     \[
         a\prec' b\prec' c,

@@ -1,23 +1,41 @@
 % !TEX root = main.tex
 \documentclass[12pt,openany]{book}
 
+% Keep front-, main-, and back-matter transitions consistent with openany.
+\let\cleardoublepage\clearpage
+
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{tikz}
 \usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amssymb}  
-\usepackage{tikz}            
 \usepackage{tikz-cd}
 \usepackage[shortlabels]{enumitem}
 \usepackage[most]{tcolorbox}
-\usepackage{subcaption}   
-\usepackage{tikz}
+\usepackage{subcaption}
 \usepackage{pgfplots}
 \usepackage{mathrsfs}
-\usepackage[hidelinks]{hyperref} 
 \usepackage{marginnote}
 \usepackage{xcolor}
 \usepackage{mdframed}
 \usepackage{environ}
+\usepackage[nottoc]{tocbibind}
+\usepackage[hidelinks]{hyperref}
+
+\pgfplotsset{compat=1.18}
+\setlength{\emergencystretch}{0.5em}
+
+%------------------------------------------------
+% Thesis metadata
+%------------------------------------------------
+\newcommand{\thesistitle}{The Kechris--Pestov--Todorcevic Correspondence}
+\newcommand{\thesissubtitle}{Fra\"iss\'e Theory, Ramsey Theory, and Topological Dynamics}
+\newcommand{\thesisauthor}{Ali Hushemian}
+\newcommand{\thesisdate}{July 2026}
+
+\hypersetup{
+  pdftitle={The Kechris-Pestov-Todorcevic Correspondence},
+  pdfsubject={Fraisse Theory, Ramsey Theory, and Topological Dynamics},
+  pdfauthor={Ali Hushemian}
+}
 
 
 %------------------------------------------------
@@ -122,11 +140,6 @@
 
 
 
-% Fix for TikZ-CD and xepersian conflict
-\makeatletter
-\def\@ampersand{\ifmmode\math@amp\else\char`\&\fi}
-\makeatother 
-
 \usetikzlibrary{intersections,patterns,calc}
 
 %------------------------------------------------
@@ -216,6 +229,42 @@
 
 \begin{document}
 
+\frontmatter
+
+\begin{titlepage}
+  \thispagestyle{empty}
+  \begin{center}
+    \vspace*{0.12\textheight}
+
+    {\Large\textsc{Thesis}\par}
+
+    \vspace{1.8cm}
+    \rule{0.78\textwidth}{0.6pt}\par
+    \vspace{0.8cm}
+
+    {\Huge\bfseries \thesistitle\par}
+
+    \vspace{0.7cm}
+    {\Large \thesissubtitle\par}
+
+    \vspace{0.8cm}
+    \rule{0.78\textwidth}{0.6pt}\par
+
+    \vfill
+
+    {\large by\par}
+    \vspace{0.35cm}
+    {\LARGE\thesisauthor\par}
+
+    \vfill
+
+    {\large\thesisdate\par}
+  \end{center}
+\end{titlepage}
+
+\tableofcontents
+
+\mainmatter
 
 \include{chapter1}
 \include{chapter2}
@@ -228,7 +277,6 @@
 \include{chapter9}
 
 
+\backmatter
 \include{bib}
 \end{document}
-
-

@@ -6,11 +6,11 @@ In the previous chapters we studied classes with the Ramsey property and saw how
 
 This invariant is the \emph{Ramsey degree} of a finite structure. Roughly speaking, if $\bfa_0\in\k_0$, then the Ramsey degree of $\bfa_0$ is the least number $t$ such that, after passing to a sufficiently large copy of any ambient structure, every coloring of copies of $\bfa_0$ can be reduced on some substructure to at most $t$ colors. When $\k_0$ admits a reasonable ordered expansion with the Ramsey and ordering properties, these degrees can be computed explicitly in terms of the admissible orderings on $\bfa_0$.
 
-The chapter has two aims. First, we define these degrees and show how they arise from ordered Ramsey expansions. Second, we prove converse results showing that the combinatorial bounds given by Ramsey degrees recover both the Ramsey property and, ultimately, the universal minimal flow description from the previous chapter.
+The chapter has two aims. First, we define these degrees and show how they arise from ordered Ramsey expansions. Second, we prove converse results showing that the combinatorial bounds given by Ramsey degrees recover both the Ramsey property and, ultimately, the universal minimal flow description from Chapter~\ref{chap:examples-umf}.
 
 \section{Patterns and Ramsey degrees}
 
-Throughout this chapter, $L_0$ is a signature, $\k_0$ is a Fra\"{\i}ss\'e class in $L_0$, and $\k$ is a hereditary order class in the expanded signature \(L=L_0\cup\{<\}\) such that \(\k|L_0=\k_0\).
+Throughout this chapter, $L_0$ is a signature, $\k_0$ is a Fra\"{\i}ss\'e class in $L_0$, and $\k$ is a hereditary order class in the expanded signature \(L=L_0\cup\{<\}\) such that \(\k\!\restriction\!L_0=\k_0\).
 Thus $\k$ is an order expansion of $\k_0$.
 
 Let $\bfa_0\in\k_0$. We write
@@ -35,6 +35,8 @@ Since $\k$ is closed under isomorphism, we have $g\cdot\prec\in X^{\bfa_0}_{\k}$
 
 Equivalently, two orderings $\prec,\prec'\in X^{\bfa_0}_{\k}$ have the same pattern if and only if \(\langle \bfa_0,\prec\rangle \cong \langle \bfa_0,\prec'\rangle\).
 Thus patterns record the isomorphism types of admissible ordered expansions of $\bfa_0$.
+For a fixed $\bfa_0$, we write
+\(\operatorname{pat}_{\k,\bfa_0}(\prec)\) for the pattern of $\prec$.
 
 We write
 \[
@@ -49,7 +51,9 @@ for the number of $\bfa_0$-patterns. Since the action of $\Aut(\bfa_0)$ on $X^{\
     \frac{\left|X^{\bfa_0}_{\k}\right|}{\left|\Aut(\bfa_0)\right|}.
 \]
 
-To state the relevant partition relation, let $\bfa_0\leq\bfb_0\leq\bfc_0$ in $\k_0$, and let $k,t\geq 1$. We write
+To state the relevant partition relation, let
+\(\bfa_0\hookrightarrow\bfb_0\hookrightarrow\bfc_0\) in $\k_0$, and let
+$k,t\geq 1$. We write
 \[
     \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,t}
 \]
@@ -72,13 +76,26 @@ takes at most $t$ values. In particular,
     \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k}.
 \]
 
-For later use, suppose $\bfa_0\leq\bfb_0$ in $\k_0$ and \(\langle \bfb_0,<_{\bfb_0}\rangle\in\k\). We then define \(t_\k(\bfa_0,\bfb_0,<_{\bfb_0})\) to be the number of $\bfa_0$-patterns represented by orderings $\prec\in X^{\bfa_0}_{\k}$ such that \(\langle \bfa_0,\prec\rangle \leq \langle \bfb_0,<_{\bfb_0}\rangle\).
-In other words, $t_\k(\bfa_0,\bfb_0,<_{\bfb_0})$ counts the patterns of copies of $\bfa_0$ that actually occur inside the ordered structure $\langle \bfb_0,<_{\bfb_0}\rangle$. Clearly, \(t_\k(\bfa_0,\bfb_0,<_{\bfb_0})\leq t_\k(\bfa_0)\).
+For later use, suppose \(\bfa_0\hookrightarrow\bfb_0\) in $\k_0$ and fix an
+ordered expansion \(\langle \bfb_0,<_{\bfb_0}\rangle\in\k\). We write
+\[
+    t_\k(\bfa_0,\bfb_0,<_{\bfb_0})
+\]
+for the number of $\bfa_0$-patterns represented by orderings
+\(\prec\in X^{\bfa_0}_{\k}\) such that
+\(\langle \bfa_0,\prec\rangle\hookrightarrow
+\langle \bfb_0,<_{\bfb_0}\rangle\).
+Thus this number counts the patterns of copies of $\bfa_0$ that actually occur
+inside the fixed ordered expansion, and it is at most \(t_\k(\bfa_0)\).
 
 We can now define the main combinatorial invariant of the chapter.
 
 \begin{definition}
-    Let $\bfa_0\in\k_0$. The \emph{Ramsey degree} of $\bfa_0$ in $\k_0$ is the least integer $t$, if it exists, such that for every $\bfb_0\in\k_0$ with $\bfa_0\leq\bfb_0$ and every integer $k\geq 2$, there is $\bfc_0\in\k_0$ with $\bfc_0\geq\bfb_0$ and
+    Let $\bfa_0\in\k_0$. The \emph{Ramsey degree} of $\bfa_0$ in $\k_0$,
+    denoted \(t(\bfa_0,\k_0)\), is the least integer $t$, if it exists, such
+    that for every $\bfb_0\in\k_0$ with
+    \(\bfa_0\hookrightarrow\bfb_0\) and every integer $k\geq 2$, there is
+    $\bfc_0\in\k_0$ with \(\bfb_0\hookrightarrow\bfc_0\) and
     \[
         \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,t}.
     \]
@@ -89,9 +106,9 @@ Thus $t(\bfa_0,\k_0)$ measures how far $\bfa_0$ is from satisfying the usual Ram
 
 The guiding principle of this chapter is that, when $\k_0$ admits a suitable ordered Ramsey expansion $\k$, the Ramsey degree of $\bfa_0$ is determined by the finite set of admissible patterns on $\bfa_0$. In the next section we make this precise.
 
-A basic example is given by the class $\mathcal{G}$ of finite graphs. This class does not have the Ramsey property, but its standard ordered expansion by linear orders does. If $\bfa_0\in\mathcal{G}$, then every linear ordering of $A_0$ is admissible, and two such orderings have the same pattern exactly when they differ by an automorphism of $\bfa_0$. Thus
+A basic example is given by the class $\mathcal{GR}$ of finite graphs. This class does not have the Ramsey property, but its standard ordered expansion by linear orders does. If $\bfa_0\in\mathcal{GR}$, then every linear ordering of $A_0$ is admissible, and two such orderings have the same pattern exactly when they differ by an automorphism of $\bfa_0$. Thus
 \[
-    t(\bfa_0,\mathcal{G})
+    t(\bfa_0,\mathcal{GR})
     =
     \frac{|A_0|!}{|\Aut(\bfa_0)|}.
 \]
@@ -102,12 +119,17 @@ This illustrates the general picture: Ramsey degrees arise from counting the adm
 We now show that if the ordered class $\k$ has the Ramsey property, then the number of admissible patterns gives an upper bound on the number of colors that must remain on a large substructure. If $\k$ also has the ordering property, then this bound is optimal. In particular, the Ramsey degree of $\bfa_0$ is exactly the number of $\k$-patterns on $\bfa_0$.
 
 \begin{proposition}
-    \label{11.1}
-    Assume that $\k$ has the Ramsey property. Let $\bfa_0\leq\bfb_0$ in $\k_0$, let \(\langle \bfb_0,<_{\bfb_0}\rangle\in\k\), and let $k\geq 2$. Then there is $\bfc_0\geq \bfb_0$ in $\k_0$ such that
+    \label{prop:ramsey-expansion-upper-bound}
+    Assume that $\k$ has the Ramsey property. Let
+    \(\bfa_0\hookrightarrow\bfb_0\) in $\k_0$, let
+    \(\langle \bfb_0,<_{\bfb_0}\rangle\in\k\), and let $k\geq 2$. Then there
+    is $\bfc_0$ in $\k_0$ with \(\bfb_0\hookrightarrow\bfc_0\) such that
     \[
         \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,\,t_\k(\bfa_0,\bfb_0,<_{\bfb_0})}.
     \]
-    In particular, for every hereditary class $\k'\subseteq\k$ with $\k'|L_0=\k_0$, there is $\bfc_0\geq\bfb_0$ in $\k_0$ such that
+    In particular, for every hereditary class $\k'\subseteq\k$ with
+    \(\k'\!\restriction\!L_0=\k_0\), there is $\bfc_0$ in $\k_0$ with
+    \(\bfb_0\hookrightarrow\bfc_0\) such that
     \[
         \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,\,t_{\k'}(\bfa_0)}.
     \]
@@ -204,8 +226,11 @@ We now show that if the ordered class $\k$ has the Ramsey property, then the num
 The proof yields a slightly stronger conclusion: one may choose a linear ordering on $\bfc_0$ such that, on a suitable copy of $\bfb_0$, the color of a copy of $\bfa_0$ depends only on the pattern induced by that ordering. We will not isolate this as a separate proposition, since the weaker statement above is all that we need.
 
 \begin{proposition}
-    \label{11.2}
-    Assume that $\k$ has both the Ramsey property and the ordering property. Then for every $\bfa_0\in\k_0$ there exists $\bfb_0\geq\bfa_0$ in $\k_0$ such that for every $\bfc_0\geq\bfb_0$ in $\k_0$ there is a coloring
+    \label{prop:ordering-property-lower-bound}
+    Assume that $\k$ has both the Ramsey property and the ordering property.
+    Then for every $\bfa_0\in\k_0$ there exists $\bfb_0\in\k_0$ with
+    \(\bfa_0\hookrightarrow\bfb_0\) such that for every $\bfc_0\in\k_0$
+    with \(\bfb_0\hookrightarrow\bfc_0\) there is a coloring
     \[
         c:\begin{pmatrix}\bfc_0\\ \bfa_0\end{pmatrix}\to\{1,\dots,t_\k(\bfa_0)\}
     \]
@@ -220,17 +245,18 @@ The proof yields a slightly stronger conclusion: one may choose a linear orderin
 \end{proposition}
 
 \begin{proof}
-    By the ordering property, there is $\bfb_0\geq\bfa_0$ in $\k_0$ such that whenever
+    By the ordering property, there is $\bfb_0\in\k_0$ with
+    \(\bfa_0\hookrightarrow\bfb_0\) such that whenever
     \[
         \langle\bfa_0,\prec\rangle,\langle\bfb_0,\prec'\rangle\in\k,
     \]
     we have
     \[
-        \langle\bfa_0,\prec\rangle\leq\langle\bfb_0,\prec'\rangle.
+        \langle\bfa_0,\prec\rangle\hookrightarrow\langle\bfb_0,\prec'\rangle.
     \]
     Equivalently, every admissible $\bfa_0$-pattern is realized by some copy of $\bfa_0$ inside every ordered expansion of $\bfb_0$ belonging to $\k$.
 
-    Now let $\bfc_0\geq\bfb_0$ in $\k_0$, and choose a linear ordering $<_{\bfc_0}$ on $C_0$ such that \(\langle\bfc_0,<_{\bfc_0}\rangle\in\k\). Enumerate the $\bfa_0$-patterns as \(p_1,\dots,p_{t_\k(\bfa_0)}\).
+    Now let $\bfc_0\in\k_0$ with \(\bfb_0\hookrightarrow\bfc_0\), and choose a linear ordering $<_{\bfc_0}$ on $C_0$ such that \(\langle\bfc_0,<_{\bfc_0}\rangle\in\k\). Enumerate the $\bfa_0$-patterns as \(p_1,\dots,p_{t_\k(\bfa_0)}\).
     Define
     \[
         c:\begin{pmatrix}\bfc_0\\ \bfa_0\end{pmatrix}\to\{1,\dots,t_\k(\bfa_0)\}
@@ -253,23 +279,23 @@ The proof yields a slightly stronger conclusion: one may choose a linear orderin
 \end{proof}
 
 \begin{corollary}
-    \label{11.3}
+    \label{cor:ramsey-degree-pattern-count}
     Assume that $\k$ has the Ramsey property and the ordering property. Then for every $\bfa_0\in\k_0$,
     \[
         t(\bfa_0,\k_0)=t_\k(\bfa_0).
     \]
-    Equivalently, $t_\k(\bfa_0)$ is the least integer $t$ such that for every $\bfb_0\in\k_0$ with $\bfa_0\leq\bfb_0$ and every $k\geq 2$, there exists $\bfc_0\geq\bfb_0$ in $\k_0$ with
+    Equivalently, $t_\k(\bfa_0)$ is the least integer $t$ such that for every $\bfb_0\in\k_0$ with \(\bfa_0\hookrightarrow\bfb_0\) and every $k\geq 2$, there exists $\bfc_0\in\k_0$ with \(\bfb_0\hookrightarrow\bfc_0\) and
     \[
         \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,t}.
     \]
 \end{corollary}
 
 \begin{proof}
-    Proposition \ref{11.1} shows that $t_\k(\bfa_0)$ has the required partition property, so
+    Proposition \ref{prop:ramsey-expansion-upper-bound} shows that $t_\k(\bfa_0)$ has the required partition property, so
     \[
         t(\bfa_0,\k_0)\leq t_\k(\bfa_0).
     \]
-    On the other hand, Proposition \ref{11.2} shows that no smaller number can work. Hence
+    On the other hand, Proposition \ref{prop:ordering-property-lower-bound} shows that no smaller number can work. Hence
     \[
         t(\bfa_0,\k_0)=t_\k(\bfa_0).
     \]
@@ -282,8 +308,11 @@ In particular, whenever $\k$ has the Ramsey and ordering properties, the number 
 We now prove converses to the results of the previous section. The first shows that, under the ordering property, the partition relation with bound $t_\k(\bfa_0)$ already forces the Ramsey property. We then isolate a local form of the ordering property and show that, assuming the Ramsey property, it is equivalent to the equality \(t(\bfa_0,\k_0)=t_\k(\bfa_0)\).
 
 \begin{proposition}
-    \label{11.4}
-    Suppose that $\k$ is reasonable and has the ordering property. Assume moreover that for every $\bfa_0\leq\bfb_0$ in $\k_0$ and every $k\geq 2$, there exists $\bfc_0\geq\bfb_0$ in $\k_0$ such that
+    \label{prop:partition-bound-implies-ramsey}
+    Suppose that $\k$ is reasonable and has the ordering property. Assume
+    moreover that for every \(\bfa_0\hookrightarrow\bfb_0\) in $\k_0$ and
+    every $k\geq 2$, there exists $\bfc_0\in\k_0$ with
+    \(\bfb_0\hookrightarrow\bfc_0\) such that
     \[
         \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,\,t_\k(\bfa_0)}.
     \]
@@ -297,7 +326,7 @@ We now prove converses to the results of the previous section. The first shows t
     \[
         \langle\bfa_0,\prec\rangle,\langle\bfb_0,\prec'\rangle\in\k
         \qquad\text{with}\qquad
-        \langle\bfa_0,\prec\rangle\leq\langle\bfb_0,\prec'\rangle.
+        \langle\bfa_0,\prec\rangle\hookrightarrow\langle\bfb_0,\prec'\rangle.
     \]
     We must find \(\langle\bfc_0,\prec''\rangle\in\k\) such that
     \[
@@ -305,21 +334,23 @@ We now prove converses to the results of the previous section. The first shows t
         \bigl(\langle\bfb_0,\prec'\rangle\bigr)^{\langle\bfa_0,\prec\rangle}_{2}.
     \]
 
-    By the ordering property, there exists $\bfb_1\geq\bfb_0$ in $\k_0$ such that whenever
+    By the ordering property, there exists $\bfb_1\in\k_0$ with
+    \(\bfb_0\hookrightarrow\bfb_1\) such that whenever
     \[
         \langle\bfb_0,\triangleleft_0\rangle,\langle\bfb_1,\triangleleft_1\rangle\in\k,
     \]
     we have
     \[
-        \langle\bfb_0,\triangleleft_0\rangle\leq\langle\bfb_1,\triangleleft_1\rangle.
+        \langle\bfb_0,\triangleleft_0\rangle\hookrightarrow\langle\bfb_1,\triangleleft_1\rangle.
     \]
-    Since $\k$ is reasonable and \(\langle\bfa_0,\prec\rangle\leq\langle\bfb_0,\prec'\rangle\), it follows that for every ordering $\triangleleft_1$ on $B_1$ with \(\langle\bfb_1,\triangleleft_1\rangle\in\k\), we also have
+    Since $\k$ is reasonable and \(\langle\bfa_0,\prec\rangle\hookrightarrow\langle\bfb_0,\prec'\rangle\), it follows that for every ordering $\triangleleft_1$ on $B_1$ with \(\langle\bfb_1,\triangleleft_1\rangle\in\k\), we also have
     \[
-        \langle\bfa_0,\prec\rangle\leq\langle\bfb_1,\triangleleft_1\rangle.
+        \langle\bfa_0,\prec\rangle\hookrightarrow\langle\bfb_1,\triangleleft_1\rangle.
     \]
 
     Now apply the hypothesis with \(\bfa_0\), \(\bfb_1\), and \(k=t_\k(\bfa_0)+1\).
-    Thus there exists $\bfc_0\geq\bfb_1$ in $\k_0$ such that
+    Thus there exists $\bfc_0\in\k_0$ with
+    \(\bfb_1\hookrightarrow\bfc_0\) such that
     \[
         \bfc_0\rightarrow(\bfb_1)^{\bfa_0}_{\,t_\k(\bfa_0)+1,\;t_\k(\bfa_0)}.
     \]
@@ -348,13 +379,20 @@ We now prove converses to the results of the previous section. The first shows t
     \[
         \bfa_0'\in\begin{pmatrix}\bfc_0\\ \bfa_0\end{pmatrix},
     \]
-    let $\pi(\bfa_0')$ be the pattern of the induced ordering \(\prec''|A_0'\) on $A_0'$. Set
+    let
+    \[
+        q(\bfa_0')
+        =
+        \operatorname{pat}_{\k,\bfa_0}(\prec''|A_0')
+    \]
+    be the pattern of the induced ordering on $A_0'$. Set
     \[
         c'(\bfa_0')=
         \begin{cases}
-            0, & \text{if }\pi(\bfa_0')\text{ is the pattern of }\prec
+            0, & \text{if }q(\bfa_0')=\operatorname{pat}_{\k,\bfa_0}(\prec)
             \text{ and }c(\langle\bfa_0',\prec''|A_0'\rangle)=2,                 \\[1ex]
-            i, & \text{if }\pi(\bfa_0')=p_i\text{ and either }p_i\neq \pi(\prec)
+            i, & \text{if }q(\bfa_0')=p_i\text{ and either }
+            p_i\neq\operatorname{pat}_{\k,\bfa_0}(\prec)
             \text{ or }c(\langle\bfa_0',\prec''|A_0'\rangle)=1.
         \end{cases}
     \]
@@ -376,7 +414,7 @@ We now prove converses to the results of the previous section. The first shows t
 
     Finally, by the choice of $\bfb_1$ we have
     \[
-        \langle\bfb_0,\prec'\rangle\leq\langle\bfb_1',\prec''|B_1'\rangle,
+        \langle\bfb_0,\prec'\rangle\hookrightarrow\langle\bfb_1',\prec''|B_1'\rangle,
     \]
     so
     \[
@@ -385,26 +423,26 @@ We now prove converses to the results of the previous section. The first shows t
     \]
     Thus $\k$ has the Ramsey property.
 
-    For the final assertion, if $\k$ is contained in an expansion of $\k_0$ with the Ramsey property, then Proposition \ref{11.1} yields exactly the partition relation assumed above. Hence the first part applies.
+    For the final assertion, if $\k$ is contained in an expansion of $\k_0$ with the Ramsey property, then Proposition \ref{prop:ramsey-expansion-upper-bound} yields exactly the partition relation assumed above. Hence the first part applies.
 \end{proof}
 
-To formulate the converse to Corollary \ref{11.3}, it is useful to isolate a local form of the ordering property.
+To formulate the converse to Corollary \ref{cor:ramsey-degree-pattern-count}, it is useful to isolate a local form of the ordering property.
 
 \begin{definition}
-    Let $\bfa_0\in\k_0$. We say that $\k$ has the \emph{ordering property at} $\bfa_0$ if there exists $\bfb_0\geq\bfa_0$ in $\k_0$ such that for every pair of orderings $\prec$ on $A_0$ and $\prec'$ on $B_0$ with
+    Let $\bfa_0\in\k_0$. We say that $\k$ has the \emph{ordering property at} $\bfa_0$ if there exists $\bfb_0\in\k_0$ with \(\bfa_0\hookrightarrow\bfb_0\) such that for every pair of orderings $\prec$ on $A_0$ and $\prec'$ on $B_0$ with
     \[
         \langle\bfa_0,\prec\rangle,\langle\bfb_0,\prec'\rangle\in\k,
     \]
     we have
     \[
-        \langle\bfa_0,\prec\rangle\leq\langle\bfb_0,\prec'\rangle.
+        \langle\bfa_0,\prec\rangle\hookrightarrow\langle\bfb_0,\prec'\rangle.
     \]
 \end{definition}
 
 Thus $\k$ has the ordering property if and only if it has the ordering property at every $\bfa_0\in\k_0$.
 
 \begin{proposition}
-    \label{11.5}
+    \label{prop:local-ordering-property-ramsey-degree}
     Assume that $\k$ has the Ramsey property. Then, for each $\bfa_0\in\k_0$, the following are equivalent:
 
     \begin{enumerate}
@@ -414,15 +452,15 @@ Thus $\k$ has the ordering property if and only if it has the ordering property 
 \end{proposition}
 
 \begin{proof}
-    Assume first that $\k$ has the ordering property at $\bfa_0$. Then the proof of Proposition \ref{11.2} shows that there exists $\bfb_0\geq\bfa_0$ such that every admissible $\bfa_0$-pattern is realized inside every ordered expansion of $\bfb_0$ belonging to $\k$. Combining this with Proposition \ref{11.1}, exactly as in the proof of Corollary \ref{11.3}, we obtain \(t(\bfa_0,\k_0)=t_\k(\bfa_0)\).
+    Assume first that $\k$ has the ordering property at $\bfa_0$. Then the proof of Proposition \ref{prop:ordering-property-lower-bound} shows that there exists $\bfb_0$ with \(\bfa_0\hookrightarrow\bfb_0\) such that every admissible $\bfa_0$-pattern is realized inside every ordered expansion of $\bfb_0$ belonging to $\k$. Combining this with Proposition \ref{prop:ramsey-expansion-upper-bound}, exactly as in the proof of Corollary \ref{cor:ramsey-degree-pattern-count}, we obtain \(t(\bfa_0,\k_0)=t_\k(\bfa_0)\).
 
     Conversely, suppose that \(t(\bfa_0,\k_0)=t_\k(\bfa_0)\)
-    but that $\k$ does not have the ordering property at $\bfa_0$. Then for every $\bfb_0\geq\bfa_0$ in $\k_0$ there exists an ordering $\prec'$ on $B_0$ such that \(\langle\bfb_0,\prec'\rangle\in\k\) and some admissible ordering $\prec$ on $A_0$ with \(\langle\bfa_0,\prec\rangle\in\k\)
+    but that $\k$ does not have the ordering property at $\bfa_0$. Then for every $\bfb_0\in\k_0$ with \(\bfa_0\hookrightarrow\bfb_0\) there exists an ordering $\prec'$ on $B_0$ such that \(\langle\bfb_0,\prec'\rangle\in\k\) and some admissible ordering $\prec$ on $A_0$ with \(\langle\bfa_0,\prec\rangle\in\k\)
     fails to embed into $\langle\bfb_0,\prec'\rangle$. Hence the number of $\bfa_0$-patterns realized inside $\langle\bfb_0,\prec'\rangle$ satisfies
     \[
         t_\k(\bfa_0,\bfb_0,\prec')\leq t_\k(\bfa_0)-1.
     \]
-    Applying Proposition \ref{11.1} with this ordered structure, we obtain, for every $k\geq 2$, some $\bfc_0\geq\bfb_0$ such that
+    Applying Proposition \ref{prop:ramsey-expansion-upper-bound} with this ordered structure, we obtain, for every $k\geq 2$, some $\bfc_0$ with \(\bfb_0\hookrightarrow\bfc_0\) such that
     \[
         \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,\,t_\k(\bfa_0)-1}.
     \]
@@ -431,7 +469,7 @@ Thus $\k$ has the ordering property if and only if it has the ordering property 
 \end{proof}
 
 \begin{corollary}
-    \label{11.6}
+    \label{cor:ordering-property-ramsey-degree}
     Assume that $\k$ has the Ramsey property. Then the following are equivalent:
 
     \begin{enumerate}
@@ -444,7 +482,7 @@ Thus $\k$ has the ordering property if and only if it has the ordering property 
 \end{corollary}
 
 \begin{proof}
-    This follows immediately from Proposition \ref{11.5}, since the ordering property is equivalent to having the ordering property at each $\bfa_0\in\k_0$.
+    This follows immediately from Proposition \ref{prop:local-ordering-property-ramsey-degree}, since the ordering property is equivalent to having the ordering property at each $\bfa_0\in\k_0$.
 \end{proof}
 
 
@@ -453,13 +491,13 @@ Thus $\k$ has the ordering property if and only if it has the ordering property 
 We now return to the dynamical viewpoint of the previous chapters. The results of this section show that the combinatorial information encoded by Ramsey degrees is strong enough to recover ordered expansions with the Ramsey and ordering properties, and hence to recover the universal minimal flow description from Chapter~\ref{chap:examples-umf}.
 
 \begin{theorem}
-    \label{11.7}
-    Let $\k_0$ be a Fra\"{\i}ss\'e class in a signature $L_0$, and let $\k$ be a reasonable Fra\"{\i}ss\'e order class in the expanded signature \(L=L_0\cup\{<\}\) such that $\k|L_0=\k_0$. Assume that $\k$ has the Ramsey property. Then there exists a reasonable Fra\"{\i}ss\'e order class \(\k'\subseteq\k\) such that $\k'|L_0=\k_0$ and $\k'$ has both the Ramsey property and the ordering property.
+    \label{thm:recover-ramsey-ordering-subexpansion}
+    Let $\k_0$ be a Fra\"{\i}ss\'e class in a signature $L_0$, and let $\k$ be a reasonable Fra\"{\i}ss\'e order class in the expanded signature \(L=L_0\cup\{<\}\) such that \(\k\!\restriction\!L_0=\k_0\). Assume that $\k$ has the Ramsey property. Then there exists a reasonable Fra\"{\i}ss\'e order class \(\k'\subseteq\k\) such that \(\k'\!\restriction\!L_0=\k_0\) and $\k'$ has both the Ramsey property and the ordering property.
 \end{theorem}
 
 \begin{proof}
     Let $\bff_0={\rm Flim}(\k_0)$ and $G_0={\rm Aut}(\bff_0)$. Consider the $G_0$-flow $X_\k$ of all $\k$-admissible linear orderings on $F_0$. Choose a minimal subflow \(X'\subseteq X_\k\), and fix some \(\prec'\in X'\). Let \(\k'={\rm Age}(\langle \bff_0,\prec'\rangle)\).
-    Then $\k'\subseteq\k$, and since every finite $L_0$-substructure of $\bff_0$ lies in $\k_0$, we have \(\k'|L_0=\k_0\).
+    Then $\k'\subseteq\k$, and since every finite $L_0$-substructure of $\bff_0$ lies in $\k_0$, we have \(\k'\!\restriction\!L_0=\k_0\).
     Moreover, $\k'$ is hereditary and has the joint embedding property, and it is easy to verify that $\k'$ is reasonable.
 
     We claim that
@@ -472,26 +510,26 @@ We now return to the dynamical viewpoint of the previous chapters. The results o
     Theorem~\ref{thm:minimality-ordering-property} that $\k'$ has the ordering
     property.
 
-    It remains to show that $\k'$ has the Ramsey property. By Proposition \ref{11.4}, it is enough to verify that for every \(\bfa_0\leq\bfb_0\) in $\k_0$ and every $k\geq 2$, there exists $\bfc_0\geq\bfb_0$ in $\k_0$ such that
+    It remains to show that $\k'$ has the Ramsey property. By Proposition \ref{prop:partition-bound-implies-ramsey}, it is enough to verify that for every \(\bfa_0\hookrightarrow\bfb_0\) in $\k_0$ and every $k\geq 2$, there exists $\bfc_0\in\k_0$ with \(\bfb_0\hookrightarrow\bfc_0\) such that
     \[
         \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,\,t_{\k'}(\bfa_0)}.
     \]
-    But this follows from Proposition \ref{11.1}, since $\k$ has the Ramsey property and $\k'\subseteq\k$ is a hereditary expansion of $\k_0$.
+    But this follows from Proposition \ref{prop:ramsey-expansion-upper-bound}, since $\k$ has the Ramsey property and $\k'\subseteq\k$ is a hereditary expansion of $\k_0$.
 
-    Finally, because $\k'$ is reasonable and has the Ramsey and ordering properties, Corollary \ref{11.6} implies that the numbers $t_{\k'}(\bfa_0)$ are the Ramsey degrees in $\k_0$. In particular, Proposition \ref{11.4} yields the Ramsey property for $\k'$, and hence $\k'$ is a reasonable Fra\"{\i}ss\'e order class with the required properties.
+    Finally, because $\k'$ is reasonable and has the Ramsey and ordering properties, Corollary \ref{cor:ordering-property-ramsey-degree} implies that the numbers $t_{\k'}(\bfa_0)$ are the Ramsey degrees in $\k_0$. In particular, Proposition \ref{prop:partition-bound-implies-ramsey} yields the Ramsey property for $\k'$, and hence $\k'$ is a reasonable Fra\"{\i}ss\'e order class with the required properties.
 \end{proof}
 
 The preceding theorem shows that, once one has a reasonable Ramsey expansion, one may pass to a smaller expansion in which minimality is built in. The next result is the converse direction of the universal-minimal-flow theorem proved earlier.
 
 \begin{theorem}
-    \label{11.8}
+    \label{thm:umf-iff-ramsey-ordering}
     Let $L\supseteq\{<\}$ be a signature, let \(L_0=L\setminus\{<\}\), and let $\k$ be a reasonable Fra\"{\i}ss\'e order class in $L$. Put
     \[
-        \k_0=\k|L_0,
+        \k_0=\k\!\restriction\!L_0,
         \qquad
         \bff={\rm Flim}(\k),
         \qquad
-        \bff_0=\bff|L_0={\rm Flim}(\k_0),
+        \bff_0=\bff\!\restriction\!L_0={\rm Flim}(\k_0),
     \]
     and let \(G_0={\rm Aut}(\bff_0)\) and \(G={\rm Aut}(\bff)\).
     Let $X_\k$ be the compact space of all $\k$-admissible linear orderings on the underlying set $F_0$ of $\bff_0$. Then the following are equivalent:
@@ -511,7 +549,7 @@ The preceding theorem shows that, once one has a reasonable Ramsey expansion, on
     implies that $\k$ has the ordering property. It therefore remains to prove
     that $\k$ has the Ramsey property.
 
-    By Proposition \ref{11.4}, it is enough to show that for every \(\bfa_0\leq\bfb_0\) in $\k_0$,
+    By Proposition \ref{prop:partition-bound-implies-ramsey}, it is enough to show that for every \(\bfa_0\hookrightarrow\bfb_0\) in $\k_0$,
     every $k\geq 2$, and every coloring
     \[
         c:\begin{pmatrix}\bff_0\\ \bfa_0\end{pmatrix}\to\{1,\dots,k\},
@@ -563,9 +601,9 @@ The preceding theorem shows that, once one has a reasonable Ramsey expansion, on
     \[
         \begin{pmatrix}\bfb_0''\\ \bfa_0\end{pmatrix},
     \]
-    and therefore takes at most $t_\k(\bfa_0)$ values. This is exactly the partition relation required in Proposition \ref{11.4}.
+    and therefore takes at most $t_\k(\bfa_0)$ values. This is exactly the partition relation required in Proposition \ref{prop:partition-bound-implies-ramsey}.
 
     Hence $\k$ has the Ramsey property. Since we already know that $\k$ has the ordering property, this proves $(2)\Rightarrow(1)$.
 \end{proof}
 
-Theorems \ref{11.7} and \ref{11.8} complete the converse direction of the KPT correspondence developed in the previous chapters. Ordered Ramsey expansions not only produce universal minimal flows, but can also be recovered from the dynamical structure of those flows. In this sense, Ramsey degrees measure the residual combinatorial complexity of the reduct class, while the Ramsey and ordering properties together characterize the expansions that realize the universal minimal flow.
+Theorems \ref{thm:recover-ramsey-ordering-subexpansion} and \ref{thm:umf-iff-ramsey-ordering} complete the converse direction of the KPT correspondence developed in the previous chapters. Ordered Ramsey expansions not only produce universal minimal flows, but can also be recovered from the dynamical structure of those flows. In this sense, Ramsey degrees measure the residual combinatorial complexity of the reduct class, while the Ramsey and ordering properties together characterize the expansions that realize the universal minimal flow.

@@ -12,7 +12,7 @@ We begin by recalling the basic notions of structural Ramsey theory and some sta
 
 We begin by recalling the basic notions of structural Ramsey theory that will be used in the sequel. The point of this section is to formulate the combinatorial property that later characterizes extreme amenability for automorphism groups of Fra\"iss\'e limits.
 
-Let $A$ and $B$ be $L$-structures. We write \(A \leq B\) if $A$ embeds into $B$. If $A \leq B$, we let
+Let $A$ and $B$ be $L$-structures. If \(A\hookrightarrow B\), we let
 \[
     \begin{pmatrix} B \\ A \end{pmatrix}
     =
@@ -20,13 +20,13 @@ Let $A$ and $B$ be $L$-structures. We write \(A \leq B\) if $A$ embeds into $B$.
 \]
 the set of all substructures of $B$ isomorphic to $A$.
 
-If $A \leq B \leq C$ and $k \geq 2$, we write \(C \to (B)^A_k\) to mean that for every coloring
+If \(A\hookrightarrow B\hookrightarrow C\) and $k \geq 2$, we write \(C \to (B)^A_k\) to mean that for every coloring
 \(c \colon \begin{pmatrix} C \\ A \end{pmatrix} \to \{1,\dots,k\}\), there is some
 $B_0 \in \begin{pmatrix} C \\ B \end{pmatrix}$ such that
 \(c \restriction \begin{pmatrix} B_0 \\ A \end{pmatrix}\) is constant. In this situation we say that $B_0$ is \emph{homogeneous} for the coloring $c$.
 
 \begin{definition}
-    Let $\mathcal{K}$ be a class of finite $L$-structures. We say that $\mathcal{K}$ has the \emph{Ramsey property} if $\mathcal{K}$ is hereditary and for every $A,B \in \mathcal{K}$ with $A \leq B$ and every integer $k \geq 2$, there exists $C \in \mathcal{K}$ such that
+    Let $\mathcal{K}$ be a class of finite $L$-structures. We say that $\mathcal{K}$ has the \emph{Ramsey property} if $\mathcal{K}$ is hereditary and for every $A,B \in \mathcal{K}$ with \(A\hookrightarrow B\) and every integer $k \geq 2$, there exists $C \in \mathcal{K}$ such that
     \[
         C \to (B)^A_k.
     \]
@@ -35,16 +35,16 @@ $B_0 \in \begin{pmatrix} C \\ B \end{pmatrix}$ such that
 As usual, it is enough to verify the Ramsey property for two colors.
 
 \begin{proposition}
-    A hereditary class $\mathcal{K}$ of finite structures has the Ramsey property if and only if for every $A,B \in \mathcal{K}$ with $A \leq B$, there exists $C \in \mathcal{K}$ such that
+    A hereditary class $\mathcal{K}$ of finite structures has the Ramsey property if and only if for every $A,B \in \mathcal{K}$ with \(A\hookrightarrow B\), there exists $C \in \mathcal{K}$ such that
     \[
         C \to (B)^A_2.
     \]
 \end{proposition}
 
 \begin{proof}
-    Only one implication needs proof. Assume the two-color condition holds. We show by induction on $k \geq 2$ that for all $A \leq B$ in $\mathcal{K}$ there exists $C \in \mathcal{K}$ with \(C \to (B)^A_k\).
+    Only one implication needs proof. Assume the two-color condition holds. We show by induction on $k \geq 2$ that for all \(A\hookrightarrow B\) in $\mathcal{K}$ there exists $C \in \mathcal{K}$ with \(C \to (B)^A_k\).
 
-    The case $k=2$ is our assumption. Suppose the statement has been proved for $k-1$, where $k \geq 3$, and fix $A \leq B$ in $\mathcal{K}$. Choose $D \in \mathcal{K}$ such that \(D \to (B)^A_{k-1}\), and then choose $C \in \mathcal{K}$ such that \(C \to (D)^A_2\).
+    The case $k=2$ is our assumption. Suppose the statement has been proved for $k-1$, where $k \geq 3$, and fix \(A\hookrightarrow B\) in $\mathcal{K}$. Choose $D \in \mathcal{K}$ such that \(D \to (B)^A_{k-1}\), and then choose $C \in \mathcal{K}$ such that \(C \to (D)^A_2\).
 
     Now let \(c \colon \begin{pmatrix} C \\ A \end{pmatrix} \to \{1,\dots,k\}\) be a $k$-coloring. Define a two-coloring \(c' \colon \begin{pmatrix} C \\ A \end{pmatrix} \to \{0,1\}\) by
     \[
@@ -71,7 +71,7 @@ We now record several standard examples.
 \end{proof}
 
 \begin{example}
-    Let $L=\{<,E\}$, where $<$ is a binary relation symbol and $E$ is a binary relation symbol interpreted as a symmetric irreflexive graph relation. Then the class $\mathcal{OG}$ of finite ordered graphs has the Ramsey property.
+    Let $L=\{<,E\}$, where $<$ is a binary relation symbol and $E$ is a binary relation symbol interpreted as a symmetric irreflexive graph relation. Then the class $\vec{\mathcal{GR}}$ of finite ordered graphs has the Ramsey property.
 \end{example}
 
 This is the theorem of Ne\v{s}et\v{r}il and R\"odl \cite{NR77,NR83}.
@@ -797,7 +797,7 @@ The next theorem identifies the extremely amenable closed subgroups of $S_\infty
     It follows that \(\mathcal K:=\Age(A)\) is a Fra\"iss\'e order class with Fra\"iss\'e limit $A$.
 
     It remains to show that $\mathcal K$ has the Ramsey property.
-    Let $B_0,B_1\in\mathcal K$ with $B_0\leq B_1$, and let $k\geq 2$.
+    Let $B_0,B_1\in\mathcal K$ with \(B_0\hookrightarrow B_1\), and let $k\geq 2$.
     Consider the $G$-types $\rho_0$ and $\rho_1$ consisting of all subsets of $\bbN$ which, with the induced structure from $A$, are isomorphic to $B_0$ and $B_1$, respectively.
     Since $A$ is ultrahomogeneous, copies of a finite substructure in $A$ form a single $G$-type.
     By Theorem~\ref{thm:ea-iff-ordering-plus-group-ramsey}, the group $G$ has the Ramsey property.
@@ -814,7 +814,7 @@ The next theorem identifies the extremely amenable closed subgroups of $S_\infty
 
     To show that $G$ is extremely amenable, it is enough by Theorem~\ref{thm:ea-iff-ordering-plus-group-ramsey} to verify that $G$ has the Ramsey property. By Remark~\ref{rem:cofinal-types}, it suffices to check this on any cofinal family of $G$-types. We take the family of $G$-types arising from finite substructures of $F$.
 
-    Let $B_0,B_1\in\Age(F)=\mathcal K$ with $B_0\leq B_1$, and let $\rho_0,\rho_1$ be the corresponding $G$-types of copies of $B_0$ and $B_1$ in $F$. Since $\mathcal K$ has the Ramsey property, for every $k\geq 2$ there exists \(C\in\mathcal K\) such that \(C\to (B_1)^{B_0}_k\). Let $\tau$ be the $G$-type of copies of $C$ in $F$. Then \(\tau\to (\rho_1)^{\rho_0}_k\).
+    Let $B_0,B_1\in\Age(F)=\mathcal K$ with \(B_0\hookrightarrow B_1\), and let $\rho_0,\rho_1$ be the corresponding $G$-types of copies of $B_0$ and $B_1$ in $F$. Since $\mathcal K$ has the Ramsey property, for every $k\geq 2$ there exists \(C\in\mathcal K\) such that \(C\to (B_1)^{B_0}_k\). Let $\tau$ be the $G$-type of copies of $C$ in $F$. Then \(\tau\to (\rho_1)^{\rho_0}_k\).
     Therefore $G$ has the Ramsey property on this cofinal family of types, hence $G$ has the Ramsey property. Since $G$ also preserves an ordering, Theorem~\ref{thm:ea-iff-ordering-plus-group-ramsey} yields that $G$ is extremely amenable.
 \end{proof}
 \begin{mynote}
@@ -849,7 +849,7 @@ The next theorem identifies the extremely amenable closed subgroups of $S_\infty
 
     It remains to prove that $\mathcal K$ has the Ramsey property.
 
-    So let \(B_0,B_1\in \mathcal K\) with \(B_0\leq B_1\), and let $k\geq 2$. We must find some \(C\in \mathcal K\) such that \(C\to (B_1)^{B_0}_k\).
+    So let \(B_0,B_1\in \mathcal K\) with \(B_0\hookrightarrow B_1\), and let $k\geq 2$. We must find some \(C\in \mathcal K\) such that \(C\to (B_1)^{B_0}_k\).
 
     Since $B_0,B_1\in\Age(A)$, copies of them occur inside $A$. Let $\rho_0$ be the $G$-type consisting of all finite subsets of $\bbN$ whose induced structure in $A$ is isomorphic to $B_0$, and let $\rho_1$ be defined similarly for $B_1$.
 
@@ -877,7 +877,7 @@ The next theorem identifies the extremely amenable closed subgroups of $S_\infty
 
     By the remark on cofinal families of types, we do not need to check all possible $G$-types. It is enough to check the types that come from finite substructures of $F$, because every finite subset of $\bbN$ generates a finite induced substructure of $F$, so these types are cofinal.
 
-    So let \(B_0,B_1\in \Age(F)=\mathcal K\) with \(B_0\leq B_1\), and let $\rho_0,\rho_1$ be the corresponding $G$-types of copies of $B_0$ and $B_1$ inside $F$.
+    So let \(B_0,B_1\in \Age(F)=\mathcal K\) with \(B_0\hookrightarrow B_1\), and let $\rho_0,\rho_1$ be the corresponding $G$-types of copies of $B_0$ and $B_1$ inside $F$.
 
     Because $\mathcal K$ has the Ramsey property, for every $k\geq 2$ there exists \(C\in \mathcal K\) such that \(C\to (B_1)^{B_0}_k\).
     Since $C\in \Age(F)$, the structure $C$ appears inside $F$. Let $\tau$ be the $G$-type of copies of $C$ in $F$.

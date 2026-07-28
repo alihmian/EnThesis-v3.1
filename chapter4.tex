@@ -81,17 +81,21 @@ This example is useful because it shows that simply adding a linear order to a F
 
 There is, however, a natural ordered expansion of finite equivalence relations that \emph{does} have the Ramsey property.
 
-Let $\mathcal{K}$ be the class of all finite $L$-structures \(A=\langle A,E^A,<^A\rangle\) such that $E^A$ is an equivalence relation on $A$, $<^A$ is a linear ordering on $A$, and each $E^A$-class is convex with respect to $<^A$; that is, whenever
+Let $\mathcal{K}$ be the class of all finite $L$-structures
+\(\bfa=\langle A,E^{\bfa},<^{\bfa}\rangle\) such that \(E^{\bfa}\) is an
+equivalence relation on $A$, \(<^{\bfa}\) is a linear ordering on $A$, and
+each \(E^{\bfa}\)-class is convex with respect to \(<^{\bfa}\); that is,
+whenever
 \[
-    a<^A b<^A c
+    a<^{\bfa} b<^{\bfa} c
     \quad\text{and}\quad
-    a\,E^A\,c,
+    a\,E^{\bfa}\,c,
 \]
-we also have \(a\,E^A\,b\).
+we also have \(a\,E^{\bfa}\,b\).
 
 It is straightforward to check that $\mathcal{K}$ is a Fra\"iss\'e order class. Its Fra\"iss\'e limit is, up to isomorphism,
 \[
-    F=\langle \mathbb{Q}^2,E,<_{\ell}\rangle,
+    \bff=\langle \mathbb{Q}^2,E,<_{\ell}\rangle,
 \]
 where $<_{\ell}$ is the lexicographic ordering on $\mathbb{Q}^2$ and
 \[
@@ -100,7 +104,7 @@ where $<_{\ell}$ is the lexicographic ordering on $\mathbb{Q}^2$ and
     r=r'.
 \]
 
-To prove that $\Aut(F)$ is extremely amenable, we use the following standard closure properties.
+To prove that $\Aut(\bff)$ is extremely amenable, we use the following standard closure properties.
 
 \begin{lemma}
     \label{lem:ea-closure-properties}
@@ -134,9 +138,9 @@ To prove that $\Aut(F)$ is extremely amenable, we use the following standard clo
     \label{thm:convex-eq-ea}
     Let
     \[
-        F=\langle \mathbb{Q}^2,E,<_{\ell}\rangle
+        \bff=\langle \mathbb{Q}^2,E,<_{\ell}\rangle
     \]
-    be as above. Then $\Aut(F)$ is extremely amenable.
+    be as above. Then $\Aut(\bff)$ is extremely amenable.
 \end{theorem}
 
 \begin{proof}
@@ -146,11 +150,11 @@ To prove that $\Aut(F)$ is extremely amenable, we use the following standard clo
     \end{mynote}
 
     For each $r\in \mathbb{Q}$, let \(I_r=\{r\}\times \mathbb{Q}\).
-    Any automorphism $\pi\in \Aut(F)$ permutes the fibers $I_r$, since these are exactly the $E$-classes. Thus $\pi$ induces an order automorphism \(f_{\pi}\in \Aut(\langle \mathbb{Q},<\rangle)\) given by \(\pi(I_r)=I_{f_{\pi}(r)}\).
+    Any automorphism $\pi\in \Aut(\bff)$ permutes the fibers $I_r$, since these are exactly the $E$-classes. Thus $\pi$ induces an order automorphism \(f_{\pi}\in \Aut(\langle \mathbb{Q},<\rangle)\) given by \(\pi(I_r)=I_{f_{\pi}(r)}\).
     Moreover, for each $r\in \mathbb{Q}$, the restriction of $\pi$ to the fiber $I_r$ induces an order automorphism \((g_{\pi})_r\in \Aut(\langle \mathbb{Q},<\rangle)\).
     Therefore we obtain a homomorphism
     \[
-        \Theta\colon \Aut(F)\to \Aut(\langle \mathbb{Q},<\rangle)\ltimes \Aut(\langle \mathbb{Q},<\rangle)^{\mathbb{Q}},
+        \Theta\colon \Aut(\bff)\to \Aut(\langle \mathbb{Q},<\rangle)\ltimes \Aut(\langle \mathbb{Q},<\rangle)^{\mathbb{Q}},
     \]
     where the first factor acts on the second by coordinate shift.
 
@@ -165,7 +169,7 @@ To prove that $\Aut(F)$ is extremely amenable, we use the following standard clo
     \(\Aut(\langle \mathbb{Q},<\rangle)\) is extremely amenable. By
     Lemma~\ref{lem:ea-closure-properties}(iii), so is the product
     \(\Aut(\langle \mathbb{Q},<\rangle)^{\mathbb{Q}}\).
-    Applying Lemma~\ref{lem:ea-closure-properties}(ii), we conclude that the semidirect product is extremely amenable, and therefore so is $\Aut(F)$.
+    Applying Lemma~\ref{lem:ea-closure-properties}(ii), we conclude that the semidirect product is extremely amenable, and therefore so is $\Aut(\bff)$.
 \end{proof}
 
 \begin{corollary}

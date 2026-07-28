@@ -1,19 +1,20 @@
 % !TEX root = main.tex
 \chapter{Universal Minimal Flows and the Ordering Property}
 \label{chap:umf-ordering-property}
-\begin{mynote}
-    Notationally does not match the previous chapters.
-\end{mynote}
+Throughout this and the remaining chapters, bold capital letters denote
+structures, the corresponding plain capitals denote their underlying sets,
+and calligraphic letters denote classes of structures.
+
 In the previous chapter we studied reasonable ordered expansions and the passage from an ordered Fra\"iss\'{e} class to its reduct. We now return to the dynamical side of the Kechris--Pestov--Todorcevic correspondence. Starting from a reasonable Fra\"iss\'{e} order class $\k$, we associate to it a compact flow $X_\k$ of admissible orderings on the Fra\"iss\'{e} limit of the reduct class $\k_0$. The aim of this chapter is to show that the ordering property characterizes the minimality of this flow, and that together with the Ramsey property it yields the universal minimal flow.
 
 \section{Admissible orderings and the flow $X_\k$}
 
 Let $L\supseteq\{<\}$ be a signature, and put \(L_0=L\setminus\{<\}\).
 Let $\k$ be a reasonable Fra\"iss\'{e} order class in the language $L$, and let
-\(\k_0=\k|L_0\) be its reduct to the language $L_0$. By the results of Chapter~\ref{chap:reasonable-expansions},
+\(\k_0=\k\!\restriction\!L_0\) be its reduct to the language $L_0$. By the results of Chapter~\ref{chap:reasonable-expansions},
 the class $\k_0$ is a Fra\"iss\'{e} class, and if
 \(\bff={\rm Flim}(\k)\) and \(\bff_0={\rm Flim}(\k_0)\), then
-\(\bff_0=\bff|L_0\). Let \(\prec_0\) denote the interpretation of the symbol
+\(\bff_0=\bff\!\restriction\!L_0\). Let \(\prec_0\) denote the interpretation of the symbol
 \(<\) in \(\bff\), that is, \(\prec_0=<^{\bff}\), and put
 \(G_0={\rm Aut}(\bff_0)\).
 
@@ -53,7 +54,7 @@ The first point is that membership in $X_\k$ can be recognized purely in terms o
 
     Fix a finite substructure $\bfb_0$ of $\bff_0$. Since $\bfb\in\k=\Age(\bff)$, there exists an embedding
     \(\pi\colon \bfb\to \bff\). Let \(\bfa=\pi(\bfb)\) and
-    \(\bfa_0=\bfa|L_0\).
+    \(\bfa_0=\bfa\!\restriction\!L_0\).
     Then $\pi$ is an isomorphism from $\bfb$ onto $\bfa$, and in particular an isomorphism from $\bfb_0$ onto $\bfa_0$. Since $\bfa_0$ and $\bfb_0$ are finite substructures of the ultrahomogeneous structure $\bff_0$, there exists
     \(g\in {\rm Aut}(\bff_0)=G_0\) extending $\pi^{-1}$. It follows that
     \(\prec|B_0=(g\cdot \prec_0)|B_0\).
@@ -122,7 +123,7 @@ The first point is that membership in $X_\k$ can be recognized purely in terms o
         Let
         \(\bfa=\pi(\bfb)\)
         be the image of $\bfb$ in $\bff$, and let
-        \(\bfa_0=\bfa|L_0\).
+        \(\bfa_0=\bfa\!\restriction\!L_0\).
         Then $\bfa$ is a finite ordered substructure of $\bff$, and
         \(\pi\colon \bfb\to \bfa\)
         is an isomorphism of $L$-structures. In particular, forgetting the order, $\pi$ is an isomorphism
@@ -185,7 +186,7 @@ We now introduce the combinatorial condition that characterizes the minimality o
     \]
     one has
     \[
-        \bfa\leq \bfb.
+        \bfa\hookrightarrow \bfb.
     \]
 \end{definition}
 
@@ -209,12 +210,12 @@ The key step is the following finite reformulation of the condition
               \[
                   \langle \bfc_0,\prec|C_0\rangle\in\k
                   \qquad\text{and}\qquad
-                  \bfa\leq \langle \bfc_0,\prec|C_0\rangle.
+                  \bfa\hookrightarrow \langle \bfc_0,\prec|C_0\rangle.
               \]
     \end{enumerate}
     In particular, if $\prec\in X_\k$, then condition {\rm(ii)} says exactly
     that every member of $\k$ embeds into a finite substructure of the ordered
-    structure \(\langle F_0,\prec\rangle\).
+    expansion \(\langle \bff_0,\prec\rangle\).
 \end{lemma}
 
 \begin{proof}
@@ -230,7 +231,7 @@ The key step is the following finite reformulation of the condition
     \(g\colon \langle \bfc_0,\prec|C_0\rangle\to \bfa\)
     is an isomorphism. Hence
     \(\langle \bfc_0,\prec|C_0\rangle\in\k\) and
-    \(\bfa\leq \langle \bfc_0,\prec|C_0\rangle\).
+    \(\bfa\hookrightarrow \langle \bfc_0,\prec|C_0\rangle\).
 
     Conversely, assume (ii). To show that
     \(\prec_0\in\overline{G_0\cdot \prec}\),
@@ -241,7 +242,7 @@ The key step is the following finite reformulation of the condition
     \(\bfa=\langle \bfa_0,\prec_0|A_0\rangle\in\k\).
     By (ii), there exists a finite substructure $\bfc_0$ of $\bff_0$ such that
     \(\bfc=\langle \bfc_0,\prec|C_0\rangle\in\k\) and
-    \(\bfa\leq \bfc\).
+    \(\bfa\hookrightarrow \bfc\).
     Let \(\pi\colon \bfa\to \bfc\) be an embedding. Forgetting the order,
     $\pi$ is an embedding \(\pi\colon \bfa_0\to \bff_0\).
     Since $\bff_0$ is ultrahomogeneous, $\pi^{-1}$ extends to some
@@ -302,7 +303,7 @@ The key step is the following finite reformulation of the condition
         Finally, because $g$ is an isomorphism from $\bfc$ onto $\bfa$, its inverse
         \(g^{-1}\colon \bfa\to \bfc\)
         is an embedding. Hence
-        \(\bfa\leq \langle \bfc_0,\prec|C_0\rangle\).
+        \(\bfa\hookrightarrow \langle \bfc_0,\prec|C_0\rangle\).
         This proves (ii).
 
         Conversely, assume that condition (ii) holds. We must show that
@@ -323,7 +324,7 @@ The key step is the following finite reformulation of the condition
         By assumption (ii), there exists a finite substructure
         \(\bfc_0\leq \bff_0\) such that
         \(\bfc=\langle \bfc_0,\prec|C_0\rangle\in\k\) and
-        \(\bfa\leq \bfc\).
+        \(\bfa\hookrightarrow \bfc\).
         Let \(\pi\colon \bfa\to \bfc\) be an embedding. Then $\pi$ is, in
         particular, an embedding of ordered structures. Forgetting the order,
         it is an embedding \(\pi\colon \bfa_0\to \bff_0\).
@@ -381,11 +382,11 @@ We can now characterize the minimality of $X_\k$.
     By the ordering property, there exists \(\bfb_0\in\k_0\)
     such that whenever
     \(\bfb=\langle \bfb_0,\prec_B\rangle\in\k\), one has
-    \(\bfa\leq \bfb\). Since \(\Age(\bff_0)=\k_0\),
+    \(\bfa\hookrightarrow \bfb\). Since \(\Age(\bff_0)=\k_0\),
     we may realize $\bfb_0$ as a finite substructure of $\bff_0$. Because $\prec\in X_\k$, Proposition~\ref{prop:admissible-orderings-characterization} implies that
     \(\langle \bfb_0,\prec|B_0\rangle\in\k\).
     Hence
-    \(\bfa\leq \langle \bfb_0,\prec|B_0\rangle\).
+    \(\bfa\hookrightarrow \langle \bfb_0,\prec|B_0\rangle\).
     By Lemma~\ref{lem:orbit-closure-characterization},
     \(\prec_0\in\overline{G_0\cdot \prec}\).
 
@@ -420,10 +421,18 @@ We can now characterize the minimality of $X_\k$.
         =
         \langle \bfc^{\,j}_{\prec,0},\prec|C^{\,j}_{\prec,0}\rangle\in\k
     \]
-    and \(\bfa^j\leq \bfc^{\,j}_{\prec}\). Let
-    \(C_{\prec,0}=C^{\,1}_{\prec,0}\cup\cdots\cup C^{\,m}_{\prec,0}\),
-    viewed as the finite substructure of $\bff_0$ generated by this union. Since $\prec\in X_\k$, Proposition~\ref{prop:admissible-orderings-characterization} gives
-    \(\langle C_{\prec,0},\prec|C_{\prec,0}\rangle\in\k\),
+    and \(\bfa^j\hookrightarrow \bfc^{\,j}_{\prec}\). Let
+    \[
+        \bfc_{\prec,0}
+        =
+        \left\langle
+            C^{\,1}_{\prec,0}\cup\cdots\cup C^{\,m}_{\prec,0}
+        \right\rangle_{\bff_0},
+        \qquad
+        C_{\prec,0}=\dom(\bfc_{\prec,0}).
+    \]
+    Since $\prec\in X_\k$, Proposition~\ref{prop:admissible-orderings-characterization} gives
+    \(\langle \bfc_{\prec,0},\prec|C_{\prec,0}\rangle\in\k\),
     and by construction every $\bfa^j$ embeds into this ordered structure.
 
     Now define
@@ -442,7 +451,7 @@ We can now characterize the minimality of $X_\k$.
     Choose a finite substructure \(\bfb_0\leq \bff_0\) containing each of the
     finite substructures
     \[
-        C_{\prec_1,0},\dots,C_{\prec_n,0}.
+        \bfc_{\prec_1,0},\dots,\bfc_{\prec_n,0}.
     \]
     We claim that $\bfb_0$ witnesses the ordering property for $\bfa_0$.
 
@@ -466,16 +475,16 @@ We can now characterize the minimality of $X_\k$.
     Hence
     \(\widehat{\prec}|C_{\prec_i,0}=\prec_i|C_{\prec_i,0}\).
     By construction of $C_{\prec_i,0}$, every ordered expansion of $\bfa_0$ belonging to $\k$ embeds into
-    \(\langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle\).
+    \(\langle \bfc_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle\).
     In particular,
     \[
-        \bfa\leq \langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle
+        \bfa\hookrightarrow \langle \bfc_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle
         =
-        \langle C_{\prec_i,0},\widehat{\prec}|C_{\prec_i,0}\rangle.
+        \langle \bfc_{\prec_i,0},\widehat{\prec}|C_{\prec_i,0}\rangle.
     \]
     Since \(C_{\prec_i,0}\subseteq B_0\)
     and $\widehat{\prec}|B_0=\prec_B$, the latter is a substructure of $\bfb$. Therefore
-    \(\bfa\leq \bfb\).
+    \(\bfa\hookrightarrow \bfb\).
     This proves that $\k$ has the ordering property.
 \end{proof}
 \begin{mynote}
@@ -502,7 +511,7 @@ We can now characterize the minimality of $X_\k$.
         \(\bfb_0\in\k_0\)
         such that whenever
         \(\bfb=\langle \bfb_0,\prec_B\rangle\in\k\), one has
-        \(\bfa\leq \bfb\).
+        \(\bfa\hookrightarrow \bfb\).
 
         Because \(\Age(\bff_0)=\k_0\),
         we may realize $\bfb_0$ as a finite substructure of $\bff_0$. Since
@@ -510,7 +519,7 @@ We can now characterize the minimality of $X_\k$.
         Proposition~\ref{prop:admissible-orderings-characterization} implies that
         \(\langle \bfb_0,\prec|B_0\rangle\in\k\).
         By the choice of $\bfb_0$, it follows that
-        \(\bfa\leq \langle \bfb_0,\prec|B_0\rangle\).
+        \(\bfa\hookrightarrow \langle \bfb_0,\prec|B_0\rangle\).
         Thus condition {\rm(ii)} of Lemma~\ref{lem:orbit-closure-characterization} holds. Hence
         \(\prec_0\in\overline{G_0\cdot \prec}\).
 
@@ -527,7 +536,7 @@ We can now characterize the minimality of $X_\k$.
         \]
         one has
         \[
-            \bfa\leq \bfb.
+            \bfa\hookrightarrow \bfb.
         \]
 
         Since $A_0$ is finite, there are only finitely many linear orderings on $A_0$. Hence there are only finitely many ordered structures of the form
@@ -547,17 +556,24 @@ We can now characterize the minimality of $X_\k$.
             =
             \langle \bfc^{\,j}_{\prec,0},\prec|C^{\,j}_{\prec,0}\rangle\in\k
         \]
-        and \(\bfa^j\leq \bfc^{\,j}_{\prec}\).
+        and \(\bfa^j\hookrightarrow \bfc^{\,j}_{\prec}\).
 
-        Let \(C_{\prec,0}\)
-        be the finite substructure of $\bff_0$ generated by the union
-        \(C^{\,1}_{\prec,0}\cup\cdots\cup C^{\,m}_{\prec,0}\).
+        Let
+        \[
+            \bfc_{\prec,0}
+            =
+            \left\langle
+                C^{\,1}_{\prec,0}\cup\cdots\cup C^{\,m}_{\prec,0}
+            \right\rangle_{\bff_0},
+            \qquad
+            C_{\prec,0}=\dom(\bfc_{\prec,0}).
+        \]
         Since
         \(\prec\in X_\k\),
         Proposition~\ref{prop:admissible-orderings-characterization} shows that
-        \(\langle C_{\prec,0},\prec|C_{\prec,0}\rangle\in\k\).
+        \(\langle \bfc_{\prec,0},\prec|C_{\prec,0}\rangle\in\k\).
         Moreover, because each
-        \(\bfc^{\,j}_{\prec,0}\leq C_{\prec,0}\),
+        \(\bfc^{\,j}_{\prec,0}\leq \bfc_{\prec,0}\),
         the ordered structure
         \[
             \bfc^{\,j}_{\prec}
@@ -565,11 +581,11 @@ We can now characterize the minimality of $X_\k$.
             \langle \bfc^{\,j}_{\prec,0},\prec|C^{\,j}_{\prec,0}\rangle
         \]
         is a substructure of
-        \(\langle C_{\prec,0},\prec|C_{\prec,0}\rangle\).
+        \(\langle \bfc_{\prec,0},\prec|C_{\prec,0}\rangle\).
         Since
-        \(\bfa^j\leq \bfc^{\,j}_{\prec}\),
+        \(\bfa^j\hookrightarrow \bfc^{\,j}_{\prec}\),
         it follows that every ordered expansion of $\bfa_0$ belonging to $\k$ embeds into
-        \(\langle C_{\prec,0},\prec|C_{\prec,0}\rangle\).
+        \(\langle \bfc_{\prec,0},\prec|C_{\prec,0}\rangle\).
 
         Define
         \[
@@ -586,7 +602,7 @@ We can now characterize the minimality of $X_\k$.
 
         Choose a finite substructure \(\bfb_0\leq \bff_0\) containing each of
         the finite substructures
-        \(C_{\prec_1,0},\dots,C_{\prec_n,0}\). Since
+        \(\bfc_{\prec_1,0},\dots,\bfc_{\prec_n,0}\). Since
         \(\Age(\bff_0)=\k_0\), we have \(\bfb_0\in\k_0\).
         We claim that this $\bfb_0$ witnesses the ordering property for $\bfa_0$.
 
@@ -596,7 +612,7 @@ We can now characterize the minimality of $X_\k$.
             \qquad\text{and}\qquad
             \bfb=\langle \bfb_0,\prec_B\rangle\in\k.
         \]
-        We must show that \(\bfa\leq \bfb\).
+        We must show that \(\bfa\hookrightarrow \bfb\).
 
         Since \(\bfb\in\k=\Age(\bff)\),
         there exists a finite ordered substructure
@@ -639,25 +655,25 @@ We can now characterize the minimality of $X_\k$.
         \(\widehat{\prec}|C_{\prec_i,0}=\prec_i|C_{\prec_i,0}\).
 
         By the construction of $C_{\prec_i,0}$, every ordered expansion of $\bfa_0$ that belongs to $\k$ embeds into
-        \(\langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle\).
+        \(\langle \bfc_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle\).
         Since \(\bfa=\langle \bfa_0,\prec_A\rangle\in\k\),
         it follows that
-        \(\bfa\leq
-        \langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle\).
+        \(\bfa\hookrightarrow
+        \langle \bfc_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle\).
         Using the equality of restrictions, we obtain
         \[
-            \langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle
+            \langle \bfc_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle
             =
-            \langle C_{\prec_i,0},\widehat{\prec}|C_{\prec_i,0}\rangle.
+            \langle \bfc_{\prec_i,0},\widehat{\prec}|C_{\prec_i,0}\rangle.
         \]
         Since \(C_{\prec_i,0}\subseteq B_0\) and
         \(\widehat{\prec}|B_0=\prec_B\),
         the structure
-        \(\langle C_{\prec_i,0},\widehat{\prec}|C_{\prec_i,0}\rangle\)
+        \(\langle \bfc_{\prec_i,0},\widehat{\prec}|C_{\prec_i,0}\rangle\)
         is a substructure of
         \(\langle \bfb_0,\prec_B\rangle=\bfb\).
         Therefore
-        \(\bfa\leq \bfb\).
+        \(\bfa\hookrightarrow \bfb\).
 
         We have shown that the chosen finite reduct $\bfb_0$ has the property that every member of $\k$ with reduct $\bfb_0$ contains every member of $\k$ with reduct $\bfa_0$. This proves that $\k$ has the ordering property.
     \end{proof}
@@ -703,10 +719,10 @@ is universal among $G_0$-ambits whose distinguished point is fixed by $G$.
 
     Because the action of $G_0$ on the compact space $X$ is continuous, there exists an open neighbourhood $V$ of the identity in $G_0$ such that
     \((v\cdot z,z)\in D\) for all \(z\in X\) and all \(v\in V\).
-    Since $G_0\leq S_\infty$ is non-Archimedean, we may choose a finite substructure
+    Since $G_0$ is non-Archimedean, we may choose a finite substructure
     \(\bfa_0\leq \bff_0\)
     such that the pointwise stabilizer
-    \(G_{0,(\bfa_0)}\subseteq V\).
+    \(G_{0,(A_0)}\subseteq V\).
 
     Because \((\prec,x),(\prec,x')\in \Phi\),
     there exist
@@ -720,15 +736,15 @@ is universal among $G_0$-ambits whose distinguished point is fixed by $G$.
     Since
     \((g\cdot \prec_0)|A_0=(h\cdot \prec_0)|A_0\),
     the map $\theta$ is an isomorphism of the finite ordered structures
-    \(\langle g^{-1}(\bfa_0),\prec_0\rangle\) and
-    \(\langle h^{-1}(\bfa_0),\prec_0\rangle\).
+    \(\langle g^{-1}(\bfa_0),\prec_0|g^{-1}(A_0)\rangle\) and
+    \(\langle h^{-1}(\bfa_0),\prec_0|h^{-1}(A_0)\rangle\).
     Because \(\Age(\bff)=\k\)
     and $\bff$ is ultrahomogeneous, $\theta$ extends to some
     \(\gamma\in G={\rm Aut}(\bff)\).
     Then for every $a\in A_0$,
     \(h\gamma g^{-1}(a)=a\),
     so
-    \(v:=h\gamma g^{-1}\in G_{0,(\bfa_0)}\subseteq V\).
+    \(v:=h\gamma g^{-1}\in G_{0,(A_0)}\subseteq V\).
     Since $\gamma\in G$ fixes $x_0$, we obtain
     \[
         h\cdot x_0=v\cdot g\cdot \gamma^{-1}\cdot x_0=v\cdot g\cdot x_0.
@@ -764,10 +780,10 @@ is universal among $G_0$-ambits whose distinguished point is fixed by $G$.
         Next, we use continuity of the action \(G_0\times X\to X\).
         Since $X$ is compact, the action is uniformly continuous in the group variable near the identity. Hence there exists an open neighbourhood $V$ of the identity in $G_0$ such that
         \((v\cdot z,z)\in D\) for all \(z\in X\) and all \(v\in V\).
-        Since $G_0$ is a closed subgroup of $S_\infty$, it is non-Archimedean, so we may choose a finite substructure
+        Since $G_0$ is non-Archimedean, we may choose a finite substructure
         \(\bfa_0\leq \bff_0\)
         such that the pointwise stabilizer
-        \(G_{0,(\bfa_0)}\subseteq V\).
+        \(G_{0,(A_0)}\subseteq V\).
 
         Now, since \((\prec,x),(\prec,x')\in \Phi\) and
         \[
@@ -784,8 +800,8 @@ is universal among $G_0$-ambits whose distinguished point is fixed by $G$.
         Consider the map
         \(\theta=h^{-1}g\colon g^{-1}(A_0)\to h^{-1}(A_0)\).
         We claim that $\theta$ is an isomorphism between the finite ordered substructures
-        \(\langle g^{-1}(\bfa_0),\prec_0\rangle\) and
-        \(\langle h^{-1}(\bfa_0),\prec_0\rangle\).
+        \(\langle g^{-1}(\bfa_0),\prec_0|g^{-1}(A_0)\rangle\) and
+        \(\langle h^{-1}(\bfa_0),\prec_0|h^{-1}(A_0)\rangle\).
         Since $g,h\in G_0=\Aut(\bff_0)$, the map $\theta=h^{-1}g$ is automatically an isomorphism of the underlying $L_0$-structures. It remains to check preservation of the order.
 
         Let \(u,v\in g^{-1}(A_0)\). Put \(a=g(u)\) and \(b=g(v)\),
@@ -816,7 +832,7 @@ is universal among $G_0$-ambits whose distinguished point is fixed by $G$.
             v(a)=h\gamma g^{-1}(a)=h(h^{-1}(a))=a.
         \]
         Since this holds for every $a\in A_0$, we have
-        \(v\in G_{0,(\bfa_0)}\subseteq V\).
+        \(v\in G_{0,(A_0)}\subseteq V\).
 
         Because $\gamma\in G$ and the point $x_0$ is fixed by every element of $G$, we have
         \(\gamma\cdot x_0=x_0\).
@@ -932,4 +948,4 @@ We can now combine this with the results of Chapters~\ref{chap:extreme-amenabili
     On the other hand, by Theorem~\ref{thm:minimality-ordering-property}, the ordering property implies that $X_\k$ is minimal. Hence every minimal compact $G_0$-flow is a factor of $X_\k$, which is therefore the universal minimal flow of $G_0$.
 \end{proof}
 
-The preceding theorem shows how the Ramsey property and admissible orderings determine the universal minimal flow of the automorphism group of the reduct. In the following chapters we turn to the converse direction, uniqueness questions for such expansions, and the role of Ramsey degrees in the computation of universal minimal flows.
+The preceding corollary shows how the Ramsey property and admissible orderings determine the universal minimal flow of the automorphism group of the reduct. In the following chapters we turn to the converse direction, uniqueness questions for such expansions, and the role of Ramsey degrees in the computation of universal minimal flows.

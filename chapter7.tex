@@ -10,7 +10,8 @@ The examples naturally divide into three types. In some cases every linear order
 
 In the examples considered in this section, the ordered expansion is the free one: no compatibility condition is imposed between the additional linear order and the underlying structure. As a result, every linear ordering is admissible, so the flow $X_\k$ coincides with the full ordering space. Once the Ramsey and ordering properties are known, the universal minimal flow follows immediately from Chapter~\ref{chap:umf-ordering-property}.
 
-We write $\mathrm{LO}(F_0)$ for the compact space of all linear orderings on the underlying set of a countable structure $F_0$.
+For a countable structure $\bff_0$ with underlying set $F_0$, we write
+$\mathrm{LO}(F_0)$ for the compact space of all linear orderings on $F_0$.
 
 \begin{theorem}
 \label{thm:umf-full-ordering-space}
@@ -31,7 +32,12 @@ The following groups have universal minimal flow equal to the full space of line
 \end{theorem}
 
 \begin{proof}
-In each case, let $\k_0$ be the relevant Fra\"iss\'e class and let \(\k=\k_0*\mathcal{LO}\) be its free ordered expansion. By construction, every linear ordering on a finite member of $\k_0$ gives a member of $\k$, so every linear ordering on the Fra\"iss\'e limit of $\k_0$ is $\k$-admissible. Therefore \(X_\k=\mathrm{LO}(F_0)\).
+In each case, let $\k_0$ be the relevant Fra\"iss\'e class, let
+\(\bff_0=\Flim(\k_0)\) with underlying set $F_0$, and let
+\(\k=\k_0*\mathcal{LO}\) be its free ordered expansion. By construction, every
+linear ordering on a finite member of $\k_0$ gives a member of $\k$, so every
+linear ordering on $F_0$ is $\k$-admissible. Therefore
+\(X_\k=\mathrm{LO}(F_0)\).
 
 It remains to verify that $\k$ has the Ramsey property and the ordering property. The Ramsey property was established in the preceding chapters: for graphs and $K_n$-free graphs by the theorem of Ne\v{s}et\v{r}il and R\"odl, for finite hypergraphs and $\mathcal A$-free hypergraphs by the corresponding hypergraph Ramsey theorems, and for finite rational metric spaces by Ne\v{s}et\v{r}il's theorem. The ordering property holds for these free ordered expansions. Hence Chapter~\ref{chap:umf-ordering-property} applies and gives that the universal minimal flow of the automorphism group of the reduct is exactly $X_\k$.
 
@@ -76,7 +82,7 @@ We now return to the Boolean algebra example and record a more concrete descript
 Let \(\mathcal C=2^{\mathbb N}\) be the Cantor space, and let \(\Phi(\mathcal C)\) denote the compact space of all maximal chains of closed subsets of $\mathcal C$, ordered by inclusion. The group \(\mathrm{Homeo}(\mathcal C)\) acts continuously on $\Phi(\mathcal C)$ by \(g\cdot \mathcal M=\{g(M):M\in\mathcal M\}\).
 
 By Stone duality, the countable atomless Boolean algebra $\bfb_\infty$ may be identified with the Boolean algebra of clopen subsets of $\mathcal C$, and under this identification the group \(\Aut(\bfb_\infty)\) is naturally isomorphic to \(\mathrm{Homeo}(\mathcal C)\).
-The next theorem identifies the universal minimal flow described in Section~2 with the maximal-chain flow on $\mathcal C$.
+The next theorem identifies the Boolean-algebra universal minimal flow from Theorem~\ref{thm:umf-structured-ordering-spaces}(iii) with the maximal-chain flow on $\mathcal C$.
 
 \begin{theorem}
 \label{thm:boolean-maximal-chains}
