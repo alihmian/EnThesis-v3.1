@@ -234,8 +234,21 @@ We now show that if the ordered class \(\cK\) has the Ramsey property, then the 
         \bfc_0\to(\bfb_0)^{\bfa_0}_{k,t}.
     \]
 
-    For the final claim, note that \(t_\cK(\bfa_0,\bfb_0,\prec^{\bfb_0})\leq t_{\cK'}(\bfa_0)\),
-    since every pattern realised in \(\langle\bfb_0,\prec^{\bfb_0}\rangle\) with respect to \(\cK'\) is also a \(\cK'\)-pattern on \(\bfa_0\). Hence the same \(\bfc_0\) also satisfies
+    For the final claim, fix a hereditary class \(\cK'\subseteq\cK\) with
+    \(\cK'\!\restriction\!L_0=\cK_0\), and choose
+    \(\langle\bfb_0,\prec^{\bfb_0}\rangle\in\cK'\). Applying the first part
+    to this ordered expansion gives a structure \(\bfc_0\) with
+    \[
+        \bfc_0\to
+        (\bfb_0)^{\bfa_0}_{k,\,t_\cK(\bfa_0,\bfb_0,\prec^{\bfb_0})}.
+    \]
+    Since \(\cK'\) is hereditary, every \(\bfa_0\)-pattern realised inside
+    \(\langle\bfb_0,\prec^{\bfb_0}\rangle\) is a \(\cK'\)-pattern. Therefore
+    \[
+        t_\cK(\bfa_0,\bfb_0,\prec^{\bfb_0})
+        \leq t_{\cK'}(\bfa_0),
+    \]
+    and hence
     \[
         \bfc_0\to(\bfb_0)^{\bfa_0}_{k,\,t_{\cK'}(\bfa_0)}.
     \]
@@ -289,7 +302,7 @@ The proof yields a slightly stronger conclusion: one may choose a linear orderin
     \[
         \bfb_0'\in\begin{pmatrix}\bfc_0\\ \bfb_0\end{pmatrix}.
     \]
-    Then \(\langle\bfb_0',\prec^{\bfc_0}\restriction B_0'\rangle\in\cK\), and by the choice of \(\bfb_0'\), every admissible \(\bfa_0\)-pattern is realised inside this ordered structure. Therefore the colouring \(c\) takes every value \(1,\dots,t_\cK(\bfa_0)\)
+    Then \(\langle\bfb_0',\prec^{\bfc_0}\restriction B_0'\rangle\in\cK\), and by the choice of \(\bfb_0\), every admissible \(\bfa_0\)-pattern is realised inside this ordered structure. Therefore the colouring \(c\) takes every value \(1,\dots,t_\cK(\bfa_0)\)
     on
     \[
         \begin{pmatrix}\bfb_0'\\ \bfa_0\end{pmatrix}.
@@ -361,10 +374,18 @@ We now prove converses to the results of the previous section. The first shows t
     \[
         \langle\bfb_0,\prec^{\bfb_0}\rangle\hookrightarrow\langle\bfb_1,\prec^{\bfb_1}\rangle.
     \]
-    Since \(\cK\) is reasonable and \(\langle\bfa_0,\prec\rangle\hookrightarrow\langle\bfb_0,\prec'\rangle\), it follows that for every ordering \(\prec^{\bfb_1}\) on \(B_1\) with \(\langle\bfb_1,\prec^{\bfb_1}\rangle\in\cK\), we also have
+    In fact, every admissible \(\bfa_0\)-pattern is realised inside every
+    ordered expansion of \(\bfb_1\) belonging to \(\cK\). To see this, let
+    \(\langle\bfa_0,\sqsubset\rangle\in\cK\). By reasonableness, the fixed
+    embedding \(\bfa_0\hookrightarrow\bfb_0\) lifts to an embedding
     \[
-        \langle\bfa_0,\prec\rangle\hookrightarrow\langle\bfb_1,\prec^{\bfb_1}\rangle.
+        \langle\bfa_0,\sqsubset\rangle
+        \hookrightarrow
+        \langle\bfb_0,\sqsubset^{\bfb_0}\rangle
     \]
+    for some \(\langle\bfb_0,\sqsubset^{\bfb_0}\rangle\in\cK\). The choice of
+    \(\bfb_1\) then ensures that this ordered expansion of \(\bfb_0\) embeds
+    into every ordered expansion of \(\bfb_1\) in \(\cK\).
 
     Now apply the hypothesis with \(\bfa_0\), \(\bfb_1\), and \(k=t_\cK(\bfa_0)+1\).
     Thus there exists \(\bfc_0\in\cK_0\) with
@@ -385,7 +406,10 @@ We now prove converses to the results of the previous section. The first shows t
         \to
         \{1,2\}
     \]
-    be a colouring of copies of \(\langle\bfa_0,\prec\rangle\) in \(\langle\bfc_0,\prec''\rangle\). Enumerate the \(\bfa_0\)-patterns as \(p_1,\dots,p_{t_\cK(\bfa_0)}\).
+    be a colouring of copies of \(\langle\bfa_0,\prec\rangle\) in \(\langle\bfc_0,\prec''\rangle\). Enumerate the \(\bfa_0\)-patterns as \(p_1,\dots,p_{t_\cK(\bfa_0)}\), and let \(j\) be the unique index such that
+    \[
+        p_j=\pat_{\cK,\bfa_0}(\prec).
+    \]
     Using \(c\), define a colouring
     \[
         c'\colon
@@ -424,11 +448,18 @@ We now prove converses to the results of the previous section. The first shows t
     \[
         \begin{pmatrix}\bfb_1'\\ \bfa_0\end{pmatrix}.
     \]
-    Since \(\langle\bfb_1',\prec''\restriction B_1'\rangle\in\cK\) and \(\langle\bfa_0,\prec\rangle\) embeds into every ordered expansion of \(\bfb_1\) in \(\cK\), the pattern of \(\prec\) is realised by some copy of \(\bfa_0\) inside \(\bfb_1'\). Moreover, every \(\bfa_0\)-pattern realised in \(\langle\bfb_1',\prec''\restriction B_1'\rangle\) contributes at least one value of \(c'\) on
+    By the observation above, every admissible \(\bfa_0\)-pattern is realised
+    in \(\langle\bfb_1',\prec''\restriction B_1'\rangle\). Hence each of the
+    \(t_\cK(\bfa_0)-1\) values \(i\neq j\) occurs as a value of \(c'\) on
     \[
         \begin{pmatrix}\bfb_1'\\ \bfa_0\end{pmatrix}.
     \]
-    Since \(c'\) takes at most \(t_\cK(\bfa_0)\) values there, the value \(0\) must occur and, for the pattern of \(\prec\), no additional value can occur. It follows that all copies of \(\langle\bfa_0,\prec\rangle\) inside \(\langle\bfb_1',\prec''\restriction B_1'\rangle\) have the same \(c\)-colour, namely \(2\).
+    Copies having the pattern of \(\prec\) contribute a nonempty subset of
+    the two values \(\{0,j\}\). Since \(c'\) takes at most
+    \(t_\cK(\bfa_0)\) values altogether, exactly one of \(0\) and \(j\) occurs.
+    It follows that all copies of \(\langle\bfa_0,\prec\rangle\) inside
+    \(\langle\bfb_1',\prec''\restriction B_1'\rangle\) have the same
+    \(c\)-colour, either \(1\) or \(2\).
 
     Finally, by the choice of \(\bfb_1\) we have
     \[
@@ -516,25 +547,99 @@ We now return to the dynamical viewpoint of the previous chapters. The results o
 \begin{proof}
     Let \(\bff_0=\Flim(\cK_0)\) and \(G_0=\Aut(\bff_0)\). Consider the \(G_0\)-flow \(X_\cK\) of all \(\cK\)-admissible linear orderings on \(F_0\). Choose a minimal subflow \(X'\subseteq X_\cK\), and fix some \(\prec'\in X'\). Let \(\cK'=\Age(\langle \bff_0,\prec'\rangle)\).
     Then \(\cK'\subseteq\cK\), and since every finite \(L_0\)-substructure of \(\bff_0\) lies in \(\cK_0\), we have \(\cK'\!\restriction\!L_0=\cK_0\).
-    Moreover, \(\cK'\) is hereditary and has the joint embedding property, and it is easy to verify that \(\cK'\) is reasonable.
+    As the age of a structure, \(\cK'\) is hereditary and has the joint
+    embedding property. It is also reasonable. Indeed, suppose that
+    \(\pi\colon\bfa_0\hookrightarrow\bfb_0\) and
+    \(\langle\bfa_0,\sqsubset\rangle\in\cK'\). Realise this ordered structure
+    in \(\langle\bff_0,\prec'\rangle\), and use the extension property of the
+    Fraïssé limit \(\bff_0\) to extend the resulting embedding of \(\bfa_0\)
+    along \(\pi\) to an embedding of \(\bfb_0\) into \(\bff_0\). Pulling back
+    the order \(\prec'\) gives an expansion of \(\bfb_0\) in \(\cK'\) for
+    which \(\pi\) is an ordered embedding.
 
+    Before establishing amalgamation for \(\cK'\), let \(X_{\cK'}\) denote the
+    space of all linear orderings \(\sqsubset\) on \(F_0\) such that
+    \[
+        \langle\bfa_0,\sqsubset\restriction A_0\rangle\in\cK'
+        \qquad\text{for every finite }\bfa_0\leq\bff_0.
+    \]
     We claim that
     \[
         X'=X_{\cK'}.
     \]
-    Indeed, every finite substructure of \(\langle\bff_0,\prec'\rangle\) belongs to \(\cK'\), so every ordering in the orbit closure \(\overline{G_0\cdot \prec'}=X'\) is \(\cK'\)-admissible. Conversely, if an ordering on \(F_0\) is \(\cK'\)-admissible, then every finite restriction occurs in \(\Age(\langle\bff_0,\prec'\rangle)\), hence belongs to the orbit closure of \(\prec'\). Thus the two spaces coincide.
+    Indeed, every finite substructure of \(\langle\bff_0,\prec'\rangle\) belongs
+    to \(\cK'\), so every ordering in the orbit closure
+    \(\overline{G_0\cdot\prec'}=X'\) belongs to \(X_{\cK'}\). Conversely, let
+    \(\sqsubset\in X_{\cK'}\) and fix a finite \(\bfa_0\leq\bff_0\). The
+    ordered structure \(\langle\bfa_0,\sqsubset\restriction A_0\rangle\) occurs
+    in \(\langle\bff_0,\prec'\rangle\). By ultrahomogeneity of \(\bff_0\), an
+    embedding witnessing this occurrence extends, on the reduct, to an element
+    of \(G_0\). Hence some translate of \(\prec'\) agrees with \(\sqsubset\) on
+    \(A_0\). Since \(\bfa_0\) was arbitrary,
+    \(\sqsubset\in\overline{G_0\cdot\prec'}=X'\).
 
-    Since \(X'=X_{\cK'}\) is minimal, it follows from
-    Theorem~\ref{thm:minimality-ordering-property} that \(\cK'\) has the ordering
-    property.
+    We next derive the ordering property directly from the minimality of \(X'\).
+    Fix \(\bfa_0\in\cK_0\), and list the ordered expansions of \(\bfa_0\) that
+    belong to \(\cK'\) as \(\bfa^1,\dots,\bfa^m\). For each
+    \(\sqsubset\in X'\), minimality gives
+    \(\prec'\in\overline{G_0\cdot\sqsubset}\). It follows, by considering the
+    finitely many restrictions on which the structures \(\bfa^1,\dots,\bfa^m\)
+    occur, that there is a finite substructure
+    \(\bfc_{\sqsubset,0}\leq\bff_0\) such that every \(\bfa^i\) embeds into
+    \[
+        \langle\bfc_{\sqsubset,0},
+        \sqsubset\restriction C_{\sqsubset,0}\rangle.
+    \]
+    The sets
+    \[
+        U_{\sqsubset}
+        =
+        \{\sqsubset'\in X' :
+        \sqsubset'\restriction C_{\sqsubset,0}
+        =\sqsubset\restriction C_{\sqsubset,0}\}
+    \]
+    form an open cover of the compact space \(X'\). Choose a finite subcover
+    \(U_{\sqsubset_1},\dots,U_{\sqsubset_n}\), and let
+    \(\bfb_0\leq\bff_0\) be a finite substructure containing all the
+    \(\bfc_{\sqsubset_i,0}\).
 
-    It remains to show that \(\cK'\) has the Ramsey property. By Proposition~\ref{prop:partition-bound-implies-ramsey}, it is enough to verify that for every \(\bfa_0\hookrightarrow\bfb_0\) in \(\cK_0\) and every \(k\geq 2\), there exists \(\bfc_0\in\cK_0\) with \(\bfb_0\hookrightarrow\bfc_0\) such that
+    We claim that \(\bfb_0\) witnesses the ordering property at \(\bfa_0\).
+    Let
+    \[
+        \langle\bfa_0,\prec^{\bfa_0}\rangle,
+        \langle\bfb_0,\prec^{\bfb_0}\rangle\in\cK'.
+    \]
+    Since the latter structure belongs to
+    \(\Age(\langle\bff_0,\prec'\rangle)\), ultrahomogeneity of \(\bff_0\)
+    yields an ordering \(\widehat{\prec}\in G_0\cdot\prec'\subseteq X'\) whose
+    restriction to \(B_0\) is \(\prec^{\bfb_0}\). Choose \(i\) such that
+    \(\widehat{\prec}\in U_{\sqsubset_i}\). Every \(\cK'\)-expansion of
+    \(\bfa_0\), and in particular
+    \(\langle\bfa_0,\prec^{\bfa_0}\rangle\), embeds into
+    \(\langle\bfc_{\sqsubset_i,0},
+    \widehat{\prec}\restriction C_{\sqsubset_i,0}\rangle\), which is an ordered
+    substructure of \(\langle\bfb_0,\prec^{\bfb_0}\rangle\). Thus \(\cK'\)
+    has the ordering property.
+
+    For every \(\bfa_0\hookrightarrow\bfb_0\) in \(\cK_0\) and every
+    \(k\geq 2\), Proposition~\ref{prop:ramsey-expansion-upper-bound}, applied
+    to the hereditary subclass \(\cK'\subseteq\cK\), gives
+    \(\bfc_0\in\cK_0\) with \(\bfb_0\hookrightarrow\bfc_0\) such that
     \[
         \bfc_0\to(\bfb_0)^{\bfa_0}_{k,\,t_{\cK'}(\bfa_0)}.
     \]
-    But this follows from Proposition~\ref{prop:ramsey-expansion-upper-bound}, since \(\cK\) has the Ramsey property and \(\cK'\subseteq\cK\) is a hereditary expansion of \(\cK_0\).
+    Since \(\cK'\) is reasonable and has the ordering property,
+    Proposition~\ref{prop:partition-bound-implies-ramsey} now shows that
+    \(\cK'\) has the Ramsey property.
 
-    Finally, because \(\cK'\) is reasonable and has the Ramsey and ordering properties, Corollary~\ref{cor:ordering-property-ramsey-degree} implies that the numbers \(t_{\cK'}(\bfa_0)\) are the Ramsey degrees in \(\cK_0\). In particular, Proposition~\ref{prop:partition-bound-implies-ramsey} yields the Ramsey property for \(\cK'\), and hence \(\cK'\) is a reasonable Fraïssé order class with the required properties.
+    Finally, all members of the order class \(\cK'\) are rigid. Since \(\cK'\)
+    is hereditary and has the joint embedding and Ramsey properties,
+    Proposition~\ref{prop:rigid-rp-implies-ap} gives the amalgamation property.
+    Moreover, \(\cK'\) has only countably many isomorphism types and contains
+    structures of arbitrarily large cardinality, since
+    \(\cK'\!\restriction\!L_0=\cK_0\). Thus \(\cK'\) is a reasonable Fraïssé
+    order class, and it has both the Ramsey property and the ordering property,
+    as required.
 \end{proof}
 
 The preceding theorem shows that, once one has a reasonable Ramsey expansion, one may pass to a smaller expansion in which minimality is built in. The next result is the converse direction of the universal-minimal-flow theorem proved earlier.
@@ -567,8 +672,9 @@ The preceding theorem shows that, once one has a reasonable Ramsey expansion, on
     implies that \(\cK\) has the ordering property. It therefore remains to prove
     that \(\cK\) has the Ramsey property.
 
-    By Proposition~\ref{prop:partition-bound-implies-ramsey}, it is enough to show that for every \(\bfa_0\hookrightarrow\bfb_0\) in \(\cK_0\),
-    every \(k\geq 2\), and every colouring
+    Fix \(\bfa_0\hookrightarrow\bfb_0\) in \(\cK_0\) and \(k\geq 2\). We first
+    prove the corresponding partition statement inside \(\bff_0\): for every
+    colouring
     \[
         c\colon\begin{pmatrix}\bff_0\\ \bfa_0\end{pmatrix}\to\{1,\dots,k\},
     \]
@@ -592,7 +698,13 @@ The preceding theorem shows that, once one has a reasonable Ramsey expansion, on
         \qquad
         \left(g\in G_0,\ \gamma\in \{1,\dots,k\}^{\begin{pmatrix}\bff_0\\ \bfa_0\end{pmatrix}}\right).
     \]
-    Let \(X=\overline{G_0\cdot c}\) be the orbit closure of the colouring \(c\). Since \(X_\cK\) is universal minimal, there is a \(G_0\)-map \(\pi\colon X_\cK\to X\). Let \(\prec_0\) be the distinguished linear ordering on \(F_0\) coming from the Fraïssé limit \(\bff=\langle\bff_0,\prec_0\rangle\), and put \(c_0=\pi(\prec_0)\).
+    Let \(X=\overline{G_0\cdot c}\) be the orbit closure of the colouring \(c\),
+    and choose a minimal subflow \(Y\subseteq X\). Since \(X_\cK\) is universal
+    minimal, there is a \(G_0\)-map \(\pi\colon X_\cK\to Y\). Let \(\prec_0\)
+    be the distinguished linear ordering on \(F_0\) coming from the Fraïssé
+    limit \(\bff=\langle\bff_0,\prec_0\rangle\), and put
+    \(c_0=\pi(\prec_0)\). In particular,
+    \(c_0\in Y\subseteq\overline{G_0\cdot c}\).
 
     Because every element of \(G=\Aut(\bff)\) fixes the ordering \(\prec_0\), and \(\pi\) is \(G_0\)-equivariant, every element of \(G\) also fixes \(c_0\). Hence if
     \[
@@ -619,7 +731,51 @@ The preceding theorem shows that, once one has a reasonable Ramsey expansion, on
     \[
         \begin{pmatrix}\bfb_0''\\ \bfa_0\end{pmatrix},
     \]
-    and therefore takes at most \(t_\cK(\bfa_0)\) values. This is exactly the partition relation required in Proposition~\ref{prop:partition-bound-implies-ramsey}.
+    and therefore takes at most \(t_\cK(\bfa_0)\) values. This proves the
+    partition statement inside \(\bff_0\).
+
+    We now obtain a finite witness by compactness. Suppose, towards a
+    contradiction, that there is no \(\bfc_0\in\cK_0\) with
+    \(\bfb_0\hookrightarrow\bfc_0\) such that
+    \[
+        \bfc_0\to
+        (\bfb_0)^{\bfa_0}_{k,\,t_\cK(\bfa_0)}.
+    \]
+    For each finite substructure \(\bfd_0\leq\bff_0\), let \(Z_{\bfd_0}\) be
+    the set of all colourings
+    \[
+        \gamma\colon
+        \begin{pmatrix}\bff_0\\ \bfa_0\end{pmatrix}
+        \to\{1,\dots,k\}
+    \]
+    such that, for every
+    \(\bfb_0'\in\begin{pmatrix}\bfd_0\\ \bfb_0\end{pmatrix}\), the restriction
+    of \(\gamma\) to
+    \(\begin{pmatrix}\bfb_0'\\ \bfa_0\end{pmatrix}\) takes more than
+    \(t_\cK(\bfa_0)\) values. Each \(Z_{\bfd_0}\) is closed. It is also
+    nonempty: if \(\bfd_0\) contains a copy of \(\bfb_0\), the assumed failure
+    of the finite partition relation supplies a bad colouring on \(\bfd_0\),
+    which may be extended arbitrarily to \(\bff_0\); otherwise the defining
+    condition is vacuous.
+
+    The family \(\{Z_{\bfd_0}:\bfd_0\leq\bff_0\text{ finite}\}\) has the finite
+    intersection property. Indeed, given finitely many
+    \(\bfd_{1,0},\dots,\bfd_{n,0}\), choose a finite substructure
+    \(\bfe_0\leq\bff_0\) containing all of them. Then
+    \[
+        Z_{\bfe_0}\subseteq
+        Z_{\bfd_{1,0}}\cap\cdots\cap Z_{\bfd_{n,0}}.
+    \]
+    Compactness of
+    \(\{1,\dots,k\}^{\begin{pmatrix}\bff_0\\ \bfa_0\end{pmatrix}}\) therefore
+    gives a colouring \(\gamma\) belonging to every \(Z_{\bfd_0}\). Every copy
+    of \(\bfb_0\) in \(\bff_0\) is contained in some finite
+    \(\bfd_0\leq\bff_0\), so \(\gamma\) has no copy of \(\bfb_0\) on which at
+    most \(t_\cK(\bfa_0)\) colours occur. This contradicts the partition
+    statement just proved.
+
+    We have therefore obtained the finite partition relation required in
+    Proposition~\ref{prop:partition-bound-implies-ramsey}.
 
     Hence \(\cK\) has the Ramsey property. Since we already know that \(\cK\) has the ordering property, this proves \((ii)\Rightarrow(i)\).
 \end{proof}

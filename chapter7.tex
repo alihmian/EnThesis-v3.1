@@ -79,7 +79,7 @@ The significance of these examples is that the universal minimal flow is no long
 
 We now return to the Boolean algebra example and record a more concrete description of the corresponding universal minimal flow. Besides the space of natural orderings on the countable atomless Boolean algebra, there is a second model in terms of maximal chains of closed subsets of the Cantor space~\cite{GlW03}. The two descriptions are equivalent.
 
-Let \(C=2^{\N}\) be the Cantor space, and let \(\Phi(C)\) denote the compact space of all maximal chains of closed subsets of \(C\), ordered by inclusion. The group \(\Homeo(C)\) acts continuously on \(\Phi(C)\) by
+Let \(C=2^{\N}\) be the Cantor space, and let \(\Phi(C)\) denote the compact space of all maximal chains of closed subsets of \(C\), ordered by inclusion and equipped with its standard Vietoris hyperspace topology. The group \(\Homeo(C)\) acts continuously on \(\Phi(C)\) by
 \(g\cdot M=\{g(N)\mid N\in M\}\).
 
 By Stone duality, the countable atomless Boolean algebra \(\bfb_\infty\) may be identified with the Boolean algebra of clopen subsets of \(C\), and under this identification the group \(\Aut(\bfb_\infty)\) is naturally isomorphic to \(\Homeo(C)\).
@@ -99,19 +99,11 @@ Equivalently, the space of natural orderings on \(B_\infty\) is \(\Aut(\bfb_\inf
 \end{theorem}
 
 \begin{proof}
-We sketch the construction. By Theorem~\ref{thm:umf-structured-ordering-spaces}(iii), the universal minimal flow of \(\Aut(\bfb_\infty)\) is the space \(X_\cK\) of natural orderings on \(B_\infty\).
-
-Given a maximal chain \(M\in \Phi(2^{\N})\), one obtains a linear ordering on the atoms of each finite subalgebra of \(\bfb_\infty\) by comparing the unique points at which the members of \(M\) first separate those atoms. Passing to the induced anti-lexicographic orderings, this defines a natural ordering on every finite subalgebra, and these finite orderings are coherent. Hence \(M\) determines an element of \(X_\cK\).
-
-Conversely, let \(\prec\in X_\cK\).
-The ordering \(\prec\) induces, on each finite clopen partition of \(2^{\N}\), a linear ordering of its atoms compatible with refinement. From these finite orderings one reconstructs a unique maximal chain of closed subsets of \(2^{\N}\) by taking the nested family of closed sets determined by initial segments of the induced orderings. This produces an element of \(\Phi(2^{\N})\).
-
-These two constructions are inverse to one another, continuous, and
-equivariant for the action of \(\Aut(\bfb_\infty)\). Therefore
+By Theorem~\ref{thm:umf-structured-ordering-spaces}(iii), the universal minimal flow of \(\Aut(\bfb_\infty)\) is the space \(X_\cK\) of natural orderings on \(B_\infty\). Glasner and Weiss prove that \(\Phi(2^{\N})\), with the Vietoris topology and the action above, is the universal minimal flow of \(\Homeo(2^{\N})\)~\cite{GlW03}. Stone duality identifies this group with \(\Aut(\bfb_\infty)\). The uniqueness of the universal minimal flow, Theorem~\ref{thm:universal-minimal-flow}, therefore gives an equivariant homeomorphism
 \[
 X_\cK\cong \Phi(2^{\N})
 \]
-as \(\Aut(\bfb_\infty)\)-flows. Since \(X_\cK\) is the universal minimal flow, the same is true of \(\Phi(2^{\N})\).
+of \(\Aut(\bfb_\infty)\)-flows.
 \end{proof}
 
 This identification is useful because it shows that the same universal minimal flow may appear in two rather different forms: combinatorially, as a space of natural orderings on a Fraïssé limit, and topologically, as a space of maximal chains in the Cantor space. In the next section we consider a different phenomenon, where the universal minimal flow is finite.
@@ -130,14 +122,19 @@ For each \(n\geq 1\), the subgroup \(H_n\) is a clopen normal subgroup of finite
 \end{theorem}
 
 \begin{proof}
-Each element of \(G_n\) permutes the \(n\) equivalence classes of \(E_n\), so there is a natural continuous homomorphism \(\pi\colon G_n\to S_n\) sending an automorphism to the permutation it induces on \(\{A_1,\dots,A_n\}\).
-Its kernel is exactly \(H_n\). Hence \(H_n\) is a normal subgroup of \(G_n\) of finite index at most \(n!\). Since the quotient is finite and discrete, \(H_n\) is clopen.
+Each element of \(G_n\) permutes the \(n\) equivalence classes of \(E_n\), so there is a natural homomorphism \(\pi\colon G_n\to S_n\) sending an automorphism to the permutation it induces on \(\{A_1,\dots,A_n\}\). Its kernel is exactly \(H_n\). Choose \(a_i\in A_i\) for \(1\leq i\leq n\). The pointwise stabiliser of \(\{a_1,\dots,a_n\}\) in \(G_n\) is an open subgroup contained in \(H_n\), so \(H_n\) is open and hence clopen. Equivalently, \(\pi\) is continuous when \(S_n\) has the discrete topology.
+
+The homomorphism \(\pi\) is surjective. Indeed, for every \(\sigma\in S_n\), a standard back-and-forth construction extends finite increasing partial bijections that send points of \(A_i\) to points of \(A_{\sigma(i)}\). Each extension is possible because every class \(A_j\) is dense in \(\Q\). The resulting order automorphism \(g_\sigma\) maps \(A_i\) onto \(A_{\sigma(i)}\), so \(g_\sigma\in G_n\) and \(\pi(g_\sigma)=\sigma\). Therefore
+\[
+G_n/H_n\cong S_n,
+\]
+and \(H_n\) is a normal subgroup of index \(n!\).
 
 We now show that \(H_n\) is extremely amenable. Let \(\mathcal{OP}_n\) be the class of all finite structures of the form
 \[
 \bfa=\langle A,\prec^{\bfa},P_1^{\bfa},\dots,P_n^{\bfa}\rangle,
 \]
-where \(\prec^{\bfa}\) is a linear ordering of \(A\) and \(P_1^{\bfa},\dots,P_n^{\bfa}\) form a partition of \(A\) into pairwise disjoint unary predicates. This is a Fraïssé order class, and its Fraïssé limit is precisely \(\bff_n=\langle \Q,\prec,A_1,\dots,A_n\rangle\).
+where \(\prec^{\bfa}\) is a linear ordering of \(A\), the predicates \(P_1^{\bfa},\dots,P_n^{\bfa}\) are pairwise disjoint and cover \(A\), and individual predicates are allowed to be empty. This is a Fraïssé order class, and its Fraïssé limit is precisely \(\bff_n=\langle \Q,\prec,A_1,\dots,A_n\rangle\).
 Moreover, \(\mathcal{OP}_n\) has the Ramsey property; this is a special case of the general Ramsey theorem for finite ordered relational structures~\cite{NR77,NR83}. Therefore, by Corollary~\ref{cor:fraisse-order-class-ea}, \(H_n=\Aut(\bff_n)\) is extremely amenable.
 
 Let now \(Y\) be a minimal compact \(G_n\)-flow. Restricting the action to the subgroup \(H_n\), extreme amenability gives a point \(y_0\in Y\) fixed by every element of \(H_n\). The orbit map \(g\mapsto g\cdot y_0\) is therefore constant on left cosets of \(H_n\), so it factors through a continuous \(G_n\)-map \(\varphi\colon G_n/H_n\to Y\).
@@ -147,4 +144,4 @@ and \(\varphi\) is surjective. Thus every minimal compact \(G_n\)-flow is a fact
 Finally, the action of \(G_n\) on \(G_n/H_n\) is transitive, hence minimal. It follows that \(G_n/H_n\) is the universal minimal flow of \(G_n\).
 \end{proof}
 
-For \(n=1\), the quotient \(G_1/H_1\) is trivial, so this recovers the extreme amenability of \(H_1=\Aut(\bff_1)\), the order-automorphism group of \(\langle\Q,\prec\rangle\). For \(n\geq 2\), the universal minimal flow is finite and nontrivial. This contrasts sharply with the earlier examples, where the universal minimal flow was an infinite compact space of orderings.
+For \(n=1\), the quotient \(G_1/H_1\) is trivial, so this recovers the extreme amenability of \(H_1=\Aut(\bff_1)\), the order-automorphism group of \(\langle\Q,\prec\rangle\). For \(n\geq 2\), the universal minimal flow is finite and nontrivial; indeed, it has \(n!\) points. This contrasts sharply with the earlier examples, where the universal minimal flow was an infinite compact space of orderings.

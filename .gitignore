@@ -17,3 +17,4 @@ trash/**
 !main.tex
 !bib.tex
 !chapter*.tex
+.serena/

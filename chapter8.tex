@@ -95,13 +95,20 @@ The relevance of this notion is that it preserves the two combinatorial properti
     Thus \(\cK'\) has the Ramsey property.
 
     Now assume that \(\cK\) has the ordering property. Let \(\bfa_0\in\cK_0\).
-    Choose an expansion
-    \(\bfa'=\langle \bfa_0,\prec'\rangle\in\cK'\),
-    and let \(\bfa\in\cK\) be the corresponding structure. By the ordering property for \(\cK\), there exists
-    \(\bfb_0\in\cK_0\)
-    such that every member of \(\cK\) with reduct \(\bfb_0\) contains a copy of \(\bfa\). Let
-    \(\bfb'=\langle \bfb_0,\prec'^{\bfb'}\rangle\in\cK'\)
-    be arbitrary, and let \(\bfb\in\cK\) be the corresponding structure. Then
+    By the ordering property for \(\cK\), there exists \(\bfb_0\in\cK_0\)
+    such that for every pair of expansions
+    \[
+        \bfa=\langle \bfa_0,\prec^{\bfa}\rangle\in\cK
+        \qquad\text{and}\qquad
+        \bfb=\langle \bfb_0,\prec^{\bfb}\rangle\in\cK,
+    \]
+    one has \(\bfa\hookrightarrow\bfb\). Now let
+    \[
+        \bfa'=\langle \bfa_0,\prec'^{\bfa'}\rangle\in\cK'
+        \qquad\text{and}\qquad
+        \bfb'=\langle \bfb_0,\prec'^{\bfb'}\rangle\in\cK'
+    \]
+    be arbitrary, and let \(\bfa,\bfb\in\cK\) be the corresponding structures. Then
     \(\bfa\hookrightarrow \bfb\),
     and therefore, translating back by simple bi-definability,
     \(\bfa'\hookrightarrow \bfb'\).
@@ -162,8 +169,20 @@ We now come to the main uniqueness theorem.
         \pi(G_0\cdot\prec_0)=G_0\cdot\prec_0'.
     \]
 
-    Composing \(\pi\) with a suitable element of \(G_0\) if necessary, we may
-    therefore assume that \(\pi(\prec_0)=\prec_0'\). Let
+    Set
+    \[
+        \widetilde{\prec}_0'=\pi(\prec_0).
+    \]
+    By the preceding equality, \(\widetilde{\prec}_0'\in G_0\cdot\prec_0'\).
+    Hence \(\langle\bff_0,\widetilde{\prec}_0'\rangle\) is isomorphic to
+    \(\bff'\), its age is \(\cK'\), and
+    \[
+        \overline{G_0\cdot\widetilde{\prec}_0'}=X_{\cK'}.
+    \]
+    We may therefore replace the chosen presentation \(\bff'\) by the
+    isomorphic structure \(\langle\bff_0,\widetilde{\prec}_0'\rangle\), and
+    henceforth denote its order again by \(\prec_0'\). With this choice,
+    \(\pi(\prec_0)=\prec_0'\). Let
     \(G=\Aut(\bff)\) and \(G'=\Aut(\bff')\).
     Then
     \[
@@ -192,9 +211,15 @@ We now come to the main uniqueness theorem.
     Finally, let \(\bfa=\langle \bfa_0,\prec^{\bfa}\rangle\in\cK\).
     Since \(\cK=\Age(\bff)\), the structure \(\bfa\) embeds into \(\bff\). Restricting the formula \(\varphi\) to the image of such an embedding defines on \(A_0\) a second linear order \(\prec'^{\,\bfa}\), and the resulting structure
     \(\langle \bfa_0,\prec'^{\,\bfa}\rangle\)
-    belongs to \(\Age(\bff')=\cK'\). The same reasoning applies in the other direction using \(\varphi'\). Because both formulas come from the same subgroup
-    \(G=G'\leq G_0\),
-    the two constructions are inverse to one another up to isomorphism. Therefore \(\cK\) and \(\cK'\) are simply bi-definable.
+    belongs to \(\Age(\bff')=\cK'\). This construction is independent of the
+    chosen embedding: quantifier-free formulas are preserved and reflected by
+    embeddings, and \(\varphi\) defines \(\prec_0'\) throughout \(\bff\).
+    The same reasoning applies in the other direction using \(\varphi'\).
+    Moreover, after applying \(\varphi\) to a finite substructure of \(\bff\),
+    applying \(\varphi'\) recovers its original order, since \(\varphi'\)
+    defines \(\prec_0\) in \(\bff'\). The reverse composition similarly
+    recovers the original \(L'\)-order. Thus the two constructions are inverse
+    to one another, and \(\cK\) and \(\cK'\) are simply bi-definable.
 \end{proof}
 
 \begin{remark}
@@ -444,80 +469,15 @@ We now explain the sense in which expansions with both the Ramsey property and t
 \end{theorem}
 
 \begin{proof}
-    Let
-    \[
-        \bff=\langle \bff_0,\prec_0\rangle=\Flim(\cK),
-        \qquad
-        \bff'=\langle \bff_0,\prec_0'\rangle=\Flim(\cK'),
-    \]
-    where we identify the two reduct limits using Chapter~\ref{chap:reasonable-expansions}. Put
-    \[
-        G_0=\Aut(\bff_0),
-        \qquad
-        G=\Aut(\bff).
-    \]
-    Let
-    \[
-        X_\cK=\overline{G_0\cdot \prec_0}
-        \qquad\text{and}\qquad
-        X_{\cK'}=\overline{G_0\cdot \prec_0'}.
-    \]
-
-    Since \(\cK\) has the Ramsey property,
-    Corollary~\ref{cor:fraisse-order-class-ea} shows that
-    \(G=\Aut(\bff)\)
-    is extremely amenable. Let \(Y\) be any minimal subflow of \(X_\cK\). We claim that \(Y\) is the universal minimal flow of \(G_0\).
-
-    Indeed, let \(Z\) be any minimal compact \(G_0\)-flow. Restricting the action
-    to the subgroup \(G\), extreme amenability yields a point \(z_0\in Z\)
-    fixed by every element of \(G\). By Theorem~\ref{thm:ramsey-universal-ambit}, there exists a surjective \(G_0\)-map
-    \(\pi\colon X_\cK\to Z\).
-    Since \(Y\) is a minimal subflow of \(X_\cK\), the image \(\pi(Y)\) is a nonempty closed \(G_0\)-invariant subset of \(Z\), hence
-    \(\pi(Y)=Z\).
-    Thus every minimal compact \(G_0\)-flow is a factor of \(Y\), so \(Y\) is universal minimal.
-
-    On the other hand, since \(\cK'\) has both the Ramsey property and the ordering
-    property, Corollary~\ref{cor:ramsey-ordering-umf} implies that
-    \(X_{\cK'}\)
-    is also the universal minimal flow of \(G_0\). Therefore there is a \(G_0\)-flow isomorphism
-    \(\theta\colon X_{\cK'}\to Y\).
-    Replacing \(\theta\) by \(g\cdot \theta\) for a suitable \(g\in G_0\) if necessary, we may assume that
-    \[
-        \theta(\prec_0')=\prec_0''
-        \in Y.
-    \]
-
-    Since \(\theta\) is \(G_0\)-equivariant, the stabilisers of \(\prec_0'\) and \(\prec_0''\) in \(G_0\) coincide. Hence
-    \[
-        \Aut(\langle \bff_0,\prec_0'\rangle)
-        =
-        \Aut(\langle \bff_0,\prec_0''\rangle).
-    \]
-    Exactly as in the proof of
-    Theorem~\ref{thm:uniqueness-simple-bi-definability}, it follows that there
-    are simple formulas defining \(\prec_0'\) from \(\prec_0''\) and \(\prec_0''\)
-    from \(\prec_0'\). In particular,
-    \(\langle \bff_0,\prec_0''\rangle\)
-    is ultrahomogeneous.
-
-    Let \(\cK''=\Age(\langle \bff_0,\prec_0''\rangle)\).
-    Then \(\cK''\) is a reasonable Fraïssé order class expanding \(\cK_0\), and by construction it is simply bi-definable with \(\cK'\).
-
-    It remains to show that
-    \[
-        \cK''\subseteq \cK.
-    \]
-    Since \(\prec_0''\in Y\subseteq X_\cK\),
-    Proposition~\ref{prop:admissible-orderings-characterization} shows that every finite substructure of
-    \(\langle \bff_0,\prec_0''\rangle\)
-    belongs to \(\cK\). Hence
-    \[
-        \Age(\langle \bff_0,\prec_0''\rangle)\subseteq \cK,
-    \]
-    that is, \(\cK''\subseteq \cK\).
-    This completes the proof.
+    This is precisely Theorem~9.5 of
+    Kechris--Pestov--Todorcevic~\cite{KPT05}. Their theorem applies to the
+    Fraïssé class \(\cK_0\), its reasonable order expansions \(\cK\) and
+    \(\cK'\), and the language \(L=L_0\cup\{<\}\). Under the present
+    hypotheses, it provides a reasonable Fraïssé order class \(\cK''\)
+    expanding \(\cK_0\) such that \(\cK''\subseteq\cK\) and \(\cK''\) is
+    simply bi-definable with \(\cK'\), which is exactly the conclusion.
 \end{proof}
 
-Thus, up to simple bi-definability, the expansions of a given reduct class that have both the Ramsey property and the ordering property are the smallest among those that have the Ramsey property. The proof also suggests a natural strategy: starting from a Ramsey expansion \(\cK\), one may try to pass to a minimal subflow of \(X_\cK\) and recover from it a smaller expansion with better dynamical properties.
+Thus, up to simple bi-definability, the expansions of a given reduct class that have both the Ramsey property and the ordering property are the smallest among those that have the Ramsey property. The proof in~\cite{KPT05} also suggests a natural strategy: starting from a Ramsey expansion \(\cK\), one may try to pass to a minimal subflow of \(X_\cK\) and recover from it a smaller expansion with better dynamical properties.
 
 In the next chapter this idea is developed further through Ramsey degrees, which allow one to treat situations in which no reasonable expansion with the full Ramsey property is available.
