@@ -1,3 +1,4 @@
+% !TEX root = main.tex
 \chapter{Topological Dynamics}
 
 In the previous chapter we studied automorphism groups of countable structures as topological groups, with particular emphasis on closed subgroups of $S_\infty$ and the Polish group structure they inherit. The next step in the thesis is to study continuous actions of such groups on compact spaces. This is the setting of topological dynamics, and it is here that the fixed-point properties and universal objects appearing in the Kechris--Pestov--Todorcevic correspondence naturally arise.
@@ -121,7 +122,7 @@ The next result shows that minimal flows always exist inside arbitrary flows.
 \begin{proof}
     Let $X$ be a $G$-flow, and let
     \[
-        \mathcal{S}=\{Y\subseteq X : Y\neq\varnothing,\; Y \text{ is closed and } G\text{-invariant}\}.
+        \mathcal{S}=\{Y\subseteq X : Y\neq\emptyset,\; Y \text{ is closed and } G\text{-invariant}\}.
     \]
     Since $X\in\mathcal{S}$, the set $\mathcal{S}$ is nonempty. We partially order $\mathcal{S}$ by reverse inclusion:
     \[
@@ -134,9 +135,9 @@ The next result shows that minimal flows always exist inside arbitrary flows.
     \]
     Each $Z\in\mathcal{C}$ is closed, so $Y$ is closed; and since each $Z$ is $G$-invariant, so is $Y$.
 
-    It remains to show that $Y\neq\varnothing$. Since $X$ is compact and the members of $\mathcal{C}$ are closed, it suffices to show that the family $\mathcal{C}$ has the finite intersection property. But this is immediate, because $\mathcal{C}$ is a chain under reverse inclusion: given finitely many sets \(Z_1,\dots,Z_n\in\mathcal{C}\), one of them is contained in all the others, and hence
+    It remains to show that $Y\neq\emptyset$. Since $X$ is compact and the members of $\mathcal{C}$ are closed, it suffices to show that the family $\mathcal{C}$ has the finite intersection property. But this is immediate, because $\mathcal{C}$ is a chain under reverse inclusion: given finitely many sets \(Z_1,\dots,Z_n\in\mathcal{C}\), one of them is contained in all the others, and hence
     \[
-        Z_1\cap\cdots\cap Z_n\neq\varnothing.
+        Z_1\cap\cdots\cap Z_n\neq\emptyset.
     \]
     Thus \(Y\in\mathcal{S}\), and \(Y\) is an upper bound for \(\mathcal{C}\).
 
@@ -210,10 +211,10 @@ By Proposition~\ref{prop:hom-to-minimal-surjective}, the map $\pi$ in the defini
     \]
     be the restriction of the $i$-th coordinate projection. Then $\pi_i$ is a homomorphism. Since $X_i$ is minimal, Proposition~\ref{prop:hom-to-minimal-surjective} shows that $\pi_i$ is surjective. Therefore $M$ maps onto every minimal $G$-flow, so $M$ is universal.
 
-    The uniqueness up to isomorphism is standard. We therefore write $M(G)$ for the universal minimal flow of $G$.
+    The uniqueness up to isomorphism is standard.
 \end{proof}
 
-The universal minimal flow is a canonical dynamical invariant of the group. It is the largest minimal $G$-flow in the sense that every other minimal $G$-flow is its factor.
+We therefore write $M(G)$ for the universal minimal flow of $G$. The universal minimal flow is a canonical dynamical invariant of the group. It is the largest minimal $G$-flow in the sense that every other minimal $G$-flow is its factor.
 
 We now introduce the fixed-point property that will later be related to structural Ramsey theory.
 

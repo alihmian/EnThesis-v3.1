@@ -1,5 +1,8 @@
+% !TEX root = main.tex
 \chapter{Examples of Extremely Amenable Automorphism Groups}
-
+\begin{mynote}
+    I should dig deeper into this chapter later. but it is not as an immediate of a priority.
+\end{mynote}
 In Chapter~5 we proved that if $\mathcal K$ is a Fra\"iss\'e order class with Fra\"iss\'e limit $F$, then $\Aut(F)$ is extremely amenable if and only if $\mathcal K$ has the Ramsey property. The aim of this chapter is to apply that criterion to several standard Fra\"iss\'e classes and obtain concrete examples of extremely amenable automorphism groups.
 
 We begin with classes of finite ordered graphs and hypergraphs, where the required Ramsey property is provided by the theorems of Ne\v{s}et\v{r}il and R\"odl and their extensions. We then consider finite-dimensional vector spaces over a fixed finite field and finite Boolean algebras, which yield further examples of extremely amenable automorphism groups. Finally, we turn to finite metric spaces and the ordered rational Urysohn space, leading to Pestov's theorem on the extreme amenability of the isometry group of the Urysohn space.
@@ -40,13 +43,7 @@ Both classes are hereditary and clearly contain structures of arbitrarily large 
     \qquad\text{and}\qquad
     \vec{\mathrm{Forb}}(K_n)
 \]
-are Fra\"iss\'e order classes.
-
-\begin{mynote}
-    In any part of the thesis, were mentions of the strong amalgamation and strong joint embedding? should their defintion be included in chapter 1? plus showing why above examples have these properties in chapter 1?  or even in this chapter?
-\end{mynote}
-
-The Ramsey property for these classes is due to Ne\v{s}et\v{r}il and R\"odl \cite{NR77,NR83}; see also \cite{N89}. Therefore Chapter~5 applies immediately.
+are Fra\"iss\'e order classes.The Ramsey property for these classes is due to Ne\v{s}et\v{r}il and R\"odl \cite{NR77,NR83}; see also \cite{N89}. Therefore Chapter~5 applies immediately.
 
 \begin{theorem}
     \label{thm:random-ordered-graph-ea}
@@ -58,9 +55,7 @@ The Ramsey property for these classes is due to Ne\v{s}et\v{r}il and R\"odl \cit
 
     be the random ordered graph. Then $\Aut(OR)$ is extremely amenable.
 \end{theorem}
-\begin{mynote}
-    why \(OR=\mathrm{Flim}(\vec{\mathcal{GR}})\)? do you think the reason for it should be included in chapter 1? as an example?  or even in this chapter?
-\end{mynote}
+
 \begin{proof}
     The class $\vec{\mathcal{GR}}$ is a Fra\"iss\'e order class with the Ramsey property, so the conclusion follows from Corollary~\ref{cor:fraisse-order-class-ea}.
 \end{proof}
@@ -73,18 +68,13 @@ The Ramsey property for these classes is due to Ne\v{s}et\v{r}il and R\"odl \cit
     \]
     be the random ordered $K_n$-free graph. Then $\Aut(OR_n)$ is extremely amenable.
 \end{theorem}
-\begin{mynote}
-    why \(OR_n=\mathrm{Flim}(\vec{\mathrm{Forb}}(K_n))\)? do you think the reason for it should be included in chapter 1? as an example?  or even in this chapter?
-\end{mynote}
+
 \begin{proof}
     The class $\vec{\mathrm{Forb}}(K_n)$ is a Fra\"iss\'e order class with the Ramsey property, so again the result follows from Corollary~\ref{cor:fraisse-order-class-ea}.
 \end{proof}
 
 These are the basic graph-theoretic examples. In contrast, the unordered automorphism groups $\Aut(\mathrm{Flim}(\mathcal{GR}))$ and $\Aut(\mathrm{Flim}(\mathrm{Forb}(K_n)))$ are not extremely amenable, since they do not preserve a linear ordering.
 
-\begin{mynote}
-    why they don't? sould a proof or even an explanation be included?
-\end{mynote}
 
 \subsection{A failure of the Ramsey property: equivalence relations}
 
@@ -98,19 +88,11 @@ denote the class of finite equivalence relations, viewed as $L_0$-structures, an
 \[
     \vec{\mathcal{EQ}}
 \]
-be the class of all finite linearly ordered equivalence relations. This class is a Fra\"iss\'e order class.
-\begin{mynote}
-    why? should it be included in chapter 1 as an example? or even in this chapter?
-\end{mynote}
-Its Fra\"iss\'e limit is, up to isomorphism,
+be the class of all finite linearly ordered equivalence relations. This class is a Fra\"iss\'e order class. Its Fra\"iss\'e limit is, up to isomorphism,
 \[
     \langle \mathbb{Q},E,<\rangle,
 \]
-where $<$ is the usual order on $\mathbb{Q}$ and $E$ is an equivalence relation with infinitely many classes, each of which is dense in $\mathbb{Q}$.
-\begin{mynote}
-    why? should it be included in chapter 1 as an example? or even in this chapter?
-\end{mynote}
-Unlike the graph classes above, $\vec{\mathcal{EQ}}$ does \emph{not} have the Ramsey property.
+where $<$ is the usual order on $\mathbb{Q}$ and $E$ is an equivalence relation with infinitely many classes, each of which is dense in $\mathbb{Q}$. Unlike the graph classes above, $\vec{\mathcal{EQ}}$ does \emph{not} have the Ramsey property.
 
 \begin{theorem}
     \label{thm:eq-not-ramsey}
