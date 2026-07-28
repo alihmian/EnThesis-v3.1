@@ -1,934 +1,516 @@
 % !TEX root = main.tex
-\chapter{Universal Minimal Flows and the Ordering Property}
-\begin{mynote}
-    Notationally does not match the previous chapters.
-\end{mynote}
-In the previous chapter we studied reasonable ordered expansions and the passage from an ordered Fra\"iss\'{e} class to its reduct. We now return to the dynamical side of the Kechris--Pestov--Todorcevic correspondence. Starting from a reasonable Fra\"iss\'{e} order class $\k$, we associate to it a compact flow $X_\k$ of admissible orderings on the Fra\"iss\'{e} limit of the reduct class $\k_0$. The aim of this chapter is to show that the ordering property characterizes the minimality of this flow, and that together with the Ramsey property it yields the universal minimal flow.
+\chapter[Uniqueness of Ramsey Expansions]{Uniqueness of Ramsey Expansions with the Ordering Property}
+\label{chap:uniqueness-ramsey-expansions}
 
-\section{Admissible orderings and the flow $X_\k$}
+In Chapter~\ref{chap:umf-ordering-property} we saw that if a reasonable Fra\"iss\'e order expansion $\k$ of a Fra\"iss\'e class $\k_0$ has both the Ramsey property and the ordering property, then the flow $X_\k$ is the universal minimal flow of $\Aut(\mathrm{Flim}(\k_0))$. Since the universal minimal flow is unique up to isomorphism, one expects that such expansions should themselves be unique in an appropriate sense. The aim of this chapter is to make that statement precise.
 
-Let $L\supseteq\{<\}$ be a signature, and put \(L_0=L\setminus\{<\}\).
-Let $\k$ be a reasonable Fra\"iss\'{e} order class in the language $L$, and let
-\(\k_0=\k|L_0\) be its reduct to the language $L_0$. By the results of Chapter~7,
-the class $\k_0$ is a Fra\"iss\'{e} class, and if
-\(\bff={\rm Flim}(\k)\) and \(\bff_0={\rm Flim}(\k_0)\), then
-\(\bff_0=\bff|L_0\). Let \(\prec_0\) denote the interpretation of the symbol
-\(<\) in \(\bff\), that is, \(\prec_0=<^{\bff}\), and put
-\(G_0={\rm Aut}(\bff_0)\).
+We first introduce the notion of simple bi-definability between ordered expansions and prove the main uniqueness theorem. We then discuss some strengthenings in special cases and conclude with a minimality result showing that, up to simple bi-definability, expansions with both the Ramsey and ordering properties are the smallest Ramsey expansions of a given reduct class.
 
-Let $\mathrm{LO}(F_0)$ denote the compact space of all linear orderings on the underlying set $F_0$ of $\bff_0$, equipped with the logic action of $G_0$.
-\begin{mynote}
-    Here is a good point to read ``The descriptive set theory of Polish group actions (Becker, Howard, Kechris, A. S.)''.
-\end{mynote}
-We define
+\section{Simple bi-definability and the main uniqueness theorem}
+
+Let $L_0$ be a relational signature, and let
 \[
-    X_\k=\overline{G_0\cdot \prec_0}\subseteq \mathrm{LO}(F_0).
+    L=L_0\cup\{<\},
+    \qquad
+    L'=L_0\cup\{<'\},
 \]
-Thus $X_\k$ is the orbit closure of the distinguished ordering $\prec_0$ induced from the Fra\"iss\'{e} limit $\bff$.
+where $<$ and $<'$ are new binary relation symbols. In this section we compare
+two Fra\"iss\'e order expansions of the same reduct class \(\k_0\).
 
-The first point is that membership in $X_\k$ can be recognized purely in terms of finite substructures.
+We begin by formalizing the notion that one of the two orderings can be recovered from the other by a formula of particularly simple form.
+
+\begin{definition}
+    A formula in a relational language is called \emph{simple} if it is quantifier-free. Equivalently, it is a finite Boolean combination of atomic formulas.
+
+    Let $\bfa=\langle \bfa_0,\prec^A\rangle$ be an $L$-structure and let
+    $\varphi(x,y)$ be a simple formula in the language $L$. We write
+    \(\varphi^{\bfa}(a,b)\)
+    to mean that $\bfa\models \varphi(a,b)$.
+\end{definition}
+
+\begin{definition}
+    \label{def:simple-bi-definability}
+    Let $\k$ be a class of finite $L$-structures and let $\k'$ be a class of finite $L'$-structures. We say that $\k$ and $\k'$ are \emph{simply bi-definable} if there exist simple formulas
+    \[
+        \varphi(x,y)\ \text{ in } L
+        \qquad\text{and}\qquad
+        \varphi'(x,y)\ \text{ in } L'
+    \]
+    such that the following hold.
+
+    For every \(\bfa=\langle \bfa_0,\prec^A\rangle\in \k\),
+    if we define a binary relation $<'^{\,A}$ on $A$ by
+    \[
+        a<'^{\,A} b
+        \quad\Longleftrightarrow\quad
+        \bfa\models \varphi(a,b),
+    \]
+    then \(\langle \bfa_0,<'^{\,A}\rangle\in \k'\).
+
+    Similarly, for every
+    \(\bfb=\langle \bfb_0,\prec'^{\,B}\rangle\in \k'\),
+    if we define a binary relation $<^{B}$ on $B$ by
+    \[
+        a<^{B} b
+        \quad\Longleftrightarrow\quad
+        \bfb\models \varphi'(a,b),
+    \]
+    then \(\langle \bfb_0,<^{B}\rangle\in \k\).
+
+    Moreover, these two constructions are inverse to one another up to isomorphism.
+\end{definition}
+
+In other words, $\k$ and $\k'$ are simply bi-definable if the two orderings can be recovered from one another by quantifier-free formulas over the common reduct language.
+
+The relevance of this notion is that it preserves the two combinatorial properties that were central in Chapters~\ref{chap:extreme-amenability-ramsey} and~\ref{chap:umf-ordering-property}.
 
 \begin{proposition}
-    \label{prop:admissible-orderings-characterization}
-    Let $\prec$ be a linear ordering on $F_0$. Then $\prec\in X_\k$ if and only if for every finite substructure $\bfb_0$ of $\bff_0$, the ordered structure
-    \(\langle \bfb_0,\prec|B_0\rangle\) belongs to $\k$.
+    \label{prop:simple-bi-definability-preserves-properties}
+    Let $\k$ and $\k'$ be simply bi-definable classes of finite ordered structures with the same reduct class $\k_0$. Then:
+    \begin{enumerate}
+        \item[(i)] $\k$ has the Ramsey property if and only if $\k'$ has the Ramsey property;
+        \item[(ii)] $\k$ has the ordering property if and only if $\k'$ has the ordering property.
+    \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-    Assume first that $\prec\in X_\k$, and let $\bfb_0$ be a finite substructure
-    of $\bff_0$. Since \(\prec\in \overline{G_0\cdot \prec_0}\), there exists
-    $g\in G_0$ such that
-    \(\prec|B_0=(g\cdot \prec_0)|B_0\). Let
-    \(\bfa_0=g^{-1}(\bfb_0)\), which is again a finite substructure of $\bff_0$,
-    and let \(\bfa=\langle \bfa_0,\prec_0|A_0\rangle\).
-    Since $\bfa$ is a finite substructure of $\bff$, we have $\bfa\in\k$. Moreover, the map
-    \(g|A_0\colon A_0\to B_0\) is an isomorphism from $\bfa$ onto
-    \(\bfb=\langle \bfb_0,\prec|B_0\rangle\).
-    Hence $\bfb\in\k$.
+    We prove the forward implications; the converse directions are symmetric.
 
-    Conversely, assume that for every finite substructure $\bfb_0$ of $\bff_0$, the ordered structure
-    \(\bfb=\langle \bfb_0,\prec|B_0\rangle\) belongs to $\k$. We show that
-    $\prec\in X_\k$.
+    Assume first that $\k$ has the Ramsey property. Let
+    \(\bfa'\leq \bfb'\)
+    be structures in $\k'$, and let $k\geq 2$. Using simple bi-definability, let $\bfa,\bfb\in\k$ be the corresponding structures on the same underlying sets. Choose
+    \(\bfc\in\k\)
+    such that
+    \[
+        \bfc\to (\bfb)^{\bfa}_k.
+    \]
+    Let $\bfc'\in\k'$ be the structure corresponding to $\bfc$ under the defining formula $\varphi$. Since embeddings in one class are exactly embeddings in the other after translating the order relation by $\varphi$ and $\varphi'$, the partition relation for $\bfc$ transfers to the corresponding partition relation for $\bfc'$. Hence
+    \[
+        \bfc'\to (\bfb')^{\bfa'}_k.
+    \]
+    Thus $\k'$ has the Ramsey property.
 
-    Fix a finite substructure $\bfb_0$ of $\bff_0$. Since $\bfb\in\k=\Age(\bff)$, there exists an embedding
-    \(\pi\colon \bfb\to \bff\). Let \(\bfa=\pi(\bfb)\) and
-    \(\bfa_0=\bfa|L_0\).
-    Then $\pi$ is an isomorphism from $\bfb$ onto $\bfa$, and in particular an isomorphism from $\bfb_0$ onto $\bfa_0$. Since $\bfa_0$ and $\bfb_0$ are finite substructures of the ultrahomogeneous structure $\bff_0$, there exists
-    \(g\in {\rm Aut}(\bff_0)=G_0\) extending $\pi^{-1}$. It follows that
-    \(\prec|B_0=(g\cdot \prec_0)|B_0\).
-    As $\bfb_0$ was arbitrary, this shows that every finite restriction of $\prec$ agrees with a finite restriction of some translate of $\prec_0$. Therefore
-    \(\prec\in \overline{G_0\cdot \prec_0}=X_\k\).
+    Now assume that $\k$ has the ordering property. Let \(\bfa_0\in\k_0\).
+    Choose an expansion
+    \(\bfa'=\langle \bfa_0,\prec'\rangle\in\k'\),
+    and let $\bfa\in\k$ be the corresponding structure. By the ordering property for $\k$, there exists
+    \(\bfb_0\in\k_0\)
+    such that every member of $\k$ with reduct $\bfb_0$ contains a copy of $\bfa$. Let
+    \(\bfb'=\langle \bfb_0,\triangleleft\rangle\in\k'\)
+    be arbitrary, and let $\bfb\in\k$ be the corresponding structure. Then
+    \(\bfa\leq \bfb\),
+    and therefore, translating back by simple bi-definability,
+    \(\bfa'\leq \bfb'\).
+    Thus $\k'$ has the ordering property.
 \end{proof}
-\begin{mynote}
-    \begin{proof}
-        Assume first that
-        \(\prec \in X_{\k}=\overline{G_0\cdot \prec_0}\), and let
-        \(\bfb_0\leq \bff_0\) be a finite substructure. We must show that the
-        ordered structure \(\bfb=\langle \bfb_0,\prec|B_0\rangle\) belongs to
-        $\k$.
 
-        Since \(\prec \in \overline{G_0\cdot \prec_0}\),
-        every basic open neighbourhood of $\prec$ in $\LO(F_0)$ meets the orbit $G_0\cdot \prec_0$. Now basic open neighbourhoods in $\LO(F_0)$ are determined by agreement on finite subsets of $F_0$: if $A\subseteq F_0$ is finite, then the set of all linear orderings on $F_0$ whose restriction to $A$ agrees with $\prec|A$ is a basic open neighbourhood of $\prec$. Applying this to the finite set $B_0$, we obtain a basic open neighbourhood of $\prec$ consisting of all orderings on $F_0$ that agree with $\prec$ on $B_0$. Since $\prec$ belongs to the closure of $G_0\cdot \prec_0$, this neighbourhood must contain some translate of $\prec_0$. Therefore there exists
-        \(g\in G_0\) such that
-        \((g\cdot \prec_0)|B_0=\prec|B_0\).
-        By definition of the logic action,
-        \(x\,(g\cdot \prec_0)\,y\) if and only if
-        \(g^{-1}(x)\prec_0 g^{-1}(y)\), for \(x,y\in F_0\). Let
-        \(\bfa_0=g^{-1}(\bfb_0)\).
-        Since $g\in\Aut(\bff_0)$, the set $A_0=g^{-1}(B_0)$ carries the induced $L_0$-structure of a finite substructure of $\bff_0$, so $\bfa_0\leq \bff_0$. Now define
-        \(\bfa=\langle \bfa_0,\prec_0|A_0\rangle\).
-        Because $\bff=\langle \bff_0,\prec_0\rangle$ is the Fra\"iss\'e limit of $\k$, every finite ordered substructure of $\bff$ belongs to $\k$. Hence
-        \(\bfa\in\k\).
+We now come to the main uniqueness theorem.
 
-        We claim that the map
-        \(g|A_0\colon A_0\to B_0\)
-        is an isomorphism from $\bfa$ onto $\bfb$. Since $g\in\Aut(\bff_0)$, the map $g|A_0$ is already an isomorphism of the underlying $L_0$-structures
-        \(\bfa_0\cong \bfb_0\).
-        It remains to check that it preserves the order. Let $a,a'\in A_0$. Then
-        \[
-            a\prec_0 a'
-            \iff
-            g(a)\,(g\cdot \prec_0)\,g(a')
-            \iff
-            g(a)\prec g(a'),
-        \]
-        because $(g\cdot \prec_0)|B_0=\prec|B_0$ and $g(a),g(a')\in B_0$. Thus $g|A_0$ is an isomorphism
-        \(\bfa\cong \bfb\).
-        Since $\k$ is closed under isomorphism and $\bfa\in\k$, it follows that
-        \(\bfb\in\k\).
-
-        Conversely, assume that for every finite substructure
-        \(\bfb_0\leq \bff_0\),
-        the ordered structure
-        \(\bfb=\langle \bfb_0,\prec|B_0\rangle\)
-        belongs to $\k$. We must prove that
-        \(\prec\in X_{\k}=\overline{G_0\cdot \prec_0}\).
-
-        To show that $\prec$ belongs to the closure of $G_0\cdot\prec_0$ in $\LO(F_0)$, it is enough to show that for every finite substructure
-        \(\bfb_0\leq \bff_0\)
-        there exists
-        \(g\in G_0\)
-        such that
-        \((g\cdot \prec_0)|B_0=\prec|B_0\).
-
-        So fix a finite substructure
-        \(\bfb_0\leq \bff_0\),
-        and let
-        \(\bfb=\langle \bfb_0,\prec|B_0\rangle\).
-        By assumption, $\bfb\in\k$. Since \(\k=\Age(\bff)\),
-        there exists an embedding
-        \(\pi\colon \bfb\to \bff\).
-        Let
-        \(\bfa=\pi(\bfb)\)
-        be the image of $\bfb$ in $\bff$, and let
-        \(\bfa_0=\bfa|L_0\).
-        Then $\bfa$ is a finite ordered substructure of $\bff$, and
-        \(\pi\colon \bfb\to \bfa\)
-        is an isomorphism of $L$-structures. In particular, forgetting the order, $\pi$ is an isomorphism
-        \(\pi\colon \bfb_0\to \bfa_0\)
-        between finite substructures of $\bff_0$.
-
-        Since $\bff_0$ is ultrahomogeneous, every isomorphism between finite substructures extends to an automorphism of $\bff_0$. Applying this to the isomorphism
-        \(\pi^{-1}\colon \bfa_0\to \bfb_0\),
-        we obtain some
-        \(g\in\Aut(\bff_0)=G_0\)
-        extending $\pi^{-1}$.
-
-        We now verify that
-        \((g\cdot \prec_0)|B_0=\prec|B_0\).
-        Let $x,y\in B_0$. Since $g$ extends $\pi^{-1}$ on $A_0$, we have
-        \(g^{-1}(x)=\pi(x)\) and \(g^{-1}(y)=\pi(y)\).
-        Therefore
-        \begin{align*}
-            x\,(g\cdot \prec_0)\,y
-             & \iff g^{-1}(x)\prec_0 g^{-1}(y) \\
-             & \iff \pi(x)\prec_0 \pi(y).
-        \end{align*}
-        But $\pi$ is an embedding of ordered structures from
-        \(\langle \bfb_0,\prec|B_0\rangle\) into
-        \(\bff=\langle \bff_0,\prec_0\rangle\),
-        so
-        \(\pi(x)\prec_0 \pi(y)\) if and only if \(x\prec y\).
-        Hence
-        \(x\,(g\cdot \prec_0)\,y\) if and only if \(x\prec y\), for
-        \(x,y\in B_0\), and therefore
-        \((g\cdot \prec_0)|B_0=\prec|B_0\).
-
-        Since $\bfb_0$ was arbitrary, we have shown that every finite restriction of $\prec$ agrees with the corresponding finite restriction of some translate of $\prec_0$. This is exactly the statement that
-        \(\prec\in \overline{G_0\cdot \prec_0}=X_{\k}\).
-    \end{proof}
-\end{mynote}
-
-\begin{definition}
-    \label{def:k-admissible-ordering}
-    A linear ordering $\prec$ on $F_0$ is called \emph{$\k$-admissible} if
-    \(\prec\in X_\k\).
-    Equivalently, $\prec$ is $\k$-admissible if every finite substructure of $\bff_0$, equipped with the induced ordering from $\prec$, belongs to $\k$.
-\end{definition}
-
-In other words, the points of $X_\k$ are exactly the linear orderings on $F_0$ whose finite restrictions are compatible with the class $\k$. Since $X_\k$ is a closed $G_0$-invariant subspace of the compact space $\mathrm{LO}(F_0)$, it is a compact $G_0$-flow. In the next section we determine exactly when this flow is minimal.
-
-\section{The ordering property and minimality of $X_\k$}
-
-We now introduce the combinatorial condition that characterizes the minimality of the flow $X_\k$.
-
-\begin{definition}
-    \label{def:ordering-property}
-    We say that $\k$ has the \emph{ordering property} if for every
-    \(\bfa_0\in\k_0\) there exists \(\bfb_0\in\k_0\)
-    such that whenever
-    \[
-        \bfa=\langle \bfa_0,\prec\rangle\in\k
-        \qquad\text{and}\qquad
-        \bfb=\langle \bfb_0,\prec'\rangle\in\k,
-    \]
-    one has
-    \[
-        \bfa\leq \bfb.
-    \]
-\end{definition}
-
-Thus the ordering property says that for every finite reduct $\bfa_0$, there is a larger finite reduct $\bfb_0$ such that every admissible ordering of $\bfb_0$ contains every admissible ordering of $\bfa_0$.
-
-The classes considered in Chapter~6 provide both positive and negative examples. For instance, the freely ordered graph and hypergraph classes satisfy the ordering property, whereas the class of all linearly ordered finite equivalence relations does not.
-
-The key step is the following finite reformulation of the condition
-\(\prec_0\in\overline{G_0\cdot \prec}\).
-
-\begin{lemma}
-    \label{lem:orbit-closure-characterization}
-    Let $\prec$ be a linear ordering on $F_0$. Then the following are equivalent.
-    \begin{enumerate}
-        \item[(i)]
-              \[
-                  \prec_0\in\overline{G_0\cdot \prec}.
-              \]
-        \item[(ii)] For every \(\bfa\in\k\),
-              there exists a finite substructure $\bfc_0$ of $\bff_0$ such that
-              \[
-                  \langle \bfc_0,\prec|C_0\rangle\in\k
-                  \qquad\text{and}\qquad
-                  \bfa\leq \langle \bfc_0,\prec|C_0\rangle.
-              \]
-    \end{enumerate}
-    In particular, if $\prec\in X_\k$, then condition {\rm(ii)} says exactly
-    that every member of $\k$ embeds into a finite substructure of the ordered
-    structure \(\langle F_0,\prec\rangle\).
-\end{lemma}
+\begin{theorem}
+    \label{thm:uniqueness-simple-bi-definability}
+    Let $\k$ and $\k'$ be reasonable Fra\"iss\'e order classes in the
+    signatures $L$ and $L'$, and suppose that they have the same reduct
+    \(\k_0\).
+    Assume that both $\k$ and $\k'$ have the Ramsey property and the ordering property. Then $\k$ and $\k'$ are simply bi-definable.
+\end{theorem}
 
 \begin{proof}
-    Assume first that
-    \(\prec_0\in\overline{G_0\cdot \prec}\), and let \(\bfa\in\k\).
-    Since $\k=\Age(\bff)$, we may identify $\bfa$ with a finite substructure of $\bff$, so that
-    \(\bfa=\langle \bfa_0,\prec_0|A_0\rangle\)
-    for some finite substructure $\bfa_0$ of $\bff_0$. By the assumption on $\prec$, there exists
-    \(g\in G_0\) such that
-    \((g\cdot \prec)|A_0=\prec_0|A_0\). Let
-    \(\bfc_0=g^{-1}(\bfa_0)\).
+    Let
+    \[
+        \bff=\langle \bff_0,\prec_0\rangle=\mathrm{Flim}(\k)
+        \qquad\text{and}\qquad
+        \bff'=\langle \bff_0,\prec_0'\rangle=\mathrm{Flim}(\k'),
+    \]
+    where the two limits are taken on the same reduct $\bff_0=\mathrm{Flim}(\k_0)$, using Chapter~\ref{chap:reasonable-expansions}.
+
+    Let
+    \[
+        G_0=\Aut(\bff_0),
+        \qquad
+        X_\k=\overline{G_0\cdot \prec_0},
+        \qquad
+        X_{\k'}=\overline{G_0\cdot \prec_0'}.
+    \]
+    By Chapter~\ref{chap:umf-ordering-property}, since both $\k$ and $\k'$ have the Ramsey property and the
+    ordering property, the flows $X_\k$ and $X_{\k'}$ are both universal
+    minimal flows of $G_0$. Hence there exists a $G_0$-flow isomorphism
+    \(\pi\colon X_\k\to X_{\k'}\).
+
+    We claim that
+    \[
+        \pi(G_0\cdot \prec_0)=G_0\cdot \prec_0'.
+    \]
+    Indeed, for a linear ordering $\prec\in X_\k$, the condition
+    \(\prec\in G_0\cdot \prec_0\)
+    is equivalent to the statement that the ordered structure
+    \(\langle \bff_0,\prec\rangle\)
+    is isomorphic to $\bff$, or equivalently that it has age $\k$ and the extension property. This witnesses the triangle condition for $\k'$. Applying Corollary~\ref{cor:triangle-condition} with the roles of $\k$ and $\k'$ interchanged, we obtain
+    \[
+        \k=\k'
+        \qquad\text{or}\qquad
+        \k=(\k')^*.
+    \]
+    \begin{mynote}
+        Something is missing. what the heck is \(\k^*\)?
+    \end{mynote}
+    Equivalently,
+    \[
+        \k'=\k
+        \qquad\text{or}\qquad
+        \k'=\k^*.
+    \]
+    Similarly, $G_0\cdot \prec_0'$ is a dense $G_\delta$ subset of $X_{\k'}$. Because $\pi$ is a homeomorphism, it must send the unique dense $G_\delta$ orbit of $X_\k$ onto the unique dense $G_\delta$ orbit of $X_{\k'}$. This proves the claim.
+
+    Composing $\pi$ with a suitable element of $G_0$ if necessary, we may
+    therefore assume that \(\pi(\prec_0)=\prec_0'\). Let
+    \(G=\Aut(\bff)\) and \(G'=\Aut(\bff')\).
     Then
-    \(g\colon \langle \bfc_0,\prec|C_0\rangle\to \bfa\)
-    is an isomorphism. Hence
-    \(\langle \bfc_0,\prec|C_0\rangle\in\k\) and
-    \(\bfa\leq \langle \bfc_0,\prec|C_0\rangle\).
-
-    Conversely, assume (ii). To show that
-    \(\prec_0\in\overline{G_0\cdot \prec}\),
-    it suffices to verify that for every finite substructure $\bfa_0$ of $\bff_0$, there exists
-    \(g\in G_0\) such that
-    \((g\cdot \prec)|A_0=\prec_0|A_0\).
-    Fix such a finite substructure $\bfa_0$, and let
-    \(\bfa=\langle \bfa_0,\prec_0|A_0\rangle\in\k\).
-    By (ii), there exists a finite substructure $\bfc_0$ of $\bff_0$ such that
-    \(\bfc=\langle \bfc_0,\prec|C_0\rangle\in\k\) and
-    \(\bfa\leq \bfc\).
-    Let \(\pi\colon \bfa\to \bfc\) be an embedding. Forgetting the order,
-    $\pi$ is an embedding \(\pi\colon \bfa_0\to \bff_0\).
-    Since $\bff_0$ is ultrahomogeneous, $\pi^{-1}$ extends to some
-    \(g\in G_0\).
-    For $x,y\in A_0$ we then have
     \[
-        x\,(g\cdot \prec)\,y
-        \iff
-        g^{-1}(x)\prec g^{-1}(y)
-        \iff
-        \pi(x)\prec \pi(y)
-        \iff
-        x\prec_0 y,
-    \]
-    because $\pi$ is an embedding of ordered structures. Thus
-    \((g\cdot \prec)|A_0=\prec_0|A_0\), as required.
-\end{proof}
-\begin{mynote}
-    \begin{proof}
-        Assume first that
-        \(\prec_0\in\overline{G_0\cdot \prec}\), and let \(\bfa\in\k\).
-        Since \(\k=\Age(\bff)\),
-        we may realize $\bfa$ as a finite substructure of $\bff$. Thus, after identifying $\bfa$ with its image in $\bff$, we may write
-        \(\bfa=\langle \bfa_0,\prec_0|A_0\rangle\)
-        for some finite substructure
-        \(\bfa_0\leq \bff_0\).
-
-        Because \(\prec_0\in\overline{G_0\cdot \prec}\),
-        and basic open neighbourhoods in $\LO(F_0)$ are determined by restrictions to finite subsets, there exists
-        \(g\in G_0\) such that
-        \((g\cdot \prec)|A_0=\prec_0|A_0\). Let
-        \(\bfc_0=g^{-1}(\bfa_0)\).
-        Since $g\in\Aut(\bff_0)$, the set $C_0=g^{-1}(A_0)$ carries the induced $L_0$-structure of a finite substructure of $\bff_0$, so
-        \(\bfc_0\leq \bff_0\).
-        Consider now the ordered structure
-        \(\bfc=\langle \bfc_0,\prec|C_0\rangle\).
-
-        We claim that
-        \(g\colon \bfc\to \bfa\)
-        is an isomorphism of ordered structures. First, since $g\in\Aut(\bff_0)$, the map
-        \(g\colon \bfc_0\to \bfa_0\)
-        is an isomorphism of the underlying $L_0$-structures. It remains to check that $g$ preserves the order. Let $x,y\in C_0$. Then, by definition of the logic action,
-        \(g(x)\,(g\cdot \prec)\,g(y)\) if and only if \(x\prec y\).
-        But $g(x),g(y)\in A_0$, and on $A_0$ we have
-        \((g\cdot \prec)|A_0=\prec_0|A_0\).
-        Therefore
-        \(x\prec y\) if and only if \(g(x)\prec_0 g(y)\).
-        This shows that $g$ is an isomorphism
-        \[
-            \langle \bfc_0,\prec|C_0\rangle
-            \cong
-            \langle \bfa_0,\prec_0|A_0\rangle
-            =\bfa.
-        \]
-        Since $\bfa\in\k$ and $\k$ is closed under isomorphism, it follows that
-        \(\langle \bfc_0,\prec|C_0\rangle\in\k\).
-
-        Finally, because $g$ is an isomorphism from $\bfc$ onto $\bfa$, its inverse
-        \(g^{-1}\colon \bfa\to \bfc\)
-        is an embedding. Hence
-        \(\bfa\leq \langle \bfc_0,\prec|C_0\rangle\).
-        This proves (ii).
-
-        Conversely, assume that condition (ii) holds. We must show that
-        \(\prec_0\in\overline{G_0\cdot \prec}\).
-        Since the topology on $\LO(F_0)$ is determined by finite restrictions, it is enough to prove that for every finite substructure
-        \(\bfa_0\leq \bff_0\)
-        there exists
-        \(g\in G_0\)
-        such that
-        \((g\cdot \prec)|A_0=\prec_0|A_0\).
-
-        So fix a finite substructure
-        \(\bfa_0\leq \bff_0\),
-        and let
-        \(\bfa=\langle \bfa_0,\prec_0|A_0\rangle\).
-        Since $\bfa$ is a finite substructure of $\bff$, we have
-        \(\bfa\in\k\).
-        By assumption (ii), there exists a finite substructure
-        \(\bfc_0\leq \bff_0\) such that
-        \(\bfc=\langle \bfc_0,\prec|C_0\rangle\in\k\) and
-        \(\bfa\leq \bfc\).
-        Let \(\pi\colon \bfa\to \bfc\) be an embedding. Then $\pi$ is, in
-        particular, an embedding of ordered structures. Forgetting the order,
-        it is an embedding \(\pi\colon \bfa_0\to \bff_0\).
-        Its image
-        \(\pi(A_0)\subseteq C_0\)
-        is a finite substructure of $\bff_0$, and
-        \(\pi\colon \bfa_0\to \pi(\bfa_0)\)
-        is an isomorphism of finite substructures of $\bff_0$.
-
-        Since $\bff_0$ is ultrahomogeneous, the isomorphism
-        \(\pi^{-1}\colon \pi(\bfa_0)\to \bfa_0\)
-        extends to an automorphism
-        \(g\in\Aut(\bff_0)=G_0\).
-        We now verify that
-        \((g\cdot \prec)|A_0=\prec_0|A_0\).
-
-        Let $x,y\in A_0$. Because $g$ extends $\pi^{-1}$ on the finite substructure $\pi(\bfa_0)$, we have
-        \(g(\pi(x))=x\) and \(g(\pi(y))=y\),
-        and hence
-        \(g^{-1}(x)=\pi(x)\) and \(g^{-1}(y)=\pi(y)\).
-        Therefore, again by definition of the logic action,
-        \begin{align*}
-            x\,(g\cdot \prec)\,y
-             & \iff g^{-1}(x)\prec g^{-1}(y) \\
-             & \iff \pi(x)\prec \pi(y).
-        \end{align*}
-        Since $\pi\colon \bfa\to \bfc$ is an embedding of ordered structures,
-        it preserves the distinguished orders, so
-        \(\pi(x)\prec \pi(y)\) if and only if \(x\prec_0 y\).
-        Combining these equivalences, we obtain
-        \(x\,(g\cdot \prec)\,y\) if and only if \(x\prec_0 y\), for
-        \(x,y\in A_0\).
-        Thus
-        \((g\cdot \prec)|A_0=\prec_0|A_0\).
-
-        Since $\bfa_0\leq \bff_0$ was arbitrary, we have shown that every finite restriction of $\prec_0$ agrees with the corresponding finite restriction of some translate of $\prec$. This is exactly the statement that
-        \(\prec_0\in\overline{G_0\cdot \prec}\).
-        Therefore (i) holds.
-    \end{proof}
-\end{mynote}
-We can now characterize the minimality of $X_\k$.
-
-\begin{theorem}
-    \label{thm:minimality-ordering-property}
-    The flow $X_\k$ is minimal if and only if $\k$ has the ordering property.
-\end{theorem}
-
-\begin{proof}
-    Assume first that $\k$ has the ordering property. Let \(\prec\in X_\k\).
-    We show that \(\prec_0\in\overline{G_0\cdot \prec}\).
-    By Lemma~\ref{lem:orbit-closure-characterization}, it is enough to verify condition (ii) of that lemma.
-
-    So let \(\bfa\in\k\), and write
-    \(\bfa=\langle \bfa_0,\prec_A\rangle\).
-    By the ordering property, there exists \(\bfb_0\in\k_0\)
-    such that whenever
-    \(\bfb=\langle \bfb_0,\prec_B\rangle\in\k\), one has
-    \(\bfa\leq \bfb\). Since \(\Age(\bff_0)=\k_0\),
-    we may realize $\bfb_0$ as a finite substructure of $\bff_0$. Because $\prec\in X_\k$, Proposition~\ref{prop:admissible-orderings-characterization} implies that
-    \(\langle \bfb_0,\prec|B_0\rangle\in\k\).
-    Hence
-    \(\bfa\leq \langle \bfb_0,\prec|B_0\rangle\).
-    By Lemma~\ref{lem:orbit-closure-characterization},
-    \(\prec_0\in\overline{G_0\cdot \prec}\).
-
-    Now let \(\prec\in X_\k\).
-    The orbit closure $\overline{G_0\cdot \prec}$ is a closed $G_0$-invariant subset of $X_\k$ containing $\prec_0$. Since
-    \(X_\k=\overline{G_0\cdot \prec_0}\),
-    it follows that
-    \(X_\k\subseteq \overline{G_0\cdot \prec}\).
-    The reverse inclusion is automatic, so
-    \(\overline{G_0\cdot \prec}=X_\k\).
-    Thus every orbit is dense, and $X_\k$ is minimal.
-
-    Conversely, assume that $X_\k$ is minimal. Let \(\bfa_0\in\k_0\).
-    We must find \(\bfb_0\in\k_0\)
-    witnessing the ordering property for $\bfa_0$.
-
-    There are only finitely many linear orderings on the finite set $A_0$, hence only finitely many ordered structures of the form
-    \(\langle \bfa_0,\prec\rangle\) that belong to $\k$. List them as
-    \(\bfa^1,\dots,\bfa^m\).
-
-    Fix \(\prec\in X_\k\).
-    Since $X_\k$ is minimal,
-    \(\prec_0\in\overline{G_0\cdot \prec}\).
-    Applying Lemma~\ref{lem:orbit-closure-characterization} to each $\bfa^j$, we obtain finite substructures
-    \[
-        \bfc^{\,j}_{\prec,0}\leq \bff_0
-        \qquad (j=1,\dots,m)
-    \]
-    such that
-    \[
-        \bfc^{\,j}_{\prec}
-        =
-        \langle \bfc^{\,j}_{\prec,0},\prec|C^{\,j}_{\prec,0}\rangle\in\k
-    \]
-    and \(\bfa^j\leq \bfc^{\,j}_{\prec}\). Let
-    \(C_{\prec,0}=C^{\,1}_{\prec,0}\cup\cdots\cup C^{\,m}_{\prec,0}\),
-    viewed as the finite substructure of $\bff_0$ generated by this union. Since $\prec\in X_\k$, Proposition~\ref{prop:admissible-orderings-characterization} gives
-    \(\langle C_{\prec,0},\prec|C_{\prec,0}\rangle\in\k\),
-    and by construction every $\bfa^j$ embeds into this ordered structure.
-
-    Now define
-    \[
-        U_{\prec}
-        =
-        \{\prec'\in X_\k : \prec'|C_{\prec,0}=\prec|C_{\prec,0}\}.
-    \]
-    This is an open neighbourhood of $\prec$ in $X_\k$. As $\prec$ ranges over $X_\k$, the sets $U_{\prec}$ form an open cover of the compact space $X_\k$. Hence there exist
-    \(\prec_1,\dots,\prec_n\in X_\k\)
-    such that
-    \[
-        X_\k=U_{\prec_1}\cup\cdots\cup U_{\prec_n}.
-    \]
-
-    Choose a finite substructure \(\bfb_0\leq \bff_0\) containing each of the
-    finite substructures
-    \[
-        C_{\prec_1,0},\dots,C_{\prec_n,0}.
-    \]
-    We claim that $\bfb_0$ witnesses the ordering property for $\bfa_0$.
-
-    Let
-    \[
-        \bfa=\langle \bfa_0,\prec_A\rangle\in\k
+        G=\Stab_{G_0}(\prec_0)
         \qquad\text{and}\qquad
-        \bfb=\langle \bfb_0,\prec_B\rangle\in\k.
+        G'=\Stab_{G_0}(\prec_0').
     \]
-    Since $\bfb\in\Age(\bff)=\k$, there exists a finite ordered substructure
-    \(\widetilde{\bfb}\leq \bff\) isomorphic to $\bfb$. Let
-    \(h\colon \widetilde{\bfb}\to \bfb\) be an isomorphism, and let
-    \(g\in G_0\) be an automorphism of $\bff_0$ extending
-    \(h^{-1}\colon \bfb_0\to \widetilde{B}_0\). Then
-    \(\widehat{\prec}=g\cdot \prec_0\)
-    belongs to $X_\k$, and its restriction to $B_0$ is exactly $\prec_B$.
-
-    Since \(X_\k=U_{\prec_1}\cup\cdots\cup U_{\prec_n}\),
-    there exists $i\in\{1,\dots,n\}$ such that
-    \(\widehat{\prec}\in U_{\prec_i}\).
-    Hence
-    \(\widehat{\prec}|C_{\prec_i,0}=\prec_i|C_{\prec_i,0}\).
-    By construction of $C_{\prec_i,0}$, every ordered expansion of $\bfa_0$ belonging to $\k$ embeds into
-    \(\langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle\).
-    In particular,
+    Since $\pi$ is $G_0$-equivariant and sends $\prec_0$ to $\prec_0'$, it follows that
     \[
-        \bfa\leq \langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle
-        =
-        \langle C_{\prec_i,0},\widehat{\prec}|C_{\prec_i,0}\rangle.
+        G=G'.
     \]
-    Since \(C_{\prec_i,0}\subseteq B_0\)
-    and $\widehat{\prec}|B_0=\prec_B$, the latter is a substructure of $\bfb$. Therefore
+
+    We now define $<'$ from $<$ by a simple formula. Since $G=G'$, the relation
+    \(x<' y\)
+    is invariant under $\Aut(\bff)$. Because $\bff$ is ultrahomogeneous in the relational language $L$, every $\Aut(\bff)$-invariant binary relation is a union of $2$-orbits, and each such orbit is determined by the quantifier-free type of the ordered pair in $\bff$. There are only finitely many such $2$-orbits, so the relation $<'$ is defined in $\bff$ by a simple formula \(\varphi(x,y)\) in the language $L$.
+
+    By the same argument, the relation $<$ is defined in $\bff'$ by a simple
+    formula \(\varphi'(x,y)\) in the language $L'$.
+
+    Finally, let \(\bfa=\langle \bfa_0,\prec^A\rangle\in\k\).
+    Since $\k=\Age(\bff)$, the structure $\bfa$ embeds into $\bff$. Restricting the formula $\varphi$ to the image of such an embedding defines on $A$ a second linear order $<'^{\,A}$, and the resulting structure
+    \(\langle \bfa_0,<'^{\,A}\rangle\)
+    belongs to $\Age(\bff')=\k'$. The same reasoning applies in the other direction using $\varphi'$. Because both formulas come from the same subgroup
+    \(G=G'\leq G_0\),
+    the two constructions are inverse to one another up to isomorphism. Therefore $\k$ and $\k'$ are simply bi-definable.
+\end{proof}
+
+\begin{remark}
+    If the signatures are finite, the same argument yields first-order bi-definability in the usual sense. For the purposes of the present thesis, however, the quantifier-free version is the natural one and is sufficient.
+\end{remark}
+
+The theorem shows that a reasonable Ramsey expansion with the ordering property is unique up to a very rigid notion of definitional equivalence. In the next section we record some strengthenings and examples of this phenomenon.
+
+\section{Strengthenings and examples}
+
+We now record two useful strengthenings of Theorem~\ref{thm:uniqueness-simple-bi-definability}, together with some examples.
+
+\begin{proposition}
+    \label{prop:comparable-expansions-equal}
+    In the context of Theorem~\ref{thm:uniqueness-simple-bi-definability}, suppose that $\k$ and $\k'$ are comparable under inclusion, that is,
+    \[
+        \k\subseteq \k'
+        \qquad\text{or}\qquad
+        \k'\subseteq \k.
+    \]
+    Then
+    \[
+        \k=\k'.
+    \]
+    In particular, if \(\k=\k_0*\mathcal{LO}\),
+    then $\k=\k'$.
+\end{proposition}
+
+\begin{proof}
+    Assume, for example, that \(\k\subseteq \k'\).
+    Suppose toward a contradiction that $\k\neq\k'$. Then there exists
+    \(\bfa=\langle \bfa_0,\prec\rangle\in \k'\setminus \k\).
+    Since $\k'$ has the ordering property, there exists
+    \(\bfb_0\in \k_0\)
+    such that for every expansion
+    \(\bfb'=\langle \bfb_0,\prec'\rangle\in \k'\)
+    one has
+    \(\bfa\leq \bfb'\).
+    Choose any expansion
+    \(\bfb=\langle \bfb_0,\prec'\rangle\in \k\).
+    Since $\k\subseteq \k'$, we also have $\bfb\in\k'$, and therefore
     \(\bfa\leq \bfb\).
-    This proves that $\k$ has the ordering property.
-\end{proof}
-\begin{mynote}
-    \begin{proof}
-        Assume first that $\k$ has the ordering property. We show that $X_\k$ is minimal.
+    But $\k$ is hereditary, so this implies
+    \(\bfa\in \k\),
+    a contradiction. Hence $\k=\k'$.
 
-        Let \(\prec\in X_\k\).
-        To prove that the orbit $G_0\cdot \prec$ is dense in $X_\k$, it is enough to show that
-        \(\prec_0\in\overline{G_0\cdot \prec}\),
-        because then the orbit closure $\overline{G_0\cdot \prec}$ is a closed $G_0$-invariant subset of $X_\k$ containing $\prec_0$, and hence, since
-        \(X_\k=\overline{G_0\cdot \prec_0}\),
-        we will obtain
-        \(X_\k\subseteq \overline{G_0\cdot \prec}\).
-        The reverse inclusion is automatic because $\prec\in X_\k$ and $X_\k$ is closed and $G_0$-invariant. Therefore
-        \(\overline{G_0\cdot \prec}=X_\k\),
-        so every orbit is dense and $X_\k$ is minimal.
-
-        It remains to prove that
-        \(\prec_0\in\overline{G_0\cdot \prec}\).
-        By Lemma~\ref{lem:orbit-closure-characterization}, it is enough to verify condition {\rm(ii)} of that lemma. So let
-        \(\bfa\in\k\), and write
-        \(\bfa=\langle \bfa_0,\prec_A\rangle\).
-        Since $\k$ has the ordering property, there exists
-        \(\bfb_0\in\k_0\)
-        such that whenever
-        \(\bfb=\langle \bfb_0,\prec_B\rangle\in\k\), one has
-        \(\bfa\leq \bfb\).
-
-        Because \(\Age(\bff_0)=\k_0\),
-        we may realize $\bfb_0$ as a finite substructure of $\bff_0$. Since
-        \(\prec\in X_\k\),
-        Proposition~\ref{prop:admissible-orderings-characterization} implies that
-        \(\langle \bfb_0,\prec|B_0\rangle\in\k\).
-        By the choice of $\bfb_0$, it follows that
-        \(\bfa\leq \langle \bfb_0,\prec|B_0\rangle\).
-        Thus condition {\rm(ii)} of Lemma~\ref{lem:orbit-closure-characterization} holds. Hence
-        \(\prec_0\in\overline{G_0\cdot \prec}\).
-
-        This proves that $X_\k$ is minimal.
-
-        Conversely, assume that $X_\k$ is minimal. We show that $\k$ has the ordering property.
-
-        Let \(\bfa_0\in\k_0\). We must find \(\bfb_0\in\k_0\)
-        such that whenever
-        \[
-            \bfa=\langle \bfa_0,\prec_A\rangle\in\k
-            \qquad\text{and}\qquad
-            \bfb=\langle \bfb_0,\prec_B\rangle\in\k,
-        \]
-        one has
-        \[
-            \bfa\leq \bfb.
-        \]
-
-        Since $A_0$ is finite, there are only finitely many linear orderings on $A_0$. Hence there are only finitely many ordered structures of the form
-        \(\langle \bfa_0,\prec\rangle\) that belong to $\k$. List them as
-        \(\bfa^1,\dots,\bfa^m\).
-
-        Now fix \(\prec\in X_\k\).
-        Since $X_\k$ is minimal, the orbit of $\prec$ is dense in $X_\k$. In particular,
-        \(\prec_0\in\overline{G_0\cdot \prec}\).
-        Applying Lemma~\ref{lem:orbit-closure-characterization} to each of the structures
-        \(\bfa^1,\dots,\bfa^m\),
-        we obtain, for each $j=1,\dots,m$, a finite substructure
-        \(\bfc^{\,j}_{\prec,0}\leq \bff_0\)
-        such that
-        \[
-            \bfc^{\,j}_{\prec}
-            =
-            \langle \bfc^{\,j}_{\prec,0},\prec|C^{\,j}_{\prec,0}\rangle\in\k
-        \]
-        and \(\bfa^j\leq \bfc^{\,j}_{\prec}\).
-
-        Let \(C_{\prec,0}\)
-        be the finite substructure of $\bff_0$ generated by the union
-        \(C^{\,1}_{\prec,0}\cup\cdots\cup C^{\,m}_{\prec,0}\).
-        Since
-        \(\prec\in X_\k\),
-        Proposition~\ref{prop:admissible-orderings-characterization} shows that
-        \(\langle C_{\prec,0},\prec|C_{\prec,0}\rangle\in\k\).
-        Moreover, because each
-        \(\bfc^{\,j}_{\prec,0}\leq C_{\prec,0}\),
-        the ordered structure
-        \[
-            \bfc^{\,j}_{\prec}
-            =
-            \langle \bfc^{\,j}_{\prec,0},\prec|C^{\,j}_{\prec,0}\rangle
-        \]
-        is a substructure of
-        \(\langle C_{\prec,0},\prec|C_{\prec,0}\rangle\).
-        Since
-        \(\bfa^j\leq \bfc^{\,j}_{\prec}\),
-        it follows that every ordered expansion of $\bfa_0$ belonging to $\k$ embeds into
-        \(\langle C_{\prec,0},\prec|C_{\prec,0}\rangle\).
-
-        Define
-        \[
-            U_\prec
-            =
-            \{\prec'\in X_\k:\prec'|C_{\prec,0}=\prec|C_{\prec,0}\}.
-        \]
-        This is an open neighbourhood of $\prec$ in $X_\k$. As $\prec$ ranges over $X_\k$, the sets $U_\prec$ form an open cover of $X_\k$. Since $X_\k$ is compact, there exist
-        \(\prec_1,\dots,\prec_n\in X_\k\)
-        such that
-        \[
-            X_\k=U_{\prec_1}\cup\cdots\cup U_{\prec_n}.
-        \]
-
-        Choose a finite substructure \(\bfb_0\leq \bff_0\) containing each of
-        the finite substructures
-        \(C_{\prec_1,0},\dots,C_{\prec_n,0}\). Since
-        \(\Age(\bff_0)=\k_0\), we have \(\bfb_0\in\k_0\).
-        We claim that this $\bfb_0$ witnesses the ordering property for $\bfa_0$.
-
-        So let
-        \[
-            \bfa=\langle \bfa_0,\prec_A\rangle\in\k
-            \qquad\text{and}\qquad
-            \bfb=\langle \bfb_0,\prec_B\rangle\in\k.
-        \]
-        We must show that \(\bfa\leq \bfb\).
-
-        Since \(\bfb\in\k=\Age(\bff)\),
-        there exists a finite ordered substructure
-        \(\widetilde{\bfb}\leq \bff\)
-        and an isomorphism
-        \(h\colon \widetilde{\bfb}\to \bfb\).
-        Forgetting the order, $h$ is an isomorphism between the finite substructures
-        \(\widetilde{\bfb}_0\leq \bff_0\) and
-        \(\bfb_0\leq \bff_0\).
-        Hence
-        \(h^{-1}\colon \bfb_0\to \widetilde{B}_0\)
-        is an isomorphism of finite substructures of $\bff_0$. Since $\bff_0$ is ultrahomogeneous, $h^{-1}$ extends to an automorphism
-        \(g\in G_0=\Aut(\bff_0)\).
-
-        Let \(\widehat{\prec}=g\cdot \prec_0\).
-        Then
-        \(\widehat{\prec}\in G_0\cdot \prec_0\subseteq X_\k\).
-        We claim that the restriction of $\widehat{\prec}$ to $B_0$ is exactly $\prec_B$. Indeed, let $x,y\in B_0$. Then
-        \begin{align*}
-            x\,\widehat{\prec}\,y
-             & \iff x\,(g\cdot \prec_0)\,y      \\
-             & \iff g^{-1}(x)\prec_0 g^{-1}(y).
-        \end{align*}
-        Since $g$ extends $h^{-1}$ on $B_0$, this is equivalent to
-        \(h^{-1}(x)\prec_0 h^{-1}(y)\).
-        But $h$ is an isomorphism of ordered structures from
-        \(\langle \widetilde{\bfb}_0,\prec_0|\widetilde{B}_0\rangle\)
-        onto
-        \(\langle \bfb_0,\prec_B\rangle=\bfb\),
-        so
-        \(h^{-1}(x)\prec_0 h^{-1}(y)\) if and only if \(x\prec_B y\).
-        Therefore
-        \(\widehat{\prec}|B_0=\prec_B\).
-
-        Since
-        \(\widehat{\prec}\in X_\k=U_{\prec_1}\cup\cdots\cup U_{\prec_n}\),
-        there exists some $i\in\{1,\dots,n\}$ such that
-        \(\widehat{\prec}\in U_{\prec_i}\).
-        By definition of $U_{\prec_i}$,
-        \(\widehat{\prec}|C_{\prec_i,0}=\prec_i|C_{\prec_i,0}\).
-
-        By the construction of $C_{\prec_i,0}$, every ordered expansion of $\bfa_0$ that belongs to $\k$ embeds into
-        \(\langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle\).
-        Since \(\bfa=\langle \bfa_0,\prec_A\rangle\in\k\),
-        it follows that
-        \(\bfa\leq
-        \langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle\).
-        Using the equality of restrictions, we obtain
-        \[
-            \langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle
-            =
-            \langle C_{\prec_i,0},\widehat{\prec}|C_{\prec_i,0}\rangle.
-        \]
-        Since \(C_{\prec_i,0}\subseteq B_0\) and
-        \(\widehat{\prec}|B_0=\prec_B\),
-        the structure
-        \(\langle C_{\prec_i,0},\widehat{\prec}|C_{\prec_i,0}\rangle\)
-        is a substructure of
-        \(\langle \bfb_0,\prec_B\rangle=\bfb\).
-        Therefore
-        \(\bfa\leq \bfb\).
-
-        We have shown that the chosen finite reduct $\bfb_0$ has the property that every member of $\k$ with reduct $\bfb_0$ contains every member of $\k$ with reduct $\bfa_0$. This proves that $\k$ has the ordering property.
-    \end{proof}
-\end{mynote}
-The theorem shows that the minimality of the flow $X_\k$ is controlled by a purely finite combinatorial condition on the class $\k$. In the next section we add the Ramsey property and obtain the universal minimal flow.
-
-\section{Ramsey property and universal minimal flows}
-
-We now add the Ramsey property and obtain the main dynamical consequence of the Kechris--Pestov--Todorcevic correspondence.
-
-Let \(G={\rm Aut}(\bff)\). Since $\bff$ is an ordered expansion of $\bff_0$,
-we have \(G\leq G_0\),
-and every element of $G$ fixes the distinguished ordering $\prec_0$.
-
-The first result shows that, under the Ramsey property, the pointed flow
-\((X_\k,\prec_0)\)
-is universal among $G_0$-ambits whose distinguished point is fixed by $G$.
-
-\begin{lemma}
-    \label{lem:graph-uniqueness}
-    Assume that $\k$ has the Ramsey property. Let $(X,x_0)$ be a $G_0$-ambit
-    such that \(g\cdot x_0=x_0\) for all \(g\in G\).
-    Let
-    \[
-        \Phi
-        =
-        \overline{\{(g\cdot \prec_0,g\cdot x_0):g\in G_0\}}
-        \subseteq X_\k\times X.
-    \]
-    If \((\prec,x),(\prec,x')\in \Phi\), then \(x=x'\).
-\end{lemma}
-
-\begin{proof}
-    Suppose that \((\prec,x),(\prec,x')\in \Phi\) and \(x\neq x'\).
-    Choose disjoint open neighbourhoods \(U\ni x\) and \(U'\ni x'\).
-    Since $X$ is compact Hausdorff, there exists an open neighbourhood $D$ of the diagonal in $X\times X$ such that
-    \(D[U]\cap U'=\emptyset\), where
-    \[
-        D[U]=\{y\in X:\text{ there exists } z\in U \text{ with } (z,y)\in D\}.
-    \]
-    By replacing $D$ with \(D\cap D^{-1}\),
-    we may assume that $D$ is symmetric.
-
-    Because the action of $G_0$ on the compact space $X$ is continuous, there exists an open neighbourhood $V$ of the identity in $G_0$ such that
-    \((v\cdot z,z)\in D\) for all \(z\in X\) and all \(v\in V\).
-    Since $G_0\leq S_\infty$ is non-Archimedean, we may choose a finite substructure
-    \(\bfa_0\leq \bff_0\)
-    such that the pointwise stabilizer
-    \(G_{0,(\bfa_0)}\subseteq V\).
-
-    Because \((\prec,x),(\prec,x')\in \Phi\),
-    there exist
-    \(g,h\in G_0\)
-    such that
-    \(g\cdot x_0\in U\) and \(h\cdot x_0\in U'\),
-    and
-    \((g\cdot \prec_0)|A_0=(h\cdot \prec_0)|A_0=\prec|A_0\).
-    Consider the map
-    \(\theta=h^{-1}g\colon g^{-1}(A_0)\to h^{-1}(A_0)\).
-    Since
-    \((g\cdot \prec_0)|A_0=(h\cdot \prec_0)|A_0\),
-    the map $\theta$ is an isomorphism of the finite ordered structures
-    \(\langle g^{-1}(\bfa_0),\prec_0\rangle\) and
-    \(\langle h^{-1}(\bfa_0),\prec_0\rangle\).
-    Because \(\Age(\bff)=\k\)
-    and $\bff$ is ultrahomogeneous, $\theta$ extends to some
-    \(\gamma\in G={\rm Aut}(\bff)\).
-    Then for every $a\in A_0$,
-    \(h\gamma g^{-1}(a)=a\),
-    so
-    \(v:=h\gamma g^{-1}\in G_{0,(\bfa_0)}\subseteq V\).
-    Since $\gamma\in G$ fixes $x_0$, we obtain
-    \[
-        h\cdot x_0=v\cdot g\cdot \gamma^{-1}\cdot x_0=v\cdot g\cdot x_0.
-    \]
-    Hence
-    \((h\cdot x_0,g\cdot x_0)\in D\).
-    Because $D$ is symmetric, this implies
-    \(h\cdot x_0\in D[U]\).
-    But
-    \(g\cdot x_0\in U\) and \(h\cdot x_0\in U'\),
-    so
-    \(h\cdot x_0\in D[U]\cap U'\),
-    contrary to the choice of $D$. Therefore
-    \(x=x'\).
-\end{proof}
-\begin{mynote}
-    \begin{proof}
-        Suppose that \((\prec,x),(\prec,x')\in \Phi\) and \(x\neq x'\).
-        We shall derive a contradiction.
-
-        Since $X$ is Hausdorff and $x\neq x'$, there exist disjoint open neighbourhoods
-        \(U\ni x\) and \(U'\ni x'\).
-        Because $X$ is compact Hausdorff, hence uniformizable, there exists an open neighbourhood $D$ of the diagonal
-        \(\Delta_X=\{(y,y):y\in X\}\)
-        in $X\times X$ such that
-        \(D[U]\cap U'=\emptyset\), where
-        \[
-            D[U]=\{y\in X:\exists z\in U\text{ such that }(z,y)\in D\}.
-        \]
-        Replacing $D$ by \(D\cap D^{-1}\),
-        if necessary, we may assume that $D$ is symmetric.
-
-        Next, we use continuity of the action \(G_0\times X\to X\).
-        Since $X$ is compact, the action is uniformly continuous in the group variable near the identity. Hence there exists an open neighbourhood $V$ of the identity in $G_0$ such that
-        \((v\cdot z,z)\in D\) for all \(z\in X\) and all \(v\in V\).
-        Since $G_0$ is a closed subgroup of $S_\infty$, it is non-Archimedean, so we may choose a finite substructure
-        \(\bfa_0\leq \bff_0\)
-        such that the pointwise stabilizer
-        \(G_{0,(\bfa_0)}\subseteq V\).
-
-        Now, since \((\prec,x),(\prec,x')\in \Phi\) and
-        \[
-            \Phi=\overline{\{(g\cdot\prec_0,g\cdot x_0):g\in G_0\}},
-        \]
-        we may choose elements
-        \(g,h\in G_0\)
-        such that
-        \(g\cdot x_0\in U\) and \(h\cdot x_0\in U'\),
-        and
-        \((g\cdot\prec_0)|A_0=(h\cdot\prec_0)|A_0=\prec|A_0\).
-        The last equality means that the two translates $g\cdot\prec_0$ and $h\cdot\prec_0$ induce the same ordering on the finite set $A_0$.
-
-        Consider the map
-        \(\theta=h^{-1}g\colon g^{-1}(A_0)\to h^{-1}(A_0)\).
-        We claim that $\theta$ is an isomorphism between the finite ordered substructures
-        \(\langle g^{-1}(\bfa_0),\prec_0\rangle\) and
-        \(\langle h^{-1}(\bfa_0),\prec_0\rangle\).
-        Since $g,h\in G_0=\Aut(\bff_0)$, the map $\theta=h^{-1}g$ is automatically an isomorphism of the underlying $L_0$-structures. It remains to check preservation of the order.
-
-        Let \(u,v\in g^{-1}(A_0)\). Put \(a=g(u)\) and \(b=g(v)\),
-        so that $a,b\in A_0$. Then
-        \begin{align*}
-            u\prec_0 v
-             & \iff g(u)\,(g\cdot\prec_0)\,g(v)                        \\
-             & \iff a\,(g\cdot\prec_0)\,b                              \\
-             & \iff a\,(h\cdot\prec_0)\,b
-            \qquad\text{since }(g\cdot\prec_0)|A_0=(h\cdot\prec_0)|A_0 \\
-             & \iff h^{-1}(a)\prec_0 h^{-1}(b)                         \\
-             & \iff h^{-1}g(u)\prec_0 h^{-1}g(v)                       \\
-             & \iff \theta(u)\prec_0\theta(v).
-        \end{align*}
-        Thus $\theta$ preserves the order, and similarly its inverse does also. Therefore $\theta$ is indeed an isomorphism of ordered structures.
-
-        Since \(\Age(\bff)=\k\)
-        and $\bff$ is ultrahomogeneous, every isomorphism between finite substructures of $\bff$ extends to an automorphism of $\bff$. Hence $\theta$ extends to some
-        \(\gamma\in G=\Aut(\bff)\).
-
-        Now define \(v:=h\gamma g^{-1}\).
-        We show that $v$ fixes $A_0$ pointwise. Let $a\in A_0$. Then $g^{-1}(a)\in g^{-1}(A_0)$, and by the definition of $\theta$,
-        \[
-            \gamma(g^{-1}(a))=\theta(g^{-1}(a))=h^{-1}(a).
-        \]
-        Therefore
-        \[
-            v(a)=h\gamma g^{-1}(a)=h(h^{-1}(a))=a.
-        \]
-        Since this holds for every $a\in A_0$, we have
-        \(v\in G_{0,(\bfa_0)}\subseteq V\).
-
-        Because $\gamma\in G$ and the point $x_0$ is fixed by every element of $G$, we have
-        \(\gamma\cdot x_0=x_0\).
-        Hence
-        \begin{align*}
-            h\cdot x_0
-             & =h\cdot(\gamma\cdot x_0)           \\
-             & =(h\gamma)\cdot x_0                \\
-             & =(h\gamma g^{-1})\cdot(g\cdot x_0) \\
-             & =v\cdot(g\cdot x_0).
-        \end{align*}
-        Since \(v\in V\) and \(g\cdot x_0\in U\),
-        the choice of $V$ gives
-        \((v\cdot(g\cdot x_0),\,g\cdot x_0)\in D\).
-        That is,
-        \((h\cdot x_0,\,g\cdot x_0)\in D\).
-        Because $D$ is symmetric, it follows that
-        \((g\cdot x_0,\,h\cdot x_0)\in D\).
-        Since \(g\cdot x_0\in U\),
-        this implies
-        \(h\cdot x_0\in D[U]\). But also \(h\cdot x_0\in U'\),
-        so
-        \(h\cdot x_0\in D[U]\cap U'\),
-        contradicting the choice of $D$.
-
-        This contradiction shows that our assumption
-        \(x\neq x'\)
-        was false. Therefore
-        \(x=x'\).
-    \end{proof}
-\end{mynote}
-\begin{theorem}
-    \label{thm:ramsey-universal-ambit}
-    Assume that $\k$ has the Ramsey property. Let $(X,x_0)$ be a $G_0$-ambit
-    such that \(g\cdot x_0=x_0\) for all \(g\in G\).
-    Then there exists a unique $G_0$-map \(\pi\colon X_\k\to X\) such that
-    \(\pi(\prec_0)=x_0\).
-    In particular, $(X_\k,\prec_0)$ is universal among $G_0$-ambits whose distinguished point is fixed by $G$.
-\end{theorem}
-
-\begin{proof}
-    Let
-    \[
-        \Phi
-        =
-        \overline{\{(g\cdot \prec_0,g\cdot x_0):g\in G_0\}}
-        \subseteq X_\k\times X.
-    \]
-    Since the projection \(p_1\colon X_\k\times X\to X_\k\)
-    is a closed map and \(p_1(\Phi)\) contains the dense set
-    \(G_0\cdot \prec_0\),
-    we have
-    \(p_1(\Phi)=X_\k\). Thus for every \(\prec\in X_\k\) there exists
-    \(x\in X\) such that \((\prec,x)\in \Phi\).
-    By Lemma~\ref{lem:graph-uniqueness}, this $x$ is unique. Hence $\Phi$ is the graph of a function
-    \(\pi\colon X_\k\to X\).
-
-    The map
-    \(p_1|\Phi\colon \Phi\to X_\k\)
-    is a continuous bijection from a compact space to a Hausdorff space, hence a homeomorphism. Therefore
-    \(\pi=p_2\circ (p_1|\Phi)^{-1}\)
-    is continuous.
-
-    The set
-    \(\{(g\cdot \prec_0,g\cdot x_0):g\in G_0\}\)
-    is $G_0$-invariant, and so is its closure $\Phi$. It follows that $\pi$ is $G_0$-equivariant. Also,
-    \((\prec_0,x_0)\in \Phi\),
-    so
-    \(\pi(\prec_0)=x_0\).
-
-    To prove uniqueness, let
-    \(\pi'\colon X_\k\to X\)
-    be another $G_0$-map with
-    \(\pi'(\prec_0)=x_0\).
-    For every $g\in G_0$ we then have
-    \[
-        \pi'(g\cdot \prec_0)
-        =g\cdot \pi'(\prec_0)
-        =g\cdot x_0
-        =\pi(g\cdot \prec_0).
-    \]
-    Since \(G_0\cdot \prec_0\)
-    is dense in $X_\k$ and both maps are continuous, it follows that
-    \(\pi'=\pi\).
-
-    Finally, because $(X,x_0)$ is an ambit, the orbit
-    \(G_0\cdot x_0\)
-    is dense in $X$. Since $\pi$ is continuous and $G_0$-equivariant, its image is a closed $G_0$-invariant subset of $X$ containing
-    \(\pi(G_0\cdot \prec_0)=G_0\cdot x_0\).
-    Hence
-    \(\pi(X_\k)=X\).
-    Thus $(X_\k,\prec_0)$ is universal among such ambits.
+    For the final statement, note that if \(\k=\k_0*\mathcal{LO}\),
+    then every expansion in $\k'$ also belongs to $\k$, so
+    \(\k'\subseteq \k\).
+    The first part of the proposition therefore gives $\k=\k'$.
 \end{proof}
 
-We can now combine this with the results of Chapters~5 and~7 and the minimality criterion from the previous section.
+Thus in all the free-expansion examples from Chapter~\ref{chap:examples-umf}, the expansion with both the Ramsey and ordering properties is uniquely determined.
+
+There is another natural way in which two expansions may differ. If \(\k\) is a class of ordered structures, let
+\[
+    \k^*=\{\langle \bfa_0,\prec^*\rangle : \langle \bfa_0,\prec\rangle\in \k\},
+\]
+where
+\[
+    a\prec^* b
+    \quad\Longleftrightarrow\quad
+    b\prec a.
+\]
+Then $\k^*$ is simply bi-definable with $\k$, so by Proposition~\ref{prop:simple-bi-definability-preserves-properties}, the classes $\k$ and $\k^*$ either both have, or both fail to have, the Ramsey and ordering properties. The next condition shows that in some cases these are the only possibilities.
+
+Given \(\bfa=\langle \bfa_0,\prec\rangle\in\k\) and \(a,b\in A_0\) with
+\(a\prec b\), we write \(\operatorname{tp}_{\bfa}(a,b)\)
+for the atomic type of the ordered pair $(a,b)$ in the language $L$. Equivalently, this is the quantifier-free type of $(a,b)$ in $\bfa$.
+
+\begin{definition}
+    \label{def:triangle-condition}
+    We say that $\k$ satisfies the \emph{triangle condition} if for any two
+    distinct pair-types \(\sigma\neq \tau\)
+    realized in members of $\k$, there exist
+    \[
+        \bfa=\langle \bfa_0,\prec\rangle\in \k
+        \qquad\text{and}\qquad
+        a\prec b\prec c
+    \]
+    in $A_0$ such that either
+    \[
+        \operatorname{tp}_{\bfa}(a,b)=\operatorname{tp}_{\bfa}(b,c)=\sigma
+        \qquad\text{and}\qquad
+        \operatorname{tp}_{\bfa}(a,c)=\tau,
+    \]
+    or
+    \[
+        \operatorname{tp}_{\bfa}(a,b)=\operatorname{tp}_{\bfa}(b,c)=\tau
+        \qquad\text{and}\qquad
+        \operatorname{tp}_{\bfa}(a,c)=\sigma.
+    \]
+\end{definition}
+
+The point is that the triangle condition forces any alternative admissible ordering to agree either with the original ordering or with its reverse.
 
 \begin{corollary}
-    \label{cor:ramsey-ordering-umf}
-    Assume that $\k$ has both the Ramsey property and the ordering property. Then $X_\k$ is the universal minimal flow of $G_0={\rm Aut}(\bff_0)$.
+    \label{cor:triangle-condition}
+    In the context of Theorem~\ref{thm:uniqueness-simple-bi-definability}, assume that $\k$ satisfies the triangle condition. Then
+    \[
+        \k'=\k
+        \qquad\text{or}\qquad
+        \k'=\k^*.
+    \]
 \end{corollary}
 
 \begin{proof}
-    By Corollary~\ref{cor:fraisse-order-class-ea}, the Ramsey property of the Fra\"iss\'e order class $\k$ implies that
-    \(G={\rm Aut}(\bff)\)
-    is extremely amenable. Let $Y$ be a minimal compact $G_0$-flow. Restricting the action to the subgroup $G$, we obtain a compact $G$-flow, so extreme amenability yields a point
-    \(y_0\in Y\)
-    fixed by every element of $G$. Since $Y$ is minimal as a $G_0$-flow, the orbit
-    \(G_0\cdot y_0\)
-    is dense in $Y$, and therefore $(Y,y_0)$ is a $G_0$-ambit with $G$-fixed distinguished point.
+    By Theorem~\ref{thm:uniqueness-simple-bi-definability}, the classes $\k$
+    and $\k'$ are simply bi-definable. In the notation of its proof, we may
+    therefore realize the two Fra\"iss\'e limits on the same reduct \(\bff_0\)
+    and write
+    \[
+        \bff=\langle \bff_0,\prec_0\rangle,
+        \qquad
+        \bff'=\langle \bff_0,\prec_0'\rangle,
+    \]
+    with
+    \[
+        \Aut(\bff)=\Aut(\bff').
+    \]
+    It is enough to show that
+    \[
+        \prec_0'=\prec_0
+        \qquad\text{or}\qquad
+        \prec_0'=\prec_0^*.
+    \]
 
-    By Theorem~\ref{thm:ramsey-universal-ambit}, there exists a surjective
-    $G_0$-map \(\pi\colon X_\k\to Y\).
-    On the other hand, by Theorem~\ref{thm:minimality-ordering-property}, the ordering property implies that $X_\k$ is minimal. Hence every minimal compact $G_0$-flow is a factor of $X_\k$, which is therefore the universal minimal flow of $G_0$.
+    Assume this fails. Then there exist \(a,b,c,d\in F_0\)
+    such that
+    \[
+        a\prec_0 b,\qquad c\prec_0 d,
+    \]
+    but
+    \[
+        a\prec_0' b,\qquad d\prec_0' c.
+    \]
+    Let
+    \[
+        \sigma=\operatorname{tp}_{\bff}(a,b)
+        \qquad\text{and}\qquad
+        \tau=\operatorname{tp}_{\bff}(c,d).
+    \]
+    Then \(\sigma\neq \tau\),
+    since $\prec_0'$ is invariant under $\Aut(\bff)=\Aut(\bff')$.
+
+    By the triangle condition, there exist
+    \[
+        \bfa\in\k
+        \qquad\text{and}\qquad
+        u\prec v\prec w
+    \]
+    in $A_0$ such that either
+    \[
+        \operatorname{tp}_{\bfa}(u,v)=\operatorname{tp}_{\bfa}(v,w)=\sigma
+        \quad\text{and}\quad
+        \operatorname{tp}_{\bfa}(u,w)=\tau,
+    \]
+    or the same statement with $\sigma$ and $\tau$ interchanged. Realizing $\bfa$ as a substructure of $\bff$, the relation $\prec_0'$ must orient the pairs of type $\sigma$ as in $(a,b)$ and the pairs of type $\tau$ as in $(d,c)$. In the first case this gives
+    \[
+        u\prec_0' v\prec_0' w
+        \qquad\text{and}\qquad
+        w\prec_0' u,
+    \]
+    a contradiction; in the second case one obtains
+    \[
+        w\prec_0' v\prec_0' u
+        \qquad\text{and}\qquad
+        u\prec_0' w,
+    \]
+    again a contradiction. Therefore
+    \[
+        \prec_0'=\prec_0
+        \qquad\text{or}\qquad
+        \prec_0'=\prec_0^*,
+    \]
+    and hence
+    \[
+        \k'=\k
+        \qquad\text{or}\qquad
+        \k'=\k^*.
+    \]
 \end{proof}
 
-The preceding theorem shows how the Ramsey property and admissible orderings determine the universal minimal flow of the automorphism group of the reduct. In the following chapters we turn to the converse direction, uniqueness questions for such expansions, and the role of Ramsey degrees in the computation of universal minimal flows.
+We now record two examples.
+
+\begin{example}
+    Let $\k_0$ be the class of all finite equivalence relations, and let $\k$ be the class of all finite convexly ordered equivalence relations. Then $\k$ is the unique reasonable Fra\"iss\'e order expansion of $\k_0$ with both the Ramsey property and the ordering property.
+\end{example}
+
+\begin{proof}
+    Let $\k'$ be any reasonable Fra\"iss\'e order expansion of $\k_0$ with
+    both properties. If \(\k'\subseteq \k\),
+    then Proposition~\ref{prop:comparable-expansions-equal} yields
+    \(\k'=\k\).
+    So suppose instead that $\k'\nsubseteq \k$. Then $\k'$ contains some
+    \(\bfa'=\langle \bfa_0,E,\prec'\rangle\)
+    with
+    \[
+        a\prec' b\prec' c,
+        \qquad
+        a\,E\,c,
+        \qquad
+        a\not E b,
+        \qquad
+        b\not E c,
+    \]
+    for some $a,b,c\in A_0$. This witnesses the triangle condition for $\k'$, and therefore Corollary~\ref{cor:triangle-condition} implies that
+    \[
+        \k'=\k
+        \qquad\text{or}\qquad
+        \k'=\k^*.
+    \]
+    But $\k^*=\k$ in this case, since reversing a convex ordering is again
+    convex. Hence \(\k'=\k\).
+\end{proof}
+
+\begin{example}
+    Let $\k_0$ be the class of all finite posets, and let $\k$ be the class of
+    all finite structures \(\langle A,\sqsubset,\prec\rangle\)
+    where $\langle A,\sqsubset\rangle$ is a poset and $\prec$ is a linear ordering extending $\sqsubset$. Then the only reasonable Fra\"iss\'e order expansions of $\k_0$ with both the Ramsey and ordering properties are $\k$ and $\k^*$.
+\end{example}
+
+\begin{proof}
+    This class has the Ramsey and ordering properties. It also satisfies the
+    triangle condition: one may realize two distinct pair-types by appropriately
+    choosing a three-element chain \(a\prec b\prec c\)
+    and using the compatibility of $\prec$ with the partial order. Corollary~\ref{cor:triangle-condition} therefore gives the conclusion.
+\end{proof}
+
+The situation is not always so rigid. In some classes there are several non-isomorphic expansions satisfying the Ramsey and ordering properties. This occurs, for example, for finite Boolean algebras and for finite-dimensional vector spaces over a finite field. Since the classification of all such expansions would take us too far from the main line of the thesis, we do not pursue it here.
+
+The next section explains the conceptual meaning of the uniqueness theorem from the viewpoint of minimality among Ramsey expansions.
+
+\section{Minimality among Ramsey expansions}
+
+We now explain the sense in which expansions with both the Ramsey property and the ordering property are minimal among Ramsey expansions of a fixed reduct class.
+
+\begin{theorem}
+    \label{thm:minimality-among-ramsey-expansions}
+    Let $\k_0$ be a Fra\"iss\'e class in a relational signature $L_0$, let
+    \(L=L_0\cup\{<\}\),
+    and let $\k,\k'$ be reasonable Fra\"iss\'e order classes in the language $L$ expanding $\k_0$. Assume that $\k$ has the Ramsey property and that $\k'$ has both the Ramsey property and the ordering property. Then there exists a reasonable Fra\"iss\'e order class $\k''$ in the language $L$ such that
+    \[
+        \k''\subseteq \k
+    \]
+    and $\k''$ is simply bi-definable with $\k'$.
+\end{theorem}
+
+\begin{proof}
+    Let
+    \[
+        \bff=\langle \bff_0,\prec_0\rangle=\mathrm{Flim}(\k),
+        \qquad
+        \bff'=\langle \bff_0,\prec_0'\rangle=\mathrm{Flim}(\k'),
+    \]
+    where we identify the two reduct limits using Chapter~\ref{chap:reasonable-expansions}. Put
+    \[
+        G_0=\Aut(\bff_0),
+        \qquad
+        G=\Aut(\bff).
+    \]
+    Let
+    \[
+        X_\k=\overline{G_0\cdot \prec_0}
+        \qquad\text{and}\qquad
+        X_{\k'}=\overline{G_0\cdot \prec_0'}.
+    \]
+
+    Since $\k$ has the Ramsey property,
+    Corollary~\ref{cor:fraisse-order-class-ea} shows that
+    \(G=\Aut(\bff)\)
+    is extremely amenable. Let $Y$ be any minimal subflow of $X_\k$. We claim that $Y$ is the universal minimal flow of $G_0$.
+
+    Indeed, let $Z$ be any minimal compact $G_0$-flow. Restricting the action
+    to the subgroup $G$, extreme amenability yields a point \(z_0\in Z\)
+    fixed by every element of $G$. By Theorem~\ref{thm:ramsey-universal-ambit}, there exists a surjective $G_0$-map
+    \(\pi\colon X_\k\to Z\).
+    Since $Y$ is a minimal subflow of $X_\k$, the image $\pi(Y)$ is a nonempty closed $G_0$-invariant subset of $Z$, hence
+    \(\pi(Y)=Z\).
+    Thus every minimal compact $G_0$-flow is a factor of $Y$, so $Y$ is universal minimal.
+
+    On the other hand, since $\k'$ has both the Ramsey property and the ordering
+    property, Corollary~\ref{cor:ramsey-ordering-umf} implies that
+    \(X_{\k'}\)
+    is also the universal minimal flow of $G_0$. Therefore there is a $G_0$-flow isomorphism
+    \(\theta\colon X_{\k'}\to Y\).
+    Replacing $\theta$ by $g\cdot \theta$ for a suitable $g\in G_0$ if necessary, we may assume that
+    \[
+        \theta(\prec_0')=\prec_0''
+        \in Y.
+    \]
+
+    Since $\theta$ is $G_0$-equivariant, the stabilizers of $\prec_0'$ and $\prec_0''$ in $G_0$ coincide. Hence
+    \[
+        \Aut(\langle \bff_0,\prec_0'\rangle)
+        =
+        \Aut(\langle \bff_0,\prec_0''\rangle).
+    \]
+    Exactly as in the proof of
+    Theorem~\ref{thm:uniqueness-simple-bi-definability}, it follows that there
+    are simple formulas defining $\prec_0'$ from $\prec_0''$ and $\prec_0''$
+    from $\prec_0'$. In particular,
+    \(\langle \bff_0,\prec_0''\rangle\)
+    is ultrahomogeneous.
+
+    Let \(\k''=\Age(\langle \bff_0,\prec_0''\rangle)\).
+    Then $\k''$ is a reasonable Fra\"iss\'e order class expanding $\k_0$, and by construction it is simply bi-definable with $\k'$.
+
+    It remains to show that
+    \[
+        \k''\subseteq \k.
+    \]
+    Since \(\prec_0''\in Y\subseteq X_\k\),
+    Proposition~\ref{prop:admissible-orderings-characterization} shows that every finite substructure of
+    \(\langle \bff_0,\prec_0''\rangle\)
+    belongs to $\k$. Hence
+    \[
+        \Age(\langle \bff_0,\prec_0''\rangle)\subseteq \k,
+    \]
+    that is, \(\k''\subseteq \k\).
+    This completes the proof.
+\end{proof}
+
+Thus, up to simple bi-definability, the expansions of a given reduct class that have both the Ramsey property and the ordering property are the smallest among those that have the Ramsey property. The proof also suggests a natural strategy: starting from a Ramsey expansion $\k$, one may try to pass to a minimal subflow of $X_\k$ and recover from it a smaller expansion with better dynamical properties.
+
+In the next chapter this idea is developed further through Ramsey degrees, which allow one to treat situations in which no reasonable expansion with the full Ramsey property is available.

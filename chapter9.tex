@@ -1,141 +1,571 @@
 % !TEX root = main.tex
-\chapter{Examples of Universal Minimal Flows}
+\chapter{Ramsey Degrees and Converse Results}
+\label{chap:ramsey-degrees}
 
-In Chapter~8 we proved that if a reasonable Fra\"iss\'e order class $\k$ has both the Ramsey property and the ordering property, then the flow $X_\k$ of admissible orderings is the universal minimal flow of the automorphism group of the reduct. The aim of this chapter is to apply that theorem to concrete classes and to see how different kinds of universal minimal flows arise in practice.
+In the previous chapters we studied classes with the Ramsey property and saw how ordered Ramsey expansions determine the universal minimal flow of the automorphism group of the Fra\"{\i}ss\'e limit. However, many natural Fra\"{\i}ss\'e classes do not themselves satisfy the Ramsey property. The purpose of this chapter is to explain that, even in that situation, there is still a finite combinatorial invariant measuring the extent to which the Ramsey property fails.
 
-The examples naturally divide into three types. In some cases every linear ordering is admissible, so the universal minimal flow is the full space of linear orderings. In other cases admissible orderings form a proper closed subspace determined by the underlying structure. Finally, there are examples in which the universal minimal flow is finite. We begin with the first phenomenon.
+This invariant is the \emph{Ramsey degree} of a finite structure. Roughly speaking, if $\bfa_0\in\k_0$, then the Ramsey degree of $\bfa_0$ is the least number $t$ such that, after passing to a sufficiently large copy of any ambient structure, every coloring of copies of $\bfa_0$ can be reduced on some substructure to at most $t$ colors. When $\k_0$ admits a reasonable ordered expansion with the Ramsey and ordering properties, these degrees can be computed explicitly in terms of the admissible orderings on $\bfa_0$.
 
-\section{Cases where the universal minimal flow is the full ordering space}
+The chapter has two aims. First, we define these degrees and show how they arise from ordered Ramsey expansions. Second, we prove converse results showing that the combinatorial bounds given by Ramsey degrees recover both the Ramsey property and, ultimately, the universal minimal flow description from the previous chapter.
 
-In the examples considered in this section, the ordered expansion is the free one: no compatibility condition is imposed between the additional linear order and the underlying structure. As a result, every linear ordering is admissible, so the flow $X_\k$ coincides with the full ordering space. Once the Ramsey and ordering properties are known, the universal minimal flow follows immediately from Chapter~8.
+\section{Patterns and Ramsey degrees}
 
-We write $\mathrm{LO}(F_0)$ for the compact space of all linear orderings on the underlying set of a countable structure $F_0$.
+Throughout this chapter, $L_0$ is a signature, $\k_0$ is a Fra\"{\i}ss\'e class in $L_0$, and $\k$ is a hereditary order class in the expanded signature \(L=L_0\cup\{<\}\) such that \(\k|L_0=\k_0\).
+Thus $\k$ is an order expansion of $\k_0$.
+
+Let $\bfa_0\in\k_0$. We write
+\[
+    X^{\bfa_0}_{\k}
+    =
+    \{\prec : \prec \text{ is a linear ordering on }A_0 \text{ and } \langle \bfa_0,\prec\rangle\in\k\}.
+\]
+So $X^{\bfa_0}_{\k}$ is the set of all $\k$-admissible linear orderings on the underlying set of $\bfa_0$.
+
+The group $\Aut(\bfa_0)$ acts on $X^{\bfa_0}_{\k}$ in the natural way: if $g\in\Aut(\bfa_0)$ and $\prec\in X^{\bfa_0}_{\k}$, then $g\cdot\prec$ is the linear order on $A_0$ defined by
+\[
+    x\,(g\cdot\prec)\,y
+    \quad\Longleftrightarrow\quad
+    g^{-1}(x)\prec g^{-1}(y).
+\]
+Since $\k$ is closed under isomorphism, we have $g\cdot\prec\in X^{\bfa_0}_{\k}$ whenever $\prec\in X^{\bfa_0}_{\k}$.
+
+\begin{definition}
+    Let $\prec\in X^{\bfa_0}_{\k}$. The \emph{$\bfa_0$-pattern} of $\prec$ (with respect to $\k$) is its orbit under the action of $\Aut(\bfa_0)$ on $X^{\bfa_0}_{\k}$.
+\end{definition}
+
+Equivalently, two orderings $\prec,\prec'\in X^{\bfa_0}_{\k}$ have the same pattern if and only if \(\langle \bfa_0,\prec\rangle \cong \langle \bfa_0,\prec'\rangle\).
+Thus patterns record the isomorphism types of admissible ordered expansions of $\bfa_0$.
+
+We write
+\[
+    t_\k(\bfa_0)
+    =
+    \left|X^{\bfa_0}_{\k}/\Aut(\bfa_0)\right|
+\]
+for the number of $\bfa_0$-patterns. Since the action of $\Aut(\bfa_0)$ on $X^{\bfa_0}_{\k}$ is free, each orbit has cardinality $|\Aut(\bfa_0)|$. Hence
+\[
+    t_\k(\bfa_0)
+    =
+    \frac{\left|X^{\bfa_0}_{\k}\right|}{\left|\Aut(\bfa_0)\right|}.
+\]
+
+To state the relevant partition relation, let $\bfa_0\leq\bfb_0\leq\bfc_0$ in $\k_0$, and let $k,t\geq 1$. We write
+\[
+    \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,t}
+\]
+to mean that for every coloring
+\[
+    c:\begin{pmatrix}\bfc_0\\ \bfa_0\end{pmatrix}\rightarrow\{1,\dots,k\},
+\]
+there is some
+\[
+    \bfb'_0\in\begin{pmatrix}\bfc_0\\ \bfb_0\end{pmatrix}
+\]
+such that the restriction of $c$ to
+\[
+    \begin{pmatrix}\bfb'_0\\ \bfa_0\end{pmatrix}
+\]
+takes at most $t$ values. In particular,
+\[
+    \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,1}
+    \quad\Longleftrightarrow\quad
+    \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k}.
+\]
+
+For later use, suppose $\bfa_0\leq\bfb_0$ in $\k_0$ and \(\langle \bfb_0,<_{\bfb_0}\rangle\in\k\). We then define \(t_\k(\bfa_0,\bfb_0,<_{\bfb_0})\) to be the number of $\bfa_0$-patterns represented by orderings $\prec\in X^{\bfa_0}_{\k}$ such that \(\langle \bfa_0,\prec\rangle \leq \langle \bfb_0,<_{\bfb_0}\rangle\).
+In other words, $t_\k(\bfa_0,\bfb_0,<_{\bfb_0})$ counts the patterns of copies of $\bfa_0$ that actually occur inside the ordered structure $\langle \bfb_0,<_{\bfb_0}\rangle$. Clearly, \(t_\k(\bfa_0,\bfb_0,<_{\bfb_0})\leq t_\k(\bfa_0)\).
+
+We can now define the main combinatorial invariant of the chapter.
+
+\begin{definition}
+    Let $\bfa_0\in\k_0$. The \emph{Ramsey degree} of $\bfa_0$ in $\k_0$ is the least integer $t$, if it exists, such that for every $\bfb_0\in\k_0$ with $\bfa_0\leq\bfb_0$ and every integer $k\geq 2$, there is $\bfc_0\in\k_0$ with $\bfc_0\geq\bfb_0$ and
+    \[
+        \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,t}.
+    \]
+    If no such integer exists, we put \(t(\bfa_0,\k_0)=\infty\).
+\end{definition}
+
+Thus $t(\bfa_0,\k_0)$ measures how far $\bfa_0$ is from satisfying the usual Ramsey property inside the class $\k_0$. The case $t(\bfa_0,\k_0)=1$ is exactly the ordinary Ramsey statement for copies of $\bfa_0$.
+
+The guiding principle of this chapter is that, when $\k_0$ admits a suitable ordered Ramsey expansion $\k$, the Ramsey degree of $\bfa_0$ is determined by the finite set of admissible patterns on $\bfa_0$. In the next section we make this precise.
+
+A basic example is given by the class $\mathcal{G}$ of finite graphs. This class does not have the Ramsey property, but its standard ordered expansion by linear orders does. If $\bfa_0\in\mathcal{G}$, then every linear ordering of $A_0$ is admissible, and two such orderings have the same pattern exactly when they differ by an automorphism of $\bfa_0$. Thus
+\[
+    t(\bfa_0,\mathcal{G})
+    =
+    \frac{|A_0|!}{|\Aut(\bfa_0)|}.
+\]
+This illustrates the general picture: Ramsey degrees arise from counting the admissible order-types of a structure up to automorphism.
+
+\section{Ramsey degrees from Ramsey expansions}
+
+We now show that if the ordered class $\k$ has the Ramsey property, then the number of admissible patterns gives an upper bound on the number of colors that must remain on a large substructure. If $\k$ also has the ordering property, then this bound is optimal. In particular, the Ramsey degree of $\bfa_0$ is exactly the number of $\k$-patterns on $\bfa_0$.
+
+\begin{proposition}
+    \label{11.1}
+    Assume that $\k$ has the Ramsey property. Let $\bfa_0\leq\bfb_0$ in $\k_0$, let \(\langle \bfb_0,<_{\bfb_0}\rangle\in\k\), and let $k\geq 2$. Then there is $\bfc_0\geq \bfb_0$ in $\k_0$ such that
+    \[
+        \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,\,t_\k(\bfa_0,\bfb_0,<_{\bfb_0})}.
+    \]
+    In particular, for every hereditary class $\k'\subseteq\k$ with $\k'|L_0=\k_0$, there is $\bfc_0\geq\bfb_0$ in $\k_0$ such that
+    \[
+        \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,\,t_{\k'}(\bfa_0)}.
+    \]
+\end{proposition}
+
+\begin{proof}
+    Put \(t=t_\k(\bfa_0,\bfb_0,<_{\bfb_0})\). Choose representatives \(<_1,\dots,<_t\) for the $\bfa_0$-patterns realized inside $\langle\bfb_0,<_{\bfb_0}\rangle$.
+
+    We define inductively ordered structures
+    \[
+        \langle\bfd_i,<_{\bfd_i}\rangle\in\k
+        \qquad (0\leq i\leq t)
+    \]
+    as follows. Let \(\langle\bfd_0,<_{\bfd_0}\rangle=\langle\bfb_0,<_{\bfb_0}\rangle\), and, for each $1\leq i\leq t$, choose \(\langle\bfd_i,<_{\bfd_i}\rangle\in\k\)
+    such that
+    \[
+        \langle\bfd_i,<_{\bfd_i}\rangle\rightarrow
+        \bigl(\langle\bfd_{i-1},<_{\bfd_{i-1}}\rangle\bigr)^{\langle\bfa_0,<_i\rangle}_{k}.
+    \]
+    Set \(\bfc_0=\bfd_t\).
+
+    We claim that $\bfc_0$ has the required property. Let
+    \[
+        c:\begin{pmatrix}\bfc_0\\ \bfa_0\end{pmatrix}\to\{1,\dots,k\}
+    \]
+    be any coloring of copies of $\bfa_0$ in $\bfc_0$.
+
+    We now work downward from $\langle\bfd_t,<_{\bfd_t}\rangle$. For the pattern represented by $<_t$, define a coloring
+    \[
+        c_t:
+        \begin{pmatrix}
+            \langle\bfd_t,<_{\bfd_t}\rangle \\
+            \langle\bfa_0,<_t\rangle
+        \end{pmatrix}
+        \to
+        \{1,\dots,k\}
+    \]
+    by sending a copy
+    \[
+        \langle\bfa_0',<_{\bfd_t}|A_0'\rangle\cong\langle\bfa_0,<_t\rangle
+    \]
+    to the color $c(\bfa_0')$ of its reduct. By the choice of $\langle\bfd_t,<_{\bfd_t}\rangle$, there is a copy
+    \[
+        \langle\bfd'_{t-1},<_{\bfd'_{t-1}}\rangle\cong
+        \langle\bfd_{t-1},<_{\bfd_{t-1}}\rangle
+    \]
+    inside $\langle\bfd_t,<_{\bfd_t}\rangle$ on which every copy of \(\langle\bfa_0,<_t\rangle\) has the same $c_t$-color, say $k_t$.
+
+    Next define
+    \[
+        c_{t-1}:
+        \begin{pmatrix}
+            \langle\bfd'_{t-1},<_{\bfd'_{t-1}}\rangle \\
+            \langle\bfa_0,<_{t-1}\rangle
+        \end{pmatrix}
+        \to
+        \{1,\dots,k\}
+    \]
+    in the same way, by pulling back the coloring $c$ from reducts. Again by the Ramsey property, there is a copy
+    \[
+        \langle\bfd'_{t-2},<_{\bfd'_{t-2}}\rangle\cong
+        \langle\bfd_{t-2},<_{\bfd_{t-2}}\rangle
+    \]
+    inside $\langle\bfd'_{t-1},<_{\bfd'_{t-1}}\rangle$ on which every copy of \(\langle\bfa_0,<_{t-1}\rangle\) has the same color, say $k_{t-1}$.
+
+    Continuing in this way, after $t$ steps we obtain a copy
+    \[
+        \langle\bfb_0',<_{\bfb_0'}\rangle\cong
+        \langle\bfb_0,<_{\bfb_0}\rangle
+    \]
+    inside $\langle\bfc_0,<_{\bfd_t}\rangle$ together with colors \(k_1,\dots,k_t\in\{1,\dots,k\}\) such that, for each $i\in\{1,\dots,t\}$, every copy of \(\langle\bfa_0,<_i\rangle\) inside $\langle\bfb_0',<_{\bfb_0'}\rangle$ has color $k_i$.
+
+    Now let
+    \[
+        \bfa_0'\in\begin{pmatrix}\bfb_0'\\ \bfa_0\end{pmatrix}.
+    \]
+    The induced ordering $<_{\bfb_0'}|A_0'$ realizes one of the patterns represented by some $<_i$. Hence \(c(\bfa_0')=k_i\). Therefore the coloring $c$ takes at most the $t$ values \(k_1,\dots,k_t\)
+    on
+    \[
+        \begin{pmatrix}\bfb_0'\\ \bfa_0\end{pmatrix}.
+    \]
+    This proves
+    \[
+        \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,t}.
+    \]
+
+    For the final claim, note that \(t_\k(\bfa_0,\bfb_0,<_{\bfb_0})\leq t_{\k'}(\bfa_0)\),
+    since every pattern realized in $\langle\bfb_0,<_{\bfb_0}\rangle$ with respect to $\k'$ is also a $\k'$-pattern on $\bfa_0$. Hence the same $\bfc_0$ also satisfies
+    \[
+        \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,\,t_{\k'}(\bfa_0)}.
+    \]
+\end{proof}
+
+The proof yields a slightly stronger conclusion: one may choose a linear ordering on $\bfc_0$ such that, on a suitable copy of $\bfb_0$, the color of a copy of $\bfa_0$ depends only on the pattern induced by that ordering. We will not isolate this as a separate proposition, since the weaker statement above is all that we need.
+
+\begin{proposition}
+    \label{11.2}
+    Assume that $\k$ has both the Ramsey property and the ordering property. Then for every $\bfa_0\in\k_0$ there exists $\bfb_0\geq\bfa_0$ in $\k_0$ such that for every $\bfc_0\geq\bfb_0$ in $\k_0$ there is a coloring
+    \[
+        c:\begin{pmatrix}\bfc_0\\ \bfa_0\end{pmatrix}\to\{1,\dots,t_\k(\bfa_0)\}
+    \]
+    with the following property: for every
+    \[
+        \bfb_0'\in\begin{pmatrix}\bfc_0\\ \bfb_0\end{pmatrix},
+    \]
+    the coloring $c$ takes all the values $1,\dots,t_\k(\bfa_0)$ on
+    \[
+        \begin{pmatrix}\bfb_0'\\ \bfa_0\end{pmatrix}.
+    \]
+\end{proposition}
+
+\begin{proof}
+    By the ordering property, there is $\bfb_0\geq\bfa_0$ in $\k_0$ such that whenever
+    \[
+        \langle\bfa_0,\prec\rangle,\langle\bfb_0,\prec'\rangle\in\k,
+    \]
+    we have
+    \[
+        \langle\bfa_0,\prec\rangle\leq\langle\bfb_0,\prec'\rangle.
+    \]
+    Equivalently, every admissible $\bfa_0$-pattern is realized by some copy of $\bfa_0$ inside every ordered expansion of $\bfb_0$ belonging to $\k$.
+
+    Now let $\bfc_0\geq\bfb_0$ in $\k_0$, and choose a linear ordering $<_{\bfc_0}$ on $C_0$ such that \(\langle\bfc_0,<_{\bfc_0}\rangle\in\k\). Enumerate the $\bfa_0$-patterns as \(p_1,\dots,p_{t_\k(\bfa_0)}\).
+    Define
+    \[
+        c:\begin{pmatrix}\bfc_0\\ \bfa_0\end{pmatrix}\to\{1,\dots,t_\k(\bfa_0)\}
+    \]
+    by declaring that, for
+    \[
+        \bfa_0'\in\begin{pmatrix}\bfc_0\\ \bfa_0\end{pmatrix},
+    \]
+    we put \(c(\bfa_0')=i\) if the ordered structure \(\langle\bfa_0',<_{\bfc_0}|A_0'\rangle\) has pattern $p_i$.
+
+    Let
+    \[
+        \bfb_0'\in\begin{pmatrix}\bfc_0\\ \bfb_0\end{pmatrix}.
+    \]
+    Then \(\langle\bfb_0',<_{\bfc_0}|B_0'\rangle\in\k\), and by the choice of $\bfb_0'$, every admissible $\bfa_0$-pattern is realized inside this ordered structure. Therefore the coloring $c$ takes every value \(1,\dots,t_\k(\bfa_0)\)
+    on
+    \[
+        \begin{pmatrix}\bfb_0'\\ \bfa_0\end{pmatrix}.
+    \]
+\end{proof}
+
+\begin{corollary}
+    \label{11.3}
+    Assume that $\k$ has the Ramsey property and the ordering property. Then for every $\bfa_0\in\k_0$,
+    \[
+        t(\bfa_0,\k_0)=t_\k(\bfa_0).
+    \]
+    Equivalently, $t_\k(\bfa_0)$ is the least integer $t$ such that for every $\bfb_0\in\k_0$ with $\bfa_0\leq\bfb_0$ and every $k\geq 2$, there exists $\bfc_0\geq\bfb_0$ in $\k_0$ with
+    \[
+        \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,t}.
+    \]
+\end{corollary}
+
+\begin{proof}
+    Proposition \ref{11.1} shows that $t_\k(\bfa_0)$ has the required partition property, so
+    \[
+        t(\bfa_0,\k_0)\leq t_\k(\bfa_0).
+    \]
+    On the other hand, Proposition \ref{11.2} shows that no smaller number can work. Hence
+    \[
+        t(\bfa_0,\k_0)=t_\k(\bfa_0).
+    \]
+\end{proof}
+
+In particular, whenever $\k$ has the Ramsey and ordering properties, the number of admissible patterns on $\bfa_0$ depends only on the reduct class $\k_0$, not on the particular expansion $\k$. Thus ordered Ramsey expansions do not merely imply the finiteness of Ramsey degrees; they compute those degrees exactly.
+
+\section{Converse criteria}
+
+We now prove converses to the results of the previous section. The first shows that, under the ordering property, the partition relation with bound $t_\k(\bfa_0)$ already forces the Ramsey property. We then isolate a local form of the ordering property and show that, assuming the Ramsey property, it is equivalent to the equality \(t(\bfa_0,\k_0)=t_\k(\bfa_0)\).
+
+\begin{proposition}
+    \label{11.4}
+    Suppose that $\k$ is reasonable and has the ordering property. Assume moreover that for every $\bfa_0\leq\bfb_0$ in $\k_0$ and every $k\geq 2$, there exists $\bfc_0\geq\bfb_0$ in $\k_0$ such that
+    \[
+        \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,\,t_\k(\bfa_0)}.
+    \]
+    Then $\k$ has the Ramsey property.
+
+    In particular, any reasonable order class $\k$ with the ordering property that is contained in an expansion of $\k_0$ with the Ramsey property also has the Ramsey property.
+\end{proposition}
+
+\begin{proof}
+    Let
+    \[
+        \langle\bfa_0,\prec\rangle,\langle\bfb_0,\prec'\rangle\in\k
+        \qquad\text{with}\qquad
+        \langle\bfa_0,\prec\rangle\leq\langle\bfb_0,\prec'\rangle.
+    \]
+    We must find \(\langle\bfc_0,\prec''\rangle\in\k\) such that
+    \[
+        \langle\bfc_0,\prec''\rangle\rightarrow
+        \bigl(\langle\bfb_0,\prec'\rangle\bigr)^{\langle\bfa_0,\prec\rangle}_{2}.
+    \]
+
+    By the ordering property, there exists $\bfb_1\geq\bfb_0$ in $\k_0$ such that whenever
+    \[
+        \langle\bfb_0,\triangleleft_0\rangle,\langle\bfb_1,\triangleleft_1\rangle\in\k,
+    \]
+    we have
+    \[
+        \langle\bfb_0,\triangleleft_0\rangle\leq\langle\bfb_1,\triangleleft_1\rangle.
+    \]
+    Since $\k$ is reasonable and \(\langle\bfa_0,\prec\rangle\leq\langle\bfb_0,\prec'\rangle\), it follows that for every ordering $\triangleleft_1$ on $B_1$ with \(\langle\bfb_1,\triangleleft_1\rangle\in\k\), we also have
+    \[
+        \langle\bfa_0,\prec\rangle\leq\langle\bfb_1,\triangleleft_1\rangle.
+    \]
+
+    Now apply the hypothesis with \(\bfa_0\), \(\bfb_1\), and \(k=t_\k(\bfa_0)+1\).
+    Thus there exists $\bfc_0\geq\bfb_1$ in $\k_0$ such that
+    \[
+        \bfc_0\rightarrow(\bfb_1)^{\bfa_0}_{\,t_\k(\bfa_0)+1,\;t_\k(\bfa_0)}.
+    \]
+    Choose an ordering $\prec''$ on $C_0$ such that \(\langle\bfc_0,\prec''\rangle\in\k\).
+    We claim that this ordered structure has the required Ramsey property.
+
+    Let
+    \[
+        c:
+        \begin{pmatrix}
+            \langle\bfc_0,\prec''\rangle \\
+            \langle\bfa_0,\prec\rangle
+        \end{pmatrix}
+        \to
+        \{1,2\}
+    \]
+    be a coloring of copies of $\langle\bfa_0,\prec\rangle$ in $\langle\bfc_0,\prec''\rangle$. Enumerate the $\bfa_0$-patterns as \(p_1,\dots,p_{t_\k(\bfa_0)}\).
+    Using $c$, define a coloring
+    \[
+        c':
+        \begin{pmatrix}\bfc_0\\ \bfa_0\end{pmatrix}
+        \to
+        \{0,1,\dots,t_\k(\bfa_0)\}
+    \]
+    as follows. For
+    \[
+        \bfa_0'\in\begin{pmatrix}\bfc_0\\ \bfa_0\end{pmatrix},
+    \]
+    let $\pi(\bfa_0')$ be the pattern of the induced ordering \(\prec''|A_0'\) on $A_0'$. Set
+    \[
+        c'(\bfa_0')=
+        \begin{cases}
+            0, & \text{if }\pi(\bfa_0')\text{ is the pattern of }\prec
+            \text{ and }c(\langle\bfa_0',\prec''|A_0'\rangle)=2,                 \\[1ex]
+            i, & \text{if }\pi(\bfa_0')=p_i\text{ and either }p_i\neq \pi(\prec)
+            \text{ or }c(\langle\bfa_0',\prec''|A_0'\rangle)=1.
+        \end{cases}
+    \]
+    This uses at most $t_\k(\bfa_0)+1$ colors.
+
+    Hence there exists
+    \[
+        \bfb_1'\in\begin{pmatrix}\bfc_0\\ \bfb_1\end{pmatrix}
+    \]
+    such that $c'$ takes at most $t_\k(\bfa_0)$ values on
+    \[
+        \begin{pmatrix}\bfb_1'\\ \bfa_0\end{pmatrix}.
+    \]
+    Since \(\langle\bfb_1',\prec''|B_1'\rangle\in\k\) and $\langle\bfa_0,\prec\rangle$ embeds into every ordered expansion of $\bfb_1$ in $\k$, the pattern of $\prec$ is realized by some copy of $\bfa_0$ inside $\bfb_1'$. Moreover, every $\bfa_0$-pattern realized in $\langle\bfb_1',\prec''|B_1'\rangle$ contributes at least one value of $c'$ on
+    \[
+        \begin{pmatrix}\bfb_1'\\ \bfa_0\end{pmatrix}.
+    \]
+    Since $c'$ takes at most $t_\k(\bfa_0)$ values there, the value $0$ must occur and, for the pattern of $\prec$, no additional value can occur. It follows that all copies of \(\langle\bfa_0,\prec\rangle\) inside \(\langle\bfb_1',\prec''|B_1'\rangle\) have the same $c$-color, namely $2$.
+
+    Finally, by the choice of $\bfb_1$ we have
+    \[
+        \langle\bfb_0,\prec'\rangle\leq\langle\bfb_1',\prec''|B_1'\rangle,
+    \]
+    so
+    \[
+        \langle\bfc_0,\prec''\rangle\rightarrow
+        \bigl(\langle\bfb_0,\prec'\rangle\bigr)^{\langle\bfa_0,\prec\rangle}_{2}.
+    \]
+    Thus $\k$ has the Ramsey property.
+
+    For the final assertion, if $\k$ is contained in an expansion of $\k_0$ with the Ramsey property, then Proposition \ref{11.1} yields exactly the partition relation assumed above. Hence the first part applies.
+\end{proof}
+
+To formulate the converse to Corollary \ref{11.3}, it is useful to isolate a local form of the ordering property.
+
+\begin{definition}
+    Let $\bfa_0\in\k_0$. We say that $\k$ has the \emph{ordering property at} $\bfa_0$ if there exists $\bfb_0\geq\bfa_0$ in $\k_0$ such that for every pair of orderings $\prec$ on $A_0$ and $\prec'$ on $B_0$ with
+    \[
+        \langle\bfa_0,\prec\rangle,\langle\bfb_0,\prec'\rangle\in\k,
+    \]
+    we have
+    \[
+        \langle\bfa_0,\prec\rangle\leq\langle\bfb_0,\prec'\rangle.
+    \]
+\end{definition}
+
+Thus $\k$ has the ordering property if and only if it has the ordering property at every $\bfa_0\in\k_0$.
+
+\begin{proposition}
+    \label{11.5}
+    Assume that $\k$ has the Ramsey property. Then, for each $\bfa_0\in\k_0$, the following are equivalent:
+
+    \begin{enumerate}
+        \item $\k$ has the ordering property at $\bfa_0$;
+        \item $t(\bfa_0,\k_0)=t_\k(\bfa_0)$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Assume first that $\k$ has the ordering property at $\bfa_0$. Then the proof of Proposition \ref{11.2} shows that there exists $\bfb_0\geq\bfa_0$ such that every admissible $\bfa_0$-pattern is realized inside every ordered expansion of $\bfb_0$ belonging to $\k$. Combining this with Proposition \ref{11.1}, exactly as in the proof of Corollary \ref{11.3}, we obtain \(t(\bfa_0,\k_0)=t_\k(\bfa_0)\).
+
+    Conversely, suppose that \(t(\bfa_0,\k_0)=t_\k(\bfa_0)\)
+    but that $\k$ does not have the ordering property at $\bfa_0$. Then for every $\bfb_0\geq\bfa_0$ in $\k_0$ there exists an ordering $\prec'$ on $B_0$ such that \(\langle\bfb_0,\prec'\rangle\in\k\) and some admissible ordering $\prec$ on $A_0$ with \(\langle\bfa_0,\prec\rangle\in\k\)
+    fails to embed into $\langle\bfb_0,\prec'\rangle$. Hence the number of $\bfa_0$-patterns realized inside $\langle\bfb_0,\prec'\rangle$ satisfies
+    \[
+        t_\k(\bfa_0,\bfb_0,\prec')\leq t_\k(\bfa_0)-1.
+    \]
+    Applying Proposition \ref{11.1} with this ordered structure, we obtain, for every $k\geq 2$, some $\bfc_0\geq\bfb_0$ such that
+    \[
+        \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,\,t_\k(\bfa_0)-1}.
+    \]
+    This implies \(t(\bfa_0,\k_0)\leq t_\k(\bfa_0)-1\),
+    contrary to the assumption. Therefore $\k$ has the ordering property at $\bfa_0$.
+\end{proof}
+
+\begin{corollary}
+    \label{11.6}
+    Assume that $\k$ has the Ramsey property. Then the following are equivalent:
+
+    \begin{enumerate}
+        \item $\k$ has the ordering property;
+        \item for every $\bfa_0\in\k_0$,
+              \[
+                  t(\bfa_0,\k_0)=t_\k(\bfa_0).
+              \]
+    \end{enumerate}
+\end{corollary}
+
+\begin{proof}
+    This follows immediately from Proposition \ref{11.5}, since the ordering property is equivalent to having the ordering property at each $\bfa_0\in\k_0$.
+\end{proof}
+
+
+\section{Recovering Ramsey expansions}
+
+We now return to the dynamical viewpoint of the previous chapters. The results of this section show that the combinatorial information encoded by Ramsey degrees is strong enough to recover ordered expansions with the Ramsey and ordering properties, and hence to recover the universal minimal flow description from Chapter~\ref{chap:examples-umf}.
 
 \begin{theorem}
-\label{thm:umf-full-ordering-space}
-The following groups have universal minimal flow equal to the full space of linear orderings on their underlying countable structure.
-\begin{enumerate}
-    \item[(i)] Let $\Gamma$ be the random graph. Then the universal minimal flow of $\Aut(\Gamma)$ is $\mathrm{LO}(\Gamma)$.
-
-    \item[(ii)] For each $n\geq 3$, let $\Gamma_n$ be the random $K_n$-free graph. Then the universal minimal flow of $\Aut(\Gamma_n)$ is $\mathrm{LO}(\Gamma_n)$.
-
-    \item[(iii)] The universal minimal flow of $S_\infty$ is $\mathrm{LO}(\mathbb N)$.
-
-    \item[(iv)] Let $F$ be the Fra\"iss\'e limit of the class of all finite hypergraphs of a fixed finite relational type $L_0$. Then the universal minimal flow of $\Aut(F)$ is $\mathrm{LO}(F)$.
-
-    \item[(v)] Let $\mathcal A$ be a family of finite irreducible hypergraphs of type $L_0$, and let $F_{\mathcal A}$ be the Fra\"iss\'e limit of $\mathrm{Forb}(\mathcal A)$. Then the universal minimal flow of $\Aut(F_{\mathcal A})$ is $\mathrm{LO}(F_{\mathcal A})$.
-
-    \item[(vi)] Let $U_{\mathbb Q}$ be the rational Urysohn space. Then the universal minimal flow of $\Aut(U_{\mathbb Q})$ is $\mathrm{LO}(U_{\mathbb Q})$.
-\end{enumerate}
+    \label{11.7}
+    Let $\k_0$ be a Fra\"{\i}ss\'e class in a signature $L_0$, and let $\k$ be a reasonable Fra\"{\i}ss\'e order class in the expanded signature \(L=L_0\cup\{<\}\) such that $\k|L_0=\k_0$. Assume that $\k$ has the Ramsey property. Then there exists a reasonable Fra\"{\i}ss\'e order class \(\k'\subseteq\k\) such that $\k'|L_0=\k_0$ and $\k'$ has both the Ramsey property and the ordering property.
 \end{theorem}
 
 \begin{proof}
-In each case, let $\k_0$ be the relevant Fra\"iss\'e class and let \(\k=\k_0*\mathcal{LO}\) be its free ordered expansion. By construction, every linear ordering on a finite member of $\k_0$ gives a member of $\k$, so every linear ordering on the Fra\"iss\'e limit of $\k_0$ is $\k$-admissible. Therefore \(X_\k=\mathrm{LO}(F_0)\).
+    Let $\bff_0={\rm Flim}(\k_0)$ and $G_0={\rm Aut}(\bff_0)$. Consider the $G_0$-flow $X_\k$ of all $\k$-admissible linear orderings on $F_0$. Choose a minimal subflow \(X'\subseteq X_\k\), and fix some \(\prec'\in X'\). Let \(\k'={\rm Age}(\langle \bff_0,\prec'\rangle)\).
+    Then $\k'\subseteq\k$, and since every finite $L_0$-substructure of $\bff_0$ lies in $\k_0$, we have \(\k'|L_0=\k_0\).
+    Moreover, $\k'$ is hereditary and has the joint embedding property, and it is easy to verify that $\k'$ is reasonable.
 
-It remains to verify that $\k$ has the Ramsey property and the ordering property. The Ramsey property was established in the preceding chapters: for graphs and $K_n$-free graphs by the theorem of Ne\v{s}et\v{r}il and R\"odl, for finite hypergraphs and $\mathcal A$-free hypergraphs by the corresponding hypergraph Ramsey theorems, and for finite rational metric spaces by Ne\v{s}et\v{r}il's theorem. The ordering property holds for these free ordered expansions. Hence Chapter~8 applies and gives that the universal minimal flow of the automorphism group of the reduct is exactly $X_\k$.
+    We claim that
+    \[
+        X'=X_{\k'}.
+    \]
+    Indeed, every finite substructure of $\langle\bff_0,\prec'\rangle$ belongs to $\k'$, so every ordering in the orbit closure $\overline{G_0\cdot \prec'}=X'$ is $\k'$-admissible. Conversely, if an ordering on $F_0$ is $\k'$-admissible, then every finite restriction occurs in ${\rm Age}(\langle\bff_0,\prec'\rangle)$, hence belongs to the orbit closure of $\prec'$. Thus the two spaces coincide.
 
-This yields (i), (ii), (iv), (v), and (vi). For (iii), take $\k_0$ to be the class of finite sets in the empty language. Then its Fra\"iss\'e limit is a countably infinite set, whose automorphism group is $S_\infty$, and again \(X_\k=\mathrm{LO}(\mathbb N)\).
-Thus the universal minimal flow of $S_\infty$ is $\mathrm{LO}(\mathbb N)$.
+    Since $X'=X_{\k'}$ is minimal, it follows from
+    Theorem~\ref{thm:minimality-ordering-property} that $\k'$ has the ordering
+    property.
+
+    It remains to show that $\k'$ has the Ramsey property. By Proposition \ref{11.4}, it is enough to verify that for every \(\bfa_0\leq\bfb_0\) in $\k_0$ and every $k\geq 2$, there exists $\bfc_0\geq\bfb_0$ in $\k_0$ such that
+    \[
+        \bfc_0\rightarrow(\bfb_0)^{\bfa_0}_{k,\,t_{\k'}(\bfa_0)}.
+    \]
+    But this follows from Proposition \ref{11.1}, since $\k$ has the Ramsey property and $\k'\subseteq\k$ is a hereditary expansion of $\k_0$.
+
+    Finally, because $\k'$ is reasonable and has the Ramsey and ordering properties, Corollary \ref{11.6} implies that the numbers $t_{\k'}(\bfa_0)$ are the Ramsey degrees in $\k_0$. In particular, Proposition \ref{11.4} yields the Ramsey property for $\k'$, and hence $\k'$ is a reasonable Fra\"{\i}ss\'e order class with the required properties.
 \end{proof}
 
-These examples show that when the ordered expansion is completely free, no information is lost in passing from admissible orderings to all linear orderings. In the next section we consider the opposite situation, where admissibility imposes genuine structural restrictions and the universal minimal flow becomes a proper closed subspace of the full ordering space.
-
-\section{Structured spaces of admissible orderings}
-
-We now consider examples in which not every linear ordering is admissible. In these cases the universal minimal flow is still obtained from Chapter~8, but it is a proper closed subspace of the full ordering space, determined by compatibility conditions between the order and the underlying structure.
+The preceding theorem shows that, once one has a reasonable Ramsey expansion, one may pass to a smaller expansion in which minimality is built in. The next result is the converse direction of the universal-minimal-flow theorem proved earlier.
 
 \begin{theorem}
-\label{thm:umf-structured-ordering-spaces}
-The following groups have universal minimal flow equal to a proper space of admissible orderings.
-\begin{enumerate}
-    \item[(i)] Let \(\bff_0=\langle \mathbb Q,E\rangle\) be the countable equivalence relation with infinitely many equivalence classes, each of which is dense in $\mathbb Q$. Let $X_{\mathcal K}$ be the space of all convex linear orderings on $\mathbb Q$, where $\mathcal K$ is the Fra\"iss\'e order class of all finite convexly ordered equivalence relations. Then the universal minimal flow of \(\Aut(\bff_0)\) is $X_{\mathcal K}$.
+    \label{11.8}
+    Let $L\supseteq\{<\}$ be a signature, let \(L_0=L\setminus\{<\}\), and let $\k$ be a reasonable Fra\"{\i}ss\'e order class in $L$. Put
+    \[
+        \k_0=\k|L_0,
+        \qquad
+        \bff={\rm Flim}(\k),
+        \qquad
+        \bff_0=\bff|L_0={\rm Flim}(\k_0),
+    \]
+    and let \(G_0={\rm Aut}(\bff_0)\) and \(G={\rm Aut}(\bff)\).
+    Let $X_\k$ be the compact space of all $\k$-admissible linear orderings on the underlying set $F_0$ of $\bff_0$. Then the following are equivalent:
 
-    \item[(ii)] Let $V_F$ be the countably infinite-dimensional vector space over a finite field $F$, and let $X_{\mathcal K}$ be the space of all natural orderings on $V_F$, where $\mathcal K$ is the class of naturally ordered finite-dimensional vector spaces over $F$. Then the universal minimal flow of \(\Aut(V_F)\) is $X_{\mathcal K}$.
-
-    \item[(iii)] Let $\bfb_\infty$ be the countable atomless Boolean algebra, and let $X_{\mathcal K}$ be the space of all natural orderings on $\bfb_\infty$, where $\mathcal K$ is the class of naturally ordered finite Boolean algebras. Then the universal minimal flow of \(\Aut(\bfb_\infty)\) is $X_{\mathcal K}$.
-\end{enumerate}
+    \begin{enumerate}
+        \item $\k$ has the Ramsey property and the ordering property;
+        \item $X_\k$ is the universal minimal flow of $G_0$.
+    \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-In each case, the relevant ordered class $\mathcal K$ was introduced in Chapter~6. We verify that it fits the framework of Chapter~8.
+    The implication \((1)\Rightarrow(2)\) is
+    Corollary~\ref{cor:ramsey-ordering-umf}.
 
-For (i), let $\mathcal K$ be the class of finite convexly ordered equivalence relations. By Chapter~6, $\mathcal K$ is a Fra\"iss\'e order class with the Ramsey property, and its reduct $\mathcal K_0$ is the class of finite equivalence relations. Moreover, Chapter~6 showed that arbitrary linear orderings do not work here: the admissible orderings are exactly the convex ones. Thus the flow $X_{\mathcal K}$ is the space of convex linear orderings on $\mathbb Q$. Since $\mathcal K$ also has the ordering property, Chapter~8 implies that $X_{\mathcal K}$ is the universal minimal flow of $\Aut(\bff_0)$.
+    Now assume that $X_\k$ is the universal minimal flow of $G_0$. Since it is
+    in particular minimal, Theorem~\ref{thm:minimality-ordering-property}
+    implies that $\k$ has the ordering property. It therefore remains to prove
+    that $\k$ has the Ramsey property.
 
-For (ii), let $\mathcal K$ be the class of naturally ordered finite-dimensional vector spaces over $F$. By Chapter~6, this is a Fra\"iss\'e order class with the Ramsey property, and its reduct is the class of finite-dimensional vector spaces over $F$. The admissible orderings are precisely the natural orderings induced by ordered bases. Hence the corresponding flow $X_{\mathcal K}$ is the space of natural orderings on $V_F$. Since $\mathcal K$ has the ordering property, Chapter~8 yields that $X_{\mathcal K}$ is the universal minimal flow of $\Aut(V_F)$.
+    By Proposition \ref{11.4}, it is enough to show that for every \(\bfa_0\leq\bfb_0\) in $\k_0$,
+    every $k\geq 2$, and every coloring
+    \[
+        c:\begin{pmatrix}\bff_0\\ \bfa_0\end{pmatrix}\to\{1,\dots,k\},
+    \]
+    there exists
+    \[
+        \bfb_0'\in\begin{pmatrix}\bff_0\\ \bfb_0\end{pmatrix}
+    \]
+    such that the restriction of $c$ to
+    \[
+        \begin{pmatrix}\bfb_0'\\ \bfa_0\end{pmatrix}
+    \]
+    takes at most $t_\k(\bfa_0)$ values.
 
-For (iii), let $\mathcal K$ be the class of naturally ordered finite Boolean algebras. Again, Chapter~6 shows that $\mathcal K$ is a Fra\"iss\'e order class with the Ramsey property, with reduct the class of finite Boolean algebras. The admissible orderings are precisely the natural orderings induced by orderings of the atoms. Therefore $X_{\mathcal K}$ is the space of natural orderings on $\bfb_\infty$. Since $\mathcal K$ also has the ordering property, Chapter~8 implies that $X_{\mathcal K}$ is the universal minimal flow of $\Aut(\bfb_\infty)$.
+    Consider the compact $G_0$-flow
+    \[
+        \{1,\dots,k\}^{\begin{pmatrix}\bff_0\\ \bfa_0\end{pmatrix}},
+    \]
+    where $G_0$ acts by
+    \[
+        (g\cdot \gamma)(\bfa_0')=\gamma(g^{-1}(\bfa_0'))
+        \qquad
+        \left(g\in G_0,\ \gamma\in \{1,\dots,k\}^{\begin{pmatrix}\bff_0\\ \bfa_0\end{pmatrix}}\right).
+    \]
+    Let \(X=\overline{G_0\cdot c}\) be the orbit closure of the coloring $c$. Since $X_\k$ is universal minimal, there is a $G_0$-map \(\pi:X_\k\to X\). Let \(\prec_0\) be the distinguished linear ordering on $F_0$ coming from the Fra\"{\i}ss\'e limit $\bff=\langle\bff_0,\prec_0\rangle$, and put \(c_0=\pi(\prec_0)\).
+
+    Because every element of $G={\rm Aut}(\bff)$ fixes the ordering $\prec_0$, and $\pi$ is $G_0$-equivariant, every element of $G$ also fixes $c_0$. Hence if
+    \[
+        \bfa_0',\bfa_0''\in\begin{pmatrix}\bff_0\\ \bfa_0\end{pmatrix}
+    \]
+    have the same $\k$-pattern with respect to the ordering $\prec_0$, then some element of $G$ sends $\bfa_0'$ to $\bfa_0''$, and therefore \(c_0(\bfa_0')=c_0(\bfa_0'')\). Thus the value of $c_0$ on a copy of $\bfa_0$ depends only on its pattern. It follows that $c_0$ takes at most \(t_\k(\bfa_0)\) values.
+
+    Now fix any
+    \[
+        \bfb_0''\in\begin{pmatrix}\bff_0\\ \bfb_0\end{pmatrix}.
+    \]
+    Since $c_0\in \overline{G_0\cdot c}$, there exists $g\in G_0$ such that
+    \[
+        (g\cdot c)\biggl|\begin{pmatrix}\bfb_0''\\ \bfa_0\end{pmatrix}
+        =
+        c_0\biggl|\begin{pmatrix}\bfb_0''\\ \bfa_0\end{pmatrix}.
+    \]
+    Let \(\bfb_0'=g^{-1}(\bfb_0'')\).
+    Then the restriction of $c$ to
+    \[
+        \begin{pmatrix}\bfb_0'\\ \bfa_0\end{pmatrix}
+    \]
+    has the same set of values as the restriction of $c_0$ to
+    \[
+        \begin{pmatrix}\bfb_0''\\ \bfa_0\end{pmatrix},
+    \]
+    and therefore takes at most $t_\k(\bfa_0)$ values. This is exactly the partition relation required in Proposition \ref{11.4}.
+
+    Hence $\k$ has the Ramsey property. Since we already know that $\k$ has the ordering property, this proves $(2)\Rightarrow(1)$.
 \end{proof}
 
-The significance of these examples is that the universal minimal flow is no longer the full space of all linear orderings. Instead, admissibility imposes a structural constraint: convexity with respect to the equivalence classes, or naturality with respect to a basis or an atomic decomposition. In the Boolean algebra case, this space of admissible orderings admits a more concrete topological description, which we discuss next.
-
-\section{Boolean algebras and maximal chains}
-
-We now return to the Boolean algebra example and record a more concrete description of the corresponding universal minimal flow. Besides the space of natural orderings on the countable atomless Boolean algebra, there is a second model in terms of maximal chains of closed subsets of the Cantor space. The two descriptions are equivalent.
-
-Let \(\mathcal C=2^{\mathbb N}\) be the Cantor space, and let \(\Phi(\mathcal C)\) denote the compact space of all maximal chains of closed subsets of $\mathcal C$, ordered by inclusion. The group \(\mathrm{Homeo}(\mathcal C)\) acts continuously on $\Phi(\mathcal C)$ by \(g\cdot \mathcal M=\{g(M):M\in\mathcal M\}\).
-
-By Stone duality, the countable atomless Boolean algebra $\bfb_\infty$ may be identified with the Boolean algebra of clopen subsets of $\mathcal C$, and under this identification the group \(\Aut(\bfb_\infty)\) is naturally isomorphic to \(\mathrm{Homeo}(\mathcal C)\).
-The next theorem identifies the universal minimal flow described in Section~2 with the maximal-chain flow on $\mathcal C$.
-
-\begin{theorem}
-\label{thm:boolean-maximal-chains}
-Under the natural identification
-\[
-\Aut(\bfb_\infty)\cong \mathrm{Homeo}(2^{\mathbb N}),
-\]
-the universal minimal flow of $\Aut(\bfb_\infty)$ is isomorphic to
-\[
-\Phi(2^{\mathbb N}).
-\]
-Equivalently, the space of natural orderings on $\bfb_\infty$ is $\,\Aut(\bfb_\infty)$-equivariantly homeomorphic to the space of maximal chains of closed subsets of $2^{\mathbb N}$.
-\end{theorem}
-
-\begin{proof}
-We sketch the construction. By Theorem~\ref{thm:umf-structured-ordering-spaces}(iii), the universal minimal flow of $\Aut(\bfb_\infty)$ is the space $X_{\mathcal K}$ of natural orderings on $\bfb_\infty$.
-
-Given a maximal chain \(\mathcal M\in \Phi(2^{\mathbb N})\), one obtains a linear ordering on the atoms of each finite subalgebra of $\bfb_\infty$ by comparing the unique points at which the members of $\mathcal M$ first separate those atoms. Passing to the induced anti-lexicographic orderings, this defines a natural ordering on every finite subalgebra, and these finite orderings are coherent. Hence $\mathcal M$ determines an element of $X_{\mathcal K}$.
-
-Conversely, let \(\prec\in X_{\mathcal K}\).
-The ordering $\prec$ induces, on each finite clopen partition of $2^{\mathbb N}$, a linear ordering of its atoms compatible with refinement. From these finite orderings one reconstructs a unique maximal chain of closed subsets of $2^{\mathbb N}$ by taking the nested family of closed sets determined by initial segments of the induced orderings. This produces an element of $\Phi(2^{\mathbb N})$.
-
-These two constructions are inverse to one another, and they are continuous and $\Aut(\bfb_\infty)$-equivariant. Therefore
-\[
-X_{\mathcal K}\cong \Phi(2^{\mathbb N})
-\]
-as $\Aut(\bfb_\infty)$-flows. Since $X_{\mathcal K}$ is the universal minimal flow, the same is true of $\Phi(2^{\mathbb N})$.
-\end{proof}
-
-This identification is useful because it shows that the same universal minimal flow may appear in two rather different forms: combinatorially, as a space of natural orderings on a Fra\"iss\'e limit, and topologically, as a space of maximal chains in the Cantor space. In the next section we consider a different phenomenon, where the universal minimal flow is finite.
-
-\section{A finite universal minimal flow}
-
-We conclude with an example in which the universal minimal flow is finite. This shows that, although many of the flows considered so far are infinite compact spaces of orderings, the universal minimal flow can also be a finite homogeneous space.
-
-Fix $n\geq 1$, and let \(\langle \bbQ,<,E_n\rangle\) be the structure consisting of the rationals with their usual ordering together with an equivalence relation $E_n$ having exactly $n$ classes, each of which is dense in $\bbQ$. Let \(A_1,\dots,A_n\) be an enumeration of the $E_n$-classes, and put \(\bff_n=\langle \bbQ,<,A_1,\dots,A_n\rangle\). We write \(G_n=\Aut(\langle \bbQ,<,E_n\rangle)\) and \(H_n=\Aut(\bff_n)\).
-
-Thus $G_n$ preserves the equivalence relation and may permute its $n$ dense classes, while $H_n$ preserves each class individually.
-
-\begin{theorem}
-\label{thm:finite-umf-gn}
-For each $n\geq 1$, the subgroup $H_n$ is a clopen normal subgroup of finite index in $G_n$, and the natural action of $G_n$ on \(G_n/H_n\) is the universal minimal flow of $G_n$.
-\end{theorem}
-
-\begin{proof}
-Each element of $G_n$ permutes the $n$ equivalence classes of $E_n$, so there is a natural continuous homomorphism \(\pi\colon G_n\to S_n\) sending an automorphism to the permutation it induces on \(\{A_1,\dots,A_n\}\).
-Its kernel is exactly $H_n$. Hence $H_n$ is a normal subgroup of $G_n$ of finite index at most $n!$. Since the quotient is finite and discrete, $H_n$ is clopen.
-
-We now show that $H_n$ is extremely amenable. Let $\mathcal{OP}_n$ be the class of all finite structures of the form
-\[
-\langle A,<^A,P_1^A,\dots,P_n^A\rangle,
-\]
-where $<^A$ is a linear ordering of $A$ and \(P_1^A,\dots,P_n^A\) form a partition of $A$ into pairwise disjoint unary predicates. This is a Fra\"iss\'e order class, and its Fra\"iss\'e limit is precisely \(\bff_n=\langle \bbQ,<,A_1,\dots,A_n\rangle\).
-Moreover, $\mathcal{OP}_n$ has the Ramsey property; this is a special case of the general Ramsey theorem for finite ordered relational structures. Therefore, by Corollary~\ref{cor:fraisse-order-class-ea}, \(H_n=\Aut(\bff_n)\) is extremely amenable.
-
-Let now $Y$ be a minimal compact $G_n$-flow. Restricting the action to the subgroup $H_n$, extreme amenability gives a point \(y_0\in Y\) fixed by every element of $H_n$. The orbit map \(g\mapsto g\cdot y_0\) is therefore constant on left cosets of $H_n$, so it factors through a continuous $G_n$-map \(\varphi\colon G_n/H_n\to Y\).
-Since $Y$ is minimal, the orbit \(G_n\cdot y_0=\varphi(G_n/H_n)\) is dense in $Y$. But $G_n/H_n$ is finite, so its image is finite and hence closed. Therefore \(\varphi(G_n/H_n)=Y\),
-and $\varphi$ is surjective. Thus every minimal compact $G_n$-flow is a factor of $G_n/H_n$.
-
-Finally, the action of $G_n$ on $G_n/H_n$ is transitive, hence minimal. It follows that \(G_n/H_n\) is the universal minimal flow of $G_n$.
-\end{proof}
-
-For $n=1$, the quotient $G_1/H_1$ is trivial, so this recovers the extreme amenability of $\Aut(\bbQ,<)$. For $n\geq 2$, the universal minimal flow is finite and nontrivial. This contrasts sharply with the earlier examples, where the universal minimal flow was an infinite compact space of orderings.
+Theorems \ref{11.7} and \ref{11.8} complete the converse direction of the KPT correspondence developed in the previous chapters. Ordered Ramsey expansions not only produce universal minimal flows, but can also be recovered from the dynamical structure of those flows. In this sense, Ramsey degrees measure the residual combinatorial complexity of the reduct class, while the Ramsey and ordering properties together characterize the expansions that realize the universal minimal flow.
