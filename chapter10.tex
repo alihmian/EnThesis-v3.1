@@ -13,20 +13,17 @@ Let $L_0$ be a relational signature, and let
     \qquad
     L'=L_0\cup\{<'\},
 \]
-where $<$ and $<'$ are new binary relation symbols. In this section we compare two Fra\"iss\'e order expansions of the same reduct class
-\[
-    \k_0.
-\]
+where $<$ and $<'$ are new binary relation symbols. In this section we compare
+two Fra\"iss\'e order expansions of the same reduct class \(\k_0\).
 
 We begin by formalizing the notion that one of the two orderings can be recovered from the other by a formula of particularly simple form.
 
 \begin{definition}
     A formula in a relational language is called \emph{simple} if it is quantifier-free. Equivalently, it is a finite Boolean combination of atomic formulas.
 
-    Let $\bfa=\langle \bfa_0,\prec^A\rangle$ be an $L$-structure and let $\varphi(x,y)$ be a simple formula in the language $L$. We write
-    \[
-        \varphi^{\bfa}(a,b)
-    \]
+    Let $\bfa=\langle \bfa_0,\prec^A\rangle$ be an $L$-structure and let
+    $\varphi(x,y)$ be a simple formula in the language $L$. We write
+    \(\varphi^{\bfa}(a,b)\)
     to mean that $\bfa\models \varphi(a,b)$.
 \end{definition}
 
@@ -40,35 +37,24 @@ We begin by formalizing the notion that one of the two orderings can be recovere
     \]
     such that the following hold.
 
-    For every
-    \[
-        \bfa=\langle \bfa_0,\prec^A\rangle\in \k,
-    \]
+    For every \(\bfa=\langle \bfa_0,\prec^A\rangle\in \k\),
     if we define a binary relation $<'^{\,A}$ on $A$ by
     \[
         a<'^{\,A} b
         \quad\Longleftrightarrow\quad
         \bfa\models \varphi(a,b),
     \]
-    then
-    \[
-        \langle \bfa_0,<'^{\,A}\rangle\in \k'.
-    \]
+    then \(\langle \bfa_0,<'^{\,A}\rangle\in \k'\).
 
     Similarly, for every
-    \[
-        \bfb=\langle \bfb_0,\prec'^{\,B}\rangle\in \k',
-    \]
+    \(\bfb=\langle \bfb_0,\prec'^{\,B}\rangle\in \k'\),
     if we define a binary relation $<^{B}$ on $B$ by
     \[
         a<^{B} b
         \quad\Longleftrightarrow\quad
         \bfb\models \varphi'(a,b),
     \]
-    then
-    \[
-        \langle \bfb_0,<^{B}\rangle\in \k.
-    \]
+    then \(\langle \bfb_0,<^{B}\rangle\in \k\).
 
     Moreover, these two constructions are inverse to one another up to isomorphism.
 \end{definition}
@@ -90,13 +76,9 @@ The relevance of this notion is that it preserves the two combinatorial properti
     We prove the forward implications; the converse directions are symmetric.
 
     Assume first that $\k$ has the Ramsey property. Let
-    \[
-        \bfa'\leq \bfb'
-    \]
+    \(\bfa'\leq \bfb'\)
     be structures in $\k'$, and let $k\geq 2$. Using simple bi-definability, let $\bfa,\bfb\in\k$ be the corresponding structures on the same underlying sets. Choose
-    \[
-        \bfc\in\k
-    \]
+    \(\bfc\in\k\)
     such that
     \[
         \bfc\to (\bfb)^{\bfa}_k.
@@ -107,30 +89,17 @@ The relevance of this notion is that it preserves the two combinatorial properti
     \]
     Thus $\k'$ has the Ramsey property.
 
-    Now assume that $\k$ has the ordering property. Let
-    \[
-        \bfa_0\in\k_0.
-    \]
+    Now assume that $\k$ has the ordering property. Let \(\bfa_0\in\k_0\).
     Choose an expansion
-    \[
-        \bfa'=\langle \bfa_0,\prec'\rangle\in\k',
-    \]
+    \(\bfa'=\langle \bfa_0,\prec'\rangle\in\k'\),
     and let $\bfa\in\k$ be the corresponding structure. By the ordering property for $\k$, there exists
-    \[
-        \bfb_0\in\k_0
-    \]
+    \(\bfb_0\in\k_0\)
     such that every member of $\k$ with reduct $\bfb_0$ contains a copy of $\bfa$. Let
-    \[
-        \bfb'=\langle \bfb_0,\triangleleft\rangle\in\k'
-    \]
+    \(\bfb'=\langle \bfb_0,\triangleleft\rangle\in\k'\)
     be arbitrary, and let $\bfb\in\k$ be the corresponding structure. Then
-    \[
-        \bfa\leq \bfb,
-    \]
+    \(\bfa\leq \bfb\),
     and therefore, translating back by simple bi-definability,
-    \[
-        \bfa'\leq \bfb'.
-    \]
+    \(\bfa'\leq \bfb'\).
     Thus $\k'$ has the ordering property.
 \end{proof}
 
@@ -138,10 +107,9 @@ We now come to the main uniqueness theorem.
 
 \begin{theorem}
     \label{thm:uniqueness-simple-bi-definability}
-    Let $\k$ and $\k'$ be reasonable Fra\"iss\'e order classes in the signatures $L$ and $L'$, and suppose that they have the same reduct
-    \[
-        \k_0.
-    \]
+    Let $\k$ and $\k'$ be reasonable Fra\"iss\'e order classes in the
+    signatures $L$ and $L'$, and suppose that they have the same reduct
+    \(\k_0\).
     Assume that both $\k$ and $\k'$ have the Ramsey property and the ordering property. Then $\k$ and $\k'$ are simply bi-definable.
 \end{theorem}
 
@@ -162,23 +130,19 @@ We now come to the main uniqueness theorem.
         \qquad
         X_{\k'}=\overline{G_0\cdot \prec_0'}.
     \]
-    By Chapter~8, since both $\k$ and $\k'$ have the Ramsey property and the ordering property, the flows $X_\k$ and $X_{\k'}$ are both universal minimal flows of $G_0$. Hence there exists a $G_0$-flow isomorphism
-    \[
-        \pi\colon X_\k\to X_{\k'}.
-    \]
+    By Chapter~8, since both $\k$ and $\k'$ have the Ramsey property and the
+    ordering property, the flows $X_\k$ and $X_{\k'}$ are both universal
+    minimal flows of $G_0$. Hence there exists a $G_0$-flow isomorphism
+    \(\pi\colon X_\k\to X_{\k'}\).
 
     We claim that
     \[
         \pi(G_0\cdot \prec_0)=G_0\cdot \prec_0'.
     \]
     Indeed, for a linear ordering $\prec\in X_\k$, the condition
-    \[
-        \prec\in G_0\cdot \prec_0
-    \]
+    \(\prec\in G_0\cdot \prec_0\)
     is equivalent to the statement that the ordered structure
-    \[
-        \langle \bff_0,\prec\rangle
-    \]
+    \(\langle \bff_0,\prec\rangle\)
     is isomorphic to $\bff$, or equivalently that it has age $\k$ and the extension property. This witnesses the triangle condition for $\k'$. Applying Corollary~\ref{cor:triangle-condition} with the roles of $\k$ and $\k'$ interchanged, we obtain
     \[
         \k=\k'
@@ -196,16 +160,9 @@ We now come to the main uniqueness theorem.
     \]
     Similarly, $G_0\cdot \prec_0'$ is a dense $G_\delta$ subset of $X_{\k'}$. Because $\pi$ is a homeomorphism, it must send the unique dense $G_\delta$ orbit of $X_\k$ onto the unique dense $G_\delta$ orbit of $X_{\k'}$. This proves the claim.
 
-    Composing $\pi$ with a suitable element of $G_0$ if necessary, we may therefore assume that
-    \[
-        \pi(\prec_0)=\prec_0'.
-    \]
-    Let
-    \[
-        G=\Aut(\bff)
-        \qquad\text{and}\qquad
-        G'=\Aut(\bff').
-    \]
+    Composing $\pi$ with a suitable element of $G_0$ if necessary, we may
+    therefore assume that \(\pi(\prec_0)=\prec_0'\). Let
+    \(G=\Aut(\bff)\) and \(G'=\Aut(\bff')\).
     Then
     \[
         G=\Stab_{G_0}(\prec_0)
@@ -218,33 +175,17 @@ We now come to the main uniqueness theorem.
     \]
 
     We now define $<'$ from $<$ by a simple formula. Since $G=G'$, the relation
-    \[
-        x<' y
-    \]
-    is invariant under $\Aut(\bff)$. Because $\bff$ is ultrahomogeneous in the relational language $L$, every $\Aut(\bff)$-invariant binary relation is a union of $2$-orbits, and each such orbit is determined by the quantifier-free type of the ordered pair in $\bff$. There are only finitely many such $2$-orbits, so the relation $<'$ is defined in $\bff$ by a simple formula
-    \[
-        \varphi(x,y)
-    \]
-    in the language $L$.
+    \(x<' y\)
+    is invariant under $\Aut(\bff)$. Because $\bff$ is ultrahomogeneous in the relational language $L$, every $\Aut(\bff)$-invariant binary relation is a union of $2$-orbits, and each such orbit is determined by the quantifier-free type of the ordered pair in $\bff$. There are only finitely many such $2$-orbits, so the relation $<'$ is defined in $\bff$ by a simple formula \(\varphi(x,y)\) in the language $L$.
 
-    By the same argument, the relation $<$ is defined in $\bff'$ by a simple formula
-    \[
-        \varphi'(x,y)
-    \]
-    in the language $L'$.
+    By the same argument, the relation $<$ is defined in $\bff'$ by a simple
+    formula \(\varphi'(x,y)\) in the language $L'$.
 
-    Finally, let
-    \[
-        \bfa=\langle \bfa_0,\prec^A\rangle\in\k.
-    \]
+    Finally, let \(\bfa=\langle \bfa_0,\prec^A\rangle\in\k\).
     Since $\k=\Age(\bff)$, the structure $\bfa$ embeds into $\bff$. Restricting the formula $\varphi$ to the image of such an embedding defines on $A$ a second linear order $<'^{\,A}$, and the resulting structure
-    \[
-        \langle \bfa_0,<'^{\,A}\rangle
-    \]
+    \(\langle \bfa_0,<'^{\,A}\rangle\)
     belongs to $\Age(\bff')=\k'$. The same reasoning applies in the other direction using $\varphi'$. Because both formulas come from the same subgroup
-    \[
-        G=G'\leq G_0,
-    \]
+    \(G=G'\leq G_0\),
     the two constructions are inverse to one another up to isomorphism. Therefore $\k$ and $\k'$ are simply bi-definable.
 \end{proof}
 
@@ -270,56 +211,31 @@ We now record two useful strengthenings of Theorem~\ref{thm:uniqueness-simple-bi
     \[
         \k=\k'.
     \]
-    In particular, if
-    \[
-        \k=\k_0*\mathcal{LO},
-    \]
+    In particular, if \(\k=\k_0*\mathcal{LO}\),
     then $\k=\k'$.
 \end{proposition}
 
 \begin{proof}
-    Assume, for example, that
-    \[
-        \k\subseteq \k'.
-    \]
+    Assume, for example, that \(\k\subseteq \k'\).
     Suppose toward a contradiction that $\k\neq\k'$. Then there exists
-    \[
-        \bfa=\langle \bfa_0,\prec\rangle\in \k'\setminus \k.
-    \]
+    \(\bfa=\langle \bfa_0,\prec\rangle\in \k'\setminus \k\).
     Since $\k'$ has the ordering property, there exists
-    \[
-        \bfb_0\in \k_0
-    \]
+    \(\bfb_0\in \k_0\)
     such that for every expansion
-    \[
-        \bfb'=\langle \bfb_0,\prec'\rangle\in \k'
-    \]
+    \(\bfb'=\langle \bfb_0,\prec'\rangle\in \k'\)
     one has
-    \[
-        \bfa\leq \bfb'.
-    \]
+    \(\bfa\leq \bfb'\).
     Choose any expansion
-    \[
-        \bfb=\langle \bfb_0,\prec'\rangle\in \k.
-    \]
+    \(\bfb=\langle \bfb_0,\prec'\rangle\in \k\).
     Since $\k\subseteq \k'$, we also have $\bfb\in\k'$, and therefore
-    \[
-        \bfa\leq \bfb.
-    \]
+    \(\bfa\leq \bfb\).
     But $\k$ is hereditary, so this implies
-    \[
-        \bfa\in \k,
-    \]
+    \(\bfa\in \k\),
     a contradiction. Hence $\k=\k'$.
 
-    For the final statement, note that if
-    \[
-        \k=\k_0*\mathcal{LO},
-    \]
+    For the final statement, note that if \(\k=\k_0*\mathcal{LO}\),
     then every expansion in $\k'$ also belongs to $\k$, so
-    \[
-        \k'\subseteq \k.
-    \]
+    \(\k'\subseteq \k\).
     The first part of the proposition therefore gives $\k=\k'$.
 \end{proof}
 
@@ -337,28 +253,14 @@ where
 \]
 Then $\k^*$ is simply bi-definable with $\k$, so by Proposition~\ref{prop:simple-bi-definability-preserves-properties}, the classes $\k$ and $\k^*$ either both have, or both fail to have, the Ramsey and ordering properties. The next condition shows that in some cases these are the only possibilities.
 
-Given
-\[
-    \bfa=\langle \bfa_0,\prec\rangle\in\k
-    \qquad\text{and}\qquad
-    a,b\in A_0
-\]
-with
-\[
-    a\prec b,
-\]
-we write
-\[
-    \operatorname{tp}_{\bfa}(a,b)
-\]
+Given \(\bfa=\langle \bfa_0,\prec\rangle\in\k\) and \(a,b\in A_0\) with
+\(a\prec b\), we write \(\operatorname{tp}_{\bfa}(a,b)\)
 for the atomic type of the ordered pair $(a,b)$ in the language $L$. Equivalently, this is the quantifier-free type of $(a,b)$ in $\bfa$.
 
 \begin{definition}
     \label{def:triangle-condition}
-    We say that $\k$ satisfies the \emph{triangle condition} if for any two distinct pair-types
-    \[
-        \sigma\neq \tau
-    \]
+    We say that $\k$ satisfies the \emph{triangle condition} if for any two
+    distinct pair-types \(\sigma\neq \tau\)
     realized in members of $\k$, there exist
     \[
         \bfa=\langle \bfa_0,\prec\rangle\in \k
@@ -392,10 +294,9 @@ The point is that the triangle condition forces any alternative admissible order
 \end{corollary}
 
 \begin{proof}
-    By Theorem~\ref{thm:uniqueness-simple-bi-definability}, the classes $\k$ and $\k'$ are simply bi-definable. In the notation of its proof, we may therefore realize the two Fra\"iss\'e limits on the same reduct
-    \[
-        \bff_0
-    \]
+    By Theorem~\ref{thm:uniqueness-simple-bi-definability}, the classes $\k$
+    and $\k'$ are simply bi-definable. In the notation of its proof, we may
+    therefore realize the two Fra\"iss\'e limits on the same reduct \(\bff_0\)
     and write
     \[
         \bff=\langle \bff_0,\prec_0\rangle,
@@ -413,10 +314,7 @@ The point is that the triangle condition forces any alternative admissible order
         \prec_0'=\prec_0^*.
     \]
 
-    Assume this fails. Then there exist
-    \[
-        a,b,c,d\in F_0
-    \]
+    Assume this fails. Then there exist \(a,b,c,d\in F_0\)
     such that
     \[
         a\prec_0 b,\qquad c\prec_0 d,
@@ -431,10 +329,7 @@ The point is that the triangle condition forces any alternative admissible order
         \qquad\text{and}\qquad
         \tau=\operatorname{tp}_{\bff}(c,d).
     \]
-    Then
-    \[
-        \sigma\neq \tau,
-    \]
+    Then \(\sigma\neq \tau\),
     since $\prec_0'$ is invariant under $\Aut(\bff)=\Aut(\bff')$.
 
     By the triangle condition, there exist
@@ -482,18 +377,12 @@ We now record two examples.
 \end{example}
 
 \begin{proof}
-    Let $\k'$ be any reasonable Fra\"iss\'e order expansion of $\k_0$ with both properties. If
-    \[
-        \k'\subseteq \k,
-    \]
+    Let $\k'$ be any reasonable Fra\"iss\'e order expansion of $\k_0$ with
+    both properties. If \(\k'\subseteq \k\),
     then Proposition~\ref{prop:comparable-expansions-equal} yields
-    \[
-        \k'=\k.
-    \]
+    \(\k'=\k\).
     So suppose instead that $\k'\nsubseteq \k$. Then $\k'$ contains some
-    \[
-        \bfa'=\langle \bfa_0,E,\prec'\rangle
-    \]
+    \(\bfa'=\langle \bfa_0,E,\prec'\rangle\)
     with
     \[
         a\prec' b\prec' c,
@@ -510,25 +399,20 @@ We now record two examples.
         \qquad\text{or}\qquad
         \k'=\k^*.
     \]
-    But $\k^*=\k$ in this case, since reversing a convex ordering is again convex. Hence
-    \[
-        \k'=\k.
-    \]
+    But $\k^*=\k$ in this case, since reversing a convex ordering is again
+    convex. Hence \(\k'=\k\).
 \end{proof}
 
 \begin{example}
-    Let $\k_0$ be the class of all finite posets, and let $\k$ be the class of all finite structures
-    \[
-        \langle A,\sqsubset,\prec\rangle
-    \]
+    Let $\k_0$ be the class of all finite posets, and let $\k$ be the class of
+    all finite structures \(\langle A,\sqsubset,\prec\rangle\)
     where $\langle A,\sqsubset\rangle$ is a poset and $\prec$ is a linear ordering extending $\sqsubset$. Then the only reasonable Fra\"iss\'e order expansions of $\k_0$ with both the Ramsey and ordering properties are $\k$ and $\k^*$.
 \end{example}
 
 \begin{proof}
-    This class has the Ramsey and ordering properties. It also satisfies the triangle condition: one may realize two distinct pair-types by appropriately choosing a three-element chain
-    \[
-        a\prec b\prec c
-    \]
+    This class has the Ramsey and ordering properties. It also satisfies the
+    triangle condition: one may realize two distinct pair-types by appropriately
+    choosing a three-element chain \(a\prec b\prec c\)
     and using the compatibility of $\prec$ with the partial order. Corollary~\ref{cor:triangle-condition} therefore gives the conclusion.
 \end{proof}
 
@@ -543,9 +427,7 @@ We now explain the sense in which expansions with both the Ramsey property and t
 \begin{theorem}
     \label{thm:minimality-among-ramsey-expansions}
     Let $\k_0$ be a Fra\"iss\'e class in a relational signature $L_0$, let
-    \[
-        L=L_0\cup\{<\},
-    \]
+    \(L=L_0\cup\{<\}\),
     and let $\k,\k'$ be reasonable Fra\"iss\'e order classes in the language $L$ expanding $\k_0$. Assume that $\k$ has the Ramsey property and that $\k'$ has both the Ramsey property and the ordering property. Then there exists a reasonable Fra\"iss\'e order class $\k''$ in the language $L$ such that
     \[
         \k''\subseteq \k
@@ -573,34 +455,24 @@ We now explain the sense in which expansions with both the Ramsey property and t
         X_{\k'}=\overline{G_0\cdot \prec_0'}.
     \]
 
-    Since $\k$ has the Ramsey property, Corollary~\ref{cor:fraisse-order-class-ea} shows that
-    \[
-        G=\Aut(\bff)
-    \]
+    Since $\k$ has the Ramsey property,
+    Corollary~\ref{cor:fraisse-order-class-ea} shows that
+    \(G=\Aut(\bff)\)
     is extremely amenable. Let $Y$ be any minimal subflow of $X_\k$. We claim that $Y$ is the universal minimal flow of $G_0$.
 
-    Indeed, let $Z$ be any minimal compact $G_0$-flow. Restricting the action to the subgroup $G$, extreme amenability yields a point
-    \[
-        z_0\in Z
-    \]
+    Indeed, let $Z$ be any minimal compact $G_0$-flow. Restricting the action
+    to the subgroup $G$, extreme amenability yields a point \(z_0\in Z\)
     fixed by every element of $G$. By Theorem~\ref{thm:ramsey-universal-ambit}, there exists a surjective $G_0$-map
-    \[
-        \pi\colon X_\k\to Z.
-    \]
+    \(\pi\colon X_\k\to Z\).
     Since $Y$ is a minimal subflow of $X_\k$, the image $\pi(Y)$ is a nonempty closed $G_0$-invariant subset of $Z$, hence
-    \[
-        \pi(Y)=Z.
-    \]
+    \(\pi(Y)=Z\).
     Thus every minimal compact $G_0$-flow is a factor of $Y$, so $Y$ is universal minimal.
 
-    On the other hand, since $\k'$ has both the Ramsey property and the ordering property, Corollary~\ref{cor:ramsey-ordering-umf} implies that
-    \[
-        X_{\k'}
-    \]
+    On the other hand, since $\k'$ has both the Ramsey property and the ordering
+    property, Corollary~\ref{cor:ramsey-ordering-umf} implies that
+    \(X_{\k'}\)
     is also the universal minimal flow of $G_0$. Therefore there is a $G_0$-flow isomorphism
-    \[
-        \theta\colon X_{\k'}\to Y.
-    \]
+    \(\theta\colon X_{\k'}\to Y\).
     Replacing $\theta$ by $g\cdot \theta$ for a suitable $g\in G_0$ if necessary, we may assume that
     \[
         \theta(\prec_0')=\prec_0''
@@ -613,38 +485,28 @@ We now explain the sense in which expansions with both the Ramsey property and t
         =
         \Aut(\langle \bff_0,\prec_0''\rangle).
     \]
-    Exactly as in the proof of Theorem~\ref{thm:uniqueness-simple-bi-definability}, it follows that there are simple formulas defining $\prec_0'$ from $\prec_0''$ and $\prec_0''$ from $\prec_0'$. In particular,
-    \[
-        \langle \bff_0,\prec_0''\rangle
-    \]
+    Exactly as in the proof of
+    Theorem~\ref{thm:uniqueness-simple-bi-definability}, it follows that there
+    are simple formulas defining $\prec_0'$ from $\prec_0''$ and $\prec_0''$
+    from $\prec_0'$. In particular,
+    \(\langle \bff_0,\prec_0''\rangle\)
     is ultrahomogeneous.
 
-    Let
-    \[
-        \k''=\Age(\langle \bff_0,\prec_0''\rangle).
-    \]
+    Let \(\k''=\Age(\langle \bff_0,\prec_0''\rangle)\).
     Then $\k''$ is a reasonable Fra\"iss\'e order class expanding $\k_0$, and by construction it is simply bi-definable with $\k'$.
 
     It remains to show that
     \[
         \k''\subseteq \k.
     \]
-    Since
-    \[
-        \prec_0''\in Y\subseteq X_\k,
-    \]
+    Since \(\prec_0''\in Y\subseteq X_\k\),
     Proposition~\ref{prop:admissible-orderings-characterization} shows that every finite substructure of
-    \[
-        \langle \bff_0,\prec_0''\rangle
-    \]
+    \(\langle \bff_0,\prec_0''\rangle\)
     belongs to $\k$. Hence
     \[
         \Age(\langle \bff_0,\prec_0''\rangle)\subseteq \k,
     \]
-    that is,
-    \[
-        \k''\subseteq \k.
-    \]
+    that is, \(\k''\subseteq \k\).
     This completes the proof.
 \end{proof}
 

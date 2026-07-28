@@ -12,17 +12,10 @@ Our treatment will be limited to the parts of topological dynamics that are need
 We begin with the basic objects of topological dynamics.
 
 \begin{definition}
-    Let $G$ be a topological group. A \emph{$G$-flow} is a compact Hausdorff space $X$ together with a continuous action
-    \[
-        G\times X\to X,\qquad (g,x)\mapsto g\cdot x.
-    \]
+    Let $G$ be a topological group. A \emph{$G$-flow} is a compact Hausdorff space $X$ together with a continuous action \(G\times X\to X\), \((g,x)\mapsto g\cdot x\).
 \end{definition}
 
-Thus a $G$-flow is simply a continuous action of $G$ on a compact Hausdorff space. In the sequel, whenever $X$ is a $G$-flow and $x\in X$, we write
-\[
-    G\cdot x=\{g\cdot x:g\in G\}
-\]
-for the orbit of $x$.
+Thus a $G$-flow is simply a continuous action of $G$ on a compact Hausdorff space. In the sequel, whenever $X$ is a $G$-flow and $x\in X$, we write \(G\cdot x=\{g\cdot x:g\in G\}\) for the orbit of $x$.
 
 \begin{definition}
     Let $X$ be a $G$-flow.
@@ -36,10 +29,7 @@ for the orbit of $x$.
     \end{enumerate}
 \end{definition}
 
-If $Y\subseteq X$ is $G$-invariant, then in fact $g\cdot Y=Y$ for every $g\in G$, since
-\[
-    Y=g^{-1}\cdot(g\cdot Y)\subseteq g^{-1}\cdot Y.
-\]
+If $Y\subseteq X$ is $G$-invariant, then in fact $g\cdot Y=Y$ for every $g\in G$, since \(Y=g^{-1}\cdot(g\cdot Y)\subseteq g^{-1}\cdot Y\).
 Applying $g$ to both sides gives $g\cdot Y=Y$.
 
 The simplest source of subflows is given by orbit closures.
@@ -52,22 +42,18 @@ The simplest source of subflows is given by orbit closures.
 \begin{proof}
     The set $\overline{G\cdot x}$ is nonempty and closed. It remains to show that it is $G$-invariant.
 
-    Fix $g\in G$. Since the map
-    \[
-        X\to X,\qquad y\mapsto g\cdot y
-    \]
-    is continuous, we have
+    Fix $g\in G$. Since the map \(X\to X\), \(y\mapsto g\cdot y\), is continuous, we have
     \[
         g\cdot \overline{G\cdot x}\subseteq \overline{g\cdot (G\cdot x)}.
     \]
     Now
     \[
-        g\cdot (G\cdot x)=\{g\cdot (h\cdot x):h\in G\}=\{(gh)\cdot x:h\in G\}=G\cdot x,
+        g\cdot (G\cdot x)
+        =\{g\cdot (h\cdot x):h\in G\}
+        =\{(gh)\cdot x:h\in G\}
+        =G\cdot x,
     \]
-    so
-    \[
-        g\cdot \overline{G\cdot x}\subseteq \overline{G\cdot x}.
-    \]
+    so \(g\cdot \overline{G\cdot x}\subseteq \overline{G\cdot x}\).
     Hence $\overline{G\cdot x}$ is $G$-invariant, and therefore a subflow of $X$.
 \end{proof}
 
@@ -93,20 +79,10 @@ Thus a minimal flow is one in which the action cannot be restricted to a smaller
 \end{proposition}
 
 \begin{proof}
-    Assume first that $X$ is minimal, and let $x\in X$. By Proposition~\ref{prop:orbit-closure-subflow}, the orbit closure $\overline{G\cdot x}$ is a subflow of $X$. Since $X$ is minimal, it follows that
-    \[
-        \overline{G\cdot x}=X.
-    \]
+    Assume first that $X$ is minimal, and let $x\in X$. By Proposition~\ref{prop:orbit-closure-subflow}, the orbit closure $\overline{G\cdot x}$ is a subflow of $X$. Since $X$ is minimal, it follows that \(\overline{G\cdot x}=X\).
     Hence $G\cdot x$ is dense in $X$.
 
-    Conversely, assume that every orbit is dense in $X$, and let $Y\subseteq X$ be a nonempty closed $G$-invariant subset. Choose $y\in Y$. Since $Y$ is $G$-invariant, we have
-    \[
-        G\cdot y\subseteq Y,
-    \]
-    and since $Y$ is closed,
-    \[
-        \overline{G\cdot y}\subseteq Y.
-    \]
+    Conversely, assume that every orbit is dense in $X$, and let $Y\subseteq X$ be a nonempty closed $G$-invariant subset. Choose $y\in Y$. Since $Y$ is $G$-invariant, we have \(G\cdot y\subseteq Y\), and since $Y$ is closed, \(\overline{G\cdot y}\subseteq Y\).
     By assumption, $\overline{G\cdot y}=X$, so $X\subseteq Y$. Therefore $Y=X$, and hence $X$ is minimal.
 \end{proof}
 
@@ -122,12 +98,10 @@ The next result shows that minimal flows always exist inside arbitrary flows.
 \begin{proof}
     Let $X$ be a $G$-flow, and let
     \[
-        \mathcal{S}=\{Y\subseteq X : Y\neq\emptyset,\; Y \text{ is closed and } G\text{-invariant}\}.
+        \mathcal{S}
+        =\{Y\subseteq X : Y\neq\emptyset,\; Y \text{ is closed and } G\text{-invariant}\}.
     \]
-    Since $X\in\mathcal{S}$, the set $\mathcal{S}$ is nonempty. We partially order $\mathcal{S}$ by reverse inclusion:
-    \[
-        Y_1\preceq Y_2 \iff Y_1\supseteq Y_2.
-    \]
+    Since $X\in\mathcal{S}$, the set $\mathcal{S}$ is nonempty. We partially order $\mathcal{S}$ by reverse inclusion: \(Y_1\preceq Y_2 \iff Y_1\supseteq Y_2\).
 
     Let $\mathcal{C}\subseteq\mathcal{S}$ be a chain. We claim that $\mathcal{C}$ has an upper bound in $\mathcal{S}$. Put
     \[
@@ -135,10 +109,7 @@ The next result shows that minimal flows always exist inside arbitrary flows.
     \]
     Each $Z\in\mathcal{C}$ is closed, so $Y$ is closed; and since each $Z$ is $G$-invariant, so is $Y$.
 
-    It remains to show that $Y\neq\emptyset$. Since $X$ is compact and the members of $\mathcal{C}$ are closed, it suffices to show that the family $\mathcal{C}$ has the finite intersection property. But this is immediate, because $\mathcal{C}$ is a chain under reverse inclusion: given finitely many sets \(Z_1,\dots,Z_n\in\mathcal{C}\), one of them is contained in all the others, and hence
-    \[
-        Z_1\cap\cdots\cap Z_n\neq\emptyset.
-    \]
+    It remains to show that $Y\neq\emptyset$. Since $X$ is compact and the members of $\mathcal{C}$ are closed, it suffices to show that the family $\mathcal{C}$ has the finite intersection property. But this is immediate, because $\mathcal{C}$ is a chain under reverse inclusion: given finitely many sets \(Z_1,\dots,Z_n\in\mathcal{C}\), one of them is contained in all the others, and hence \(Z_1\cap\cdots\cap Z_n\neq\emptyset\).
     Thus \(Y\in\mathcal{S}\), and \(Y\) is an upper bound for \(\mathcal{C}\).
 
     By Zorn's lemma, \(\mathcal{S}\) has a maximal element with respect to \(\preceq\), that is, a minimal element with respect to inclusion. Let \(M\in\mathcal{S}\) be such an element. Then \(M\) is a nonempty closed \(G\)-invariant subset of \(X\), and it contains no proper nonempty closed \(G\)-invariant subset. Hence \(M\) is a minimal subflow of \(X\).
@@ -152,11 +123,7 @@ Minimal subflows will play a central role in what follows. In particular, they a
 To compare $G$-flows, one uses morphisms that respect the action.
 
 \begin{definition}
-    Let $X$ and $Y$ be $G$-flows. A \emph{homomorphism} from $X$ to $Y$ is a continuous map
-    \[
-        \pi\colon X\to Y
-    \]
-    such that
+    Let $X$ and $Y$ be $G$-flows. A \emph{homomorphism} from $X$ to $Y$ is a continuous map \(\pi\colon X\to Y\) such that
     \[
         \pi(g\cdot x)=g\cdot \pi(x)
         \qquad\text{for all }g\in G,\ x\in X.
@@ -167,11 +134,7 @@ Homomorphisms onto minimal flows are automatically surjective.
 
 \begin{proposition}
     \label{prop:hom-to-minimal-surjective}
-    Let $X$ and $Y$ be $G$-flows, and suppose that $Y$ is minimal. If
-    \[
-        \pi\colon X\to Y
-    \]
-    is a homomorphism, then $\pi$ is surjective.
+    Let $X$ and $Y$ be $G$-flows, and suppose that $Y$ is minimal. If \(\pi\colon X\to Y\) is a homomorphism, then $\pi$ is surjective.
 \end{proposition}
 
 \begin{proof}
@@ -184,10 +147,7 @@ This leads to the basic universal object in topological dynamics.
     A $G$-flow $M$ is called a \emph{universal minimal flow} of $G$ if
     \begin{enumerate}
         \item $M$ is minimal, and
-        \item for every minimal $G$-flow $X$, there exists a homomorphism
-              \[
-                  \pi\colon M\to X.
-              \]
+        \item for every minimal $G$-flow $X$, there exists a homomorphism \(\pi\colon M\to X\).
     \end{enumerate}
 \end{definition}
 
@@ -205,11 +165,7 @@ By Proposition~\ref{prop:hom-to-minimal-surjective}, the map $\pi$ in the defini
     \]
     with the coordinatewise action of $G$. Since each $X_i$ is compact Hausdorff, so is $X$, and hence $X$ is a $G$-flow. By Proposition~\ref{prop:existence-minimal-subflow}, $X$ contains a minimal subflow $M$.
 
-    For each $i\in I$, let
-    \[
-        \pi_i\colon M\to X_i
-    \]
-    be the restriction of the $i$-th coordinate projection. Then $\pi_i$ is a homomorphism. Since $X_i$ is minimal, Proposition~\ref{prop:hom-to-minimal-surjective} shows that $\pi_i$ is surjective. Therefore $M$ maps onto every minimal $G$-flow, so $M$ is universal.
+    For each $i\in I$, let \(\pi_i\colon M\to X_i\) be the restriction of the $i$-th coordinate projection. Then $\pi_i$ is a homomorphism. Since $X_i$ is minimal, Proposition~\ref{prop:hom-to-minimal-surjective} shows that $\pi_i$ is surjective. Therefore $M$ maps onto every minimal $G$-flow, so $M$ is universal.
 
     The uniqueness up to isomorphism is standard.
 \end{proof}
@@ -219,11 +175,7 @@ We therefore write $M(G)$ for the universal minimal flow of $G$. The universal m
 We now introduce the fixed-point property that will later be related to structural Ramsey theory.
 
 \begin{definition}
-    Let $X$ be a $G$-flow. A point $x\in X$ is called a \emph{fixed point} if
-    \[
-        g\cdot x=x
-        \qquad\text{for all }g\in G.
-    \]
+    Let $X$ be a $G$-flow. A point $x\in X$ is called a \emph{fixed point} if \(g\cdot x=x\) for all \(g\in G\).
     The topological group $G$ is said to be \emph{extremely amenable} if every $G$-flow has a fixed point.
 \end{definition}
 
@@ -235,15 +187,9 @@ Since every $G$-flow contains a minimal subflow, extreme amenability may equival
 \end{proposition}
 
 \begin{proof}
-    Assume first that $G$ is extremely amenable. Then the $G$-flow $M(G)$ has a fixed point $x$. Since $\{x\}$ is a nonempty closed $G$-invariant subset of $M(G)$ and $M(G)$ is minimal, it follows that
-    \[
-        M(G)=\{x\}.
-    \]
+    Assume first that $G$ is extremely amenable. Then the $G$-flow $M(G)$ has a fixed point $x$. Since $\{x\}$ is a nonempty closed $G$-invariant subset of $M(G)$ and $M(G)$ is minimal, it follows that \(M(G)=\{x\}\).
 
-    Conversely, assume that $M(G)$ is a singleton, and let $X$ be any $G$-flow. By Proposition~\ref{prop:existence-minimal-subflow}, $X$ contains a minimal subflow $Y$. Since $M(G)$ is universal, there is a surjective homomorphism
-    \[
-        \pi\colon M(G)\to Y.
-    \]
+    Conversely, assume that $M(G)$ is a singleton, and let $X$ be any $G$-flow. By Proposition~\ref{prop:existence-minimal-subflow}, $X$ contains a minimal subflow $Y$. Since $M(G)$ is universal, there is a surjective homomorphism \(\pi\colon M(G)\to Y\).
     But $M(G)$ has only one point, so $Y$ also has only one point. Hence $Y$ is a fixed point of $X$. Therefore every $G$-flow has a fixed point, and $G$ is extremely amenable.
 \end{proof}
 
@@ -254,42 +200,24 @@ Extreme amenability is one of the central dynamical properties studied in this t
 A distinguished role is played by flows generated by a single point with dense orbit.
 
 \begin{definition}
-    A \emph{$G$-ambit} is a pair $(X,x_0)$, where $X$ is a $G$-flow and $x_0\in X$ is such that the orbit
-    \[
-        G\cdot x_0
-    \]
-    is dense in $X$.
+    A \emph{$G$-ambit} is a pair $(X,x_0)$, where $X$ is a $G$-flow and $x_0\in X$ is such that the orbit \(G\cdot x_0\) is dense in $X$.
 \end{definition}
 
 Thus a $G$-ambit is a point-transitive $G$-flow together with a specified transitive point. The distinguished point is part of the data.
 
 \begin{definition}
-    Let $(X,x_0)$ and $(Y,y_0)$ be $G$-ambits. A \emph{homomorphism} from $(X,x_0)$ to $(Y,y_0)$ is a homomorphism of $G$-flows
-    \[
-        \pi\colon X\to Y
-    \]
-    such that
-    \[
-        \pi(x_0)=y_0.
-    \]
+    Let $(X,x_0)$ and $(Y,y_0)$ be $G$-ambits. A \emph{homomorphism} from $(X,x_0)$ to $(Y,y_0)$ is a homomorphism of $G$-flows \(\pi\colon X\to Y\) such that \(\pi(x_0)=y_0\).
 \end{definition}
 
 Because the distinguished point has dense orbit, a homomorphism of ambits is determined uniquely by its value at that point.
 
 \begin{proposition}
     \label{prop:ambit-hom-unique}
-    Let $(X,x_0)$ and $(Y,y_0)$ be $G$-ambits. Then there is at most one homomorphism
-    \[
-        \pi\colon (X,x_0)\to (Y,y_0).
-    \]
+    Let $(X,x_0)$ and $(Y,y_0)$ be $G$-ambits. Then there is at most one homomorphism \(\pi\colon (X,x_0)\to (Y,y_0)\).
 \end{proposition}
 
 \begin{proof}
-    Suppose that
-    \[
-        \pi_1,\pi_2\colon X\to Y
-    \]
-    are homomorphisms of ambits. For every \(g\in G\), we have
+    Suppose that \(\pi_1,\pi_2\colon X\to Y\) are homomorphisms of ambits. For every \(g\in G\), we have
     \[
         \pi_1(g\cdot x_0)=g\cdot \pi_1(x_0)=g\cdot y_0
     \]
@@ -303,10 +231,7 @@ Because the distinguished point has dense orbit, a homomorphism of ambits is det
 The category of $G$-ambits has a universal object.
 
 \begin{definition}
-    A $G$-ambit $(S(G),s_0)$ is called the \emph{greatest ambit} of $G$ if for every $G$-ambit $(X,x_0)$ there exists a homomorphism
-    \[
-        \pi\colon (S(G),s_0)\to (X,x_0).
-    \]
+    A $G$-ambit $(S(G),s_0)$ is called the \emph{greatest ambit} of $G$ if for every $G$-ambit $(X,x_0)$ there exists a homomorphism \(\pi\colon (S(G),s_0)\to (X,x_0)\).
 \end{definition}
 
 By Proposition~\ref{prop:ambit-hom-unique}, such a homomorphism is automatically unique whenever it exists.

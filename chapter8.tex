@@ -7,32 +7,14 @@ In the previous chapter we studied reasonable ordered expansions and the passage
 
 \section{Admissible orderings and the flow $X_\k$}
 
-Let $L\supseteq\{<\}$ be a signature, and put
-\[
-    L_0=L\setminus\{<\}.
-\]
+Let $L\supseteq\{<\}$ be a signature, and put \(L_0=L\setminus\{<\}\).
 Let $\k$ be a reasonable Fra\"iss\'{e} order class in the language $L$, and let
-\[
-    \k_0=\k|L_0
-\]
-be its reduct to the language $L_0$. By the results of Chapter~7, the class $\k_0$ is a Fra\"iss\'{e} class, and if
-\[
-    \bff={\rm Flim}(\k),
-    \qquad
-    \bff_0={\rm Flim}(\k_0),
-\]
-then
-\[
-    \bff_0=\bff|L_0.
-\]
-Let \(\prec_0\) denote the interpretation of the symbol \(<\) in \(\bff\), that is,
-\[
-    \prec_0 \;=\; <^{\bff}.
-\]
-and put
-\[
-    G_0={\rm Aut}(\bff_0).
-\]
+\(\k_0=\k|L_0\) be its reduct to the language $L_0$. By the results of Chapter~7,
+the class $\k_0$ is a Fra\"iss\'{e} class, and if
+\(\bff={\rm Flim}(\k)\) and \(\bff_0={\rm Flim}(\k_0)\), then
+\(\bff_0=\bff|L_0\). Let \(\prec_0\) denote the interpretation of the symbol
+\(<\) in \(\bff\), that is, \(\prec_0=<^{\bff}\), and put
+\(G_0={\rm Aut}(\bff_0)\).
 
 Let $\mathrm{LO}(F_0)$ denote the compact space of all linear orderings on the underlying set $F_0$ of $\bff_0$, equipped with the logic action of $G_0$.
 \begin{mynote}
@@ -49,124 +31,59 @@ The first point is that membership in $X_\k$ can be recognized purely in terms o
 \begin{proposition}
     \label{prop:admissible-orderings-characterization}
     Let $\prec$ be a linear ordering on $F_0$. Then $\prec\in X_\k$ if and only if for every finite substructure $\bfb_0$ of $\bff_0$, the ordered structure
-    \[
-        \langle \bfb_0,\prec|B_0\rangle
-    \]
-    belongs to $\k$.
+    \(\langle \bfb_0,\prec|B_0\rangle\) belongs to $\k$.
 \end{proposition}
 
 \begin{proof}
-    Assume first that $\prec\in X_\k$, and let $\bfb_0$ be a finite substructure of $\bff_0$. Since
-    \[
-        \prec\in \overline{G_0\cdot \prec_0},
-    \]
-    there exists $g\in G_0$ such that
-    \[
-        \prec|B_0=(g\cdot \prec_0)|B_0.
-    \]
-    Let
-    \[
-        \bfa_0=g^{-1}(\bfb_0),
-    \]
-    which is again a finite substructure of $\bff_0$, and let
-    \[
-        \bfa=\langle \bfa_0,\prec_0|A_0\rangle.
-    \]
+    Assume first that $\prec\in X_\k$, and let $\bfb_0$ be a finite substructure
+    of $\bff_0$. Since \(\prec\in \overline{G_0\cdot \prec_0}\), there exists
+    $g\in G_0$ such that
+    \(\prec|B_0=(g\cdot \prec_0)|B_0\). Let
+    \(\bfa_0=g^{-1}(\bfb_0)\), which is again a finite substructure of $\bff_0$,
+    and let \(\bfa=\langle \bfa_0,\prec_0|A_0\rangle\).
     Since $\bfa$ is a finite substructure of $\bff$, we have $\bfa\in\k$. Moreover, the map
-    \[
-        g|A_0\colon A_0\to B_0
-    \]
-    is an isomorphism from $\bfa$ onto
-    \[
-        \bfb=\langle \bfb_0,\prec|B_0\rangle.
-    \]
+    \(g|A_0\colon A_0\to B_0\) is an isomorphism from $\bfa$ onto
+    \(\bfb=\langle \bfb_0,\prec|B_0\rangle\).
     Hence $\bfb\in\k$.
 
     Conversely, assume that for every finite substructure $\bfb_0$ of $\bff_0$, the ordered structure
-    \[
-        \bfb=\langle \bfb_0,\prec|B_0\rangle
-    \]
-    belongs to $\k$. We show that $\prec\in X_\k$.
+    \(\bfb=\langle \bfb_0,\prec|B_0\rangle\) belongs to $\k$. We show that
+    $\prec\in X_\k$.
 
     Fix a finite substructure $\bfb_0$ of $\bff_0$. Since $\bfb\in\k=\Age(\bff)$, there exists an embedding
-    \[
-        \pi\colon \bfb\to \bff.
-    \]
-    Let
-    \[
-        \bfa=\pi(\bfb),
-        \qquad
-        \bfa_0=\bfa|L_0.
-    \]
+    \(\pi\colon \bfb\to \bff\). Let \(\bfa=\pi(\bfb)\) and
+    \(\bfa_0=\bfa|L_0\).
     Then $\pi$ is an isomorphism from $\bfb$ onto $\bfa$, and in particular an isomorphism from $\bfb_0$ onto $\bfa_0$. Since $\bfa_0$ and $\bfb_0$ are finite substructures of the ultrahomogeneous structure $\bff_0$, there exists
-    \[
-        g\in {\rm Aut}(\bff_0)=G_0
-    \]
-    extending $\pi^{-1}$. It follows that
-    \[
-        \prec|B_0=(g\cdot \prec_0)|B_0.
-    \]
+    \(g\in {\rm Aut}(\bff_0)=G_0\) extending $\pi^{-1}$. It follows that
+    \(\prec|B_0=(g\cdot \prec_0)|B_0\).
     As $\bfb_0$ was arbitrary, this shows that every finite restriction of $\prec$ agrees with a finite restriction of some translate of $\prec_0$. Therefore
-    \[
-        \prec\in \overline{G_0\cdot \prec_0}=X_\k.
-    \]
+    \(\prec\in \overline{G_0\cdot \prec_0}=X_\k\).
 \end{proof}
 \begin{mynote}
     \begin{proof}
         Assume first that
-        \[
-            \prec \in X_{\k}=\overline{G_0\cdot \prec_0},
-        \]
-        and let
-        \[
-            \bfb_0\leq \bff_0
-        \]
-        be a finite substructure. We must show that the ordered structure
-        \[
-            \bfb=\langle \bfb_0,\prec|B_0\rangle
-        \]
-        belongs to $\k$.
+        \(\prec \in X_{\k}=\overline{G_0\cdot \prec_0}\), and let
+        \(\bfb_0\leq \bff_0\) be a finite substructure. We must show that the
+        ordered structure \(\bfb=\langle \bfb_0,\prec|B_0\rangle\) belongs to
+        $\k$.
 
-        Since
-        \[
-            \prec \in \overline{G_0\cdot \prec_0},
-        \]
+        Since \(\prec \in \overline{G_0\cdot \prec_0}\),
         every basic open neighbourhood of $\prec$ in $\LO(F_0)$ meets the orbit $G_0\cdot \prec_0$. Now basic open neighbourhoods in $\LO(F_0)$ are determined by agreement on finite subsets of $F_0$: if $A\subseteq F_0$ is finite, then the set of all linear orderings on $F_0$ whose restriction to $A$ agrees with $\prec|A$ is a basic open neighbourhood of $\prec$. Applying this to the finite set $B_0$, we obtain a basic open neighbourhood of $\prec$ consisting of all orderings on $F_0$ that agree with $\prec$ on $B_0$. Since $\prec$ belongs to the closure of $G_0\cdot \prec_0$, this neighbourhood must contain some translate of $\prec_0$. Therefore there exists
-        \[
-            g\in G_0
-        \]
-        such that
-        \[
-            (g\cdot \prec_0)|B_0=\prec|B_0.
-        \]
+        \(g\in G_0\) such that
+        \((g\cdot \prec_0)|B_0=\prec|B_0\).
         By definition of the logic action,
-        \[
-            x\,(g\cdot \prec_0)\,y
-            \iff
-            g^{-1}(x)\prec_0 g^{-1}(y)
-            \qquad (x,y\in F_0).
-        \]
-        Let
-        \[
-            \bfa_0=g^{-1}(\bfb_0).
-        \]
+        \(x\,(g\cdot \prec_0)\,y\) if and only if
+        \(g^{-1}(x)\prec_0 g^{-1}(y)\), for \(x,y\in F_0\). Let
+        \(\bfa_0=g^{-1}(\bfb_0)\).
         Since $g\in\Aut(\bff_0)$, the set $A_0=g^{-1}(B_0)$ carries the induced $L_0$-structure of a finite substructure of $\bff_0$, so $\bfa_0\leq \bff_0$. Now define
-        \[
-            \bfa=\langle \bfa_0,\prec_0|A_0\rangle.
-        \]
+        \(\bfa=\langle \bfa_0,\prec_0|A_0\rangle\).
         Because $\bff=\langle \bff_0,\prec_0\rangle$ is the Fra\"iss\'e limit of $\k$, every finite ordered substructure of $\bff$ belongs to $\k$. Hence
-        \[
-            \bfa\in\k.
-        \]
+        \(\bfa\in\k\).
 
         We claim that the map
-        \[
-            g|A_0\colon A_0\to B_0
-        \]
+        \(g|A_0\colon A_0\to B_0\)
         is an isomorphism from $\bfa$ onto $\bfb$. Since $g\in\Aut(\bff_0)$, the map $g|A_0$ is already an isomorphism of the underlying $L_0$-structures
-        \[
-            \bfa_0\cong \bfb_0.
-        \]
+        \(\bfa_0\cong \bfb_0\).
         It remains to check that it preserves the order. Let $a,a'\in A_0$. Then
         \[
             a\prec_0 a'
@@ -176,94 +93,51 @@ The first point is that membership in $X_\k$ can be recognized purely in terms o
             g(a)\prec g(a'),
         \]
         because $(g\cdot \prec_0)|B_0=\prec|B_0$ and $g(a),g(a')\in B_0$. Thus $g|A_0$ is an isomorphism
-        \[
-            \bfa\cong \bfb.
-        \]
+        \(\bfa\cong \bfb\).
         Since $\k$ is closed under isomorphism and $\bfa\in\k$, it follows that
-        \[
-            \bfb\in\k.
-        \]
+        \(\bfb\in\k\).
 
         Conversely, assume that for every finite substructure
-        \[
-            \bfb_0\leq \bff_0,
-        \]
+        \(\bfb_0\leq \bff_0\),
         the ordered structure
-        \[
-            \bfb=\langle \bfb_0,\prec|B_0\rangle
-        \]
+        \(\bfb=\langle \bfb_0,\prec|B_0\rangle\)
         belongs to $\k$. We must prove that
-        \[
-            \prec\in X_{\k}=\overline{G_0\cdot \prec_0}.
-        \]
+        \(\prec\in X_{\k}=\overline{G_0\cdot \prec_0}\).
 
         To show that $\prec$ belongs to the closure of $G_0\cdot\prec_0$ in $\LO(F_0)$, it is enough to show that for every finite substructure
-        \[
-            \bfb_0\leq \bff_0
-        \]
+        \(\bfb_0\leq \bff_0\)
         there exists
-        \[
-            g\in G_0
-        \]
+        \(g\in G_0\)
         such that
-        \[
-            (g\cdot \prec_0)|B_0=\prec|B_0.
-        \]
+        \((g\cdot \prec_0)|B_0=\prec|B_0\).
 
         So fix a finite substructure
-        \[
-            \bfb_0\leq \bff_0,
-        \]
+        \(\bfb_0\leq \bff_0\),
         and let
-        \[
-            \bfb=\langle \bfb_0,\prec|B_0\rangle.
-        \]
-        By assumption, $\bfb\in\k$. Since
-        \[
-            \k=\Age(\bff),
-        \]
+        \(\bfb=\langle \bfb_0,\prec|B_0\rangle\).
+        By assumption, $\bfb\in\k$. Since \(\k=\Age(\bff)\),
         there exists an embedding
-        \[
-            \pi\colon \bfb\to \bff.
-        \]
+        \(\pi\colon \bfb\to \bff\).
         Let
-        \[
-            \bfa=\pi(\bfb)
-        \]
+        \(\bfa=\pi(\bfb)\)
         be the image of $\bfb$ in $\bff$, and let
-        \[
-            \bfa_0=\bfa|L_0.
-        \]
+        \(\bfa_0=\bfa|L_0\).
         Then $\bfa$ is a finite ordered substructure of $\bff$, and
-        \[
-            \pi\colon \bfb\to \bfa
-        \]
+        \(\pi\colon \bfb\to \bfa\)
         is an isomorphism of $L$-structures. In particular, forgetting the order, $\pi$ is an isomorphism
-        \[
-            \pi\colon \bfb_0\to \bfa_0
-        \]
+        \(\pi\colon \bfb_0\to \bfa_0\)
         between finite substructures of $\bff_0$.
 
         Since $\bff_0$ is ultrahomogeneous, every isomorphism between finite substructures extends to an automorphism of $\bff_0$. Applying this to the isomorphism
-        \[
-            \pi^{-1}\colon \bfa_0\to \bfb_0,
-        \]
+        \(\pi^{-1}\colon \bfa_0\to \bfb_0\),
         we obtain some
-        \[
-            g\in\Aut(\bff_0)=G_0
-        \]
+        \(g\in\Aut(\bff_0)=G_0\)
         extending $\pi^{-1}$.
 
         We now verify that
-        \[
-            (g\cdot \prec_0)|B_0=\prec|B_0.
-        \]
+        \((g\cdot \prec_0)|B_0=\prec|B_0\).
         Let $x,y\in B_0$. Since $g$ extends $\pi^{-1}$ on $A_0$, we have
-        \[
-            g^{-1}(x)=\pi(x)
-            \qquad\text{and}\qquad
-            g^{-1}(y)=\pi(y).
-        \]
+        \(g^{-1}(x)=\pi(x)\) and \(g^{-1}(y)=\pi(y)\).
         Therefore
         \begin{align*}
             x\,(g\cdot \prec_0)\,y
@@ -271,42 +145,24 @@ The first point is that membership in $X_\k$ can be recognized purely in terms o
              & \iff \pi(x)\prec_0 \pi(y).
         \end{align*}
         But $\pi$ is an embedding of ordered structures from
-        \[
-            \langle \bfb_0,\prec|B_0\rangle
-        \]
-        into
-        \[
-            \bff=\langle \bff_0,\prec_0\rangle,
-        \]
+        \(\langle \bfb_0,\prec|B_0\rangle\) into
+        \(\bff=\langle \bff_0,\prec_0\rangle\),
         so
-        \[
-            \pi(x)\prec_0 \pi(y)
-            \iff
-            x\prec y.
-        \]
+        \(\pi(x)\prec_0 \pi(y)\) if and only if \(x\prec y\).
         Hence
-        \[
-            x\,(g\cdot \prec_0)\,y \iff x\prec y
-            \qquad (x,y\in B_0),
-        \]
-        and therefore
-        \[
-            (g\cdot \prec_0)|B_0=\prec|B_0.
-        \]
+        \(x\,(g\cdot \prec_0)\,y\) if and only if \(x\prec y\), for
+        \(x,y\in B_0\), and therefore
+        \((g\cdot \prec_0)|B_0=\prec|B_0\).
 
         Since $\bfb_0$ was arbitrary, we have shown that every finite restriction of $\prec$ agrees with the corresponding finite restriction of some translate of $\prec_0$. This is exactly the statement that
-        \[
-            \prec\in \overline{G_0\cdot \prec_0}=X_{\k}.
-        \]
+        \(\prec\in \overline{G_0\cdot \prec_0}=X_{\k}\).
     \end{proof}
 \end{mynote}
 
 \begin{definition}
     \label{def:k-admissible-ordering}
     A linear ordering $\prec$ on $F_0$ is called \emph{$\k$-admissible} if
-    \[
-        \prec\in X_\k.
-    \]
+    \(\prec\in X_\k\).
     Equivalently, $\prec$ is $\k$-admissible if every finite substructure of $\bff_0$, equipped with the induced ordering from $\prec$, belongs to $\k$.
 \end{definition}
 
@@ -319,13 +175,7 @@ We now introduce the combinatorial condition that characterizes the minimality o
 \begin{definition}
     \label{def:ordering-property}
     We say that $\k$ has the \emph{ordering property} if for every
-    \[
-        \bfa_0\in\k_0
-    \]
-    there exists
-    \[
-        \bfb_0\in\k_0
-    \]
+    \(\bfa_0\in\k_0\) there exists \(\bfb_0\in\k_0\)
     such that whenever
     \[
         \bfa=\langle \bfa_0,\prec\rangle\in\k
@@ -343,9 +193,7 @@ Thus the ordering property says that for every finite reduct $\bfa_0$, there is 
 The classes considered in Chapter~6 provide both positive and negative examples. For instance, the freely ordered graph and hypergraph classes satisfy the ordering property, whereas the class of all linearly ordered finite equivalence relations does not.
 
 The key step is the following finite reformulation of the condition
-\[
-    \prec_0\in\overline{G_0\cdot \prec}.
-\]
+\(\prec_0\in\overline{G_0\cdot \prec}\).
 
 \begin{lemma}
     \label{lem:orbit-closure-characterization}
@@ -355,10 +203,7 @@ The key step is the following finite reformulation of the condition
               \[
                   \prec_0\in\overline{G_0\cdot \prec}.
               \]
-        \item[(ii)] For every
-              \[
-                  \bfa\in\k,
-              \]
+        \item[(ii)] For every \(\bfa\in\k\),
               there exists a finite substructure $\bfc_0$ of $\bff_0$ such that
               \[
                   \langle \bfc_0,\prec|C_0\rangle\in\k
@@ -366,82 +211,40 @@ The key step is the following finite reformulation of the condition
                   \bfa\leq \langle \bfc_0,\prec|C_0\rangle.
               \]
     \end{enumerate}
-    In particular, if $\prec\in X_\k$, then condition {\rm(ii)} says exactly that every member of $\k$ embeds into a finite substructure of the ordered structure
-    \[
-        \langle F_0,\prec\rangle.
-    \]
+    In particular, if $\prec\in X_\k$, then condition {\rm(ii)} says exactly
+    that every member of $\k$ embeds into a finite substructure of the ordered
+    structure \(\langle F_0,\prec\rangle\).
 \end{lemma}
 
 \begin{proof}
     Assume first that
-    \[
-        \prec_0\in\overline{G_0\cdot \prec},
-    \]
-    and let
-    \[
-        \bfa\in\k.
-    \]
+    \(\prec_0\in\overline{G_0\cdot \prec}\), and let \(\bfa\in\k\).
     Since $\k=\Age(\bff)$, we may identify $\bfa$ with a finite substructure of $\bff$, so that
-    \[
-        \bfa=\langle \bfa_0,\prec_0|A_0\rangle
-    \]
+    \(\bfa=\langle \bfa_0,\prec_0|A_0\rangle\)
     for some finite substructure $\bfa_0$ of $\bff_0$. By the assumption on $\prec$, there exists
-    \[
-        g\in G_0
-    \]
-    such that
-    \[
-        (g\cdot \prec)|A_0=\prec_0|A_0.
-    \]
-    Let
-    \[
-        \bfc_0=g^{-1}(\bfa_0).
-    \]
+    \(g\in G_0\) such that
+    \((g\cdot \prec)|A_0=\prec_0|A_0\). Let
+    \(\bfc_0=g^{-1}(\bfa_0)\).
     Then
-    \[
-        g\colon \langle \bfc_0,\prec|C_0\rangle\to \bfa
-    \]
+    \(g\colon \langle \bfc_0,\prec|C_0\rangle\to \bfa\)
     is an isomorphism. Hence
-    \[
-        \langle \bfc_0,\prec|C_0\rangle\in\k
-        \qquad\text{and}\qquad
-        \bfa\leq \langle \bfc_0,\prec|C_0\rangle.
-    \]
+    \(\langle \bfc_0,\prec|C_0\rangle\in\k\) and
+    \(\bfa\leq \langle \bfc_0,\prec|C_0\rangle\).
 
     Conversely, assume (ii). To show that
-    \[
-        \prec_0\in\overline{G_0\cdot \prec},
-    \]
+    \(\prec_0\in\overline{G_0\cdot \prec}\),
     it suffices to verify that for every finite substructure $\bfa_0$ of $\bff_0$, there exists
-    \[
-        g\in G_0
-    \]
-    such that
-    \[
-        (g\cdot \prec)|A_0=\prec_0|A_0.
-    \]
+    \(g\in G_0\) such that
+    \((g\cdot \prec)|A_0=\prec_0|A_0\).
     Fix such a finite substructure $\bfa_0$, and let
-    \[
-        \bfa=\langle \bfa_0,\prec_0|A_0\rangle\in\k.
-    \]
+    \(\bfa=\langle \bfa_0,\prec_0|A_0\rangle\in\k\).
     By (ii), there exists a finite substructure $\bfc_0$ of $\bff_0$ such that
-    \[
-        \bfc=\langle \bfc_0,\prec|C_0\rangle\in\k
-        \qquad\text{and}\qquad
-        \bfa\leq \bfc.
-    \]
-    Let
-    \[
-        \pi\colon \bfa\to \bfc
-    \]
-    be an embedding. Forgetting the order, $\pi$ is an embedding
-    \[
-        \pi\colon \bfa_0\to \bff_0.
-    \]
+    \(\bfc=\langle \bfc_0,\prec|C_0\rangle\in\k\) and
+    \(\bfa\leq \bfc\).
+    Let \(\pi\colon \bfa\to \bfc\) be an embedding. Forgetting the order,
+    $\pi$ is an embedding \(\pi\colon \bfa_0\to \bff_0\).
     Since $\bff_0$ is ultrahomogeneous, $\pi^{-1}$ extends to some
-    \[
-        g\in G_0.
-    \]
+    \(g\in G_0\).
     For $x,y\in A_0$ we then have
     \[
         x\,(g\cdot \prec)\,y
@@ -453,212 +256,110 @@ The key step is the following finite reformulation of the condition
         x\prec_0 y,
     \]
     because $\pi$ is an embedding of ordered structures. Thus
-    \[
-        (g\cdot \prec)|A_0=\prec_0|A_0,
-    \]
-    as required.
+    \((g\cdot \prec)|A_0=\prec_0|A_0\), as required.
 \end{proof}
 \begin{mynote}
     \begin{proof}
         Assume first that
-        \[
-            \prec_0\in\overline{G_0\cdot \prec},
-        \]
-        and let
-        \[
-            \bfa\in\k.
-        \]
-        Since
-        \[
-            \k=\Age(\bff),
-        \]
+        \(\prec_0\in\overline{G_0\cdot \prec}\), and let \(\bfa\in\k\).
+        Since \(\k=\Age(\bff)\),
         we may realize $\bfa$ as a finite substructure of $\bff$. Thus, after identifying $\bfa$ with its image in $\bff$, we may write
-        \[
-            \bfa=\langle \bfa_0,\prec_0|A_0\rangle
-        \]
+        \(\bfa=\langle \bfa_0,\prec_0|A_0\rangle\)
         for some finite substructure
-        \[
-            \bfa_0\leq \bff_0.
-        \]
+        \(\bfa_0\leq \bff_0\).
 
-        Because
-        \[
-            \prec_0\in\overline{G_0\cdot \prec},
-        \]
+        Because \(\prec_0\in\overline{G_0\cdot \prec}\),
         and basic open neighbourhoods in $\LO(F_0)$ are determined by restrictions to finite subsets, there exists
-        \[
-            g\in G_0
-        \]
-        such that
-        \[
-            (g\cdot \prec)|A_0=\prec_0|A_0.
-        \]
-        Let
-        \[
-            \bfc_0=g^{-1}(\bfa_0).
-        \]
+        \(g\in G_0\) such that
+        \((g\cdot \prec)|A_0=\prec_0|A_0\). Let
+        \(\bfc_0=g^{-1}(\bfa_0)\).
         Since $g\in\Aut(\bff_0)$, the set $C_0=g^{-1}(A_0)$ carries the induced $L_0$-structure of a finite substructure of $\bff_0$, so
-        \[
-            \bfc_0\leq \bff_0.
-        \]
+        \(\bfc_0\leq \bff_0\).
         Consider now the ordered structure
-        \[
-            \bfc=\langle \bfc_0,\prec|C_0\rangle.
-        \]
+        \(\bfc=\langle \bfc_0,\prec|C_0\rangle\).
 
         We claim that
-        \[
-            g\colon \bfc\to \bfa
-        \]
+        \(g\colon \bfc\to \bfa\)
         is an isomorphism of ordered structures. First, since $g\in\Aut(\bff_0)$, the map
-        \[
-            g\colon \bfc_0\to \bfa_0
-        \]
+        \(g\colon \bfc_0\to \bfa_0\)
         is an isomorphism of the underlying $L_0$-structures. It remains to check that $g$ preserves the order. Let $x,y\in C_0$. Then, by definition of the logic action,
-        \[
-            g(x)\,(g\cdot \prec)\,g(y)
-            \iff
-            x\prec y.
-        \]
+        \(g(x)\,(g\cdot \prec)\,g(y)\) if and only if \(x\prec y\).
         But $g(x),g(y)\in A_0$, and on $A_0$ we have
-        \[
-            (g\cdot \prec)|A_0=\prec_0|A_0.
-        \]
+        \((g\cdot \prec)|A_0=\prec_0|A_0\).
         Therefore
-        \[
-            x\prec y
-            \iff
-            g(x)\prec_0 g(y).
-        \]
+        \(x\prec y\) if and only if \(g(x)\prec_0 g(y)\).
         This shows that $g$ is an isomorphism
         \[
-            \langle \bfc_0,\prec|C_0\rangle \cong \langle \bfa_0,\prec_0|A_0\rangle=\bfa.
+            \langle \bfc_0,\prec|C_0\rangle
+            \cong
+            \langle \bfa_0,\prec_0|A_0\rangle
+            =\bfa.
         \]
         Since $\bfa\in\k$ and $\k$ is closed under isomorphism, it follows that
-        \[
-            \langle \bfc_0,\prec|C_0\rangle\in\k.
-        \]
+        \(\langle \bfc_0,\prec|C_0\rangle\in\k\).
 
         Finally, because $g$ is an isomorphism from $\bfc$ onto $\bfa$, its inverse
-        \[
-            g^{-1}\colon \bfa\to \bfc
-        \]
+        \(g^{-1}\colon \bfa\to \bfc\)
         is an embedding. Hence
-        \[
-            \bfa\leq \langle \bfc_0,\prec|C_0\rangle.
-        \]
+        \(\bfa\leq \langle \bfc_0,\prec|C_0\rangle\).
         This proves (ii).
 
         Conversely, assume that condition (ii) holds. We must show that
-        \[
-            \prec_0\in\overline{G_0\cdot \prec}.
-        \]
+        \(\prec_0\in\overline{G_0\cdot \prec}\).
         Since the topology on $\LO(F_0)$ is determined by finite restrictions, it is enough to prove that for every finite substructure
-        \[
-            \bfa_0\leq \bff_0
-        \]
+        \(\bfa_0\leq \bff_0\)
         there exists
-        \[
-            g\in G_0
-        \]
+        \(g\in G_0\)
         such that
-        \[
-            (g\cdot \prec)|A_0=\prec_0|A_0.
-        \]
+        \((g\cdot \prec)|A_0=\prec_0|A_0\).
 
         So fix a finite substructure
-        \[
-            \bfa_0\leq \bff_0,
-        \]
+        \(\bfa_0\leq \bff_0\),
         and let
-        \[
-            \bfa=\langle \bfa_0,\prec_0|A_0\rangle.
-        \]
+        \(\bfa=\langle \bfa_0,\prec_0|A_0\rangle\).
         Since $\bfa$ is a finite substructure of $\bff$, we have
-        \[
-            \bfa\in\k.
-        \]
+        \(\bfa\in\k\).
         By assumption (ii), there exists a finite substructure
-        \[
-            \bfc_0\leq \bff_0
-        \]
-        such that
-        \[
-            \bfc=\langle \bfc_0,\prec|C_0\rangle\in\k
-            \qquad\text{and}\qquad
-            \bfa\leq \bfc.
-        \]
-        Let
-        \[
-            \pi\colon \bfa\to \bfc
-        \]
-        be an embedding. Then $\pi$ is, in particular, an embedding of ordered structures. Forgetting the order, it is an embedding
-        \[
-            \pi\colon \bfa_0\to \bff_0.
-        \]
+        \(\bfc_0\leq \bff_0\) such that
+        \(\bfc=\langle \bfc_0,\prec|C_0\rangle\in\k\) and
+        \(\bfa\leq \bfc\).
+        Let \(\pi\colon \bfa\to \bfc\) be an embedding. Then $\pi$ is, in
+        particular, an embedding of ordered structures. Forgetting the order,
+        it is an embedding \(\pi\colon \bfa_0\to \bff_0\).
         Its image
-        \[
-            \pi(A_0)\subseteq C_0
-        \]
+        \(\pi(A_0)\subseteq C_0\)
         is a finite substructure of $\bff_0$, and
-        \[
-            \pi\colon \bfa_0\to \pi(\bfa_0)
-        \]
+        \(\pi\colon \bfa_0\to \pi(\bfa_0)\)
         is an isomorphism of finite substructures of $\bff_0$.
 
         Since $\bff_0$ is ultrahomogeneous, the isomorphism
-        \[
-            \pi^{-1}\colon \pi(\bfa_0)\to \bfa_0
-        \]
+        \(\pi^{-1}\colon \pi(\bfa_0)\to \bfa_0\)
         extends to an automorphism
-        \[
-            g\in\Aut(\bff_0)=G_0.
-        \]
+        \(g\in\Aut(\bff_0)=G_0\).
         We now verify that
-        \[
-            (g\cdot \prec)|A_0=\prec_0|A_0.
-        \]
+        \((g\cdot \prec)|A_0=\prec_0|A_0\).
 
         Let $x,y\in A_0$. Because $g$ extends $\pi^{-1}$ on the finite substructure $\pi(\bfa_0)$, we have
-        \[
-            g(\pi(x))=x
-            \qquad\text{and}\qquad
-            g(\pi(y))=y,
-        \]
+        \(g(\pi(x))=x\) and \(g(\pi(y))=y\),
         and hence
-        \[
-            g^{-1}(x)=\pi(x),
-            \qquad
-            g^{-1}(y)=\pi(y).
-        \]
+        \(g^{-1}(x)=\pi(x)\) and \(g^{-1}(y)=\pi(y)\).
         Therefore, again by definition of the logic action,
         \begin{align*}
             x\,(g\cdot \prec)\,y
              & \iff g^{-1}(x)\prec g^{-1}(y) \\
              & \iff \pi(x)\prec \pi(y).
         \end{align*}
-        Since $\pi\colon \bfa\to \bfc$ is an embedding of ordered structures, it preserves the distinguished orders, so
-        \[
-            \pi(x)\prec \pi(y)
-            \iff
-            x\prec_0 y.
-        \]
+        Since $\pi\colon \bfa\to \bfc$ is an embedding of ordered structures,
+        it preserves the distinguished orders, so
+        \(\pi(x)\prec \pi(y)\) if and only if \(x\prec_0 y\).
         Combining these equivalences, we obtain
-        \[
-            x\,(g\cdot \prec)\,y
-            \iff
-            x\prec_0 y
-            \qquad (x,y\in A_0).
-        \]
+        \(x\,(g\cdot \prec)\,y\) if and only if \(x\prec_0 y\), for
+        \(x,y\in A_0\).
         Thus
-        \[
-            (g\cdot \prec)|A_0=\prec_0|A_0.
-        \]
+        \((g\cdot \prec)|A_0=\prec_0|A_0\).
 
         Since $\bfa_0\leq \bff_0$ was arbitrary, we have shown that every finite restriction of $\prec_0$ agrees with the corresponding finite restriction of some translate of $\prec$. This is exactly the statement that
-        \[
-            \prec_0\in\overline{G_0\cdot \prec}.
-        \]
+        \(\prec_0\in\overline{G_0\cdot \prec}\).
         Therefore (i) holds.
     \end{proof}
 \end{mynote}
@@ -670,98 +371,43 @@ We can now characterize the minimality of $X_\k$.
 \end{theorem}
 
 \begin{proof}
-    Assume first that $\k$ has the ordering property. Let
-    \[
-        \prec\in X_\k.
-    \]
-    We show that
-    \[
-        \prec_0\in\overline{G_0\cdot \prec}.
-    \]
+    Assume first that $\k$ has the ordering property. Let \(\prec\in X_\k\).
+    We show that \(\prec_0\in\overline{G_0\cdot \prec}\).
     By Lemma~\ref{lem:orbit-closure-characterization}, it is enough to verify condition (ii) of that lemma.
 
-    So let
-    \[
-        \bfa\in\k.
-    \]
-    Write
-    \[
-        \bfa=\langle \bfa_0,\prec_A\rangle.
-    \]
-    By the ordering property, there exists
-    \[
-        \bfb_0\in\k_0
-    \]
+    So let \(\bfa\in\k\), and write
+    \(\bfa=\langle \bfa_0,\prec_A\rangle\).
+    By the ordering property, there exists \(\bfb_0\in\k_0\)
     such that whenever
-    \[
-        \bfb=\langle \bfb_0,\prec_B\rangle\in\k,
-    \]
-    one has
-    \[
-        \bfa\leq \bfb.
-    \]
-    Since
-    \[
-        \Age(\bff_0)=\k_0,
-    \]
+    \(\bfb=\langle \bfb_0,\prec_B\rangle\in\k\), one has
+    \(\bfa\leq \bfb\). Since \(\Age(\bff_0)=\k_0\),
     we may realize $\bfb_0$ as a finite substructure of $\bff_0$. Because $\prec\in X_\k$, Proposition~\ref{prop:admissible-orderings-characterization} implies that
-    \[
-        \langle \bfb_0,\prec|B_0\rangle\in\k.
-    \]
+    \(\langle \bfb_0,\prec|B_0\rangle\in\k\).
     Hence
-    \[
-        \bfa\leq \langle \bfb_0,\prec|B_0\rangle.
-    \]
+    \(\bfa\leq \langle \bfb_0,\prec|B_0\rangle\).
     By Lemma~\ref{lem:orbit-closure-characterization},
-    \[
-        \prec_0\in\overline{G_0\cdot \prec}.
-    \]
+    \(\prec_0\in\overline{G_0\cdot \prec}\).
 
-    Now let
-    \[
-        \prec\in X_\k.
-    \]
+    Now let \(\prec\in X_\k\).
     The orbit closure $\overline{G_0\cdot \prec}$ is a closed $G_0$-invariant subset of $X_\k$ containing $\prec_0$. Since
-    \[
-        X_\k=\overline{G_0\cdot \prec_0},
-    \]
+    \(X_\k=\overline{G_0\cdot \prec_0}\),
     it follows that
-    \[
-        X_\k\subseteq \overline{G_0\cdot \prec}.
-    \]
+    \(X_\k\subseteq \overline{G_0\cdot \prec}\).
     The reverse inclusion is automatic, so
-    \[
-        \overline{G_0\cdot \prec}=X_\k.
-    \]
+    \(\overline{G_0\cdot \prec}=X_\k\).
     Thus every orbit is dense, and $X_\k$ is minimal.
 
-    Conversely, assume that $X_\k$ is minimal. Let
-    \[
-        \bfa_0\in\k_0.
-    \]
-    We must find
-    \[
-        \bfb_0\in\k_0
-    \]
+    Conversely, assume that $X_\k$ is minimal. Let \(\bfa_0\in\k_0\).
+    We must find \(\bfb_0\in\k_0\)
     witnessing the ordering property for $\bfa_0$.
 
     There are only finitely many linear orderings on the finite set $A_0$, hence only finitely many ordered structures of the form
-    \[
-        \langle \bfa_0,\prec\rangle
-    \]
-    that belong to $\k$. List them as
-    \[
-        \bfa^1,\dots,\bfa^m.
-    \]
+    \(\langle \bfa_0,\prec\rangle\) that belong to $\k$. List them as
+    \(\bfa^1,\dots,\bfa^m\).
 
-    Fix
-    \[
-        \prec\in X_\k.
-    \]
+    Fix \(\prec\in X_\k\).
     Since $X_\k$ is minimal,
-    \[
-        \prec_0\in\overline{G_0\cdot \prec}.
-    \]
+    \(\prec_0\in\overline{G_0\cdot \prec}\).
     Applying Lemma~\ref{lem:orbit-closure-characterization} to each $\bfa^j$, we obtain finite substructures
     \[
         \bfc^{\,j}_{\prec,0}\leq \bff_0
@@ -773,18 +419,10 @@ We can now characterize the minimality of $X_\k$.
         =
         \langle \bfc^{\,j}_{\prec,0},\prec|C^{\,j}_{\prec,0}\rangle\in\k
     \]
-    and
-    \[
-        \bfa^j\leq \bfc^{\,j}_{\prec}.
-    \]
-    Let
-    \[
-        C_{\prec,0}=C^{\,1}_{\prec,0}\cup\cdots\cup C^{\,m}_{\prec,0},
-    \]
+    and \(\bfa^j\leq \bfc^{\,j}_{\prec}\). Let
+    \(C_{\prec,0}=C^{\,1}_{\prec,0}\cup\cdots\cup C^{\,m}_{\prec,0}\),
     viewed as the finite substructure of $\bff_0$ generated by this union. Since $\prec\in X_\k$, Proposition~\ref{prop:admissible-orderings-characterization} gives
-    \[
-        \langle C_{\prec,0},\prec|C_{\prec,0}\rangle\in\k,
-    \]
+    \(\langle C_{\prec,0},\prec|C_{\prec,0}\rangle\in\k\),
     and by construction every $\bfa^j$ embeds into this ordered structure.
 
     Now define
@@ -794,19 +432,14 @@ We can now characterize the minimality of $X_\k$.
         \{\prec'\in X_\k : \prec'|C_{\prec,0}=\prec|C_{\prec,0}\}.
     \]
     This is an open neighbourhood of $\prec$ in $X_\k$. As $\prec$ ranges over $X_\k$, the sets $U_{\prec}$ form an open cover of the compact space $X_\k$. Hence there exist
-    \[
-        \prec_1,\dots,\prec_n\in X_\k
-    \]
+    \(\prec_1,\dots,\prec_n\in X_\k\)
     such that
     \[
         X_\k=U_{\prec_1}\cup\cdots\cup U_{\prec_n}.
     \]
 
-    Choose a finite substructure
-    \[
-        \bfb_0\leq \bff_0
-    \]
-    containing each of the finite substructures
+    Choose a finite substructure \(\bfb_0\leq \bff_0\) containing each of the
+    finite substructures
     \[
         C_{\prec_1,0},\dots,C_{\prec_n,0}.
     \]
@@ -819,143 +452,72 @@ We can now characterize the minimality of $X_\k$.
         \bfb=\langle \bfb_0,\prec_B\rangle\in\k.
     \]
     Since $\bfb\in\Age(\bff)=\k$, there exists a finite ordered substructure
-    \[
-        \widetilde{\bfb}\leq \bff
-    \]
-    isomorphic to $\bfb$. Let
-    \[
-        h\colon \widetilde{\bfb}\to \bfb
-    \]
-    be an isomorphism, and let
-    \[
-        g\in G_0
-    \]
-    be an automorphism of $\bff_0$ extending
-    \[
-        h^{-1}\colon \bfb_0\to \widetilde{B}_0.
-    \]
-    Then
-    \[
-        \widehat{\prec}=g\cdot \prec_0
-    \]
+    \(\widetilde{\bfb}\leq \bff\) isomorphic to $\bfb$. Let
+    \(h\colon \widetilde{\bfb}\to \bfb\) be an isomorphism, and let
+    \(g\in G_0\) be an automorphism of $\bff_0$ extending
+    \(h^{-1}\colon \bfb_0\to \widetilde{B}_0\). Then
+    \(\widehat{\prec}=g\cdot \prec_0\)
     belongs to $X_\k$, and its restriction to $B_0$ is exactly $\prec_B$.
 
-    Since
-    \[
-        X_\k=U_{\prec_1}\cup\cdots\cup U_{\prec_n},
-    \]
+    Since \(X_\k=U_{\prec_1}\cup\cdots\cup U_{\prec_n}\),
     there exists $i\in\{1,\dots,n\}$ such that
-    \[
-        \widehat{\prec}\in U_{\prec_i}.
-    \]
+    \(\widehat{\prec}\in U_{\prec_i}\).
     Hence
-    \[
-        \widehat{\prec}|C_{\prec_i,0}=\prec_i|C_{\prec_i,0}.
-    \]
+    \(\widehat{\prec}|C_{\prec_i,0}=\prec_i|C_{\prec_i,0}\).
     By construction of $C_{\prec_i,0}$, every ordered expansion of $\bfa_0$ belonging to $\k$ embeds into
-    \[
-        \langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle.
-    \]
+    \(\langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle\).
     In particular,
     \[
         \bfa\leq \langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle
         =
         \langle C_{\prec_i,0},\widehat{\prec}|C_{\prec_i,0}\rangle.
     \]
-    Since
-    \[
-        C_{\prec_i,0}\subseteq B_0
-    \]
+    Since \(C_{\prec_i,0}\subseteq B_0\)
     and $\widehat{\prec}|B_0=\prec_B$, the latter is a substructure of $\bfb$. Therefore
-    \[
-        \bfa\leq \bfb.
-    \]
+    \(\bfa\leq \bfb\).
     This proves that $\k$ has the ordering property.
 \end{proof}
 \begin{mynote}
     \begin{proof}
         Assume first that $\k$ has the ordering property. We show that $X_\k$ is minimal.
 
-        Let
-        \[
-            \prec\in X_\k.
-        \]
+        Let \(\prec\in X_\k\).
         To prove that the orbit $G_0\cdot \prec$ is dense in $X_\k$, it is enough to show that
-        \[
-            \prec_0\in\overline{G_0\cdot \prec},
-        \]
+        \(\prec_0\in\overline{G_0\cdot \prec}\),
         because then the orbit closure $\overline{G_0\cdot \prec}$ is a closed $G_0$-invariant subset of $X_\k$ containing $\prec_0$, and hence, since
-        \[
-            X_\k=\overline{G_0\cdot \prec_0},
-        \]
+        \(X_\k=\overline{G_0\cdot \prec_0}\),
         we will obtain
-        \[
-            X_\k\subseteq \overline{G_0\cdot \prec}.
-        \]
+        \(X_\k\subseteq \overline{G_0\cdot \prec}\).
         The reverse inclusion is automatic because $\prec\in X_\k$ and $X_\k$ is closed and $G_0$-invariant. Therefore
-        \[
-            \overline{G_0\cdot \prec}=X_\k,
-        \]
+        \(\overline{G_0\cdot \prec}=X_\k\),
         so every orbit is dense and $X_\k$ is minimal.
 
         It remains to prove that
-        \[
-            \prec_0\in\overline{G_0\cdot \prec}.
-        \]
+        \(\prec_0\in\overline{G_0\cdot \prec}\).
         By Lemma~\ref{lem:orbit-closure-characterization}, it is enough to verify condition {\rm(ii)} of that lemma. So let
-        \[
-            \bfa\in\k.
-        \]
-        Write
-        \[
-            \bfa=\langle \bfa_0,\prec_A\rangle.
-        \]
+        \(\bfa\in\k\), and write
+        \(\bfa=\langle \bfa_0,\prec_A\rangle\).
         Since $\k$ has the ordering property, there exists
-        \[
-            \bfb_0\in\k_0
-        \]
+        \(\bfb_0\in\k_0\)
         such that whenever
-        \[
-            \bfb=\langle \bfb_0,\prec_B\rangle\in\k,
-        \]
-        one has
-        \[
-            \bfa\leq \bfb.
-        \]
+        \(\bfb=\langle \bfb_0,\prec_B\rangle\in\k\), one has
+        \(\bfa\leq \bfb\).
 
-        Because
-        \[
-            \Age(\bff_0)=\k_0,
-        \]
+        Because \(\Age(\bff_0)=\k_0\),
         we may realize $\bfb_0$ as a finite substructure of $\bff_0$. Since
-        \[
-            \prec\in X_\k,
-        \]
+        \(\prec\in X_\k\),
         Proposition~\ref{prop:admissible-orderings-characterization} implies that
-        \[
-            \langle \bfb_0,\prec|B_0\rangle\in\k.
-        \]
+        \(\langle \bfb_0,\prec|B_0\rangle\in\k\).
         By the choice of $\bfb_0$, it follows that
-        \[
-            \bfa\leq \langle \bfb_0,\prec|B_0\rangle.
-        \]
+        \(\bfa\leq \langle \bfb_0,\prec|B_0\rangle\).
         Thus condition {\rm(ii)} of Lemma~\ref{lem:orbit-closure-characterization} holds. Hence
-        \[
-            \prec_0\in\overline{G_0\cdot \prec}.
-        \]
+        \(\prec_0\in\overline{G_0\cdot \prec}\).
 
         This proves that $X_\k$ is minimal.
 
         Conversely, assume that $X_\k$ is minimal. We show that $\k$ has the ordering property.
 
-        Let
-        \[
-            \bfa_0\in\k_0.
-        \]
-        We must find
-        \[
-            \bfb_0\in\k_0
-        \]
+        Let \(\bfa_0\in\k_0\). We must find \(\bfb_0\in\k_0\)
         such that whenever
         \[
             \bfa=\langle \bfa_0,\prec_A\rangle\in\k
@@ -968,61 +530,33 @@ We can now characterize the minimality of $X_\k$.
         \]
 
         Since $A_0$ is finite, there are only finitely many linear orderings on $A_0$. Hence there are only finitely many ordered structures of the form
-        \[
-            \langle \bfa_0,\prec\rangle
-        \]
-        that belong to $\k$. List them as
-        \[
-            \bfa^1,\dots,\bfa^m.
-        \]
+        \(\langle \bfa_0,\prec\rangle\) that belong to $\k$. List them as
+        \(\bfa^1,\dots,\bfa^m\).
 
-        Now fix
-        \[
-            \prec\in X_\k.
-        \]
+        Now fix \(\prec\in X_\k\).
         Since $X_\k$ is minimal, the orbit of $\prec$ is dense in $X_\k$. In particular,
-        \[
-            \prec_0\in\overline{G_0\cdot \prec}.
-        \]
+        \(\prec_0\in\overline{G_0\cdot \prec}\).
         Applying Lemma~\ref{lem:orbit-closure-characterization} to each of the structures
-        \[
-            \bfa^1,\dots,\bfa^m,
-        \]
+        \(\bfa^1,\dots,\bfa^m\),
         we obtain, for each $j=1,\dots,m$, a finite substructure
-        \[
-            \bfc^{\,j}_{\prec,0}\leq \bff_0
-        \]
+        \(\bfc^{\,j}_{\prec,0}\leq \bff_0\)
         such that
         \[
             \bfc^{\,j}_{\prec}
             =
             \langle \bfc^{\,j}_{\prec,0},\prec|C^{\,j}_{\prec,0}\rangle\in\k
         \]
-        and
-        \[
-            \bfa^j\leq \bfc^{\,j}_{\prec}.
-        \]
+        and \(\bfa^j\leq \bfc^{\,j}_{\prec}\).
 
-        Let
-        \[
-            C_{\prec,0}
-        \]
+        Let \(C_{\prec,0}\)
         be the finite substructure of $\bff_0$ generated by the union
-        \[
-            C^{\,1}_{\prec,0}\cup\cdots\cup C^{\,m}_{\prec,0}.
-        \]
+        \(C^{\,1}_{\prec,0}\cup\cdots\cup C^{\,m}_{\prec,0}\).
         Since
-        \[
-            \prec\in X_\k,
-        \]
+        \(\prec\in X_\k\),
         Proposition~\ref{prop:admissible-orderings-characterization} shows that
-        \[
-            \langle C_{\prec,0},\prec|C_{\prec,0}\rangle\in\k.
-        \]
+        \(\langle C_{\prec,0},\prec|C_{\prec,0}\rangle\in\k\).
         Moreover, because each
-        \[
-            \bfc^{\,j}_{\prec,0}\leq C_{\prec,0},
-        \]
+        \(\bfc^{\,j}_{\prec,0}\leq C_{\prec,0}\),
         the ordered structure
         \[
             \bfc^{\,j}_{\prec}
@@ -1030,17 +564,11 @@ We can now characterize the minimality of $X_\k$.
             \langle \bfc^{\,j}_{\prec,0},\prec|C^{\,j}_{\prec,0}\rangle
         \]
         is a substructure of
-        \[
-            \langle C_{\prec,0},\prec|C_{\prec,0}\rangle.
-        \]
+        \(\langle C_{\prec,0},\prec|C_{\prec,0}\rangle\).
         Since
-        \[
-            \bfa^j\leq \bfc^{\,j}_{\prec},
-        \]
+        \(\bfa^j\leq \bfc^{\,j}_{\prec}\),
         it follows that every ordered expansion of $\bfa_0$ belonging to $\k$ embeds into
-        \[
-            \langle C_{\prec,0},\prec|C_{\prec,0}\rangle.
-        \]
+        \(\langle C_{\prec,0},\prec|C_{\prec,0}\rangle\).
 
         Define
         \[
@@ -1049,30 +577,16 @@ We can now characterize the minimality of $X_\k$.
             \{\prec'\in X_\k:\prec'|C_{\prec,0}=\prec|C_{\prec,0}\}.
         \]
         This is an open neighbourhood of $\prec$ in $X_\k$. As $\prec$ ranges over $X_\k$, the sets $U_\prec$ form an open cover of $X_\k$. Since $X_\k$ is compact, there exist
-        \[
-            \prec_1,\dots,\prec_n\in X_\k
-        \]
+        \(\prec_1,\dots,\prec_n\in X_\k\)
         such that
         \[
             X_\k=U_{\prec_1}\cup\cdots\cup U_{\prec_n}.
         \]
 
-        Choose a finite substructure
-        \[
-            \bfb_0\leq \bff_0
-        \]
-        containing each of the finite substructures
-        \[
-            C_{\prec_1,0},\dots,C_{\prec_n,0}.
-        \]
-        Since
-        \[
-            \Age(\bff_0)=\k_0,
-        \]
-        we have
-        \[
-            \bfb_0\in\k_0.
-        \]
+        Choose a finite substructure \(\bfb_0\leq \bff_0\) containing each of
+        the finite substructures
+        \(C_{\prec_1,0},\dots,C_{\prec_n,0}\). Since
+        \(\Age(\bff_0)=\k_0\), we have \(\bfb_0\in\k_0\).
         We claim that this $\bfb_0$ witnesses the ordering property for $\bfa_0$.
 
         So let
@@ -1081,46 +595,24 @@ We can now characterize the minimality of $X_\k$.
             \qquad\text{and}\qquad
             \bfb=\langle \bfb_0,\prec_B\rangle\in\k.
         \]
-        We must show that
-        \[
-            \bfa\leq \bfb.
-        \]
+        We must show that \(\bfa\leq \bfb\).
 
-        Since
-        \[
-            \bfb\in\k=\Age(\bff),
-        \]
+        Since \(\bfb\in\k=\Age(\bff)\),
         there exists a finite ordered substructure
-        \[
-            \widetilde{\bfb}\leq \bff
-        \]
+        \(\widetilde{\bfb}\leq \bff\)
         and an isomorphism
-        \[
-            h\colon \widetilde{\bfb}\to \bfb.
-        \]
+        \(h\colon \widetilde{\bfb}\to \bfb\).
         Forgetting the order, $h$ is an isomorphism between the finite substructures
-        \[
-            \widetilde{\bfb}_0\leq \bff_0
-            \qquad\text{and}\qquad
-            \bfb_0\leq \bff_0.
-        \]
+        \(\widetilde{\bfb}_0\leq \bff_0\) and
+        \(\bfb_0\leq \bff_0\).
         Hence
-        \[
-            h^{-1}\colon \bfb_0\to \widetilde{B}_0
-        \]
+        \(h^{-1}\colon \bfb_0\to \widetilde{B}_0\)
         is an isomorphism of finite substructures of $\bff_0$. Since $\bff_0$ is ultrahomogeneous, $h^{-1}$ extends to an automorphism
-        \[
-            g\in G_0=\Aut(\bff_0).
-        \]
+        \(g\in G_0=\Aut(\bff_0)\).
 
-        Let
-        \[
-            \widehat{\prec}=g\cdot \prec_0.
-        \]
+        Let \(\widehat{\prec}=g\cdot \prec_0\).
         Then
-        \[
-            \widehat{\prec}\in G_0\cdot \prec_0\subseteq X_\k.
-        \]
+        \(\widehat{\prec}\in G_0\cdot \prec_0\subseteq X_\k\).
         We claim that the restriction of $\widehat{\prec}$ to $B_0$ is exactly $\prec_B$. Indeed, let $x,y\in B_0$. Then
         \begin{align*}
             x\,\widehat{\prec}\,y
@@ -1128,75 +620,43 @@ We can now characterize the minimality of $X_\k$.
              & \iff g^{-1}(x)\prec_0 g^{-1}(y).
         \end{align*}
         Since $g$ extends $h^{-1}$ on $B_0$, this is equivalent to
-        \[
-            h^{-1}(x)\prec_0 h^{-1}(y).
-        \]
+        \(h^{-1}(x)\prec_0 h^{-1}(y)\).
         But $h$ is an isomorphism of ordered structures from
-        \[
-            \langle \widetilde{\bfb}_0,\prec_0|\widetilde{B}_0\rangle
-        \]
+        \(\langle \widetilde{\bfb}_0,\prec_0|\widetilde{B}_0\rangle\)
         onto
-        \[
-            \langle \bfb_0,\prec_B\rangle=\bfb,
-        \]
+        \(\langle \bfb_0,\prec_B\rangle=\bfb\),
         so
-        \[
-            h^{-1}(x)\prec_0 h^{-1}(y)\iff x\prec_B y.
-        \]
+        \(h^{-1}(x)\prec_0 h^{-1}(y)\) if and only if \(x\prec_B y\).
         Therefore
-        \[
-            \widehat{\prec}|B_0=\prec_B.
-        \]
+        \(\widehat{\prec}|B_0=\prec_B\).
 
         Since
-        \[
-            \widehat{\prec}\in X_\k=U_{\prec_1}\cup\cdots\cup U_{\prec_n},
-        \]
+        \(\widehat{\prec}\in X_\k=U_{\prec_1}\cup\cdots\cup U_{\prec_n}\),
         there exists some $i\in\{1,\dots,n\}$ such that
-        \[
-            \widehat{\prec}\in U_{\prec_i}.
-        \]
+        \(\widehat{\prec}\in U_{\prec_i}\).
         By definition of $U_{\prec_i}$,
-        \[
-            \widehat{\prec}|C_{\prec_i,0}=\prec_i|C_{\prec_i,0}.
-        \]
+        \(\widehat{\prec}|C_{\prec_i,0}=\prec_i|C_{\prec_i,0}\).
 
         By the construction of $C_{\prec_i,0}$, every ordered expansion of $\bfa_0$ that belongs to $\k$ embeds into
-        \[
-            \langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle.
-        \]
-        Since
-        \[
-            \bfa=\langle \bfa_0,\prec_A\rangle\in\k,
-        \]
+        \(\langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle\).
+        Since \(\bfa=\langle \bfa_0,\prec_A\rangle\in\k\),
         it follows that
-        \[
-            \bfa\leq \langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle.
-        \]
+        \(\bfa\leq
+        \langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle\).
         Using the equality of restrictions, we obtain
         \[
             \langle C_{\prec_i,0},\prec_i|C_{\prec_i,0}\rangle
             =
             \langle C_{\prec_i,0},\widehat{\prec}|C_{\prec_i,0}\rangle.
         \]
-        Since
-        \[
-            C_{\prec_i,0}\subseteq B_0
-            \qquad\text{and}\qquad
-            \widehat{\prec}|B_0=\prec_B,
-        \]
+        Since \(C_{\prec_i,0}\subseteq B_0\) and
+        \(\widehat{\prec}|B_0=\prec_B\),
         the structure
-        \[
-            \langle C_{\prec_i,0},\widehat{\prec}|C_{\prec_i,0}\rangle
-        \]
+        \(\langle C_{\prec_i,0},\widehat{\prec}|C_{\prec_i,0}\rangle\)
         is a substructure of
-        \[
-            \langle \bfb_0,\prec_B\rangle=\bfb.
-        \]
+        \(\langle \bfb_0,\prec_B\rangle=\bfb\).
         Therefore
-        \[
-            \bfa\leq \bfb.
-        \]
+        \(\bfa\leq \bfb\).
 
         We have shown that the chosen finite reduct $\bfb_0$ has the property that every member of $\k$ with reduct $\bfb_0$ contains every member of $\k$ with reduct $\bfa_0$. This proves that $\k$ has the ordering property.
     \end{proof}
@@ -1207,29 +667,18 @@ The theorem shows that the minimality of the flow $X_\k$ is controlled by a pure
 
 We now add the Ramsey property and obtain the main dynamical consequence of the Kechris--Pestov--Todorcevic correspondence.
 
-Let
-\[
-    G={\rm Aut}(\bff).
-\]
-Since $\bff$ is an ordered expansion of $\bff_0$, we have
-\[
-    G\leq G_0,
-\]
+Let \(G={\rm Aut}(\bff)\). Since $\bff$ is an ordered expansion of $\bff_0$,
+we have \(G\leq G_0\),
 and every element of $G$ fixes the distinguished ordering $\prec_0$.
 
 The first result shows that, under the Ramsey property, the pointed flow
-\[
-    (X_\k,\prec_0)
-\]
+\((X_\k,\prec_0)\)
 is universal among $G_0$-ambits whose distinguished point is fixed by $G$.
 
 \begin{lemma}
     \label{lem:graph-uniqueness}
-    Assume that $\k$ has the Ramsey property. Let $(X,x_0)$ be a $G_0$-ambit such that
-    \[
-        g\cdot x_0=x_0
-        \qquad\text{for all } g\in G.
-    \]
+    Assume that $\k$ has the Ramsey property. Let $(X,x_0)$ be a $G_0$-ambit
+    such that \(g\cdot x_0=x_0\) for all \(g\in G\).
     Let
     \[
         \Phi
@@ -1237,230 +686,108 @@ is universal among $G_0$-ambits whose distinguished point is fixed by $G$.
         \overline{\{(g\cdot \prec_0,g\cdot x_0):g\in G_0\}}
         \subseteq X_\k\times X.
     \]
-    If
-    \[
-        (\prec,x),(\prec,x')\in \Phi,
-    \]
-    then
-    \[
-        x=x'.
-    \]
+    If \((\prec,x),(\prec,x')\in \Phi\), then \(x=x'\).
 \end{lemma}
 
 \begin{proof}
-    Suppose that
-    \[
-        (\prec,x),(\prec,x')\in \Phi
-        \qquad\text{and}\qquad
-        x\neq x'.
-    \]
-    Choose disjoint open neighbourhoods
-    \[
-        U\ni x,
-        \qquad
-        U'\ni x'.
-    \]
+    Suppose that \((\prec,x),(\prec,x')\in \Phi\) and \(x\neq x'\).
+    Choose disjoint open neighbourhoods \(U\ni x\) and \(U'\ni x'\).
     Since $X$ is compact Hausdorff, there exists an open neighbourhood $D$ of the diagonal in $X\times X$ such that
-    \[
-        D[U]\cap U'=\emptyset,
-    \]
-    where
+    \(D[U]\cap U'=\emptyset\), where
     \[
         D[U]=\{y\in X:\text{ there exists } z\in U \text{ with } (z,y)\in D\}.
     \]
-    By replacing $D$ with
-    \[
-        D\cap D^{-1},
-    \]
+    By replacing $D$ with \(D\cap D^{-1}\),
     we may assume that $D$ is symmetric.
 
     Because the action of $G_0$ on the compact space $X$ is continuous, there exists an open neighbourhood $V$ of the identity in $G_0$ such that
-    \[
-        (v\cdot z,z)\in D
-        \qquad\text{for all } z\in X \text{ and all } v\in V.
-    \]
+    \((v\cdot z,z)\in D\) for all \(z\in X\) and all \(v\in V\).
     Since $G_0\leq S_\infty$ is non-Archimedean, we may choose a finite substructure
-    \[
-        \bfa_0\leq \bff_0
-    \]
+    \(\bfa_0\leq \bff_0\)
     such that the pointwise stabilizer
-    \[
-        G_{0,(\bfa_0)}\subseteq V.
-    \]
+    \(G_{0,(\bfa_0)}\subseteq V\).
 
-    Because
-    \[
-        (\prec,x),(\prec,x')\in \Phi,
-    \]
+    Because \((\prec,x),(\prec,x')\in \Phi\),
     there exist
-    \[
-        g,h\in G_0
-    \]
+    \(g,h\in G_0\)
     such that
-    \[
-        g\cdot x_0\in U,
-        \qquad
-        h\cdot x_0\in U',
-    \]
+    \(g\cdot x_0\in U\) and \(h\cdot x_0\in U'\),
     and
-    \[
-        (g\cdot \prec_0)|A_0=(h\cdot \prec_0)|A_0=\prec|A_0.
-    \]
+    \((g\cdot \prec_0)|A_0=(h\cdot \prec_0)|A_0=\prec|A_0\).
     Consider the map
-    \[
-        \theta=h^{-1}g\colon g^{-1}(A_0)\to h^{-1}(A_0).
-    \]
+    \(\theta=h^{-1}g\colon g^{-1}(A_0)\to h^{-1}(A_0)\).
     Since
-    \[
-        (g\cdot \prec_0)|A_0=(h\cdot \prec_0)|A_0,
-    \]
+    \((g\cdot \prec_0)|A_0=(h\cdot \prec_0)|A_0\),
     the map $\theta$ is an isomorphism of the finite ordered structures
-    \[
-        \langle g^{-1}(\bfa_0),\prec_0\rangle
-        \quad\text{and}\quad
-        \langle h^{-1}(\bfa_0),\prec_0\rangle.
-    \]
-    Because
-    \[
-        \Age(\bff)=\k
-    \]
+    \(\langle g^{-1}(\bfa_0),\prec_0\rangle\) and
+    \(\langle h^{-1}(\bfa_0),\prec_0\rangle\).
+    Because \(\Age(\bff)=\k\)
     and $\bff$ is ultrahomogeneous, $\theta$ extends to some
-    \[
-        \gamma\in G={\rm Aut}(\bff).
-    \]
+    \(\gamma\in G={\rm Aut}(\bff)\).
     Then for every $a\in A_0$,
-    \[
-        h\gamma g^{-1}(a)=a,
-    \]
+    \(h\gamma g^{-1}(a)=a\),
     so
-    \[
-        v:=h\gamma g^{-1}\in G_{0,(\bfa_0)}\subseteq V.
-    \]
+    \(v:=h\gamma g^{-1}\in G_{0,(\bfa_0)}\subseteq V\).
     Since $\gamma\in G$ fixes $x_0$, we obtain
     \[
         h\cdot x_0=v\cdot g\cdot \gamma^{-1}\cdot x_0=v\cdot g\cdot x_0.
     \]
     Hence
-    \[
-        (h\cdot x_0,g\cdot x_0)\in D.
-    \]
+    \((h\cdot x_0,g\cdot x_0)\in D\).
     Because $D$ is symmetric, this implies
-    \[
-        h\cdot x_0\in D[U].
-    \]
+    \(h\cdot x_0\in D[U]\).
     But
-    \[
-        g\cdot x_0\in U
-        \qquad\text{and}\qquad
-        h\cdot x_0\in U',
-    \]
+    \(g\cdot x_0\in U\) and \(h\cdot x_0\in U'\),
     so
-    \[
-        h\cdot x_0\in D[U]\cap U',
-    \]
+    \(h\cdot x_0\in D[U]\cap U'\),
     contrary to the choice of $D$. Therefore
-    \[
-        x=x'.
-    \]
+    \(x=x'\).
 \end{proof}
 \begin{mynote}
     \begin{proof}
-        Suppose that
-        \[
-            (\prec,x),(\prec,x')\in \Phi
-            \qquad\text{and}\qquad
-            x\neq x'.
-        \]
+        Suppose that \((\prec,x),(\prec,x')\in \Phi\) and \(x\neq x'\).
         We shall derive a contradiction.
 
         Since $X$ is Hausdorff and $x\neq x'$, there exist disjoint open neighbourhoods
-        \[
-            U\ni x,
-            \qquad
-            U'\ni x'.
-        \]
+        \(U\ni x\) and \(U'\ni x'\).
         Because $X$ is compact Hausdorff, hence uniformizable, there exists an open neighbourhood $D$ of the diagonal
-        \[
-            \Delta_X=\{(y,y):y\in X\}
-        \]
+        \(\Delta_X=\{(y,y):y\in X\}\)
         in $X\times X$ such that
-        \[
-            D[U]\cap U'=\emptyset,
-        \]
-        where
+        \(D[U]\cap U'=\emptyset\), where
         \[
             D[U]=\{y\in X:\exists z\in U\text{ such that }(z,y)\in D\}.
         \]
-        Replacing $D$ by
-        \[
-            D\cap D^{-1},
-        \]
+        Replacing $D$ by \(D\cap D^{-1}\),
         if necessary, we may assume that $D$ is symmetric.
 
-        Next, we use continuity of the action
-        \[
-            G_0\times X\to X.
-        \]
+        Next, we use continuity of the action \(G_0\times X\to X\).
         Since $X$ is compact, the action is uniformly continuous in the group variable near the identity. Hence there exists an open neighbourhood $V$ of the identity in $G_0$ such that
-        \[
-            (v\cdot z,z)\in D
-            \qquad\text{for all }z\in X\text{ and all }v\in V.
-        \]
+        \((v\cdot z,z)\in D\) for all \(z\in X\) and all \(v\in V\).
         Since $G_0$ is a closed subgroup of $S_\infty$, it is non-Archimedean, so we may choose a finite substructure
-        \[
-            \bfa_0\leq \bff_0
-        \]
+        \(\bfa_0\leq \bff_0\)
         such that the pointwise stabilizer
-        \[
-            G_{0,(\bfa_0)}\subseteq V.
-        \]
+        \(G_{0,(\bfa_0)}\subseteq V\).
 
-        Now, since
-        \[
-            (\prec,x),(\prec,x')\in \Phi
-        \]
-        and
+        Now, since \((\prec,x),(\prec,x')\in \Phi\) and
         \[
             \Phi=\overline{\{(g\cdot\prec_0,g\cdot x_0):g\in G_0\}},
         \]
         we may choose elements
-        \[
-            g,h\in G_0
-        \]
+        \(g,h\in G_0\)
         such that
-        \[
-            g\cdot x_0\in U,
-            \qquad
-            h\cdot x_0\in U',
-        \]
+        \(g\cdot x_0\in U\) and \(h\cdot x_0\in U'\),
         and
-        \[
-            (g\cdot\prec_0)|A_0=(h\cdot\prec_0)|A_0=\prec|A_0.
-        \]
+        \((g\cdot\prec_0)|A_0=(h\cdot\prec_0)|A_0=\prec|A_0\).
         The last equality means that the two translates $g\cdot\prec_0$ and $h\cdot\prec_0$ induce the same ordering on the finite set $A_0$.
 
         Consider the map
-        \[
-            \theta=h^{-1}g\colon g^{-1}(A_0)\to h^{-1}(A_0).
-        \]
+        \(\theta=h^{-1}g\colon g^{-1}(A_0)\to h^{-1}(A_0)\).
         We claim that $\theta$ is an isomorphism between the finite ordered substructures
-        \[
-            \langle g^{-1}(\bfa_0),\prec_0\rangle
-            \quad\text{and}\quad
-            \langle h^{-1}(\bfa_0),\prec_0\rangle.
-        \]
+        \(\langle g^{-1}(\bfa_0),\prec_0\rangle\) and
+        \(\langle h^{-1}(\bfa_0),\prec_0\rangle\).
         Since $g,h\in G_0=\Aut(\bff_0)$, the map $\theta=h^{-1}g$ is automatically an isomorphism of the underlying $L_0$-structures. It remains to check preservation of the order.
 
-        Let
-        \[
-            u,v\in g^{-1}(A_0).
-        \]
-        Put
-        \[
-            a=g(u),
-            \qquad
-            b=g(v),
-        \]
+        Let \(u,v\in g^{-1}(A_0)\). Put \(a=g(u)\) and \(b=g(v)\),
         so that $a,b\in A_0$. Then
         \begin{align*}
             u\prec_0 v
@@ -1474,19 +801,11 @@ is universal among $G_0$-ambits whose distinguished point is fixed by $G$.
         \end{align*}
         Thus $\theta$ preserves the order, and similarly its inverse does also. Therefore $\theta$ is indeed an isomorphism of ordered structures.
 
-        Since
-        \[
-            \Age(\bff)=\k
-        \]
+        Since \(\Age(\bff)=\k\)
         and $\bff$ is ultrahomogeneous, every isomorphism between finite substructures of $\bff$ extends to an automorphism of $\bff$. Hence $\theta$ extends to some
-        \[
-            \gamma\in G=\Aut(\bff).
-        \]
+        \(\gamma\in G=\Aut(\bff)\).
 
-        Now define
-        \[
-            v:=h\gamma g^{-1}.
-        \]
+        Now define \(v:=h\gamma g^{-1}\).
         We show that $v$ fixes $A_0$ pointwise. Let $a\in A_0$. Then $g^{-1}(a)\in g^{-1}(A_0)$, and by the definition of $\theta$,
         \[
             \gamma(g^{-1}(a))=\theta(g^{-1}(a))=h^{-1}(a).
@@ -1496,14 +815,10 @@ is universal among $G_0$-ambits whose distinguished point is fixed by $G$.
             v(a)=h\gamma g^{-1}(a)=h(h^{-1}(a))=a.
         \]
         Since this holds for every $a\in A_0$, we have
-        \[
-            v\in G_{0,(\bfa_0)}\subseteq V.
-        \]
+        \(v\in G_{0,(\bfa_0)}\subseteq V\).
 
         Because $\gamma\in G$ and the point $x_0$ is fixed by every element of $G$, we have
-        \[
-            \gamma\cdot x_0=x_0.
-        \]
+        \(\gamma\cdot x_0=x_0\).
         Hence
         \begin{align*}
             h\cdot x_0
@@ -1512,67 +827,32 @@ is universal among $G_0$-ambits whose distinguished point is fixed by $G$.
              & =(h\gamma g^{-1})\cdot(g\cdot x_0) \\
              & =v\cdot(g\cdot x_0).
         \end{align*}
-        Since
-        \[
-            v\in V
-            \qquad\text{and}\qquad
-            g\cdot x_0\in U,
-        \]
+        Since \(v\in V\) and \(g\cdot x_0\in U\),
         the choice of $V$ gives
-        \[
-            (v\cdot(g\cdot x_0),\,g\cdot x_0)\in D.
-        \]
+        \((v\cdot(g\cdot x_0),\,g\cdot x_0)\in D\).
         That is,
-        \[
-            (h\cdot x_0,\,g\cdot x_0)\in D.
-        \]
+        \((h\cdot x_0,\,g\cdot x_0)\in D\).
         Because $D$ is symmetric, it follows that
-        \[
-            (g\cdot x_0,\,h\cdot x_0)\in D.
-        \]
-        Since
-        \[
-            g\cdot x_0\in U,
-        \]
+        \((g\cdot x_0,\,h\cdot x_0)\in D\).
+        Since \(g\cdot x_0\in U\),
         this implies
-        \[
-            h\cdot x_0\in D[U].
-        \]
-        But also
-        \[
-            h\cdot x_0\in U',
-        \]
+        \(h\cdot x_0\in D[U]\). But also \(h\cdot x_0\in U'\),
         so
-        \[
-            h\cdot x_0\in D[U]\cap U',
-        \]
+        \(h\cdot x_0\in D[U]\cap U'\),
         contradicting the choice of $D$.
 
         This contradiction shows that our assumption
-        \[
-            x\neq x'
-        \]
+        \(x\neq x'\)
         was false. Therefore
-        \[
-            x=x'.
-        \]
+        \(x=x'\).
     \end{proof}
 \end{mynote}
 \begin{theorem}
     \label{thm:ramsey-universal-ambit}
-    Assume that $\k$ has the Ramsey property. Let $(X,x_0)$ be a $G_0$-ambit such that
-    \[
-        g\cdot x_0=x_0
-        \qquad\text{for all } g\in G.
-    \]
-    Then there exists a unique $G_0$-map
-    \[
-        \pi\colon X_\k\to X
-    \]
-    such that
-    \[
-        \pi(\prec_0)=x_0.
-    \]
+    Assume that $\k$ has the Ramsey property. Let $(X,x_0)$ be a $G_0$-ambit
+    such that \(g\cdot x_0=x_0\) for all \(g\in G\).
+    Then there exists a unique $G_0$-map \(\pi\colon X_\k\to X\) such that
+    \(\pi(\prec_0)=x_0\).
     In particular, $(X_\k,\prec_0)$ is universal among $G_0$-ambits whose distinguished point is fixed by $G$.
 \end{theorem}
 
@@ -1584,95 +864,49 @@ is universal among $G_0$-ambits whose distinguished point is fixed by $G$.
         \overline{\{(g\cdot \prec_0,g\cdot x_0):g\in G_0\}}
         \subseteq X_\k\times X.
     \]
-    Since the projection
-    \[
-        p_1\colon X_\k\times X\to X_\k
-    \]
-    is a closed map and
-    \[
-        p_1(\Phi)
-    \]
-    contains the dense set
-    \[
-        G_0\cdot \prec_0,
-    \]
+    Since the projection \(p_1\colon X_\k\times X\to X_\k\)
+    is a closed map and \(p_1(\Phi)\) contains the dense set
+    \(G_0\cdot \prec_0\),
     we have
-    \[
-        p_1(\Phi)=X_\k.
-    \]
-    Thus for every
-    \[
-        \prec\in X_\k
-    \]
-    there exists
-    \[
-        x\in X
-    \]
-    such that
-    \[
-        (\prec,x)\in \Phi.
-    \]
+    \(p_1(\Phi)=X_\k\). Thus for every \(\prec\in X_\k\) there exists
+    \(x\in X\) such that \((\prec,x)\in \Phi\).
     By Lemma~\ref{lem:graph-uniqueness}, this $x$ is unique. Hence $\Phi$ is the graph of a function
-    \[
-        \pi\colon X_\k\to X.
-    \]
+    \(\pi\colon X_\k\to X\).
 
     The map
-    \[
-        p_1|\Phi\colon \Phi\to X_\k
-    \]
+    \(p_1|\Phi\colon \Phi\to X_\k\)
     is a continuous bijection from a compact space to a Hausdorff space, hence a homeomorphism. Therefore
-    \[
-        \pi=p_2\circ (p_1|\Phi)^{-1}
-    \]
+    \(\pi=p_2\circ (p_1|\Phi)^{-1}\)
     is continuous.
 
     The set
-    \[
-        \{(g\cdot \prec_0,g\cdot x_0):g\in G_0\}
-    \]
+    \(\{(g\cdot \prec_0,g\cdot x_0):g\in G_0\}\)
     is $G_0$-invariant, and so is its closure $\Phi$. It follows that $\pi$ is $G_0$-equivariant. Also,
-    \[
-        (\prec_0,x_0)\in \Phi,
-    \]
+    \((\prec_0,x_0)\in \Phi\),
     so
-    \[
-        \pi(\prec_0)=x_0.
-    \]
+    \(\pi(\prec_0)=x_0\).
 
     To prove uniqueness, let
-    \[
-        \pi'\colon X_\k\to X
-    \]
+    \(\pi'\colon X_\k\to X\)
     be another $G_0$-map with
-    \[
-        \pi'(\prec_0)=x_0.
-    \]
+    \(\pi'(\prec_0)=x_0\).
     For every $g\in G_0$ we then have
     \[
-        \pi'(g\cdot \prec_0)=g\cdot \pi'(\prec_0)=g\cdot x_0=\pi(g\cdot \prec_0).
+        \pi'(g\cdot \prec_0)
+        =g\cdot \pi'(\prec_0)
+        =g\cdot x_0
+        =\pi(g\cdot \prec_0).
     \]
-    Since
-    \[
-        G_0\cdot \prec_0
-    \]
+    Since \(G_0\cdot \prec_0\)
     is dense in $X_\k$ and both maps are continuous, it follows that
-    \[
-        \pi'=\pi.
-    \]
+    \(\pi'=\pi\).
 
     Finally, because $(X,x_0)$ is an ambit, the orbit
-    \[
-        G_0\cdot x_0
-    \]
+    \(G_0\cdot x_0\)
     is dense in $X$. Since $\pi$ is continuous and $G_0$-equivariant, its image is a closed $G_0$-invariant subset of $X$ containing
-    \[
-        \pi(G_0\cdot \prec_0)=G_0\cdot x_0.
-    \]
+    \(\pi(G_0\cdot \prec_0)=G_0\cdot x_0\).
     Hence
-    \[
-        \pi(X_\k)=X.
-    \]
+    \(\pi(X_\k)=X\).
     Thus $(X_\k,\prec_0)$ is universal among such ambits.
 \end{proof}
 
@@ -1685,23 +919,15 @@ We can now combine this with the results of Chapters~5 and~7 and the minimality 
 
 \begin{proof}
     By Corollary~\ref{cor:fraisse-order-class-ea}, the Ramsey property of the Fra\"iss\'e order class $\k$ implies that
-    \[
-        G={\rm Aut}(\bff)
-    \]
+    \(G={\rm Aut}(\bff)\)
     is extremely amenable. Let $Y$ be a minimal compact $G_0$-flow. Restricting the action to the subgroup $G$, we obtain a compact $G$-flow, so extreme amenability yields a point
-    \[
-        y_0\in Y
-    \]
+    \(y_0\in Y\)
     fixed by every element of $G$. Since $Y$ is minimal as a $G_0$-flow, the orbit
-    \[
-        G_0\cdot y_0
-    \]
+    \(G_0\cdot y_0\)
     is dense in $Y$, and therefore $(Y,y_0)$ is a $G_0$-ambit with $G$-fixed distinguished point.
 
-    By Theorem~\ref{thm:ramsey-universal-ambit}, there exists a surjective $G_0$-map
-    \[
-        \pi\colon X_\k\to Y.
-    \]
+    By Theorem~\ref{thm:ramsey-universal-ambit}, there exists a surjective
+    $G_0$-map \(\pi\colon X_\k\to Y\).
     On the other hand, by Theorem~\ref{thm:minimality-ordering-property}, the ordering property implies that $X_\k$ is minimal. Hence every minimal compact $G_0$-flow is a factor of $X_\k$, which is therefore the universal minimal flow of $G_0$.
 \end{proof}
 

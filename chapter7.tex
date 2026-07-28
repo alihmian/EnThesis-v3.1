@@ -7,30 +7,11 @@ We first introduce the notion of a reasonable ordered expansion and show that, f
 
 \section{Reducts and expansions}
 
-Let $L$ be a signature containing a distinguished binary relation symbol $<$, and let
-\[
-    L_0=L\setminus\{<\}.
-\]
-If $A$ is an $L$-structure, we write
-\[
-    A_0=A\!\restriction\!L_0
-\]
-for the reduct of $A$ to the signature $L_0$. Thus $A_0$ is obtained from $A$ by forgetting the interpretation of the symbol $<$. Conversely, if $A_0$ is an $L_0$-structure and $\prec$ is a linear ordering of $\dom(A_0)$, we write
-\[
-    \langle A_0,\prec\rangle
-\]
-for the corresponding $L$-expansion of $A_0$ in which $<$ is interpreted by $\prec$.
+Let $L$ be a signature containing a distinguished binary relation symbol $<$, and let \(L_0=L\setminus\{<\}\). If $A$ is an $L$-structure, we write \(A_0=A\!\restriction\!L_0\) for the reduct of $A$ to the signature $L_0$. Thus $A_0$ is obtained from $A$ by forgetting the interpretation of the symbol $<$. Conversely, if $A_0$ is an $L_0$-structure and $\prec$ is a linear ordering of $\dom(A_0)$, we write \(\langle A_0,\prec\rangle\) for the corresponding $L$-expansion of $A_0$ in which $<$ is interpreted by $\prec$.
 
-If $\mathcal K$ is a class of finite $L$-structures, we write
-\[
-    \mathcal K_0=\{A_0 : A\in\mathcal K\}
-\]
-for the class of all reducts of members of $\mathcal K$ to the signature $L_0$. In the situations that matter for us, $\mathcal K$ will be an order class, so each structure in $\mathcal K$ carries a linear ordering, while $\mathcal K_0$ is the corresponding unordered class obtained by forgetting that ordering.
+If $\mathcal K$ is a class of finite $L$-structures, we write \(\mathcal K_0=\{A_0 : A\in\mathcal K\}\) for the class of all reducts of members of $\mathcal K$ to the signature $L_0$. In the situations that matter for us, $\mathcal K$ will be an order class, so each structure in $\mathcal K$ carries a linear ordering, while $\mathcal K_0$ is the corresponding unordered class obtained by forgetting that ordering.
 
-The basic question is then the following. Suppose that $\mathcal K$ is a Fra\"iss\'e order class with Fra\"iss\'e limit $F$. Under what conditions is the reduct class $\mathcal K_0$ again a Fra\"iss\'e class, and when is its Fra\"iss\'e limit simply the reduct
-\[
-    F_0=F\!\restriction\!L_0?
-\]
+The basic question is then the following. Suppose that $\mathcal K$ is a Fra\"iss\'e order class with Fra\"iss\'e limit $F$. Under what conditions is the reduct class $\mathcal K_0$ again a Fra\"iss\'e class, and when is its Fra\"iss\'e limit simply the reduct \(F_0=F\!\restriction\!L_0\)?
 The key condition is the notion of a reasonable ordered expansion, introduced in the next section.
 
 \section{Reasonable Fra\"iss\'e order classes}
@@ -39,23 +20,7 @@ We now isolate the condition that controls when a Fra\"iss\'e order class behave
 
 \begin{definition}
     \label{def:reasonable}
-    Let $L$ be a signature with $L\supseteq\{<\}$, and put
-    \[
-        L_0=L\setminus\{<\}.
-    \]
-    Let $\mathcal K$ be a class of finite $L$-structures, and let
-    \[
-        \mathcal K_0=\{A_0 : A\in\mathcal K\}.
-    \]
-    We say that $\mathcal K$ is \emph{reasonable} if whenever $A_0,B_0\in\mathcal K_0$, $\pi\colon A_0\to B_0$ is an embedding, and $\prec$ is a linear ordering of $\mathrm{dom}(A_0)$ such that
-    \[
-        A=\langle A_0,\prec\rangle\in\mathcal K,
-    \]
-    there exists a linear ordering $\prec'$ of $\mathrm{dom}(B_0)$ such that
-    \[
-        B=\langle B_0,\prec'\rangle\in\mathcal K
-    \]
-    and $\pi\colon A\to B$ is an embedding.
+    Let $L$ be a signature with $L\supseteq\{<\}$, and put \(L_0=L\setminus\{<\}\). Let $\mathcal K$ be a class of finite $L$-structures, and let \(\mathcal K_0=\{A_0 : A\in\mathcal K\}\). We say that $\mathcal K$ is \emph{reasonable} if whenever $A_0,B_0\in\mathcal K_0$, $\pi\colon A_0\to B_0$ is an embedding, and $\prec$ is a linear ordering of $\mathrm{dom}(A_0)$ such that \(A=\langle A_0,\prec\rangle\in\mathcal K\), there exists a linear ordering $\prec'$ of $\mathrm{dom}(B_0)$ such that \(B=\langle B_0,\prec'\rangle\in\mathcal K\) and $\pi\colon A\to B$ is an embedding.
 \end{definition}
 
 In other words, $\mathcal K$ is reasonable if every embedding in the reduct can be made compatible with the order after choosing a suitable ordering on the target structure.
@@ -64,11 +29,7 @@ The importance of this condition is that it exactly characterizes when the reduc
 
 \begin{proposition}
     \label{prop:reasonable-characterization}
-    Let $L\supseteq\{<\}$ be a signature, let
-    \[
-        L_0=L\setminus\{<\},
-    \]
-    and let $\mathcal K$ be a Fra\"iss\'e order class of finite $L$-structures. Put
+    Let $L\supseteq\{<\}$ be a signature, let \(L_0=L\setminus\{<\}\), and let $\mathcal K$ be a Fra\"iss\'e order class of finite $L$-structures. Put
     \[
         \mathcal K_0=\{A_0 : A\in\mathcal K\},
         \qquad
@@ -87,168 +48,43 @@ The importance of this condition is that it exactly characterizes when the reduc
 \end{proposition}
 
 \begin{proof}
-    Assume first that $\mathcal K_0$ is a Fra\"iss\'e class and that
-    \[
-        F_0=\mathrm{Flim}(\mathcal K_0).
-    \]
+    Assume first that $\mathcal K_0$ is a Fra\"iss\'e class and that \(F_0=\mathrm{Flim}(\mathcal K_0)\).
     We show that $\mathcal K$ is reasonable.
 
-    Let $A_0,B_0\in\mathcal K_0$, let $\pi\colon A_0\to B_0$ be an embedding, and let $\prec$ be a linear ordering of $\mathrm{dom}(A_0)$ such that
-    \[
-        A=\langle A_0,\prec\rangle\in\mathcal K.
-    \]
-    Since $F=\mathrm{Flim}(\mathcal K)$, there is an embedding
-    \[
-        \varphi\colon A\to F.
-    \]
-    Forgetting the order, we may also regard $\varphi$ as an embedding
-    \[
-        \varphi\colon A_0\to F_0.
-    \]
-    Because $F_0$ is the Fra\"iss\'e limit of $\mathcal K_0$, it has the extension property. Hence there is an embedding
-    \[
-        \psi\colon B_0\to F_0
-    \]
-    such that
-    \[
-        \psi\circ\pi=\varphi.
-    \]
+    Let $A_0,B_0\in\mathcal K_0$, let $\pi\colon A_0\to B_0$ be an embedding, and let $\prec$ be a linear ordering of $\mathrm{dom}(A_0)$ such that \(A=\langle A_0,\prec\rangle\in\mathcal K\). Since $F=\mathrm{Flim}(\mathcal K)$, there is an embedding \(\varphi\colon A\to F\). Forgetting the order, we may also regard $\varphi$ as an embedding \(\varphi\colon A_0\to F_0\). Because $F_0$ is the Fra\"iss\'e limit of $\mathcal K_0$, it has the extension property. Hence there is an embedding \(\psi\colon B_0\to F_0\) such that \(\psi\circ\pi=\varphi\).
     Now let $\prec'$ be the linear ordering on $\mathrm{dom}(B_0)$ pulled back from $F$ by $\psi$, that is,
     \[
         x\prec' y
         \quad\Longleftrightarrow\quad
         \psi(x)<^F\psi(y).
     \]
-    If we put
-    \[
-        B=\langle B_0,\prec'\rangle,
-    \]
-    then $B$ is isomorphic to the substructure $\psi(B_0)\subseteq F$, so
-    \[
-        B\in\Age(F)=\mathcal K.
-    \]
-    Moreover, since $\psi\circ\pi=\varphi$ and $\varphi$ preserves the order $\prec$, the map
-    \[
-        \pi\colon A\to B
-    \]
-    is an embedding. Thus $\mathcal K$ is reasonable.
+    If we put \(B=\langle B_0,\prec'\rangle\), then $B$ is isomorphic to the substructure $\psi(B_0)\subseteq F$, so \(B\in\Age(F)=\mathcal K\). Moreover, since $\psi\circ\pi=\varphi$ and $\varphi$ preserves the order $\prec$, the map \(\pi\colon A\to B\) is an embedding. Thus $\mathcal K$ is reasonable.
 
     Conversely, assume that $\mathcal K$ is reasonable. We show first that $\mathcal K_0$ is a Fra\"iss\'e class.
 
-    Since
-    \[
-        \mathcal K_0=\Age(F_0),
-    \]
+    Since \(\mathcal K_0=\Age(F_0)\),
     the class $\mathcal K_0$ is hereditary, countable up to isomorphism, and has structures of arbitrarily large cardinality. It therefore remains only to verify the amalgamation property.
 
-    Let $A_0,B_0,C_0\in\mathcal K_0$, and let
-    \[
-        f\colon A_0\to B_0,
-        \qquad
-        g\colon A_0\to C_0
-    \]
-    be embeddings. Choose a linear ordering $\prec$ on $\mathrm{dom}(A_0)$ such that
-    \[
-        A=\langle A_0,\prec\rangle\in\mathcal K.
-    \]
-    Since $\mathcal K$ is reasonable, there exist linear orderings $\prec_B$ and $\prec_C$ on $\mathrm{dom}(B_0)$ and $\mathrm{dom}(C_0)$ such that
-    \[
-        B=\langle B_0,\prec_B\rangle\in\mathcal K,
-        \qquad
-        C=\langle C_0,\prec_C\rangle\in\mathcal K,
-    \]
-    and both
-    \[
-        f\colon A\to B
-        \qquad\text{and}\qquad
-        g\colon A\to C
-    \]
-    are embeddings. Since $\mathcal K$ is a Fra\"iss\'e class, it has the amalgamation property. Hence there exist
-    \[
-        D\in\mathcal K
-    \]
-    and embeddings
-    \[
-        r\colon B\to D,
-        \qquad
-        s\colon C\to D
-    \]
-    such that
-    \[
-        r\circ f=s\circ g.
-    \]
-    Passing to reducts, if
-    \[
-        D_0=D\!\restriction\!L_0,
-    \]
-    then $r$ and $s$ are also embeddings
-    \[
-        r\colon B_0\to D_0,
-        \qquad
-        s\colon C_0\to D_0,
-    \]
-    and still satisfy
-    \[
-        r\circ f=s\circ g.
-    \]
+    Let $A_0,B_0,C_0\in\mathcal K_0$, and let \(f\colon A_0\to B_0\) and \(g\colon A_0\to C_0\) be embeddings. Choose a linear ordering $\prec$ on $\mathrm{dom}(A_0)$ such that \(A=\langle A_0,\prec\rangle\in\mathcal K\).
+    Since $\mathcal K$ is reasonable, there exist linear orderings $\prec_B$ and $\prec_C$ on $\mathrm{dom}(B_0)$ and $\mathrm{dom}(C_0)$ such that \(B=\langle B_0,\prec_B\rangle\in\mathcal K\) and \(C=\langle C_0,\prec_C\rangle\in\mathcal K\), and both \(f\colon A\to B\) and \(g\colon A\to C\) are embeddings. Since $\mathcal K$ is a Fra\"iss\'e class, it has the amalgamation property. Hence there exist \(D\in\mathcal K\) and embeddings \(r\colon B\to D\) and \(s\colon C\to D\) such that \(r\circ f=s\circ g\). Passing to reducts, if \(D_0=D\!\restriction\!L_0\), then $r$ and $s$ are also embeddings \(r\colon B_0\to D_0\) and \(s\colon C_0\to D_0\), and still satisfy \(r\circ f=s\circ g\).
     Thus $\mathcal K_0$ has the amalgamation property, and therefore $\mathcal K_0$ is a Fra\"iss\'e class.
 
     It remains to show that
     \[
         F_0=\mathrm{Flim}(\mathcal K_0).
     \]
-    Since
-    \[
-        \Age(F_0)=\mathcal K_0,
-    \]
+    Since \(\Age(F_0)=\mathcal K_0\),
     it is enough to verify that $F_0$ is ultrahomogeneous, or equivalently that it has the extension property.
 
-    Let $A_0,B_0\in\mathcal K_0$, let $\pi\colon A_0\to B_0$ be an embedding, and let
-    \[
-        \varphi\colon A_0\to F_0
-    \]
-    be an embedding. Pull back the order on $F$ along $\varphi$ and define a linear ordering $\prec$ on $\mathrm{dom}(A_0)$ by
+    Let $A_0,B_0\in\mathcal K_0$, let $\pi\colon A_0\to B_0$ be an embedding, and let \(\varphi\colon A_0\to F_0\) be an embedding. Pull back the order on $F$ along $\varphi$ and define a linear ordering $\prec$ on $\mathrm{dom}(A_0)$ by
     \[
         x\prec y
         \quad\Longleftrightarrow\quad
         \varphi(x)<^F\varphi(y).
     \]
-    Then
-    \[
-        A=\langle A_0,\prec\rangle\in\mathcal K,
-    \]
-    and $\varphi$ is in fact an embedding
-    \[
-        \varphi\colon A\to F.
-    \]
-    Since $\mathcal K$ is reasonable, there exists a linear ordering $\prec'$ on $\mathrm{dom}(B_0)$ such that
-    \[
-        B=\langle B_0,\prec'\rangle\in\mathcal K
-    \]
-    and
-    \[
-        \pi\colon A\to B
-    \]
-    is an embedding. Because $F=\mathrm{Flim}(\mathcal K)$, it has the extension property, so there is an embedding
-    \[
-        \psi\colon B\to F
-    \]
-    such that
-    \[
-        \psi\circ\pi=\varphi.
-    \]
-    Forgetting the order, $\psi$ is also an embedding
-    \[
-        \psi\colon B_0\to F_0
-    \]
-    with
-    \[
-        \psi\circ\pi=\varphi.
-    \]
-    Thus $F_0$ has the extension property. It follows that $F_0$ is ultrahomogeneous and
-    \[
-        \Age(F_0)=\mathcal K_0,
-    \]
+    Then \(A=\langle A_0,\prec\rangle\in\mathcal K\), and $\varphi$ is in fact an embedding \(\varphi\colon A\to F\).
+    Since $\mathcal K$ is reasonable, there exists a linear ordering $\prec'$ on $\mathrm{dom}(B_0)$ such that \(B=\langle B_0,\prec'\rangle\in\mathcal K\) and \(\pi\colon A\to B\) is an embedding. Because $F=\mathrm{Flim}(\mathcal K)$, it has the extension property, so there is an embedding \(\psi\colon B\to F\) such that \(\psi\circ\pi=\varphi\). Forgetting the order, $\psi$ is also an embedding \(\psi\colon B_0\to F_0\) with \(\psi\circ\pi=\varphi\).
+    Thus $F_0$ has the extension property. It follows that $F_0$ is ultrahomogeneous and \(\Age(F_0)=\mathcal K_0\),
     so
     \[
         F_0=\mathrm{Flim}(\mathcal K_0).
@@ -262,64 +98,12 @@ The importance of this condition is that it exactly characterizes when the reduc
 
         \noindent
         \emph{(i) $\Rightarrow$ (ii).}
-        Assume that $\mathcal K_0$ is a Fra\"iss\'e class and that
-        \[
-            F_0=\mathrm{Flim}(\mathcal K_0).
-        \]
+        Assume that $\mathcal K_0$ is a Fra\"iss\'e class and that \(F_0=\mathrm{Flim}(\mathcal K_0)\).
         We show that $\mathcal K$ is reasonable.
 
-        Let $A_0,B_0\in\mathcal K_0$, let
-        \[
-            \pi\colon A_0\to B_0
-        \]
-        be an embedding, and let $\prec$ be a linear ordering of $\dom(A_0)$ such that
-        \[
-            A=\langle A_0,\prec\rangle\in\mathcal K.
-        \]
-        Since $F=\mathrm{Flim}(\mathcal K)$, we have
-        \[
-            \Age(F)=\mathcal K,
-        \]
-        so there exists an embedding
-        \[
-            \varphi\colon A\to F.
-        \]
-        Forgetting the order, the same map is an embedding
-        \[
-            \varphi\colon A_0\to F_0.
-        \]
+        Let $A_0,B_0\in\mathcal K_0$, let \(\pi\colon A_0\to B_0\) be an embedding, and let $\prec$ be a linear ordering of $\dom(A_0)$ such that \(A=\langle A_0,\prec\rangle\in\mathcal K\). Since $F=\mathrm{Flim}(\mathcal K)$, we have \(\Age(F)=\mathcal K\), so there exists an embedding \(\varphi\colon A\to F\). Forgetting the order, the same map is an embedding \(\varphi\colon A_0\to F_0\).
 
-        Since $F_0$ is the Fra\"iss\'e limit of $\mathcal K_0$, it is ultrahomogeneous. Equivalently, it has the extension property: whenever
-        \[
-            E_0,H_0\in\Age(F_0)=\mathcal K_0,
-        \]
-        \[
-            \theta\colon E_0\to H_0
-        \]
-        is an embedding, and
-        \[
-            \eta\colon E_0\to F_0
-        \]
-        is an embedding, there exists an embedding
-        \[
-            \widetilde{\eta}\colon H_0\to F_0
-        \]
-        such that
-        \[
-            \widetilde{\eta}\circ\theta=\eta.
-        \]
-        Applying this to
-        \[
-            E_0=A_0,\qquad H_0=B_0,\qquad \theta=\pi,\qquad \eta=\varphi,
-        \]
-        we obtain an embedding
-        \[
-            \psi\colon B_0\to F_0
-        \]
-        such that
-        \[
-            \psi\circ\pi=\varphi.
-        \]
+        Since $F_0$ is the Fra\"iss\'e limit of $\mathcal K_0$, it is ultrahomogeneous. Equivalently, it has the extension property: whenever \(E_0,H_0\in\Age(F_0)=\mathcal K_0\), \(\theta\colon E_0\to H_0\) is an embedding, and \(\eta\colon E_0\to F_0\) is an embedding, there exists an embedding \(\widetilde{\eta}\colon H_0\to F_0\) such that \(\widetilde{\eta}\circ\theta=\eta\). Applying this to \(E_0=A_0\), \(H_0=B_0\), \(\theta=\pi\), and \(\eta=\varphi\), we obtain an embedding \(\psi\colon B_0\to F_0\) such that \(\psi\circ\pi=\varphi\).
 
         We now transport the linear order of $F$ back to $\dom(B_0)$ along $\psi$. Define a binary relation $\prec'$ on $\dom(B_0)$ by
         \[
@@ -329,45 +113,12 @@ The importance of this condition is that it exactly characterizes when the reduc
         \]
         Because $\psi$ is injective and $<^F$ is a linear order on $\dom(F)$, it follows immediately that $\prec'$ is a linear order on $\dom(B_0)$.
 
-        Let
-        \[
-            B=\langle B_0,\prec'\rangle.
-        \]
-        We claim that $B\in\mathcal K$. Indeed, the image $\psi(B_0)$ is an $L_0$-substructure of $F_0$, and because $\prec'$ was defined by pulling back the order from $F$, the map
-        \[
-            \psi\colon B\to F
-        \]
-        is an embedding of $L$-structures. Hence $B$ is isomorphic to the finite ordered substructure $\psi(B_0)\subseteq F$, so
-        \[
-            B\in\Age(F)=\mathcal K.
-        \]
+        Let \(B=\langle B_0,\prec'\rangle\).
+        We claim that $B\in\mathcal K$. Indeed, the image $\psi(B_0)$ is an $L_0$-substructure of $F_0$, and because $\prec'$ was defined by pulling back the order from $F$, the map \(\psi\colon B\to F\) is an embedding of $L$-structures. Hence $B$ is isomorphic to the finite ordered substructure $\psi(B_0)\subseteq F$, so \(B\in\Age(F)=\mathcal K\).
 
-        It remains to show that
-        \[
-            \pi\colon A\to B
-        \]
-        is an embedding of $L$-structures. As a map between the reducts, this is true by assumption. So only preservation of the order must be checked.
+        It remains to show that \(\pi\colon A\to B\) is an embedding of $L$-structures. As a map between the reducts, this is true by assumption. So only preservation of the order must be checked.
 
-        Let $x,y\in\dom(A_0)$. Suppose that
-        \[
-            x\prec y.
-        \]
-        Since $\varphi\colon A\to F$ is an embedding, we have
-        \[
-            \varphi(x)<^F\varphi(y).
-        \]
-        Using the identity $\psi\circ\pi=\varphi$, this becomes
-        \[
-            \psi(\pi(x))<^F\psi(\pi(y)).
-        \]
-        By definition of $\prec'$, this says exactly that
-        \[
-            \pi(x)\prec'\pi(y).
-        \]
-        Thus $\pi$ preserves the order, and therefore it is an embedding
-        \[
-            \pi\colon A\to B.
-        \]
+        Let $x,y\in\dom(A_0)$ and suppose that \(x\prec y\). Since $\varphi\colon A\to F$ is an embedding, we have \(\varphi(x)<^F\varphi(y)\). Using the identity $\psi\circ\pi=\varphi$, this becomes \(\psi(\pi(x))<^F\psi(\pi(y))\). By definition of $\prec'$, this says exactly that \(\pi(x)\prec'\pi(y)\). Thus $\pi$ preserves the order, and therefore \(\pi\colon A\to B\) is an embedding.
         This proves that $\mathcal K$ is reasonable.
 
         \medskip
@@ -376,134 +127,30 @@ The importance of this condition is that it exactly characterizes when the reduc
         \emph{(ii) $\Rightarrow$ (i).}
         Assume now that $\mathcal K$ is reasonable. We show first that $\mathcal K_0$ is a Fra\"iss\'e class.
 
-        Since $F$ is the Fra\"iss\'e limit of $\mathcal K$, we have
-        \[
-            \Age(F)=\mathcal K.
-        \]
-        Passing to reducts, every finite substructure of $F_0$ is the reduct of a finite substructure of $F$, so
-        \[
-            \Age(F_0)=\mathcal K_0.
-        \]
+        Since $F$ is the Fra\"iss\'e limit of $\mathcal K$, we have \(\Age(F)=\mathcal K\). Passing to reducts, every finite substructure of $F_0$ is the reduct of a finite substructure of $F$, so \(\Age(F_0)=\mathcal K_0\).
         In particular, $\mathcal K_0$ is countable up to isomorphism and contains structures of arbitrarily large finite cardinality.
 
-        We next verify the hereditary property. Let
-        \[
-            B_0\in\mathcal K_0
-        \]
-        and let $A_0\leq B_0$ be a finitely generated substructure. Choose some
-        \[
-            B\in\mathcal K
-        \]
-        such that $B_0$ is the reduct of $B$. Then the structure induced on $\dom(A_0)$ inside $B$ is a finite $L$-substructure $A$ of $B$. Since $\mathcal K$ is hereditary, we have
-        \[
-            A\in\mathcal K.
-        \]
-        Taking reducts, it follows that
-        \[
-            A_0\in\mathcal K_0.
-        \]
+        We next verify the hereditary property. Let \(B_0\in\mathcal K_0\), and let $A_0\leq B_0$ be a finitely generated substructure. Choose some \(B\in\mathcal K\) such that $B_0$ is the reduct of $B$. Then the structure induced on $\dom(A_0)$ inside $B$ is a finite $L$-substructure $A$ of $B$. Since $\mathcal K$ is hereditary, we have \(A\in\mathcal K\). Taking reducts, it follows that \(A_0\in\mathcal K_0\).
         Thus $\mathcal K_0$ has the hereditary property.
 
         It remains to verify the amalgamation property.
 
-        Let $A_0,B_0,C_0\in\mathcal K_0$, and let
-        \[
-            f\colon A_0\to B_0,
-            \qquad
-            g\colon A_0\to C_0
-        \]
-        be embeddings. Choose a linear ordering $\prec$ on $\dom(A_0)$ such that
-        \[
-            A=\langle A_0,\prec\rangle\in\mathcal K.
-        \]
+        Let $A_0,B_0,C_0\in\mathcal K_0$, and let \(f\colon A_0\to B_0\) and \(g\colon A_0\to C_0\) be embeddings. Choose a linear ordering $\prec$ on $\dom(A_0)$ such that \(A=\langle A_0,\prec\rangle\in\mathcal K\).
         This is possible because $A_0\in\mathcal K_0$ means precisely that $A_0$ admits at least one expansion in $\mathcal K$.
 
-        Since $\mathcal K$ is reasonable, applied to the embedding
-        \[
-            f\colon A_0\to B_0
-        \]
-        and the ordered structure $A$, there exists a linear ordering $\prec_B$ on $\dom(B_0)$ such that
-        \[
-            B=\langle B_0,\prec_B\rangle\in\mathcal K
-        \]
-        and
-        \[
-            f\colon A\to B
-        \]
-        is an embedding. Likewise, applying reasonableness to
-        \[
-            g\colon A_0\to C_0,
-        \]
-        there exists a linear ordering $\prec_C$ on $\dom(C_0)$ such that
-        \[
-            C=\langle C_0,\prec_C\rangle\in\mathcal K
-        \]
-        and
-        \[
-            g\colon A\to C
-        \]
-        is an embedding.
+        Since $\mathcal K$ is reasonable, applied to the embedding \(f\colon A_0\to B_0\) and the ordered structure $A$, there exists a linear ordering $\prec_B$ on $\dom(B_0)$ such that \(B=\langle B_0,\prec_B\rangle\in\mathcal K\) and \(f\colon A\to B\) is an embedding. Likewise, applying reasonableness to \(g\colon A_0\to C_0\), there exists a linear ordering $\prec_C$ on $\dom(C_0)$ such that \(C=\langle C_0,\prec_C\rangle\in\mathcal K\) and \(g\colon A\to C\) is an embedding.
 
-        Since $\mathcal K$ is a Fra\"iss\'e class, it has the amalgamation property. Therefore there exist
-        \[
-            D\in\mathcal K
-        \]
-        and embeddings
-        \[
-            r\colon B\to D,
-            \qquad
-            s\colon C\to D
-        \]
-        such that
-        \[
-            r\circ f=s\circ g.
-        \]
-        Let
-        \[
-            D_0=D\!\restriction\!L_0.
-        \]
-        Because reducts do not affect the interpretations of the symbols in $L_0$, the same maps are embeddings
-        \[
-            r\colon B_0\to D_0,
-            \qquad
-            s\colon C_0\to D_0,
-        \]
-        and they still satisfy
-        \[
-            r\circ f=s\circ g.
-        \]
+        Since $\mathcal K$ is a Fra\"iss\'e class, it has the amalgamation property. Therefore there exist \(D\in\mathcal K\) and embeddings \(r\colon B\to D\) and \(s\colon C\to D\) such that \(r\circ f=s\circ g\). Let \(D_0=D\!\restriction\!L_0\). Because reducts do not affect the interpretations of the symbols in $L_0$, the same maps are embeddings \(r\colon B_0\to D_0\) and \(s\colon C_0\to D_0\), and they still satisfy \(r\circ f=s\circ g\).
         Hence $D_0$ is an amalgam of $B_0$ and $C_0$ over $A_0$. This proves that $\mathcal K_0$ has the amalgamation property.
 
         We have shown that $\mathcal K_0$ is hereditary, countable up to isomorphism, has arbitrarily large finite members, and has the amalgamation property. Thus $\mathcal K_0$ is a Fra\"iss\'e class.
 
         \medskip
 
-        We now show that
-        \[
-            F_0=\mathrm{Flim}(\mathcal K_0).
-        \]
-        Since
-        \[
-            \Age(F_0)=\mathcal K_0,
-        \]
+        We now show that \(F_0=\mathrm{Flim}(\mathcal K_0)\). Since \(\Age(F_0)=\mathcal K_0\),
         it is enough to prove that $F_0$ is ultrahomogeneous. We do this by verifying the extension property.
 
-        Let $A_0,B_0\in\mathcal K_0$, let
-        \[
-            \pi\colon A_0\to B_0
-        \]
-        be an embedding, and let
-        \[
-            \varphi\colon A_0\to F_0
-        \]
-        be an embedding. We must find an embedding
-        \[
-            \psi\colon B_0\to F_0
-        \]
-        such that
-        \[
-            \psi\circ\pi=\varphi.
-        \]
+        Let $A_0,B_0\in\mathcal K_0$, let \(\pi\colon A_0\to B_0\) be an embedding, and let \(\varphi\colon A_0\to F_0\) be an embedding. We must find an embedding \(\psi\colon B_0\to F_0\) such that \(\psi\circ\pi=\varphi\).
 
         We again pull back the order from $F$ along $\varphi$. Define a linear order $\prec$ on $\dom(A_0)$ by
         \[
@@ -511,67 +158,14 @@ The importance of this condition is that it exactly characterizes when the reduc
             \quad\Longleftrightarrow\quad
             \varphi(x)<^F\varphi(y).
         \]
-        Since $\varphi$ is injective and $<^F$ is a linear order, $\prec$ is a linear order on $\dom(A_0)$. Let
-        \[
-            A=\langle A_0,\prec\rangle.
-        \]
-        By construction, $\varphi$ preserves both the $L_0$-structure and the order, so
-        \[
-            \varphi\colon A\to F
-        \]
-        is an embedding. Since $A$ is a finite substructure of $F$, we get
-        \[
-            A\in\Age(F)=\mathcal K.
-        \]
+        Since $\varphi$ is injective and $<^F$ is a linear order, $\prec$ is a linear order on $\dom(A_0)$. Let \(A=\langle A_0,\prec\rangle\). By construction, $\varphi$ preserves both the $L_0$-structure and the order, so \(\varphi\colon A\to F\) is an embedding. Since $A$ is a finite substructure of $F$, we get \(A\in\Age(F)=\mathcal K\).
 
-        Now apply reasonableness to the embedding
-        \[
-            \pi\colon A_0\to B_0
-        \]
-        and the ordered structure $A$. There exists a linear order $\prec'$ on $\dom(B_0)$ such that
-        \[
-            B=\langle B_0,\prec'\rangle\in\mathcal K
-        \]
-        and
-        \[
-            \pi\colon A\to B
-        \]
-        is an embedding.
+        Now apply reasonableness to the embedding \(\pi\colon A_0\to B_0\) and the ordered structure $A$. There exists a linear order $\prec'$ on $\dom(B_0)$ such that \(B=\langle B_0,\prec'\rangle\in\mathcal K\) and \(\pi\colon A\to B\) is an embedding.
 
-        Since $F=\mathrm{Flim}(\mathcal K)$, the structure $F$ is ultrahomogeneous, hence has the extension property. Applying it to the embedding
-        \[
-            \pi\colon A\to B
-        \]
-        and the embedding
-        \[
-            \varphi\colon A\to F,
-        \]
-        we obtain an embedding
-        \[
-            \psi\colon B\to F
-        \]
-        such that
-        \[
-            \psi\circ\pi=\varphi.
-        \]
-        Forgetting the order, the same map is an embedding
-        \[
-            \psi\colon B_0\to F_0
-        \]
-        and still satisfies
-        \[
-            \psi\circ\pi=\varphi.
-        \]
+        Since $F=\mathrm{Flim}(\mathcal K)$, the structure $F$ is ultrahomogeneous, hence has the extension property. Applying it to the embedding \(\pi\colon A\to B\) and the embedding \(\varphi\colon A\to F\), we obtain an embedding \(\psi\colon B\to F\) such that \(\psi\circ\pi=\varphi\). Forgetting the order, the same map is an embedding \(\psi\colon B_0\to F_0\) and still satisfies \(\psi\circ\pi=\varphi\).
         Thus $F_0$ has the extension property.
 
-        Therefore $F_0$ is ultrahomogeneous. Since also
-        \[
-            \Age(F_0)=\mathcal K_0,
-        \]
-        it follows that
-        \[
-            F_0=\mathrm{Flim}(\mathcal K_0).
-        \]
+        Therefore $F_0$ is ultrahomogeneous. Since also \(\Age(F_0)=\mathcal K_0\), it follows that \(F_0=\mathrm{Flim}(\mathcal K_0)\).
 
         This completes the proof of the equivalence.
     \end{proof}
@@ -601,14 +195,8 @@ The point is that in a freely ordered expansion every linear order is allowed. I
 \end{lemma}
 
 \begin{proof}
-    Let $A_0,B_0\in\mathcal K_0$, let $\pi\colon A_0\to B_0$ be an embedding, and suppose that
-    \[
-        A=\langle A_0,\prec\rangle\in\mathcal K.
-    \]
-    Choose any linear ordering $\prec'$ of $\dom(B_0)$ extending the order transported from $\prec$ along $\pi$. Then
-    \[
-        B=\langle B_0,\prec'\rangle\in\mathcal K,
-    \]
+    Let $A_0,B_0\in\mathcal K_0$, let $\pi\colon A_0\to B_0$ be an embedding, and suppose that \(A=\langle A_0,\prec\rangle\in\mathcal K\).
+    Choose any linear ordering $\prec'$ of $\dom(B_0)$ extending the order transported from $\prec$ along $\pi$. Then \(B=\langle B_0,\prec'\rangle\in\mathcal K\),
     and $\pi\colon A\to B$ is an embedding.
 \end{proof}
 
@@ -618,14 +206,7 @@ For freely ordered expansions, amalgamation in the ordered class is controlled e
 \end{mynote}
 \begin{proposition}
     \label{prop:free-orders-sap}
-    Let $L\supseteq\{<\}$ be a signature, let
-    \[
-        L_0=L\setminus\{<\},
-    \]
-    let $\mathcal K_0$ be a class of finite $L_0$-structures, and put
-    \[
-        \mathcal K=\mathcal K_0 * \mathcal{LO}.
-    \]
+    Let $L\supseteq\{<\}$ be a signature, let \(L_0=L\setminus\{<\}\), let $\mathcal K_0$ be a class of finite $L_0$-structures, and put \(\mathcal K=\mathcal K_0 * \mathcal{LO}\).
     Then the following are equivalent.
     \begin{enumerate}
         \item[(i)] $\mathcal K$ has the amalgamation property.
@@ -637,60 +218,25 @@ For freely ordered expansions, amalgamation in the ordered class is controlled e
 \begin{proof}
     The implication (ii) $\Rightarrow$ (i) is immediate.
 
-    We prove (i) $\Rightarrow$ (iii). Let
-    \[
-        A_0,B_0,C_0\in\mathcal K_0
-    \]
-    and let
-    \[
-        f\colon A_0\to B_0,
-        \qquad
-        g\colon A_0\to C_0
-    \]
-    be embeddings. Choose a linear ordering $\prec$ on $\dom(A_0)$. Since
-    \[
-        \mathcal K=\mathcal K_0 * \mathcal{LO},
-    \]
+    We prove (i) $\Rightarrow$ (iii). Let \(A_0,B_0,C_0\in\mathcal K_0\), and let \(f\colon A_0\to B_0\) and \(g\colon A_0\to C_0\) be embeddings. Choose a linear ordering $\prec$ on $\dom(A_0)$. Since \(\mathcal K=\mathcal K_0 * \mathcal{LO}\),
     we may choose linear orderings $\prec_B$ on $\dom(B_0)$ and $\prec_C$ on $\dom(C_0)$ such that
     \[
         A=\langle A_0,\prec\rangle,\qquad
         B=\langle B_0,\prec_B\rangle,\qquad
         C=\langle C_0,\prec_C\rangle
     \]
-    all belong to $\mathcal K$, the maps
-    \[
-        f\colon A\to B,
-        \qquad
-        g\colon A\to C
-    \]
-    are embeddings, and in addition
+    all belong to $\mathcal K$, the maps \(f\colon A\to B\) and \(g\colon A\to C\) are embeddings, and in addition
     \[
         f(A_0)\prec_B (B_0\setminus f(A_0))
         \qquad\text{and}\qquad
         (C_0\setminus g(A_0))\prec_C g(A_0).
     \]
-    Since $\mathcal K$ has the amalgamation property, there exist
-    \[
-        D\in\mathcal K
-    \]
-    and embeddings
-    \[
-        r\colon B\to D,
-        \qquad
-        s\colon C\to D
-    \]
-    such that
-    \[
-        r\circ f=s\circ g.
-    \]
+    Since $\mathcal K$ has the amalgamation property, there exist \(D\in\mathcal K\) and embeddings \(r\colon B\to D\) and \(s\colon C\to D\) such that \(r\circ f=s\circ g\).
     We claim that
     \[
         r(B_0)\cap s(C_0)=r(f(A_0)).
     \]
-    Suppose, toward a contradiction, that there is
-    \[
-        d\in r(B_0)\cap s(C_0)\setminus r(f(A_0)).
-    \]
+    Suppose, toward a contradiction, that there is \(d\in r(B_0)\cap s(C_0)\setminus r(f(A_0))\).
     Since $d\in r(B_0\setminus f(A_0))$, we have
     \[
         r(f(A_0))<^D d.
@@ -701,100 +247,26 @@ For freely ordered expansions, amalgamation in the ordered class is controlled e
     \]
     This is impossible. Hence the amalgam is strong in the reduct, and $\mathcal K_0$ has the strong amalgamation property.
 
-    Finally, we prove (iii) $\Rightarrow$ (ii). Let
-    \[
-        A,B,C\in\mathcal K
-    \]
-    and let
-    \[
-        f\colon A\to B,
-        \qquad
-        g\colon A\to C
-    \]
-    be embeddings. Forgetting the order, we obtain embeddings
-    \[
-        f\colon A_0\to B_0,
-        \qquad
-        g\colon A_0\to C_0.
-    \]
-    By strong amalgamation in $\mathcal K_0$, there exist
-    \[
-        D_0\in\mathcal K_0
-    \]
-    and embeddings
-    \[
-        r\colon B_0\to D_0,
-        \qquad
-        s\colon C_0\to D_0
-    \]
+    Finally, we prove (iii) $\Rightarrow$ (ii). Let \(A,B,C\in\mathcal K\), and let \(f\colon A\to B\) and \(g\colon A\to C\) be embeddings. Forgetting the order, we obtain embeddings \(f\colon A_0\to B_0\) and \(g\colon A_0\to C_0\). By strong amalgamation in $\mathcal K_0$, there exist \(D_0\in\mathcal K_0\) and embeddings \(r\colon B_0\to D_0\) and \(s\colon C_0\to D_0\)
     such that
     \[
         r\circ f=s\circ g
         \qquad\text{and}\qquad
         r(B_0)\cap s(C_0)=r(f(A_0)).
     \]
-    Since the images of $B_0$ and $C_0$ intersect only in the common copy of $A_0$, and the orders on $B$ and $C$ agree there, the two induced linear orders on
-    \[
-        r(B_0)\subseteq D_0
-        \qquad\text{and}\qquad
-        s(C_0)\subseteq D_0
-    \]
-    can be amalgamated to a linear ordering $\prec$ of $\dom(D_0)$. If we now put
-    \[
-        D=\langle D_0,\prec\rangle,
-    \]
-    then
-    \[
-        D\in\mathcal K
-    \]
-    because $\mathcal K=\mathcal K_0 * \mathcal{LO}$, and the maps
-    \[
-        r\colon B\to D,
-        \qquad
-        s\colon C\to D
-    \]
-    are embeddings witnessing strong amalgamation in $\mathcal K$.
+    Since the images of $B_0$ and $C_0$ intersect only in the common copy of $A_0$, and the orders on $B$ and $C$ agree there, the two induced linear orders on \(r(B_0)\subseteq D_0\) and \(s(C_0)\subseteq D_0\) can be amalgamated to a linear ordering $\prec$ of $\dom(D_0)$. If we now put \(D=\langle D_0,\prec\rangle\), then \(D\in\mathcal K\) because $\mathcal K=\mathcal K_0 * \mathcal{LO}$, and the maps \(r\colon B\to D\) and \(s\colon C\to D\) are embeddings witnessing strong amalgamation in $\mathcal K$.
 \end{proof}
 \begin{mynote}
     \begin{proof}
-        The implication
-        \[
-            \text{(ii)} \Rightarrow \text{(i)}
-        \]
-        is immediate, since every strong amalgam is in particular an amalgam.
+        The implication \(\text{(ii)} \Rightarrow \text{(i)}\) is immediate, since every strong amalgam is in particular an amalgam.
 
-        We now prove
-        \[
-            \text{(i)} \Rightarrow \text{(iii)}.
-        \]
-        Assume that $\mathcal K$ has the amalgamation property. Let
-        \[
-            A_0,B_0,C_0\in\mathcal K_0
-        \]
-        and let
-        \[
-            f\colon A_0\to B_0,
-            \qquad
-            g\colon A_0\to C_0
-        \]
-        be embeddings. We must show that these embeddings admit a \emph{strong} amalgam in $\mathcal K_0$.
+        We now prove \(\text{(i)} \Rightarrow \text{(iii)}\). Assume that $\mathcal K$ has the amalgamation property. Let \(A_0,B_0,C_0\in\mathcal K_0\), and let \(f\colon A_0\to B_0\) and \(g\colon A_0\to C_0\) be embeddings. We must show that these embeddings admit a \emph{strong} amalgam in $\mathcal K_0$.
 
-        Choose an arbitrary linear ordering $\prec$ on $\dom(A_0)$. Since
-        \[
-            \mathcal K=\mathcal K_0 * \mathcal{LO},
-        \]
+        Choose an arbitrary linear ordering $\prec$ on $\dom(A_0)$. Since \(\mathcal K=\mathcal K_0 * \mathcal{LO}\),
         every linear ordering of the underlying set of a member of $\mathcal K_0$ yields a structure in $\mathcal K$. We now choose linear orderings $\prec_B$ on $\dom(B_0)$ and $\prec_C$ on $\dom(C_0)$ such that:
         \begin{itemize}
-            \item $\prec_B$ extends the order transported from $\prec$ along $f$, so that
-                  \[
-                      f\colon \langle A_0,\prec\rangle \to \langle B_0,\prec_B\rangle
-                  \]
-                  is an embedding;
-            \item $\prec_C$ extends the order transported from $\prec$ along $g$, so that
-                  \[
-                      g\colon \langle A_0,\prec\rangle \to \langle C_0,\prec_C\rangle
-                  \]
-                  is an embedding;
+            \item $\prec_B$ extends the order transported from $\prec$ along $f$, so that \(f\colon \langle A_0,\prec\rangle \to \langle B_0,\prec_B\rangle\) is an embedding;
+            \item $\prec_C$ extends the order transported from $\prec$ along $g$, so that \(g\colon \langle A_0,\prec\rangle \to \langle C_0,\prec_C\rangle\) is an embedding;
             \item every point of $f(A_0)$ is placed before every point of $B_0\setminus f(A_0)$ in $\prec_B$;
             \item every point of $C_0\setminus g(A_0)$ is placed before every point of $g(A_0)$ in $\prec_C$.
         \end{itemize}
@@ -808,88 +280,32 @@ For freely ordered expansions, amalgamation in the ordered class is controlled e
             \qquad
             C=\langle C_0,\prec_C\rangle.
         \]
-        Then
-        \[
-            A,B,C\in\mathcal K,
-        \]
-        and
-        \[
-            f\colon A\to B,
-            \qquad
-            g\colon A\to C
-        \]
-        are embeddings.
+        Then \(A,B,C\in\mathcal K\), and \(f\colon A\to B\) and \(g\colon A\to C\) are embeddings.
 
-        Since $\mathcal K$ has the amalgamation property, there exist
-        \[
-            D\in\mathcal K
-        \]
-        and embeddings
-        \[
-            r\colon B\to D,
-            \qquad
-            s\colon C\to D
-        \]
-        such that
-        \[
-            r\circ f=s\circ g.
-        \]
-        Let
-        \[
-            D_0=D\!\restriction\!L_0.
-        \]
-        Then, after forgetting the order, the maps
-        \[
-            r\colon B_0\to D_0,
-            \qquad
-            s\colon C_0\to D_0
-        \]
-        are embeddings satisfying
-        \[
-            r\circ f=s\circ g.
-        \]
+        Since $\mathcal K$ has the amalgamation property, there exist \(D\in\mathcal K\) and embeddings \(r\colon B\to D\) and \(s\colon C\to D\) such that \(r\circ f=s\circ g\). Let \(D_0=D\!\restriction\!L_0\). Then, after forgetting the order, the maps \(r\colon B_0\to D_0\) and \(s\colon C_0\to D_0\) are embeddings satisfying \(r\circ f=s\circ g\).
 
         We claim that this amalgam is strong, that is,
         \[
             r(B_0)\cap s(C_0)=r(f(A_0)).
         \]
-        Since
-        \[
-            r\circ f=s\circ g,
-        \]
-        we certainly have
-        \[
-            r(f(A_0))=s(g(A_0))\subseteq r(B_0)\cap s(C_0).
-        \]
+        Since \(r\circ f=s\circ g\), we certainly have \(r(f(A_0))=s(g(A_0))\subseteq r(B_0)\cap s(C_0)\).
         So it remains to prove the reverse inclusion.
 
-        Suppose, toward a contradiction, that there exists
-        \[
-            d\in r(B_0)\cap s(C_0)\setminus r(f(A_0)).
-        \]
+        Suppose, toward a contradiction, that there exists \(d\in r(B_0)\cap s(C_0)\setminus r(f(A_0))\).
         Then $d$ lies in both images, but not in the common image of $A_0$.
 
-        Since $d\in r(B_0)$ and $d\notin r(f(A_0))$, and since $r$ is injective, we have
-        \[
-            d\in r(B_0\setminus f(A_0)).
-        \]
+        Since $d\in r(B_0)$ and $d\notin r(f(A_0))$, and since $r$ is injective, we have \(d\in r(B_0\setminus f(A_0))\).
         By construction of $\prec_B$, every element of $f(A_0)$ precedes every element of $B_0\setminus f(A_0)$. Because $r\colon B\to D$ is an embedding of ordered structures, it preserves the order, and therefore every element of $r(f(A_0))$ precedes $d$ in $D$. In other words,
         \[
             r(f(A_0))<^D d.
         \]
 
-        On the other hand, since $d\in s(C_0)$ and $d\notin s(g(A_0))=r(f(A_0))$, injectivity of $s$ gives
-        \[
-            d\in s(C_0\setminus g(A_0)).
-        \]
+        On the other hand, since $d\in s(C_0)$ and $d\notin s(g(A_0))=r(f(A_0))$, injectivity of $s$ gives \(d\in s(C_0\setminus g(A_0))\).
         By construction of $\prec_C$, every element of $C_0\setminus g(A_0)$ precedes every element of $g(A_0)$. Since $s\colon C\to D$ is an embedding of ordered structures, it follows that
         \[
             d<^D s(g(A_0)).
         \]
-        Using
-        \[
-            s(g(A_0))=r(f(A_0)),
-        \]
+        Using \(s(g(A_0))=r(f(A_0))\),
         we obtain
         \[
             d<^D r(f(A_0)).
@@ -899,41 +315,9 @@ For freely ordered expansions, amalgamation in the ordered class is controlled e
         \[
             r(B_0)\cap s(C_0)=r(f(A_0)).
         \]
-        Hence $\mathcal K_0$ has the strong amalgamation property. This proves
-        \[
-            \text{(i)} \Rightarrow \text{(iii)}.
-        \]
+        Hence $\mathcal K_0$ has the strong amalgamation property. This proves \(\text{(i)} \Rightarrow \text{(iii)}\).
 
-        It remains to prove
-        \[
-            \text{(iii)} \Rightarrow \text{(ii)}.
-        \]
-        Assume that $\mathcal K_0$ has the strong amalgamation property. Let
-        \[
-            A,B,C\in\mathcal K
-        \]
-        and let
-        \[
-            f\colon A\to B,
-            \qquad
-            g\colon A\to C
-        \]
-        be embeddings. Passing to reducts, we obtain embeddings
-        \[
-            f\colon A_0\to B_0,
-            \qquad
-            g\colon A_0\to C_0.
-        \]
-        By strong amalgamation in $\mathcal K_0$, there exist
-        \[
-            D_0\in\mathcal K_0
-        \]
-        and embeddings
-        \[
-            r\colon B_0\to D_0,
-            \qquad
-            s\colon C_0\to D_0
-        \]
+        It remains to prove \(\text{(iii)} \Rightarrow \text{(ii)}\). Assume that $\mathcal K_0$ has the strong amalgamation property. Let \(A,B,C\in\mathcal K\), and let \(f\colon A\to B\) and \(g\colon A\to C\) be embeddings. Passing to reducts, we obtain embeddings \(f\colon A_0\to B_0\) and \(g\colon A_0\to C_0\). By strong amalgamation in $\mathcal K_0$, there exist \(D_0\in\mathcal K_0\) and embeddings \(r\colon B_0\to D_0\) and \(s\colon C_0\to D_0\)
         such that
         \[
             r\circ f=s\circ g
@@ -943,67 +327,25 @@ For freely ordered expansions, amalgamation in the ordered class is controlled e
             r(B_0)\cap s(C_0)=r(f(A_0)).
         \]
 
-        We now define a linear order on $\dom(D_0)$ making both
-        \[
-            r\colon B\to \langle D_0,\prec\rangle
-            \qquad\text{and}\qquad
-            s\colon C\to \langle D_0,\prec\rangle
-        \]
-        embeddings.
+        We now define a linear order on $\dom(D_0)$ making both \(r\colon B\to \langle D_0,\prec\rangle\) and \(s\colon C\to \langle D_0,\prec\rangle\) embeddings.
 
-        First note that the orders on $B$ and $C$ induce linear orders on the subsets
-        \[
-            r(B_0)\subseteq D_0
-            \qquad\text{and}\qquad
-            s(C_0)\subseteq D_0.
-        \]
+        First note that the orders on $B$ and $C$ induce linear orders on the subsets \(r(B_0)\subseteq D_0\) and \(s(C_0)\subseteq D_0\).
         These two induced orders agree on the intersection
         \[
             r(B_0)\cap s(C_0)=r(f(A_0))=s(g(A_0)),
         \]
-        because
-        \[
-            r\circ f=s\circ g
-        \]
-        and the maps $f$ and $g$ are embeddings of ordered structures. Hence the two orders combine to a well-defined linear order on the union
-        \[
-            U:=r(B_0)\cup s(C_0).
-        \]
+        because \(r\circ f=s\circ g\) and the maps $f$ and $g$ are embeddings of ordered structures. Hence the two orders combine to a well-defined linear order on the union \(U:=r(B_0)\cup s(C_0)\).
 
-        Now choose any linear ordering of the remaining set
-        \[
-            D_0\setminus U,
-        \]
+        Now choose any linear ordering of the remaining set \(D_0\setminus U\),
         and place all of these remaining elements after the elements of $U$. In this way we obtain a linear order $\prec$ on all of $\dom(D_0)$ extending the induced orders on both $r(B_0)$ and $s(C_0)$.
 
-        Put
-        \[
-            D=\langle D_0,\prec\rangle.
-        \]
-        Since
-        \[
-            \mathcal K=\mathcal K_0 * \mathcal{LO},
-        \]
-        every linear ordering of a structure in $\mathcal K_0$ yields a member of $\mathcal K$, so
-        \[
-            D\in\mathcal K.
-        \]
-        By construction of $\prec$, the maps
-        \[
-            r\colon B\to D,
-            \qquad
-            s\colon C\to D
-        \]
-        are embeddings of ordered structures. Moreover, their images satisfy
+        Put \(D=\langle D_0,\prec\rangle\). Since \(\mathcal K=\mathcal K_0 * \mathcal{LO}\), every linear ordering of a structure in $\mathcal K_0$ yields a member of $\mathcal K$, so \(D\in\mathcal K\). By construction of $\prec$, the maps \(r\colon B\to D\) and \(s\colon C\to D\) are embeddings of ordered structures. Moreover, their images satisfy
         \[
             r(B)\cap s(C)=r(f(A))=s(g(A)),
         \]
         because the underlying $L_0$-images intersect exactly in the common copy of $A_0$.
 
-        Thus $D$ is a strong amalgam of $B$ and $C$ over $A$ in $\mathcal K$. Therefore $\mathcal K$ has the strong amalgamation property. This proves
-        \[
-            \text{(iii)} \Rightarrow \text{(ii)}.
-        \]
+        Thus $D$ is a strong amalgam of $B$ and $C$ over $A$ in $\mathcal K$. Therefore $\mathcal K$ has the strong amalgamation property. This proves \(\text{(iii)} \Rightarrow \text{(ii)}\).
 
         We have shown
         \[
@@ -1022,57 +364,11 @@ The same argument gives the corresponding statement for strong joint embedding.
 \end{corollary}
 
 \begin{proof}
-    Assume first that $\mathcal K$ has the strong joint embedding property. Let
-    \[
-        B_0,C_0\in\mathcal K_0.
-    \]
-    Choose arbitrary linear orderings on their domains and form
-    \[
-        B=\langle B_0,\prec_B\rangle,
-        \qquad
-        C=\langle C_0,\prec_C\rangle
-    \]
-    in $\mathcal K$. By strong joint embedding in $\mathcal K$, there exist
-    \[
-        D\in\mathcal K
-    \]
-    and embeddings
-    \[
-        r\colon B\to D,
-        \qquad
-        s\colon C\to D
-    \]
+    Assume first that $\mathcal K$ has the strong joint embedding property. Let \(B_0,C_0\in\mathcal K_0\). Choose arbitrary linear orderings on their domains and form \(B=\langle B_0,\prec_B\rangle\) and \(C=\langle C_0,\prec_C\rangle\) in $\mathcal K$. By strong joint embedding in $\mathcal K$, there exist \(D\in\mathcal K\) and embeddings \(r\colon B\to D\) and \(s\colon C\to D\)
     with disjoint images. Passing to reducts shows that $\mathcal K_0$ has the strong joint embedding property.
 
-    Conversely, assume that $\mathcal K_0$ has the strong joint embedding property. Let
-    \[
-        B,C\in\mathcal K.
-    \]
-    Then there exist
-    \[
-        D_0\in\mathcal K_0
-    \]
-    and embeddings
-    \[
-        r\colon B_0\to D_0,
-        \qquad
-        s\colon C_0\to D_0
-    \]
-    with disjoint images. Since the images are disjoint, the linear orders on $B$ and $C$ may be combined into a linear ordering $\prec$ of $\dom(D_0)$. Setting
-    \[
-        D=\langle D_0,\prec\rangle,
-    \]
-    we have
-    \[
-        D\in\mathcal K,
-    \]
-    and the embeddings
-    \[
-        r\colon B\to D,
-        \qquad
-        s\colon C\to D
-    \]
-    have disjoint images. Thus $\mathcal K$ has the strong joint embedding property.
+    Conversely, assume that $\mathcal K_0$ has the strong joint embedding property. Let \(B,C\in\mathcal K\). Then there exist \(D_0\in\mathcal K_0\) and embeddings \(r\colon B_0\to D_0\) and \(s\colon C_0\to D_0\)
+    with disjoint images. Since the images are disjoint, the linear orders on $B$ and $C$ may be combined into a linear ordering $\prec$ of $\dom(D_0)$. Setting \(D=\langle D_0,\prec\rangle\), we have \(D\in\mathcal K\), and the embeddings \(r\colon B\to D\) and \(s\colon C\to D\) have disjoint images. Thus $\mathcal K$ has the strong joint embedding property.
 \end{proof}
 \begin{mynote}
     \begin{proof}
@@ -1082,96 +378,29 @@ The same argument gives the corresponding statement for strong joint embedding.
 
         \noindent
         \emph{Assume first that $\mathcal K$ has the strong joint embedding property.}
-        Let
-        \[
-            B_0,C_0\in\mathcal K_0.
-        \]
+        Let \(B_0,C_0\in\mathcal K_0\).
         We must show that $B_0$ and $C_0$ admit a strong joint embedding in $\mathcal K_0$.
 
-        Since $B_0,C_0\in\mathcal K_0$, there exist linear orderings $\prec_B$ on $\dom(B_0)$ and $\prec_C$ on $\dom(C_0)$ such that
-        \[
-            B=\langle B_0,\prec_B\rangle\in\mathcal K,
-            \qquad
-            C=\langle C_0,\prec_C\rangle\in\mathcal K.
-        \]
-        Because $\mathcal K$ has the strong joint embedding property, there exist
-        \[
-            D\in\mathcal K
-        \]
-        and embeddings
-        \[
-            r\colon B\to D,
-            \qquad
-            s\colon C\to D
-        \]
-        such that
-        \[
-            r(B)\cap s(C)=\emptyset.
-        \]
+        Since $B_0,C_0\in\mathcal K_0$, there exist linear orderings $\prec_B$ on $\dom(B_0)$ and $\prec_C$ on $\dom(C_0)$ such that \(B=\langle B_0,\prec_B\rangle\in\mathcal K\) and \(C=\langle C_0,\prec_C\rangle\in\mathcal K\). Because $\mathcal K$ has the strong joint embedding property, there exist \(D\in\mathcal K\) and embeddings \(r\colon B\to D\) and \(s\colon C\to D\) such that \(r(B)\cap s(C)=\emptyset\).
 
-        Let
-        \[
-            D_0=D\!\restriction\!L_0.
-        \]
-        Forgetting the order does not affect the interpretations of the symbols in $L_0$, so the same maps are embeddings
-        \[
-            r\colon B_0\to D_0,
-            \qquad
-            s\colon C_0\to D_0.
-        \]
-        Moreover, since the underlying sets of $r(B)$ and $r(B_0)$ coincide, and likewise for $s(C)$ and $s(C_0)$, the disjointness of the images is preserved after passing to reducts:
-        \[
-            r(B_0)\cap s(C_0)=\emptyset.
-        \]
+        Let \(D_0=D\!\restriction\!L_0\). Forgetting the order does not affect the interpretations of the symbols in $L_0$, so the same maps are embeddings \(r\colon B_0\to D_0\) and \(s\colon C_0\to D_0\). Moreover, since the underlying sets of $r(B)$ and $r(B_0)$ coincide, and likewise for $s(C)$ and $s(C_0)$, the disjointness of the images is preserved after passing to reducts: \(r(B_0)\cap s(C_0)=\emptyset\).
         Thus $B_0$ and $C_0$ admit disjoint embeddings into a common member $D_0$ of $\mathcal K_0$. Therefore $\mathcal K_0$ has the strong joint embedding property.
 
         \medskip
 
         \noindent
         \emph{Conversely, assume that $\mathcal K_0$ has the strong joint embedding property.}
-        Let
-        \[
-            B,C\in\mathcal K.
-        \]
+        Let \(B,C\in\mathcal K\).
         We must show that $B$ and $C$ admit a strong joint embedding in $\mathcal K$.
 
-        Passing to reducts, we have
-        \[
-            B_0,C_0\in\mathcal K_0.
-        \]
-        Since $\mathcal K_0$ has the strong joint embedding property, there exist
-        \[
-            D_0\in\mathcal K_0
-        \]
-        and embeddings
-        \[
-            r\colon B_0\to D_0,
-            \qquad
-            s\colon C_0\to D_0
-        \]
-        such that
-        \[
-            r(B_0)\cap s(C_0)=\emptyset.
-        \]
+        Passing to reducts, we have \(B_0,C_0\in\mathcal K_0\). Since $\mathcal K_0$ has the strong joint embedding property, there exist \(D_0\in\mathcal K_0\) and embeddings \(r\colon B_0\to D_0\) and \(s\colon C_0\to D_0\) such that \(r(B_0)\cap s(C_0)=\emptyset\).
 
-        We now define a linear ordering on $\dom(D_0)$ which makes both
-        \[
-            r\colon B\to \langle D_0,\prec\rangle
-            \qquad\text{and}\qquad
-            s\colon C\to \langle D_0,\prec\rangle
-        \]
-        embeddings of ordered structures.
+        We now define a linear ordering on $\dom(D_0)$ which makes both \(r\colon B\to \langle D_0,\prec\rangle\) and \(s\colon C\to \langle D_0,\prec\rangle\) embeddings of ordered structures.
 
-        First, the order on $B$ induces a linear order on the subset $r(B_0)\subseteq D_0$ via the embedding $r$, and the order on $C$ induces a linear order on the subset $s(C_0)\subseteq D_0$ via the embedding $s$. Since
-        \[
-            r(B_0)\cap s(C_0)=\emptyset,
-        \]
+        First, the order on $B$ induces a linear order on the subset $r(B_0)\subseteq D_0$ via the embedding $r$, and the order on $C$ induces a linear order on the subset $s(C_0)\subseteq D_0$ via the embedding $s$. Since \(r(B_0)\cap s(C_0)=\emptyset\),
         these two induced orders are defined on disjoint subsets of $\dom(D_0)$, so there is no compatibility issue between them.
 
-        Let
-        \[
-            U:=r(B_0)\cup s(C_0).
-        \]
+        Let \(U:=r(B_0)\cup s(C_0)\).
         Define a linear order on $U$ by requiring:
         \begin{itemize}
             \item the order on $r(B_0)$ to be exactly the order transported from $B$ along $r$;
@@ -1180,53 +409,20 @@ The same argument gives the corresponding statement for strong joint embedding.
         \end{itemize}
         This gives a linear order on $U$.
 
-        Next, choose any linear ordering of the remaining set
-        \[
-            D_0\setminus U,
-        \]
+        Next, choose any linear ordering of the remaining set \(D_0\setminus U\),
         and extend the order on $U$ to a linear ordering $\prec$ of all of $\dom(D_0)$ by placing all elements of $D_0\setminus U$ after the elements of $U$. Thus we obtain a linear ordering $\prec$ on $\dom(D_0)$.
 
-        Put
-        \[
-            D=\langle D_0,\prec\rangle.
-        \]
-        Since
-        \[
-            \mathcal K=\mathcal K_0 * \mathcal{LO},
-        \]
-        every linear ordering of the domain of a structure in $\mathcal K_0$ yields a member of $\mathcal K$. Hence
-        \[
-            D\in\mathcal K.
-        \]
+        Put \(D=\langle D_0,\prec\rangle\). Since \(\mathcal K=\mathcal K_0 * \mathcal{LO}\), every linear ordering of the domain of a structure in $\mathcal K_0$ yields a member of $\mathcal K$. Hence \(D\in\mathcal K\).
 
-        By construction of $\prec$, the map
-        \[
-            r\colon B\to D
-        \]
-        preserves the $L_0$-structure and also preserves the linear order, because the restriction of $\prec$ to $r(B_0)$ is exactly the order induced from $B$. Therefore $r$ is an embedding of $L$-structures. Similarly,
-        \[
-            s\colon C\to D
-        \]
-        is an embedding of $L$-structures.
+        By construction of $\prec$, the map \(r\colon B\to D\) preserves the $L_0$-structure and also preserves the linear order, because the restriction of $\prec$ to $r(B_0)$ is exactly the order induced from $B$. Therefore $r$ is an embedding of $L$-structures. Similarly, \(s\colon C\to D\) is an embedding of $L$-structures.
 
-        Finally, the images remain disjoint:
-        \[
-            r(B)\cap s(C)=\emptyset,
-        \]
-        because their underlying $L_0$-images satisfy
-        \[
-            r(B_0)\cap s(C_0)=\emptyset.
-        \]
+        Finally, the images remain disjoint, \(r(B)\cap s(C)=\emptyset\), because their underlying $L_0$-images satisfy \(r(B_0)\cap s(C_0)=\emptyset\).
         Thus $B$ and $C$ admit disjoint embeddings into the common structure $D\in\mathcal K$.
 
         Therefore $\mathcal K$ has the strong joint embedding property.
     \end{proof}
 \end{mynote}
-In particular, if $\mathcal K_0$ is a Fra\"iss\'e class with the strong amalgamation property, then
-\[
-    \mathcal K_0 * \mathcal{LO}
-\]
-is a reasonable Fra\"iss\'e order class. Many of the ordered graph, hypergraph, and metric-space classes considered earlier arise in exactly this way.
+In particular, if $\mathcal K_0$ is a Fra\"iss\'e class with the strong amalgamation property, then \(\mathcal K_0 * \mathcal{LO}\) is a reasonable Fra\"iss\'e order class. Many of the ordered graph, hypergraph, and metric-space classes considered earlier arise in exactly this way.
 
 \section{Order-forgetful expansions and Ramsey transfer}
 
@@ -1234,22 +430,7 @@ We conclude with a special situation in which the passage between an ordered cla
 
 \begin{definition}
     \label{def:order-forgetful}
-    Let $L\supseteq\{<\}$ be a signature, let
-    \[
-        L_0=L\setminus\{<\},
-    \]
-    and let $\mathcal K$ be a class of finite $L$-structures. We say that $\mathcal K$ is \emph{order forgetful} if whenever
-    \[
-        A,B\in\mathcal K
-    \]
-    satisfy
-    \[
-        A_0\cong B_0,
-    \]
-    it follows that
-    \[
-        A\cong B.
-    \]
+    Let $L\supseteq\{<\}$ be a signature, let \(L_0=L\setminus\{<\}\), and let $\mathcal K$ be a class of finite $L$-structures. We say that $\mathcal K$ is \emph{order forgetful} if whenever \(A,B\in\mathcal K\) satisfy \(A_0\cong B_0\), it follows that \(A\cong B\).
     Equivalently, for every isomorphism type in the reduct class $\mathcal K_0$, there is at most one isomorphism type in $\mathcal K$ lying above it.
 \end{definition}
 
@@ -1259,107 +440,57 @@ For hereditary order-forgetful classes, the Ramsey property passes directly betw
 
 \begin{proposition}
     \label{prop:order-forgetful-ramsey}
-    Let $L\supseteq\{<\}$ be a signature, let
-    \[
-        L_0=L\setminus\{<\},
-    \]
-    and let $\mathcal K$ be a hereditary order-forgetful class of finite $L$-structures. Put
-    \[
-        \mathcal K_0=\{A_0 : A\in\mathcal K\}.
-    \]
+    Let $L\supseteq\{<\}$ be a signature, let \(L_0=L\setminus\{<\}\), and let $\mathcal K$ be a hereditary order-forgetful class of finite $L$-structures. Put \(\mathcal K_0=\{A_0 : A\in\mathcal K\}\).
     Then $\mathcal K$ has the Ramsey property if and only if $\mathcal K_0$ has the Ramsey property.
 \end{proposition}
 
 \begin{proof}
-    Assume first that $\mathcal K$ has the Ramsey property. Let
+    Assume first that $\mathcal K$ has the Ramsey property. Let \(A_0\leq B_0\) be structures in $\mathcal K_0$, and let $k\geq 2$. Choose an expansion \(B\in\mathcal K\) with reduct $B_0$. Since $A_0\leq B_0$, there is a copy $A_0'\subseteq B_0$ of $A_0$. Let $A'$ be the ordered structure induced on $A_0'$ by the order of $B$. Because $\mathcal K$ is hereditary, we have \(A'\in\mathcal K\).
+    Since $\mathcal K$ is order forgetful and $A_0'\cong A_0$, every expansion of $A_0$ in $\mathcal K$ is isomorphic to $A'$. In particular, if $A\in\mathcal K$ is any expansion of $A_0$, then \(A\cong A'\leq B\).
+    Hence, replacing $A$ by an isomorphic copy if necessary, we may apply the
+    Ramsey property of $\mathcal K$ to the pair $A\leq B$. Choose
+    \(C\in\mathcal K\) such that
     \[
-        A_0\leq B_0
+        C\to (B)^A_k,
     \]
-    be structures in $\mathcal K_0$, and let $k\geq 2$. Choose an expansion
-    \[
-        B\in\mathcal K
-    \]
-    with reduct $B_0$. Since $A_0\leq B_0$, there is a copy $A_0'\subseteq B_0$ of $A_0$. Let $A'$ be the ordered structure induced on $A_0'$ by the order of $B$. Because $\mathcal K$ is hereditary, we have
-    \[
-        A'\in\mathcal K.
-    \]
-    Since $\mathcal K$ is order forgetful and $A_0'\cong A_0$, every expansion of $A_0$ in $\mathcal K$ is isomorphic to $A'$. In particular, if $A\in\mathcal K$ is any expansion of $A_0$, then
-    \[
-        A\cong A'\leq B.
-    \]
-    Hence, replacing $A$ by an isomorphic copy if necessary, we may apply the Ramsey property of $\mathcal K$ to the pair $A\leq B$. We claim that
+    and let \(C_0=C\!\restriction\!L_0\). We claim that
     \[
         C_0\to (B_0)^{A_0}_k.
     \]
 
     Let
-    \[
-        c_0\colon \begin{pmatrix} C_0 \\ A_0 \end{pmatrix}\to\{1,\dots,k\}
-    \]
+    \(c_0\colon \begin{pmatrix} C_0 \\ A_0 \end{pmatrix}\to\{1,\dots,k\}\)
     be a coloring. Every copy $A_0'\subseteq C_0$ inherits from $C$ a linear ordering, and since $\mathcal K$ is hereditary, the induced ordered structure on $A_0'$ belongs to $\mathcal K$. Because $\mathcal K$ is order forgetful and $A_0'\cong A_0$, this induced ordered structure is isomorphic to $A$. Hence $c_0$ induces a coloring
-    \[
-        c\colon \begin{pmatrix} C \\ A \end{pmatrix}\to\{1,\dots,k\}
-    \]
-    by setting
-    \[
-        c(A')=c_0(A_0'),
-    \]
+    \(c\colon \begin{pmatrix} C \\ A \end{pmatrix}\to\{1,\dots,k\}\)
+    by setting \(c(A')=c_0(A_0')\),
     where $A_0'$ is the underlying reduct of the copy $A'$.
 
-    Choose
-    \[
-        B'\in \begin{pmatrix} C \\ B \end{pmatrix}
-    \]
+    Choose \(B'\in \begin{pmatrix} C \\ B \end{pmatrix}\)
     homogeneous for $c$. Then the reduct $B_0'$ is a copy of $B_0$ in $C_0$, and every copy of $A_0$ inside $B_0'$ inherits an ordered structure isomorphic to $A$. Since $B'$ is homogeneous for $c$, it follows that $B_0'$ is homogeneous for $c_0$. Thus
     \[
         C_0\to (B_0)^{A_0}_k,
     \]
     and $\mathcal K_0$ has the Ramsey property.
 
-    Conversely, assume that $\mathcal K_0$ has the Ramsey property. Let
-    \[
-        A\leq B
-    \]
-    be structures in $\mathcal K$, and let $k\geq 2$. Since $\mathcal K_0$ has the Ramsey property, there exists
-    \[
-        C_0\in\mathcal K_0
-    \]
+    Conversely, assume that $\mathcal K_0$ has the Ramsey property. Let \(A\leq B\) be structures in $\mathcal K$, and let $k\geq 2$. Since $\mathcal K_0$ has the Ramsey property, there exists \(C_0\in\mathcal K_0\)
     such that
     \[
         C_0\to (B_0)^{A_0}_k.
     \]
-    Choose any expansion
-    \[
-        C\in\mathcal K
-    \]
-    with reduct $C_0$.
+    Choose any expansion \(C\in\mathcal K\) with reduct $C_0$.
 
     We claim that
     \[
         C\to (B)^A_k.
     \]
-    Let
-    \[
-        c\colon \begin{pmatrix} C \\ A \end{pmatrix}\to\{1,\dots,k\}
-    \]
+    Let \(c\colon \begin{pmatrix} C \\ A \end{pmatrix}\to\{1,\dots,k\}\)
     be a coloring. Define
-    \[
-        c_0\colon \begin{pmatrix} C_0 \\ A_0 \end{pmatrix}\to\{1,\dots,k\}
-    \]
-    by
-    \[
-        c_0(A_0')=c(A'),
-    \]
+    \(c_0\colon \begin{pmatrix} C_0 \\ A_0 \end{pmatrix}\to\{1,\dots,k\}\)
+    by \(c_0(A_0')=c(A')\),
     where $A'$ is the ordered structure induced on $A_0'$ by the order of $C$. This is well defined because $\mathcal K$ is hereditary, and $A'$ is isomorphic to $A$ by order forgetfulness.
 
-    Choose
-    \[
-        B_0'\in \begin{pmatrix} C_0 \\ B_0 \end{pmatrix}
-    \]
-    homogeneous for $c_0$. Let $B'$ be the ordered structure induced on $B_0'$ by the order of $C$. Again, since $\mathcal K$ is hereditary and order forgetful, we have
-    \[
-        B'\cong B.
-    \]
+    Choose \(B_0'\in \begin{pmatrix} C_0 \\ B_0 \end{pmatrix}\)
+    homogeneous for $c_0$. Let $B'$ be the ordered structure induced on $B_0'$ by the order of $C$. Again, since $\mathcal K$ is hereditary and order forgetful, we have \(B'\cong B\).
     Moreover, every copy of $A$ inside $B'$ has the same $c$-color, because the corresponding copies of $A_0$ inside $B_0'$ all have the same $c_0$-color. Hence $B'$ is homogeneous for $c$, and therefore
     \[
         C\to (B)^A_k.
@@ -1376,74 +507,34 @@ For hereditary order-forgetful classes, the Ramsey property passes directly betw
         \emph{Assume first that $\mathcal K$ has the Ramsey property.}
         We show that $\mathcal K_0$ has the Ramsey property.
 
-        Let
-        \[
-            A_0 \leq B_0
-        \]
-        be structures in $\mathcal K_0$, and let $k\geq 2$. We must find
-        \[
-            C_0\in\mathcal K_0
-        \]
+        Let \(A_0 \leq B_0\) be structures in $\mathcal K_0$, and let $k\geq 2$. We must find \(C_0\in\mathcal K_0\)
         such that
         \[
             C_0 \to (B_0)^{A_0}_k.
         \]
 
-        Since $B_0\in\mathcal K_0$, there exists an expansion
-        \[
-            B\in\mathcal K
-        \]
-        whose reduct is $B_0$. Because $A_0\leq B_0$, there is a copy of $A_0$ inside $B_0$. Let $A_0'\subseteq B_0$ be such a copy, and let $A'$ be the ordered structure induced on $A_0'$ by the order of $B$. Since $\mathcal K$ is hereditary, we have
-        \[
-            A'\in\mathcal K.
-        \]
+        Since $B_0\in\mathcal K_0$, there exists an expansion \(B\in\mathcal K\) whose reduct is $B_0$. Because $A_0\leq B_0$, there is a copy of $A_0$ inside $B_0$. Let $A_0'\subseteq B_0$ be such a copy, and let $A'$ be the ordered structure induced on $A_0'$ by the order of $B$. Since $\mathcal K$ is hereditary, we have \(A'\in\mathcal K\).
 
-        Now let $A\in\mathcal K$ be any expansion of $A_0$. Since
-        \[
-            A_0 \cong A_0',
-        \]
-        and $\mathcal K$ is order forgetful, it follows that
-        \[
-            A \cong A'.
-        \]
-        In particular, $A$ embeds into $B$. Replacing $A$ by an isomorphic copy if necessary, we may assume that
-        \[
-            A \leq B.
-        \]
+        Now let $A\in\mathcal K$ be any expansion of $A_0$. Since \(A_0 \cong A_0'\) and $\mathcal K$ is order forgetful, it follows that \(A \cong A'\). In particular, $A$ embeds into $B$. Replacing $A$ by an isomorphic copy if necessary, we may assume that \(A \leq B\).
 
-        Since $\mathcal K$ has the Ramsey property, there exists
-        \[
-            C\in\mathcal K
-        \]
+        Since $\mathcal K$ has the Ramsey property, there exists \(C\in\mathcal K\)
         such that
         \[
             C \to (B)^A_k.
         \]
-        Let
-        \[
-            C_0=C\!\restriction\!L_0.
-        \]
+        Let \(C_0=C\!\restriction\!L_0\).
         We claim that
         \[
             C_0 \to (B_0)^{A_0}_k.
         \]
 
         Let
-        \[
-            c_0\colon \begin{pmatrix} C_0 \\ A_0 \end{pmatrix}\to\{1,\dots,k\}
-        \]
+        \(c_0\colon \begin{pmatrix} C_0 \\ A_0 \end{pmatrix}\to\{1,\dots,k\}\)
         be any coloring. We define a coloring
-        \[
-            c\colon \begin{pmatrix} C \\ A \end{pmatrix}\to\{1,\dots,k\}
-        \]
+        \(c\colon \begin{pmatrix} C \\ A \end{pmatrix}\to\{1,\dots,k\}\)
         as follows. If
-        \[
-            \widetilde A\in \begin{pmatrix} C \\ A \end{pmatrix},
-        \]
-        let $\widetilde A_0$ be its reduct to $L_0$, which is a copy of $A_0$ in $C_0$, and set
-        \[
-            c(\widetilde A)=c_0(\widetilde A_0).
-        \]
+        \(\widetilde A\in \begin{pmatrix} C \\ A \end{pmatrix}\),
+        let $\widetilde A_0$ be its reduct to $L_0$, which is a copy of $A_0$ in $C_0$, and set \(c(\widetilde A)=c_0(\widetilde A_0)\).
         This is well defined, since every copy $\widetilde A$ of $A$ in $C$ has underlying reduct a copy of $A_0$ in $C_0$.
 
         Because
@@ -1451,33 +542,16 @@ For hereditary order-forgetful classes, the Ramsey property passes directly betw
             C \to (B)^A_k,
         \]
         there exists
-        \[
-            \widetilde B\in \begin{pmatrix} C \\ B \end{pmatrix}
-        \]
+        \(\widetilde B\in \begin{pmatrix} C \\ B \end{pmatrix}\)
         such that all copies of $A$ inside $\widetilde B$ have the same $c$-color.
 
-        Let
-        \[
-            \widetilde B_0=\widetilde B\!\restriction\!L_0.
-        \]
+        Let \(\widetilde B_0=\widetilde B\!\restriction\!L_0\).
         Then $\widetilde B_0$ is a copy of $B_0$ in $C_0$.
 
         We show that $\widetilde B_0$ is homogeneous for $c_0$. Let
-        \[
-            X_0\in \begin{pmatrix} \widetilde B_0 \\ A_0 \end{pmatrix}.
-        \]
-        The order on $\widetilde B$ induces an ordered structure $X$ on $X_0$. Since $\mathcal K$ is hereditary,
-        \[
-            X\in\mathcal K.
-        \]
-        Also, since $X_0\cong A_0$ and $\mathcal K$ is order forgetful, we have
-        \[
-            X\cong A.
-        \]
-        Thus $X$ is a copy of $A$ inside $\widetilde B$, so its $c$-color is the common color of all copies of $A$ in $\widetilde B$. By definition of $c$,
-        \[
-            c(X)=c_0(X_0).
-        \]
+        \(X_0\in \begin{pmatrix} \widetilde B_0 \\ A_0 \end{pmatrix}\).
+        The order on $\widetilde B$ induces an ordered structure $X$ on $X_0$. Since $\mathcal K$ is hereditary, \(X\in\mathcal K\). Also, since $X_0\cong A_0$ and $\mathcal K$ is order forgetful, we have \(X\cong A\).
+        Thus $X$ is a copy of $A$ inside $\widetilde B$, so its $c$-color is the common color of all copies of $A$ in $\widetilde B$. By definition of $c$, \(c(X)=c_0(X_0)\).
         Therefore every copy $X_0$ of $A_0$ inside $\widetilde B_0$ has the same $c_0$-color. Hence $\widetilde B_0$ is homogeneous for $c_0$.
 
         Since the coloring $c_0$ was arbitrary, this proves that
@@ -1492,53 +566,24 @@ For hereditary order-forgetful classes, the Ramsey property passes directly betw
         \emph{Conversely, assume that $\mathcal K_0$ has the Ramsey property.}
         We show that $\mathcal K$ has the Ramsey property.
 
-        Let
-        \[
-            A \leq B
-        \]
-        be structures in $\mathcal K$, and let $k\geq 2$. Since $\mathcal K_0$ has the Ramsey property, there exists
-        \[
-            C_0\in\mathcal K_0
-        \]
+        Let \(A \leq B\) be structures in $\mathcal K$, and let $k\geq 2$. Since $\mathcal K_0$ has the Ramsey property, there exists \(C_0\in\mathcal K_0\)
         such that
         \[
             C_0 \to (B_0)^{A_0}_k.
         \]
-        Choose an expansion
-        \[
-            C\in\mathcal K
-        \]
-        with reduct $C_0$.
+        Choose an expansion \(C\in\mathcal K\) with reduct $C_0$.
 
         We claim that
         \[
             C \to (B)^A_k.
         \]
 
-        Let
-        \[
-            c\colon \begin{pmatrix} C \\ A \end{pmatrix}\to\{1,\dots,k\}
-        \]
+        Let \(c\colon \begin{pmatrix} C \\ A \end{pmatrix}\to\{1,\dots,k\}\)
         be any coloring. We define a coloring
-        \[
-            c_0\colon \begin{pmatrix} C_0 \\ A_0 \end{pmatrix}\to\{1,\dots,k\}
-        \]
+        \(c_0\colon \begin{pmatrix} C_0 \\ A_0 \end{pmatrix}\to\{1,\dots,k\}\)
         as follows. If
-        \[
-            X_0\in \begin{pmatrix} C_0 \\ A_0 \end{pmatrix},
-        \]
-        let $X$ be the ordered structure induced on $X_0$ by the order of $C$. Since $\mathcal K$ is hereditary,
-        \[
-            X\in\mathcal K.
-        \]
-        Moreover, because $X_0\cong A_0$ and $\mathcal K$ is order forgetful, we have
-        \[
-            X\cong A.
-        \]
-        Thus $X$ is a copy of $A$ in $C$, and we may define
-        \[
-            c_0(X_0)=c(X).
-        \]
+        \(X_0\in \begin{pmatrix} C_0 \\ A_0 \end{pmatrix}\),
+        let $X$ be the ordered structure induced on $X_0$ by the order of $C$. Since $\mathcal K$ is hereditary, \(X\in\mathcal K\). Moreover, because $X_0\cong A_0$ and $\mathcal K$ is order forgetful, we have \(X\cong A\). Thus $X$ is a copy of $A$ in $C$, and we may define \(c_0(X_0)=c(X)\).
         This is well defined because the order on $C$ determines a unique induced ordered structure on each copy $X_0$ of $A_0$.
 
         Since
@@ -1546,33 +591,16 @@ For hereditary order-forgetful classes, the Ramsey property passes directly betw
             C_0 \to (B_0)^{A_0}_k,
         \]
         there exists
-        \[
-            Y_0\in \begin{pmatrix} C_0 \\ B_0 \end{pmatrix}
-        \]
+        \(Y_0\in \begin{pmatrix} C_0 \\ B_0 \end{pmatrix}\)
         such that all copies of $A_0$ inside $Y_0$ have the same $c_0$-color.
 
-        Let $Y$ be the ordered structure induced on $Y_0$ by the order of $C$. Since $\mathcal K$ is hereditary,
-        \[
-            Y\in\mathcal K.
-        \]
-        Because $Y_0\cong B_0$ and $\mathcal K$ is order forgetful, it follows that
-        \[
-            Y\cong B.
-        \]
+        Let $Y$ be the ordered structure induced on $Y_0$ by the order of $C$. Since $\mathcal K$ is hereditary, \(Y\in\mathcal K\). Because $Y_0\cong B_0$ and $\mathcal K$ is order forgetful, it follows that \(Y\cong B\).
         Hence $Y$ is a copy of $B$ in $C$.
 
         We show that $Y$ is homogeneous for $c$. Let
-        \[
-            X\in \begin{pmatrix} Y \\ A \end{pmatrix}.
-        \]
-        Let
-        \[
-            X_0=X\!\restriction\!L_0.
-        \]
-        Then $X_0$ is a copy of $A_0$ in $Y_0$. Since $Y_0$ is homogeneous for $c_0$, all such copies $X_0$ have the same $c_0$-color. By definition of $c_0$, we have
-        \[
-            c(X)=c_0(X_0).
-        \]
+        \(X\in \begin{pmatrix} Y \\ A \end{pmatrix}\).
+        Let \(X_0=X\!\restriction\!L_0\).
+        Then $X_0$ is a copy of $A_0$ in $Y_0$. Since $Y_0$ is homogeneous for $c_0$, all such copies $X_0$ have the same $c_0$-color. By definition of $c_0$, we have \(c(X)=c_0(X_0)\).
         Therefore all copies of $A$ inside $Y$ have the same $c$-color. Thus $Y$ is homogeneous for $c$.
 
         Since the coloring $c$ was arbitrary, we conclude that

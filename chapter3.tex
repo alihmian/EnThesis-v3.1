@@ -7,15 +7,7 @@ This chapter collects the general facts on topological groups that will be used 
 
 In this section we introduce the basic notion of a topological group and record several standard examples. The structural facts established here will be used later in the study of flows and universal minimal flows.
 \begin{definition}
-    Let \(G\) be a group. A topology on \(G\) is said to be \emph{compatible} with the group structure if the maps
-    \[
-        m \colon G \times G \to G, \qquad m(x,y)=xy,
-    \]
-    and
-    \[
-        i \colon G \to G, \qquad i(x)=x^{-1},
-    \]
-    are continuous, where \(G\times G\) is equipped with the product topology. A \emph{topological group} is a group together with a compatible topology.
+    Let \(G\) be a group. A topology on \(G\) is said to be \emph{compatible} with the group structure if the multiplication map \(m \colon G \times G \to G\), \(m(x,y)=xy\), and the inversion map \(i \colon G \to G\), \(i(x)=x^{-1}\), are continuous, where \(G\times G\) is equipped with the product topology. A \emph{topological group} is a group together with a compatible topology.
 \end{definition}
 
 Thus a topological group is a group for which the algebraic operations vary continuously with the topology. In particular, a topological group is simultaneously an algebraic and a topological object, and the interaction between these two structures is the source of its rigidity.
@@ -41,11 +33,7 @@ Thus a topological group is a group for which the algebraic operations vary cont
 \end{proof}
 
 \begin{example}
-    The multiplicative group
-    \[
-        \mathbb{T}=\{z\in\mathbb{C}:|z|=1\},
-    \]
-    equipped with the subspace topology inherited from \(\mathbb{C}\), is a topological group. It is called the \emph{circle group}.
+    The multiplicative group \(\mathbb{T}=\{z\in\mathbb{C}:|z|=1\}\), equipped with the subspace topology inherited from \(\mathbb{C}\), is a topological group. It is called the \emph{circle group}.
 \end{example}
 
 \begin{proof}
@@ -78,11 +66,7 @@ The next proposition records the basic symmetries of a topological group. It wil
 \begin{proof}
     The inversion map \(x\mapsto x^{-1}\) is continuous by definition of a topological group, and it is its own inverse, hence a homeomorphism.
 
-    The map \(x\mapsto ax\) is continuous because it is obtained by composing the continuous map
-    \[
-        x\mapsto (a,x)
-    \]
-    from \(G\) to \(G\times G\) with the multiplication map. Its inverse is the map \(x\mapsto a^{-1}x\), which is continuous by the same argument. Thus \(x\mapsto ax\) is a homeomorphism. Similarly, \(x\mapsto xb\) is a homeomorphism.
+    The map \(x\mapsto ax\) is continuous because it is obtained by composing the continuous map \(x\mapsto (a,x)\) from \(G\) to \(G\times G\) with the multiplication map. Its inverse is the map \(x\mapsto a^{-1}x\), which is continuous by the same argument. Thus \(x\mapsto ax\) is a homeomorphism. Similarly, \(x\mapsto xb\) is a homeomorphism.
 
     The map \(x\mapsto axb\) is the composition of the two homeomorphisms \(x\mapsto ax\) and \(x\mapsto xb\), so it is again a homeomorphism. Finally, \(x\mapsto axa^{-1}\) is a special case of the previous map.
 \end{proof}
@@ -111,14 +95,7 @@ By Proposition~\ref{prop:translations-homeomorphisms}, every left and right tran
 \begin{proof}
     Properties \((1)\), \((2)\), and \((6)\) are true for the neighborhood filter of any point in a topological space.
 
-    For \((3)\), let \(V \in \mathcal{V}\). Since the multiplication map
-    \[
-        m \colon G \times G \to G, \qquad m(x,y)=xy,
-    \]
-    is continuous at \((e,e)\) and \(m(e,e)=e\), there exist neighborhoods \(W_1\) and \(W_2\) of \(e\) such that
-    \[
-        W_1W_2 \subseteq V.
-    \]
+    For \((3)\), let \(V \in \mathcal{V}\). Since the multiplication map \(m \colon G \times G \to G\), \(m(x,y)=xy\), is continuous at \((e,e)\) and \(m(e,e)=e\), there exist neighborhoods \(W_1\) and \(W_2\) of \(e\) such that \(W_1W_2 \subseteq V\).
     Setting \(W=W_1 \cap W_2\), we still have \(W \in \mathcal{V}\), and then
     \[
         WW \subseteq W_1W_2 \subseteq V.
@@ -126,11 +103,7 @@ By Proposition~\ref{prop:translations-homeomorphisms}, every left and right tran
 
     Property \((4)\) follows because inversion is a homeomorphism of \(G\) fixing \(e\).
 
-    Property \((5)\) follows because the map
-    \[
-        x \mapsto axa^{-1}
-    \]
-    is a homeomorphism of \(G\) fixing \(e\).
+    Property \((5)\) follows because the map \(x \mapsto axa^{-1}\) is a homeomorphism of \(G\) fixing \(e\).
 \end{proof}
 
 The preceding theorem shows that the neighborhoods of \(e\) satisfy strong algebraic compatibility conditions. Conversely, such a family determines a unique group topology.
@@ -145,10 +118,7 @@ The preceding theorem shows that the neighborhoods of \(e\) satisfy strong algeb
 \end{theorem}
 
 \begin{proof}
-    For each \(a \in G\), define
-    \[
-        \mathcal{V}_a=\{aV:V\in\mathcal{V}\}.
-    \]
+    For each \(a \in G\), define \(\mathcal{V}_a=\{aV:V\in\mathcal{V}\}\).
     We claim that the family \((\mathcal{V}_a)_{a \in G}\) is the neighborhood system of a topology on \(G\).
 
     First, every set in \(\mathcal{V}_a\) contains \(a\), since \(e \in V\) for every \(V \in \mathcal{V}\). Also, \(\mathcal{V}_a\) is closed under finite intersections and upward inclusion, because \(\mathcal{V}\) has the corresponding properties.
@@ -161,14 +131,7 @@ The preceding theorem shows that the neighborhoods of \(e\) satisfy strong algeb
 
     By construction, \(\mathcal{V}\) is the collection of neighborhoods of \(e\). We now show that the group operations are continuous.
 
-    Let \(a,b \in G\), and let \(abV\) be a neighborhood of \(ab\), where \(V \in \mathcal{V}\). By \((3)\), choose \(W \in \mathcal{V}\) such that \(WW \subseteq V\). By \((5)\), the set \(bWb^{-1}\) belongs to \(\mathcal{V}\) . Hence
-    \[
-        U := W \cap bWb^{-1}
-    \]
-    also belongs to \(\mathcal{V}\). We show that
-    \[
-        (aU)(bU)\subseteq abV.
-    \]
+    Let \(a,b \in G\), and let \(abV\) be a neighborhood of \(ab\), where \(V \in \mathcal{V}\). By \((3)\), choose \(W \in \mathcal{V}\) such that \(WW \subseteq V\). By \((5)\), the set \(bWb^{-1}\) belongs to \(\mathcal{V}\). Hence \(U := W \cap bWb^{-1}\) also belongs to \(\mathcal{V}\). We show that \((aU)(bU)\subseteq abV\).
     Indeed, if \(u_1,u_2 \in U\), then
     \[
         (au_1)(bu_2)=ab\,(b^{-1}u_1b)\,u_2.
@@ -179,23 +142,12 @@ The preceding theorem shows that the neighborhoods of \(e\) satisfy strong algeb
     \]
     Therefore \((au_1)(bu_2) \in abV\), proving continuity of multiplication.
 
-    To prove continuity of inversion, let \(a \in G\) and let \(a^{-1}V\) be a neighborhood of \(a^{-1}\), where \(V \in \mathcal{V}\). By \((4)\) and \((5)\), the set
-    \[
-        U:=a^{-1}V^{-1}a
-    \]
-    belongs to \(\mathcal{V}\). If \(x \in aU\), then \(x=au\) for some \(u \in U\), and hence
-    \[
-        x^{-1}=u^{-1}a^{-1}.
-    \]
+    To prove continuity of inversion, let \(a \in G\) and let \(a^{-1}V\) be a neighborhood of \(a^{-1}\), where \(V \in \mathcal{V}\). By \((4)\) and \((5)\), the set \(U:=a^{-1}V^{-1}a\) belongs to \(\mathcal{V}\). If \(x \in aU\), then \(x=au\) for some \(u \in U\), and hence \(x^{-1}=u^{-1}a^{-1}\).
     Since \(u \in a^{-1}V^{-1}a\), we have \(u^{-1} \in a^{-1}Va\), so
     \[
         x^{-1}=u^{-1}a^{-1} \in a^{-1}V.
     \]
-    Thus
-    \[
-        (aU)^{-1} \subseteq a^{-1}V,
-    \]
-    and inversion is continuous at \(a\). Hence \(G\) is a topological group.
+    Thus \((aU)^{-1} \subseteq a^{-1}V\), and inversion is continuous at \(a\). Hence \(G\) is a topological group.
 
     Finally, uniqueness is immediate: in any topological group, the neighborhoods of an arbitrary point \(a\) are exactly the left translates \(aV\) of neighborhoods \(V\) of \(e\). Therefore the topology is completely determined by the neighborhood system at the identity.
 \end{proof}
@@ -242,17 +194,10 @@ We now consider the basic constructions obtained from a topological group by pas
 \end{proposition}
 
 \begin{proof}
-    Let \(x,y \in \overline{H}\). Since multiplication is continuous, we have
-    \[
-        xy^{-1} \in \overline{H H^{-1}}.
-    \]
+    Let \(x,y \in \overline{H}\). Since multiplication is continuous, we have \(xy^{-1} \in \overline{H H^{-1}}\).
     As \(H\) is a subgroup, \(H H^{-1}=H\), so \(xy^{-1} \in \overline{H}\). Hence \(\overline{H}\) is a subgroup.
 
-    Now assume that \(H\) is normal. Fix \(g \in G\). Since the conjugation map
-    \[
-        c_g \colon G \to G, \qquad c_g(x)=gxg^{-1},
-    \]
-    is a homeomorphism, we obtain
+    Now assume that \(H\) is normal. Fix \(g \in G\). Since the conjugation map \(c_g \colon G \to G\), \(c_g(x)=gxg^{-1}\), is a homeomorphism, we obtain
     \[
         g\overline{H}g^{-1}=c_g(\overline{H})=\overline{c_g(H)}=\overline{gHg^{-1}}=\overline{H}.
     \]
@@ -262,34 +207,18 @@ We now consider the basic constructions obtained from a topological group by pas
 We next turn to coset spaces.
 
 \begin{definition}
-    Let \(G\) be a topological group and let \(H \leq G\). The set of left cosets of \(H\) in \(G\) is denoted by
-    \[
-        G/H=\{gH:g\in G\}.
-    \]
-    Let
-    \[
-        \pi_H \colon G \to G/H, \qquad \pi_H(g)=gH,
-    \]
-    be the canonical map. We equip \(G/H\) with the quotient topology induced by \(\pi_H\).
+    Let \(G\) be a topological group and let \(H \leq G\). The set of left cosets of \(H\) in \(G\) is denoted by \(G/H=\{gH:g\in G\}\). Let \(\pi_H \colon G \to G/H\), \(\pi_H(g)=gH\), be the canonical map. We equip \(G/H\) with the quotient topology induced by \(\pi_H\).
 \end{definition}
 
 \begin{proposition}
     \label{prop:quotient-map-open}
-    Let \(G\) be a topological group and let \(H \leq G\). Then the quotient map
-    \[
-        \pi_H \colon G \to G/H
-    \]
-    is continuous, surjective, and open.
+    Let \(G\) be a topological group and let \(H \leq G\). Then the quotient map \(\pi_H \colon G \to G/H\) is continuous, surjective, and open.
 \end{proposition}
 
 \begin{proof}
     Continuity and surjectivity are immediate from the definition of the quotient topology.
 
-    Let \(U \subseteq G\) be open. We show that \(\pi_H(U)\) is open in \(G/H\). By definition of the quotient topology, it suffices to show that
-    \[
-        \pi_H^{-1}(\pi_H(U))
-    \]
-    is open in \(G\). But
+    Let \(U \subseteq G\) be open. We show that \(\pi_H(U)\) is open in \(G/H\). By definition of the quotient topology, it suffices to show that \(\pi_H^{-1}(\pi_H(U))\) is open in \(G\). But
     \[
         \pi_H^{-1}(\pi_H(U))=UH=\bigcup_{h \in H} Uh,
     \]
@@ -304,11 +233,7 @@ The case of open subgroups is especially important.
 \end{corollary}
 
 \begin{proof}
-    Since \(H\) is open in \(G\), Proposition~\ref{prop:quotient-map-open} implies that
-    \[
-        \{\pi_H(e)\}=\pi_H(H)=\{H\}
-    \]
-    is open in \(G/H\). Every singleton in \(G/H\) is a left translate of \(\{H\}\), hence is open. Therefore \(G/H\) is discrete.
+    Since \(H\) is open in \(G\), Proposition~\ref{prop:quotient-map-open} implies that \(\{\pi_H(e)\}=\pi_H(H)=\{H\}\) is open in \(G/H\). Every singleton in \(G/H\) is a left translate of \(\{H\}\), hence is open. Therefore \(G/H\) is discrete.
 \end{proof}
 
 We now consider quotient groups. For this, normality is needed in order that multiplication of cosets be well defined.
@@ -326,11 +251,7 @@ We now consider quotient groups. For this, normality is needed in order that mul
 \begin{proof}
     Since \(N\) is normal, the operations are well defined algebraically.
 
-    Let
-    \[
-        q \colon G \to G/N
-    \]
-    denote the quotient map. To prove continuity of multiplication on \(G/N\), consider the diagram
+    Let \(q \colon G \to G/N\) denote the quotient map. To prove continuity of multiplication on \(G/N\), consider the diagram
     \[ \begin{tikzcd}[column sep=large, row sep=large]
             G \times G \arrow[r, "m"] \arrow[d, "q \times q"'] & G \arrow[d, "q"] \\
             G/N \times G/N \arrow[r, dashed, "\widetilde m"'] & G/N
@@ -342,14 +263,7 @@ We now consider quotient groups. For this, normality is needed in order that mul
     \]
     The map \(q \times q\) is a quotient map because \(q\) is open and surjective. Since \(q \circ m\) is continuous, it follows from the universal property of quotient maps that \(\widetilde m\) is continuous.
 
-    Similarly, inversion on \(G/N\) is induced by inversion on \(G\). Indeed, if \(i(g)=g^{-1}\), then the map
-    \[
-        \widetilde i \colon G/N \to G/N, \qquad \widetilde i(gN)=g^{-1}N,
-    \]
-    satisfies
-    \[
-        \widetilde i \circ q = q \circ i.
-    \]
+    Similarly, inversion on \(G/N\) is induced by inversion on \(G\). Indeed, if \(i(g)=g^{-1}\), then the map \(\widetilde i \colon G/N \to G/N\), \(\widetilde i(gN)=g^{-1}N\), satisfies \(\widetilde i \circ q = q \circ i\).
     Since \(q\) is a quotient map and \(q \circ i\) is continuous, \(\widetilde i\) is continuous. Thus \(G/N\) is a topological group.
 \end{proof}
 
@@ -361,22 +275,8 @@ In many applications one wants the quotient group to remain Hausdorff. This is g
 \end{proposition}
 
 \begin{proof}
-    Let \(gN,hN \in G/N\) with \(gN \neq hN\). Then \(h^{-1}g \notin N\). Since \(N\) is closed and \(G\) is Hausdorff, there exists an open neighborhood \(U\) of \(h^{-1}g\) such that
-    \[
-        U \cap N = \varnothing.
-    \]
-    By continuity of multiplication, there exist neighborhoods \(V\) of \(g\) and \(W\) of \(h\) such that
-    \[
-        W^{-1}V \subseteq U.
-    \]
-    We claim that \(\pi_N(V)\) and \(\pi_N(W)\) are disjoint neighborhoods of \(gN\) and \(hN\), respectively. Suppose not. Then there exist \(v \in V\), \(w \in W\), and \(n_1,n_2 \in N\) such that
-    \[
-        v n_1 = w n_2.
-    \]
-    Hence
-    \[
-        w^{-1}v = n_2 n_1^{-1} \in N.
-    \]
+    Let \(gN,hN \in G/N\) with \(gN \neq hN\). Then \(h^{-1}g \notin N\). Since \(N\) is closed and \(G\) is Hausdorff, there exists an open neighborhood \(U\) of \(h^{-1}g\) such that \(U \cap N = \varnothing\). By continuity of multiplication, there exist neighborhoods \(V\) of \(g\) and \(W\) of \(h\) such that \(W^{-1}V \subseteq U\).
+    We claim that \(\pi_N(V)\) and \(\pi_N(W)\) are disjoint neighborhoods of \(gN\) and \(hN\), respectively. Suppose not. Then there exist \(v \in V\), \(w \in W\), and \(n_1,n_2 \in N\) such that \(v n_1 = w n_2\). Hence \(w^{-1}v = n_2 n_1^{-1} \in N\).
     But \(w^{-1}v \in W^{-1}V \subseteq U\), contradicting \(U \cap N = \varnothing\). Therefore \(\pi_N(V)\) and \(\pi_N(W)\) are disjoint, and \(G/N\) is Hausdorff.
 \end{proof}
 
@@ -391,11 +291,7 @@ For the groups that arise in this thesis, the most important topological groups 
     Let \(G\) be a topological group.
     \begin{enumerate}
         \item A metric \(d\) on \(G\) is said to be \emph{compatible} if it induces the given topology on \(G\).
-        \item A metric \(d\) on \(G\) is \emph{left-invariant} if
-              \[
-                  d(gx,gy)=d(x,y)
-              \]
-              for all \(g,x,y \in G\).
+        \item A metric \(d\) on \(G\) is \emph{left-invariant} if \(d(gx,gy)=d(x,y)\) for all \(g,x,y \in G\).
         \item A topological group is \emph{metrizable} if its topology is induced by some metric.
         \item A topological group is \emph{Polish} if its topology is separable and completely metrizable.
     \end{enumerate}

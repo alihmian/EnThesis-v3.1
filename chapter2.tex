@@ -12,28 +12,10 @@ Let $A$ be an $L$-structure with domain $\Omega=\dom(A)$. Every automorphism of 
 
 More generally, if $\Omega$ is any set, we write $\Sym(\Omega)$ for the group of all permutations of $\Omega$. Thus every automorphism group is naturally a permutation group. Our aim in this chapter is to study those subgroups of $\Sym(\Omega)$ which arise as automorphism groups of structures on $\Omega$, and to equip them with the topology of pointwise convergence.
 
-Let $G\leq\Sym(\Omega)$. For a subset $X\subseteq\Omega$, the \emph{pointwise stabilizer} of $X$ in $G$ is
-\[
-    G_{(X)}=\{g\in G:g(a)=a\text{ for all }a\in X\},
-\]
-and the \emph{setwise stabilizer} of $X$ in $G$ is
-\[
-    G_{\{X\}}=\{g\in G:g(X)=X\}.
-\]
+Let $G\leq\Sym(\Omega)$. For a subset $X\subseteq\Omega$, the \emph{pointwise stabilizer} of $X$ in $G$ is \(G_{(X)}=\{g\in G:g(a)=a\text{ for all }a\in X\}\), and the \emph{setwise stabilizer} of $X$ in $G$ is \(G_{\{X\}}=\{g\in G:g(X)=X\}\).
 Thus $G_{(X)}\leq G_{\{X\}}\leq G$. If $\bar a=(a_1,\dots,a_n)$ is a finite tuple from $\Omega$, we also write $G_{(\bar a)}$ for the pointwise stabilizer of the set $\{a_1,\dots,a_n\}$.
 
-For $a\in\Omega$, the \emph{orbit} of $a$ under $G$ is the set
-\[
-    G\cdot a=\{g(a):g\in G\}.
-\]
-More generally, if $\bar a=(a_1,\dots,a_n)\in\Omega^n$, the \emph{orbit} of $\bar a$ under $G$ is
-\[
-    G\cdot \bar a=\{g\bar a:g\in G\},
-\]
-where
-\[
-    g\bar a=(g(a_1),\dots,g(a_n)).
-\]
+For $a\in\Omega$, the \emph{orbit} of $a$ under $G$ is the set \(G\cdot a=\{g(a):g\in G\}\). More generally, if $\bar a=(a_1,\dots,a_n)\in\Omega^n$, the \emph{orbit} of $\bar a$ under $G$ is \(G\cdot \bar a=\{g\bar a:g\in G\}\), where \(g\bar a=(g(a_1),\dots,g(a_n))\).
 The orbits of $G$ on $\Omega$ partition $\Omega$. We say that $G$ is \emph{transitive} if it has exactly one orbit on $\Omega$.
 
 Accordingly, a structure $A$ is called \emph{transitive} if $\Aut(A)$ acts transitively on $\dom(A)$. At the opposite extreme, $A$ is called \emph{rigid} if $\Aut(A)=\{1_{\Omega}\}$.
@@ -51,17 +33,10 @@ These notions will reappear throughout the chapter. In particular, stabilizers o
 
 \section{The Permutation Topology}
 
-We now introduce the natural topology on permutation groups. Let $\Omega$ be a set. For $n<\omega$ and tuples $\bar a,\bar b\in\Omega^n$, set
-\[
-    S(\bar a,\bar b)=\{g\in\Sym(\Omega):g\bar a=\bar b\}.
-\]
+We now introduce the natural topology on permutation groups. Let $\Omega$ be a set. For $n<\omega$ and tuples $\bar a,\bar b\in\Omega^n$, set \(S(\bar a,\bar b)=\{g\in\Sym(\Omega):g\bar a=\bar b\}\).
 A subset of $\Sym(\Omega)$ is called \emph{basic open} if it is of the form $S(\bar a,\bar b)$ for some finite tuples $\bar a,\bar b$ of the same length. An \emph{open} subset of $\Sym(\Omega)$ is any union of basic open sets. This is the \emph{permutation topology}, or equivalently the topology of pointwise convergence.
 
-If $G\leq\Sym(\Omega)$, we always equip $G$ with the subspace topology induced from $\Sym(\Omega)$. Thus the basic open subsets of $G$ are precisely the sets of the form
-\[
-    G\cap S(\bar a,\bar b),
-\]
-where $\bar a,\bar b$ are finite tuples from $\Omega$ of the same length.
+If $G\leq\Sym(\Omega)$, we always equip $G$ with the subspace topology induced from $\Sym(\Omega)$. Thus the basic open subsets of $G$ are precisely the sets \(G\cap S(\bar a,\bar b)\), where $\bar a,\bar b$ are finite tuples from $\Omega$ of the same length.
 
 \begin{proposition}
     \label{prop:permutation-topology}
@@ -75,71 +50,39 @@ where $\bar a,\bar b$ are finite tuples from $\Omega$ of the same length.
 \end{proposition}
 
 \begin{proof}
-    For (a), note first that
-    \[
-        \Sym(\Omega)=S(\emptyset,\emptyset).
-    \]
+    For (a), note first that \(\Sym(\Omega)=S(\emptyset,\emptyset)\).
     Moreover, if $g\in S(\bar a,\bar b)\cap S(\bar c,\bar d)$, then
     \[
         g\in S(\bar a\bar c,\bar b\bar d)\subseteq S(\bar a,\bar b)\cap S(\bar c,\bar d),
     \]
     where $\bar a\bar c$ and $\bar b\bar d$ denote concatenation of tuples. Thus the sets $S(\bar a,\bar b)$ form a basis for a topology on $\Sym(\Omega)$.
 
-    To prove continuity of inversion, observe that
-    \[
-        g\in S(\bar a,\bar b)\quad\Longleftrightarrow\quad g^{-1}\in S(\bar b,\bar a).
-    \]
-    For continuity of multiplication, let $(g,h)\in\Sym(\Omega)\times\Sym(\Omega)$ and suppose that
-    \[
-        gh\in S(\bar a,\bar b).
-    \]
+    To prove continuity of inversion, observe that \(g\in S(\bar a,\bar b)\Longleftrightarrow g^{-1}\in S(\bar b,\bar a)\). For continuity of multiplication, let $(g,h)\in\Sym(\Omega)\times\Sym(\Omega)$ and suppose that \(gh\in S(\bar a,\bar b)\).
     Set $\bar c=h\bar a$. Then
     \[
         h\in S(\bar a,\bar c)\qquad\text{and}\qquad g\in S(\bar c,\bar b),
     \]
-    and whenever $g'\in S(\bar c,\bar b)$ and $h'\in S(\bar a,\bar c)$, we have
-    \[
-        g'h'\bar a=g'\bar c=\bar b,
-    \]
-    so that
-    \[
-        g'h'\in S(\bar a,\bar b).
-    \]
+    and whenever $g'\in S(\bar c,\bar b)$ and $h'\in S(\bar a,\bar c)$, we have \(g'h'\bar a=g'\bar c=\bar b\), so that \(g'h'\in S(\bar a,\bar b)\).
     Hence
     \[
         S(\bar c,\bar b)\cdot S(\bar a,\bar c)\subseteq S(\bar a,\bar b),
     \]
     which proves continuity of multiplication. Therefore $\Sym(\Omega)$ is a topological group. Since subgroups inherit the subspace topology, every subgroup $G\leq\Sym(\Omega)$ is also a topological group.
 
-    For (b), if $\bar a$ is a finite tuple from $\Omega$, then
-    \[
-        G_{(\bar a)}=G\cap S(\bar a,\bar a),
-    \]
+    For (b), if $\bar a$ is a finite tuple from $\Omega$, then \(G_{(\bar a)}=G\cap S(\bar a,\bar a)\),
     so $G_{(\bar a)}$ is open in $G$. If $H\leq G$ contains $G_{(\bar a)}$, then
     \[
         H=\bigcup_{h\in H} hG_{(\bar a)},
     \]
     and each left coset $hG_{(\bar a)}$ is open, since left translation is a homeomorphism of $G$. Thus $H$ is open.
 
-    Conversely, suppose that $H\leq G$ is open. Since $1_G\in H$, there exists a basic open neighbourhood of $1_G$ contained in $H$. Such a neighbourhood has the form
-    \[
-        G\cap S(\bar a,\bar a)=G_{(\bar a)}
-    \]
-    for some finite tuple $\bar a$ from $\Omega$. Hence $G_{(\bar a)}\subseteq H$.
+    Conversely, suppose that $H\leq G$ is open. Since $1_G\in H$, there exists a basic open neighbourhood of $1_G$ contained in $H$. Such a neighbourhood has the form \(G\cap S(\bar a,\bar a)=G_{(\bar a)}\) for some finite tuple $\bar a$ from $\Omega$. Hence $G_{(\bar a)}\subseteq H$.
 
     Statement (c) is just the usual characterization of closed sets in terms of neighbourhoods: a subset $F\subseteq G$ is closed if and only if every point outside $F$ has an open neighbourhood disjoint from $F$, equivalently, whenever every basic open neighbourhood of $g$ meets $F$, one has $g\in F$.
 
     For (d), first suppose that $H$ is dense in $G$, and let $\bar a,\bar b\in\Omega^n$ lie in the same $G$-orbit. Choose $g\in G$ with $g\bar a=\bar b$. Then $S(\bar a,\bar b)$ is a basic open neighbourhood of $g$, so by density it meets $H$. Hence there exists $h\in H$ such that $h\bar a=\bar b$. Thus $\bar a$ and $\bar b$ lie in the same $H$-orbit. It follows that every $G$-orbit on $\Omega^n$ is also an $H$-orbit, and therefore $H$ and $G$ have the same orbits on $\Omega^n$.
 
-    Conversely, suppose that $H$ and $G$ have the same orbits on $\Omega^n$ for every $n\geq 1$. To show that $H$ is dense in $G$, it suffices by part (c) to show that every nonempty basic open subset of $G$ meets $H$. Let
-    \[
-        G\cap S(\bar a,\bar b)
-    \]
-    be a nonempty basic open subset of $G$. Then there exists $g\in G$ such that $g\bar a=\bar b$, so $\bar a$ and $\bar b$ lie in the same $G$-orbit on $\Omega^n$. By assumption they also lie in the same $H$-orbit, so there exists $h\in H$ such that $h\bar a=\bar b$. Hence
-    \[
-        h\in H\cap S(\bar a,\bar b)\subseteq H\cap G\cap S(\bar a,\bar b),
-    \]
-    and therefore $G\cap S(\bar a,\bar b)$ meets $H$. This proves that $H$ is dense in $G$.
+    Conversely, suppose that $H$ and $G$ have the same orbits on $\Omega^n$ for every $n\geq 1$. To show that $H$ is dense in $G$, it suffices by part (c) to show that every nonempty basic open subset of $G$ meets $H$. Let \(G\cap S(\bar a,\bar b)\) be a nonempty basic open subset of $G$. Then there exists $g\in G$ such that $g\bar a=\bar b$, so $\bar a$ and $\bar b$ lie in the same $G$-orbit on $\Omega^n$. By assumption they also lie in the same $H$-orbit, so there exists $h\in H$ such that $h\bar a=\bar b$. Hence \(h\in H\cap S(\bar a,\bar b)\subseteq H\cap G\cap S(\bar a,\bar b)\), and therefore $G\cap S(\bar a,\bar b)$ meets $H$. This proves that $H$ is dense in $G$.
 \end{proof}
 
 In particular, the stabilizers of finite tuples form a neighbourhood basis at the identity in any subgroup of $\Sym(\Omega)$, and orbit structure on finite powers $\Omega^n$ detects density. These two observations will be used repeatedly in the next section.
@@ -162,64 +105,26 @@ We now characterize those subgroups of $\Sym(\Omega)$ which arise as automorphis
 \end{theorem}
 
 \begin{proof}
-    Assume first that $H$ is closed in $G$. For each $n<\omega$ and each orbit $\Delta$ of $H$ on $\Omega^n$, introduce an $n$-ary relation symbol $R_\Delta$. Let $L$ be the language consisting of all these relation symbols, and define an $L$-structure $A$ with domain $\Omega$ by setting
-    \[
-        R_\Delta^A=\Delta
-    \]
-    for every orbit $\Delta$ of $H$ on $\Omega^n$.
+    Assume first that $H$ is closed in $G$. For each $n<\omega$ and each orbit $\Delta$ of $H$ on $\Omega^n$, introduce an $n$-ary relation symbol $R_\Delta$. Let $L$ be the language consisting of all these relation symbols, and define an $L$-structure $A$ with domain $\Omega$ by setting \(R_\Delta^A=\Delta\) for every orbit $\Delta$ of $H$ on $\Omega^n$.
 
-    Every element of $H$ preserves each relation $R_\Delta^A$, since each $R_\Delta^A$ is an $H$-orbit. Hence
-    \[
-        H\subseteq G\cap \Aut(A).
-    \]
+    Every element of $H$ preserves each relation $R_\Delta^A$, since each $R_\Delta^A$ is an $H$-orbit. Hence \(H\subseteq G\cap \Aut(A)\).
 
     Conversely, let $g\in G\cap \Aut(A)$. We claim that every basic open neighbourhood of $g$ in $G$ meets $H$. Let $\bar a\in\Omega^n$, and let $\Delta$ be the $H$-orbit of $\bar a$. Since $\bar a\in \Delta=R_\Delta^A$ and $g$ is an automorphism of $A$, we have
     \[
         g\bar a\in R_\Delta^A=\Delta.
     \]
-    Thus there exists $h\in H$ such that
-    \[
-        h\bar a=g\bar a.
-    \]
-    It follows that
-    \[
-        h\in H\cap G\cap S(\bar a,g\bar a),
-    \]
-    so the basic open neighbourhood $G\cap S(\bar a,g\bar a)$ of $g$ meets $H$. Since $H$ is closed in $G$, we conclude that $g\in H$. Therefore
-    \[
-        G\cap \Aut(A)\subseteq H,
-    \]
-    and hence
-    \[
-        H=G\cap \Aut(A).
-    \]
+    Thus there exists $h\in H$ such that \(h\bar a=g\bar a\). It follows that \(h\in H\cap G\cap S(\bar a,g\bar a)\),
+    so the basic open neighbourhood $G\cap S(\bar a,g\bar a)$ of $g$ meets $H$. Since $H$ is closed in $G$, we conclude that $g\in H$. Therefore \(G\cap \Aut(A)\subseteq H\), and hence \(H=G\cap \Aut(A)\).
 
-    Now assume that there exists a structure $A$ with domain $\Omega$ such that
-    \[
-        H=G\cap \Aut(A).
-    \]
+    Now assume that there exists a structure $A$ with domain $\Omega$ such that \(H=G\cap \Aut(A)\).
     To show that $H$ is closed in $G$, let $g\in G$ and suppose that every basic open neighbourhood of $g$ in $G$ meets $H$. We show that $g\in \Aut(A)$.
 
-    Let $\varphi(\bar x)$ be an atomic formula in the language of $A$, and let $\bar a$ be a tuple from $\Omega$ of the same length as $\bar x$. By assumption, the basic open neighbourhood
-    \[
-        G\cap S(\bar a,g\bar a)
-    \]
-    meets $H$. Choose
-    \[
-        h\in H\cap G\cap S(\bar a,g\bar a).
-    \]
+    Let $\varphi(\bar x)$ be an atomic formula in the language of $A$, and let $\bar a$ be a tuple from $\Omega$ of the same length as $\bar x$. By assumption, the basic open neighbourhood \(G\cap S(\bar a,g\bar a)\) meets $H$. Choose \(h\in H\cap G\cap S(\bar a,g\bar a)\).
     Then $h\bar a=g\bar a$. Since $h\in H\subseteq \Aut(A)$, we have
     \[
         A\models \varphi(\bar a)\iff A\models \varphi(h\bar a).
     \]
-    Since $h\bar a=g\bar a$, it follows that
-    \[
-        A\models \varphi(\bar a)\iff A\models \varphi(g\bar a).
-    \]
-    Thus $g$ preserves all atomic formulas, and since $g$ is bijective it follows that $g\in \Aut(A)$. Therefore
-    \[
-        g\in G\cap \Aut(A)=H.
-    \]
+    Since $h\bar a=g\bar a$, it follows that \(A\models \varphi(\bar a)\iff A\models \varphi(g\bar a)\). Thus $g$ preserves all atomic formulas, and since $g$ is bijective it follows that \(g\in G\cap \Aut(A)=H\).
     Hence $H$ is closed in $G$.
 \end{proof}
 
@@ -232,19 +137,13 @@ We now characterize those subgroups of $\Sym(\Omega)$ which arise as automorphis
     Apply Theorem~\ref{thm:closed-subgroups-automorphism-groups} with $G=\Sym(\Omega)$ and $H=\Aut(A)$.
 \end{proof}
 
-When $H$ is a closed subgroup of $\Sym(\Omega)$, the structure constructed in the proof of Theorem~\ref{thm:closed-subgroups-automorphism-groups} is called the \emph{canonical structure} of $H$. Its domain is $\Omega$, and for each $n<\omega$ its basic $n$-ary relations are precisely the $H$-orbits on $\Omega^n$. By construction,
-\[
-    H=\Aut(A).
-\]
+When $H$ is a closed subgroup of $\Sym(\Omega)$, the structure constructed in the proof of Theorem~\ref{thm:closed-subgroups-automorphism-groups} is called the \emph{canonical structure} of $H$. Its domain is $\Omega$, and for each $n<\omega$ its basic $n$-ary relations are precisely the $H$-orbits on $\Omega^n$. By construction, \(H=\Aut(A)\).
 
 Thus the canonical structure records exactly the orbit structure of $H$ on finite powers of $\Omega$. In particular, closed subgroups of $\Sym(\Omega)$ and automorphism groups of structures on $\Omega$ may be regarded as two equivalent ways of encoding the same data.
 
 \section{Countable Automorphism Groups as Polish Groups}
 
-We now specialize to the countable case, which is the one relevant for Fra\"{\i}ss\'e limits. Throughout this section, let $\Omega$ be a countable set, and fix an enumeration
-\[
-    \Omega=\{\omega_1,\omega_2,\dots\}.
-\]
+We now specialize to the countable case, which is the one relevant for Fra\"{\i}ss\'e limits. Throughout this section, let $\Omega$ be a countable set, and fix an enumeration \(\Omega=\{\omega_1,\omega_2,\dots\}\).
 Our goal is to show that automorphism groups of countable structures are Polish. Since $\Sym(\Omega)$ is already a topological group by Proposition~\ref{prop:permutation-topology}, it remains to verify in this setting separability, complete metrizability, and the fact that closed subgroups of Polish groups are again Polish.
 
 
@@ -305,10 +204,7 @@ Thus $d(g,h)$ records the first point of the enumeration on which $g$ and $h$ di
     Thus the $d$-balls are exactly the sets of permutations agreeing with $g$ on a finite initial segment of the enumeration. These form a neighbourhood basis at $g$ for the permutation topology, so $d$ induces that topology.
 \end{proof}
 
-The metric $d$ is not complete, since a sequence of longer and longer finite cycles can be Cauchy for $d$ while converging pointwise to an injective non-surjective map. To obtain a complete compatible metric, define
-\[
-    d'(g,h)=d(g,h)+d(g^{-1},h^{-1}).
-\]
+The metric $d$ is not complete, since a sequence of longer and longer finite cycles can be Cauchy for $d$ while converging pointwise to an injective non-surjective map. To obtain a complete compatible metric, define \(d'(g,h)=d(g,h)+d(g^{-1},h^{-1})\).
 
 \begin{proposition}
     \label{prop:dprime-compatible-complete}
@@ -316,10 +212,7 @@ The metric $d$ is not complete, since a sequence of longer and longer finite cyc
 \end{proposition}
 
 \begin{proof}
-    Since $d$ is a metric, so is $d'$. Moreover,
-    \[
-        d(g,h)\leq d'(g,h),
-    \]
+    Since $d$ is a metric, so is $d'$. Moreover, \(d(g,h)\leq d'(g,h)\),
     so every $d'$-open set is $d$-open. Conversely, if $h$ agrees with $g$ on $\omega_1,\dots,\omega_n$, then every permutation sufficiently close to $h$ in the metric $d'$ also agrees with $g$ on those points. Hence every basic $d$-open neighbourhood is $d'$-open, and the two metrics induce the same topology.
 
     It remains to prove completeness. Let $F=\Omega^\Omega$, and define a metric $\delta$ on $F$ by
@@ -336,25 +229,15 @@ The metric $d$ is not complete, since a sequence of longer and longer finite cyc
     \]
     Then $(F\times F,\rho)$ is complete.
 
-    Now define
+    Now define \(\Phi:\Sym(\Omega)\to F\times F\) by \(\Phi(g)=(g,g^{-1})\). For $g,h\in\Sym(\Omega)$,
     \[
-        \Phi:\Sym(\Omega)\to F\times F,\qquad \Phi(g)=(g,g^{-1}).
-    \]
-    For $g,h\in\Sym(\Omega)$,
-    \[
-        \rho(\Phi(g),\Phi(h))=\delta(g,h)+\delta(g^{-1},h^{-1})=d'(g,h),
+        \rho(\Phi(g),\Phi(h))
+        =\delta(g,h)+\delta(g^{-1},h^{-1})
+        =d'(g,h),
     \]
     so $\Phi$ is an isometric embedding.
 
-    Its image consists exactly of the pairs $(f,h)\in F\times F$ satisfying
-    \[
-        f\circ h=\operatorname{id}_{\Omega} \qquad\text{and}\qquad h\circ f=\operatorname{id}_{\Omega}.
-    \]
-    This is a closed subset of $F\times F$, since for each $\omega\in\Omega$ the conditions
-    \[
-        f(h(\omega))=\omega \qquad\text{and}\qquad h(f(\omega))=\omega
-    \]
-    define closed sets. Therefore $\Phi(\Sym(\Omega))$ is complete, and hence $(\Sym(\Omega),d')$ is complete.
+    Its image consists exactly of the pairs $(f,h)\in F\times F$ satisfying \(f\circ h=\operatorname{id}_{\Omega}\) and \(h\circ f=\operatorname{id}_{\Omega}\). This is a closed subset of $F\times F$, since for each $\omega\in\Omega$ the conditions \(f(h(\omega))=\omega\) and \(h(f(\omega))=\omega\) define closed sets. Therefore $\Phi(\Sym(\Omega))$ is complete, and hence $(\Sym(\Omega),d')$ is complete.
 \end{proof}
 
 \begin{definition}
@@ -396,6 +279,3 @@ The metric $d$ is not complete, since a sequence of longer and longer finite cyc
 \end{proof}
 
 In particular, automorphism groups of countable structures are non-archimedean Polish groups: they admit a countable local basis at the identity consisting of open subgroups. This is the topological setting in which we will study flows, minimality, and universal minimal flows in the following chapters.
-
-
-
