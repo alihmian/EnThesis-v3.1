@@ -8,11 +8,33 @@
 \usepackage[margin=1in]{geometry}
 \usepackage[shortlabels]{enumitem}
 \usepackage[nottoc]{tocbibind}
+\usepackage{xcolor}
 \usepackage[hidelinks]{hyperref}
 
 \setlength{\emergencystretch}{0.5em}
 \raggedbottom
 \setlist[enumerate,1]{label=(\roman*)}
+
+%------------------------------------------------
+% Temporary notes
+%------------------------------------------------
+\newif\ifshowdraftnotes
+\showdraftnotestrue % Change to \showdraftnotesfalse for the final PDF.
+
+\ifshowdraftnotes
+  \NewDocumentEnvironment{draftnote}{+b}
+    {\par\smallskip\noindent\begingroup
+     \setlength{\fboxsep}{6pt}%
+     \fcolorbox{gray!55}{gray!12}{%
+       \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+         \textbf{Draft note: }\ignorespaces#1
+       \end{minipage}%
+     }%
+     \endgroup\par\smallskip}
+    {}
+\else
+  \NewDocumentEnvironment{draftnote}{+b}{}{}
+\fi
 
 %------------------------------------------------
 % Thesis metadata
