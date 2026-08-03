@@ -254,6 +254,60 @@ be its setwise stabiliser. The orbit \(G\cdot F\) will be called the \emph{\(G\)
 
 We also need the logic action on the space of structures on \(\N\). If \(L\) is a countable signature, let \(X_L\) denote the space of all \(L\)-structures with universe \(\N\). When \(L\) is relational, \(X_L\) is compact, and the natural action of \(S_\infty\) on \(X_L\) is continuous.
 
+\begin{draftnote}
+    Suppose that \(L=\{R_i:i\in I\}\) is relational, where \(R_i\) has arity
+    \(n_i\). An \(L\)-structure \(\bfa\) with universe \(\N\) is completely
+    determined by the truth values
+    \[
+        R_i^{\bfa}(\bar a),
+        \qquad
+        i\in I,\quad \bar a\in\N^{n_i}.
+    \]
+    Hence
+    \[
+        X_L
+        \cong
+        \prod_{i\in I}\{0,1\}^{\N^{n_i}},
+    \]
+    where \(\{0,1\}\) carries the discrete topology. A basic open set specifies
+    the truth values of only finitely many atomic statements. Since
+    \(\{0,1\}\) is compact, Tychonoff's theorem implies that \(X_L\) is compact.
+
+    The logic action of \(S_\infty\) on \(X_L\) is given by
+    \[
+        R_i^{g\cdot\bfa}(\bar a)
+        \quad\Longleftrightarrow\quad
+        R_i^{\bfa}(g^{-1}\bar a).
+    \]
+    To see that this action is continuous, fix \(g\in S_\infty\),
+    \(\bfa\in X_L\), and a basic neighbourhood of \(g\cdot\bfa\), determined
+    by finitely many atomic statements \(R_i(\bar a)\). Let \(A\subseteq\N\)
+    be the finite set of all entries occurring in these tuples. Require
+    \(h\in S_\infty\) to agree with \(g\) on \(g^{-1}(A)\), and require
+    \(\bfb\in X_L\) to agree with \(\bfa\) on the corresponding finitely many
+    statements \(R_i(g^{-1}\bar a)\). Then
+    \(h^{-1}\bar a=g^{-1}\bar a\), and therefore
+    \[
+        R_i^{h\cdot\bfb}(\bar a)
+        \iff
+        R_i^{\bfb}(g^{-1}\bar a)
+        \iff
+        R_i^{\bfa}(g^{-1}\bar a)
+        \iff
+        R_i^{g\cdot\bfa}(\bar a).
+    \]
+    Thus a neighbourhood of \((g,\bfa)\) is mapped into the prescribed
+    neighbourhood of \(g\cdot\bfa\), proving joint continuity.
+
+    The relational hypothesis is essential for compactness. A function symbol
+    of arity \(n\) would be interpreted by an element of
+    \(\N^{\N^n}\), and a constant symbol by an element of the infinite discrete
+    space \(\N\); these spaces are not compact. In particular,
+    \(\LO(\N)\) is compact because it is a closed subspace of
+    \(X_{\{<\}}\): every failure of the axioms of a linear order is witnessed
+    on finitely many elements.
+\end{draftnote}
+
 In the special case \(L=\{<\}\), let \(\LO(\N)\subseteq X_L\) be the compact space of all linear orderings on \(\N\). We say that \(G\) \emph{preserves an ordering} if the \(G\)-flow \(\LO(\N)\) has a fixed point, that is, if there is a linear order on \(\N\) invariant under every element of \(G\).
 \begin{proposition}
     \label{prop:type-characterization}

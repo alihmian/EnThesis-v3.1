@@ -9,6 +9,7 @@
 \usepackage[shortlabels]{enumitem}
 \usepackage[nottoc]{tocbibind}
 \usepackage{xcolor}
+\usepackage{framed}
 \usepackage[hidelinks]{hyperref}
 
 \setlength{\emergencystretch}{0.5em}
@@ -22,16 +23,14 @@
 \showdraftnotestrue % Change to \showdraftnotesfalse for the final PDF.
 
 \ifshowdraftnotes
-  \NewDocumentEnvironment{draftnote}{+b}
-    {\par\smallskip\noindent\begingroup
-     \setlength{\fboxsep}{6pt}%
-     \fcolorbox{gray!55}{gray!12}{%
-       \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-         \textbf{Draft note: }\ignorespaces#1
-       \end{minipage}%
-     }%
-     \endgroup\par\smallskip}
-    {}
+  \newenvironment{draftnote}
+    {\par\smallskip\begingroup
+     \setlength{\FrameSep}{6pt}%
+     \def\FrameCommand{\fboxsep=\FrameSep
+       \fcolorbox{gray!55}{gray!12}}%
+     \MakeFramed{\advance\hsize-\width\FrameRestore}%
+     \noindent\textbf{Draft note: }\ignorespaces}
+    {\endMakeFramed\endgroup\smallskip}
 \else
   \NewDocumentEnvironment{draftnote}{+b}{}{}
 \fi
